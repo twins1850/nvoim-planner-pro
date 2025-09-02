@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+
+# Production
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Cache
+.npm
+.eslintcache
+
+# Misc
+.DS_Store
+*.tsbuildinfo
+
+# IDEs
+.vscode/
+.idea/
+
+# Expo
+.expo/
+expo-env.d.ts
+
+# React Native
+*.orig.*
+web-build/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/

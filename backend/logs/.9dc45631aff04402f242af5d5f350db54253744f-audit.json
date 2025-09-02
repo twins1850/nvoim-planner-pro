@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/twins/Downloads/nvoim-planer-pro/backend/logs/.9dc45631aff04402f242af5d5f350db54253744f-audit.json",
+    "files": [
+        {
+            "date": 1755664830764,
+            "name": "/Users/twins/Downloads/nvoim-planer-pro/backend/logs/error-2025-08-20.log",
+            "hash": "ad1ee4bd6eb9a00e91019af55db2da5b885c345def60068749549fcd4c65b0b5"
+        },
+        {
+            "date": 1755741816162,
+            "name": "/Users/twins/Downloads/nvoim-planer-pro/backend/logs/error-2025-08-21.log",
+            "hash": "b0ec91c2713e2f61a6852ec02305e1644b924b481b9ccdf03aac876bd40db9d1"
+        }
+    ],
+    "hashType": "sha256"
+}

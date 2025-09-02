@@ -1,0 +1,163 @@
+config:
+  target: "{{ $processEnvironment.TARGET_URL || 'http://localhost:3000' }}"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      name: "Warm up"
+    - duration: 120
+      arrivalRate: 10
+      rampTo: 30
+      name: "Ramp up load"
+    - duration: 300
+      arrivalRate: 30
+      name: "Sustained load"
+    - duration: 60
+      arrivalRate: 50
+      name: "Peak load"
+    - duration: 60
+      arrivalRate: 10
+      name: "Ramp down"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+  environments:
+    development:
+      target: "http://localhost:3000"
+      phases:
+        - duration: 30
+          arrivalRate: 2
+          name: "Development testing"
+    staging:
+      target: "https://staging-api.example.com"
+  plugins:
+    metrics-by-endpoint: {}
+    expect: {}
+    apdex:
+      threshold: 100
+    ensure:
+      thresholds:
+        - http.response_time.p95: 500
+        - http.response_time.p99: 1000
+        - errors: 1
+
+scenarios:
+  - name: "Authentication flow"
+    weight: 30
+    flow:
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "{{ $processEnvironment.TEST_USER_EMAIL || 'test-planner@example.com' }}"
+            password: "{{ $processEnvironment.TEST_USER_PASSWORD || 'password123' }}"
+          capture:
+            - json: "$.data.token"
+              as: "authToken"
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: data.token
+      
+      - get:
+          url: "/api/users/profile"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: data.profile
+
+  - name: "Student homework flow"
+    weight: 40
+    flow:
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "{{ $processEnvironment.TEST_STUDENT_EMAIL || 'test-student@example.com' }}"
+            password: "{{ $processEnvironment.TEST_STUDENT_PASSWORD || 'password123' }}"
+          capture:
+            - json: "$.data.token"
+              as: "authToken"
+          expect:
+            - statusCode: 200
+      
+      - get:
+          url: "/api/homework/assigned"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          capture:
+            - json: "$.data[0].id"
+              as: "homeworkId"
+              strict: false
+          expect:
+            - statusCode: 200
+            - contentType: json
+      
+      - get:
+          url: "/api/homework/{{ homeworkId }}"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: data.title
+          match:
+            - select: "$.data"
+              as: "homeworkDetails"
+      
+      - think: 5
+      
+      - get:
+          url: "/api/notifications"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
+
+  - name: "Planner dashboard flow"
+    weight: 30
+    flow:
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "{{ $processEnvironment.TEST_PLANNER_EMAIL || 'test-planner@example.com' }}"
+            password: "{{ $processEnvironment.TEST_PLANNER_PASSWORD || 'password123' }}"
+          capture:
+            - json: "$.data.token"
+              as: "authToken"
+          expect:
+            - statusCode: 200
+      
+      - get:
+          url: "/api/students"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: data
+      
+      - get:
+          url: "/api/lessons/recent"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
+      
+      - get:
+          url: "/api/homework/assigned"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
+      
+      - get:
+          url: "/api/reporting/trends?period=weekly"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          expect:
+            - statusCode: 200
+            - contentType: json
