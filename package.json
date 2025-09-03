@@ -1,6 +1,6 @@
 {
   "name": "nvoim-planner-pro",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "앤보임 영어회화 관리 시스템 - Supabase 기반 리뉴얼",
   "main": "index.js",
   "scripts": {
