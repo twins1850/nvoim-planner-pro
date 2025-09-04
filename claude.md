@@ -617,4 +617,33 @@ docs: Claude Code 개발 가이드 추가
 
 **🎯 이 문서는 실제 개발 현황을 반영하여 지속적으로 업데이트됩니다.**
 
-*마지막 업데이트: 2025년 9월 4일 - 오프라인 모드 제거 완료 및 Render 배포 정보 반영*
+## 📚 Development History & Documentation
+
+### 📝 Development Status Reports
+모든 개발 현황과 주요 작업 내용은 `development-status/` 폴더에 날짜별로 문서화됩니다.
+
+**최신 개발 현황**:
+- `development-status/2025-09-04_Preview배포설정_및_버그수정.md` - Preview 배포 시스템 구축 및 핵심 버그 수정
+
+### 🎯 Preview 배포 시스템 (2025-09-04 추가)
+**Render PR Previews**: 자동화된 브랜치별 테스트 환경
+- **설정**: Automatic 모드로 모든 PR에 Preview 생성
+- **워크플로우**: `feature 브랜치 → PR 생성 → 자동 Preview 배포 → 테스트 → main 머지`
+- **장점**: 실제 서버 환경에서 테스트, 로컬 개발 혼란 방지
+
+**Preview URL 예시**: `https://nvoim-planner-pro-pr-1.onrender.com`
+
+### 🐛 주요 해결된 이슈들 (2025-09-04)
+1. **Settings 페이지 모듈 인식 오류** - import 경로 수정으로 해결
+2. **MaterialsContent.tsx MoreVertical import 오류** - lucide-react import 추가
+3. **Next.js TypeScript 설정 오류** - .tsx 확장자 제거로 해결  
+4. **forgot-password 페이지 404 오류** - 완전한 비밀번호 재설정 페이지 구현
+
+### 🚀 현재 배포 환경
+- **Production**: https://nvoim-planner-pro.onrender.com (정상 운영)
+- **Preview**: 브랜치별 자동 생성 (PR 생성 시)
+- **Development**: 로컬 환경 (필요시)
+
+---
+
+*마지막 업데이트: 2025년 9월 4일 - Preview 배포 시스템 구축 및 버그 수정 완료*
