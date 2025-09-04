@@ -15,7 +15,8 @@ import {
   Image,
   Video,
   Music,
-  File
+  File,
+  MoreVertical
 } from 'lucide-react'
 
 interface MaterialsContentProps {
