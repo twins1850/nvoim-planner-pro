@@ -12,6 +12,8 @@
     "student:ios": "cd apps/student && npx expo run:ios",
     "student:android": "cd apps/student && npx expo run:android",
     "student:web": "cd apps/student && npx expo start --web",
+    "student:build": "cd apps/student && npx expo export --platform web",
+    "student:serve": "cd apps/student && npx serve web-build",
     "install:all": "npm install && npm run install:planner-web && npm run install:student",
     "install:planner-web": "cd apps/planner-web && npm install",
     "install:student": "cd apps/student && npm install",
