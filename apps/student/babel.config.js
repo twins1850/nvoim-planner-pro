@@ -6,6 +6,8 @@ module.exports = function (api) {
       ['@babel/plugin-transform-runtime', {
         helpers: true,
         regenerator: true,
+        absoluteRuntime: false,
+        useESModules: false,
       }]
     ],
   };
