@@ -4,10 +4,12 @@ module.exports = function (api) {
     presets: ['babel-preset-expo'],
     plugins: [
       ['@babel/plugin-transform-runtime', {
-        helpers: true,
+        helpers: false,
         regenerator: true,
-        absoluteRuntime: false,
+        corejs: false,
         useESModules: false,
+        absoluteRuntime: false,
+        version: '^7.25.2'
       }]
     ],
   };
