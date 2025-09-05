@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "serve web-build -s",
+    "start": "npx serve web-build -s -l 10000",
     "dev": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build:web": "expo export --platform web",
+    "build:web": "expo export --platform web --output-dir web-build",
     "serve:web": "npx serve web-build"
   },
   "dependencies": {
