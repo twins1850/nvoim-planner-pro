@@ -4,6 +4,8 @@
   "description": "앤보임 영어회화 관리 시스템 - Supabase 기반 리뉴얼",
   "main": "index.js",
   "scripts": {
+    "build": "cd apps/student && npm install && npm run build:web",
+    "start": "cd apps/student && npm start",
     "dev": "concurrently \"npm run planner-web:dev\" \"npm run student:start\"",
     "planner-web:dev": "cd apps/planner-web && npm run dev",
     "planner-web:build": "cd apps/planner-web && npm run build",
