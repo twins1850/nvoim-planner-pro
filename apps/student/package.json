@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "serve web-build",
+    "start": "serve web-build -s",
     "dev": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
