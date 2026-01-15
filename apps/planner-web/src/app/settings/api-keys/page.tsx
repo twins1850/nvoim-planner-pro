@@ -58,14 +58,39 @@ export default function ApiKeysPage() {
       setLoading(true);
       setError('');
 
-      // 실제로는 서버 사이드에서 암호화해야 함
-      // 여기서는 간단히 Base64로 인코딩 (보안상 좋지 않음 - 개선 필요)
+      // Step 1: Get current user session for auth token
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('인증 세션이 없습니다. 다시 로그인해주세요.');
+      }
+
+      // Step 2: Call Edge Function to encrypt API key
+      const { data: encryptResult, error: encryptError } = await supabase.functions.invoke(
+        'manage-api-keys',
+        {
+          body: {
+            action: 'encrypt',
+            apiKey: newKey.apiKey
+          }
+        }
+      );
+
+      if (encryptError) {
+        throw new Error(`암호화 실패: ${encryptError.message}`);
+      }
+
+      if (!encryptResult || !encryptResult.encryptedKey || !encryptResult.iv) {
+        throw new Error('암호화된 키를 받지 못했습니다.');
+      }
+
+      // Step 3: Store encrypted API key and IV in database
       const { error: insertError } = await supabase
         .from('planner_api_keys')
         .insert({
           api_key_type: newKey.keyType,
           key_name: newKey.keyName,
-          encrypted_api_key: newKey.apiKey, // TODO: 서버에서 암호화 처리 필요
+          encrypted_api_key: encryptResult.encryptedKey,
+          encryption_iv: encryptResult.iv,
           is_active: true
         });
 
