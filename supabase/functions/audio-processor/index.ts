@@ -148,7 +148,7 @@ Deno.serve(async (req) => {
       .eq('is_active', true)
 
     if (apiKeyError || !apiKeys || apiKeys.length === 0) {
-      throw new Error('No active API keys found for this planner. Please register API keys in settings.')
+      throw new Error('활성화된 API 키를 찾을 수 없습니다. 플래너 앱 설정에서 API 키를 등록해주세요.')
     }
 
     const keys = apiKeys as ApiKey[]
@@ -159,11 +159,11 @@ Deno.serve(async (req) => {
     const azureKey = keys.find(k => k.api_key_type === 'azure')
 
     if (!openaiKey) {
-      throw new Error('OpenAI API key required. Please register in settings.')
+      throw new Error('OpenAI API 키가 필요합니다. 플래너 앱 설정 > API 키 관리에서 OpenAI API 키를 등록해주세요.')
     }
 
     if (!azureKey) {
-      throw new Error('Azure Speech API key required. Please register in settings.')
+      throw new Error('Azure Speech API 키가 필요합니다. 플래너 앱 설정 > API 키 관리에서 Azure Speech API 키를 등록해주세요.')
     }
 
     // Decrypt API keys

@@ -205,16 +205,94 @@ export default function ApiKeysPage() {
       </div>
 
       {/* 사용 안내 */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <h3 className="font-semibold text-blue-900 mb-2">API 키 발급 방법</h3>
-        <ul className="text-sm text-blue-800 space-y-1">
-          <li>• OpenAI: <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="underline">platform.openai.com/api-keys</a></li>
-          <li>• Anthropic (Claude): <a href="https://console.anthropic.com/" target="_blank" rel="noopener noreferrer" className="underline">console.anthropic.com</a></li>
-          <li>• Google AI: <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="underline">makersuite.google.com/app/apikey</a></li>
-        </ul>
-        <p className="text-sm text-blue-700 mt-3">
-          ⚠️ 보안 주의: API 키는 안전하게 보관하고 절대 공유하지 마세요.
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+        <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+          <AlertCircle className="w-5 h-5" />
+          필수 API 키 안내
+        </h3>
+        <div className="bg-white rounded-lg p-3 mb-3">
+          <p className="text-sm text-gray-700 mb-2">
+            <strong>학생 음성 숙제 기능</strong>을 사용하려면 다음 2개의 API 키가 필요합니다:
+          </p>
+          <ul className="text-sm text-gray-600 space-y-1 ml-4">
+            <li>• <strong>OpenAI API 키</strong>: AI 피드백 생성에 사용</li>
+            <li>• <strong>Azure Speech API 키</strong>: 음성을 텍스트로 변환</li>
+          </ul>
+        </div>
+        <p className="text-sm text-blue-700">
+          ⚠️ <strong>비용 안내:</strong> API 사용량에 따라 각 플래너에게 직접 비용이 청구됩니다.
         </p>
+      </div>
+
+      {/* API 키 발급 상세 안내 */}
+      <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+        <h3 className="font-semibold text-gray-900 mb-4">📝 API 키 발급 방법 (상세 안내)</h3>
+
+        {/* OpenAI */}
+        <div className="mb-6">
+          <h4 className="font-medium text-gray-900 mb-2">1. OpenAI API 키</h4>
+          <div className="bg-gray-50 rounded-lg p-3 space-y-2">
+            <div className="text-sm text-gray-700">
+              <p className="font-medium mb-1">발급 절차:</p>
+              <ol className="list-decimal ml-5 space-y-1">
+                <li><a href="https://platform.openai.com/signup" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">OpenAI 계정 생성</a> (이미 있다면 로그인)</li>
+                <li><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">API Keys 페이지</a>로 이동</li>
+                <li>"Create new secret key" 버튼 클릭</li>
+                <li>키 이름 입력 (예: "NVOIM Planner")</li>
+                <li>생성된 키 복사 (sk-...로 시작하는 긴 문자열)</li>
+                <li>⚠️ <strong>중요:</strong> 키는 한 번만 표시됩니다. 반드시 복사 후 안전하게 보관하세요!</li>
+              </ol>
+            </div>
+            <div className="text-xs text-gray-600 mt-2">
+              💡 <strong>비용:</strong> 사용량에 따라 과금 (~$0.002/분석)
+            </div>
+          </div>
+        </div>
+
+        {/* Azure Speech */}
+        <div className="mb-6">
+          <h4 className="font-medium text-gray-900 mb-2">2. Azure Speech API 키 (필수)</h4>
+          <div className="bg-gray-50 rounded-lg p-3 space-y-2">
+            <div className="text-sm text-gray-700">
+              <p className="font-medium mb-1">발급 절차:</p>
+              <ol className="list-decimal ml-5 space-y-1">
+                <li><a href="https://portal.azure.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Azure Portal</a>에 로그인 (무료 계정 생성 가능)</li>
+                <li>상단 검색창에 "Speech Services" 검색</li>
+                <li>"만들기" 또는 "Create" 클릭</li>
+                <li>구독, 리소스 그룹 선택 (없으면 새로 생성)</li>
+                <li>지역 선택: <strong>Korea Central</strong> 권장</li>
+                <li>가격 책정 계층: <strong>Free F0</strong> (월 5시간 무료) 또는 Standard S0</li>
+                <li>리소스 이름 입력 (예: "nvoim-speech")</li>
+                <li>검토 및 만들기 → 배포 완료 대기</li>
+                <li>생성된 리소스로 이동 → 왼쪽 메뉴에서 "키 및 엔드포인트" 클릭</li>
+                <li>KEY 1 또는 KEY 2 복사</li>
+              </ol>
+            </div>
+            <div className="text-xs text-gray-600 mt-2">
+              💡 <strong>비용:</strong> Free F0: 월 5시간 무료 / Standard S0: ~$1/시간
+            </div>
+          </div>
+        </div>
+
+        {/* 선택적 API */}
+        <div className="border-t border-gray-200 pt-4">
+          <h4 className="font-medium text-gray-700 mb-2">선택 사항 (추후 확장용)</h4>
+          <div className="space-y-2 text-sm text-gray-600">
+            <p>• <strong>Anthropic (Claude):</strong> <a href="https://console.anthropic.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">console.anthropic.com</a></p>
+            <p>• <strong>Google AI:</strong> <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">makersuite.google.com/app/apikey</a></p>
+          </div>
+        </div>
+      </div>
+
+      {/* 보안 안내 */}
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <h3 className="font-semibold text-amber-900 mb-2">🔒 보안 및 주의사항</h3>
+        <ul className="text-sm text-amber-800 space-y-1">
+          <li>• API 키는 암호화되어 안전하게 저장됩니다 (AES-256-GCM)</li>
+          <li>• 절대 다른 사람과 공유하지 마세요</li>
+          <li>• 키가 유출된 경우 즉시 해당 플랫폼에서 키를 삭제하고 새로 발급받으세요</li>
+          <li>• 정기적으로 사용량을 확인하여 예상치 못한 과금을 방지하세요</li>
+        </ul>
       </div>
 
       {/* 새 키 추가 모달 */}
@@ -233,7 +311,8 @@ export default function ApiKeysPage() {
                   onChange={(e) => setNewKey({ ...newKey, keyType: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="openai">OpenAI</option>
+                  <option value="openai">OpenAI (필수)</option>
+                  <option value="azure">Azure Speech (필수)</option>
                   <option value="anthropic">Anthropic (Claude)</option>
                   <option value="google">Google AI</option>
                   <option value="custom">기타</option>
