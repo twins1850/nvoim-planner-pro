@@ -62,6 +62,7 @@ export async function POST(request: Request) {
     // 요청 본문 파싱
     const body = await request.json()
     const {
+      plannerId,
       durationDays,
       maxStudents,
       purchaserEmail,
@@ -71,12 +72,29 @@ export async function POST(request: Request) {
       sendEmail
     } = body
 
-    // 입력값 검증 (License-First: plannerId 불필요)
+    // 입력값 검증
     if (!durationDays || !maxStudents) {
       return NextResponse.json(
         { error: '필수 입력값이 누락되었습니다. (durationDays, maxStudents)' },
         { status: 400 }
       )
+    }
+
+    // plannerId가 제공된 경우 검증
+    if (plannerId) {
+      const supabaseAdmin = createServiceRoleClient()
+      const { data: plannerProfile } = await supabaseAdmin
+        .from('profiles')
+        .select('id, email')
+        .eq('id', plannerId)
+        .single()
+
+      if (!plannerProfile) {
+        return NextResponse.json(
+          { error: '선택한 플래너를 찾을 수 없습니다.' },
+          { status: 400 }
+        )
+      }
     }
 
     if (durationDays <= 0 || maxStudents <= 0) {
@@ -101,15 +119,21 @@ export async function POST(request: Request) {
     // 관리자 권한으로 licenses 테이블에 INSERT하려면 Service Role Key 필요
     const supabaseAdmin = createServiceRoleClient()
 
-    // 라이선스 데이터베이스에 저장 (License-First: planner_id = NULL)
+    // 만료일 계산
+    const expiresAt = plannerId
+      ? new Date(Date.now() + durationDays * 24 * 60 * 60 * 1000).toISOString()
+      : null
+
+    // 라이선스 데이터베이스에 저장
     const { data: license, error: insertError } = await supabaseAdmin
       .from('licenses')
       .insert({
-        planner_id: null, // License-First: 활성화 전까지 NULL
+        planner_id: plannerId || null, // plannerId가 있으면 바로 할당
         license_key: licenseKey,
         duration_days: durationDays,
         max_students: maxStudents,
-        status: 'pending',
+        status: plannerId ? 'active' : 'pending', // plannerId가 있으면 바로 활성화
+        expires_at: expiresAt,
       })
       .select()
       .single()

@@ -71,10 +71,14 @@ export default function LicenseGeneratorForm({ planners }: LicenseGeneratorFormP
         return
       }
 
+      // 선택된 플래너 정보 가져오기
+      const selectedPlanner = planners.find(p => p.id === selectedPlannerId)
+      const plannerName = selectedPlanner?.full_name || selectedPlanner?.email || '플래너'
+
       setSuccess(
-        `라이선스가 성공적으로 발급되었습니다! (플래너: ${data.planner.name || data.planner.email})`
+        `라이선스가 성공적으로 발급되었습니다! (플래너: ${plannerName})`
       )
-      setGeneratedLicenseKey(data.license.licenseKey)
+      setGeneratedLicenseKey(data.license.license_key)
 
       // 폼 초기화
       setSelectedPlannerId('')
