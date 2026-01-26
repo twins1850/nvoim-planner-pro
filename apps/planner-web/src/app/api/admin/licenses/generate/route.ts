@@ -97,8 +97,9 @@ export async function POST(request: Request) {
     // 라이선스 키 생성
     const licenseKey = generateLicenseKey(durationDays, maxStudents)
 
-    // Service Role 클라이언트 사용 (비밀번호 인증 시 RLS 우회)
-    const supabaseAdmin = usePasswordAuth ? createServiceRoleClient() : await createClient()
+    // 항상 Service Role 클라이언트 사용 (RLS 우회 필요)
+    // 관리자 권한으로 licenses 테이블에 INSERT하려면 Service Role Key 필요
+    const supabaseAdmin = createServiceRoleClient()
 
     // 라이선스 데이터베이스에 저장 (License-First: planner_id = NULL)
     const { data: license, error: insertError } = await supabaseAdmin
