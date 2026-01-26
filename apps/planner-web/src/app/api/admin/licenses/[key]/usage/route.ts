@@ -23,14 +23,15 @@ function verifyAdminPassword(req: NextRequest): boolean {
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { key: string } }
+  { params }: { params: Promise<{ key: string }> }
 ) {
   try {
     if (!verifyAdminPassword(req)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const licenseKey = params.key;
+    const { key } = await params;
+    const licenseKey = key;
     const supabaseAdmin = createServiceRoleClient();
 
     // 1. Get license details

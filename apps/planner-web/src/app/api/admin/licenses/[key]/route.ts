@@ -24,14 +24,15 @@ function verifyAdminPassword(req: NextRequest): boolean {
 // GET - Single license details
 export async function GET(
   req: NextRequest,
-  { params }: { params: { key: string } }
+  { params }: { params: Promise<{ key: string }> }
 ) {
   try {
     if (!verifyAdminPassword(req)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const licenseKey = params.key;
+    const { key } = await params;
+    const licenseKey = key;
     const supabaseAdmin = createServiceRoleClient();
 
     const { data: license, error } = await supabaseAdmin
@@ -72,14 +73,15 @@ export async function GET(
 // PATCH - Update license (extend, suspend, reactivate, update_students)
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { key: string } }
+  { params }: { params: Promise<{ key: string }> }
 ) {
   try {
     if (!verifyAdminPassword(req)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const licenseKey = params.key;
+    const { key } = await params;
+    const licenseKey = key;
     const body = await req.json();
     const { operation, reason, additional_days, new_max_students } = body;
 
@@ -206,14 +208,15 @@ export async function PATCH(
 // DELETE - Remove license
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { key: string } }
+  { params }: { params: Promise<{ key: string }> }
 ) {
   try {
     if (!verifyAdminPassword(req)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const licenseKey = params.key;
+    const { key } = await params;
+    const licenseKey = key;
     const body = await req.json();
     const { reason } = body;
 
