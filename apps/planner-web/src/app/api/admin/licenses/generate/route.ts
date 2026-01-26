@@ -1,7 +1,21 @@
 import { createClient } from '@/lib/supabase/server'
-import { createServiceRoleClient } from '@/lib/supabase/server'
+import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 import { generateLicenseKey } from '@/lib/licenseGenerator'
 import { NextResponse } from 'next/server'
+
+// Service Role 클라이언트 (RLS 우회)
+const createServiceRoleClient = () => {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    }
+  )
+}
 
 export async function POST(request: Request) {
   try {
