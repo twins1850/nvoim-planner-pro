@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { User } from '@supabase/supabase-js'
-import MainLayout from '@/components/layout/MainLayout'
 import { Send } from 'lucide-react'
 
 interface Message {
@@ -117,7 +116,6 @@ export default function MessagesContent({ user, profile, students }: MessagesCon
   }
 
   return (
-    <MainLayout user={user} profile={profile}>
       <div className="flex h-full">
         {/* 학생 목록 */}
         <div className="w-1/3 bg-white border-r border-gray-200">
@@ -234,6 +232,5 @@ export default function MessagesContent({ user, profile, students }: MessagesCon
           )}
         </div>
       </div>
-    </MainLayout>
   )
 }

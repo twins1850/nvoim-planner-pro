@@ -45,7 +45,7 @@ const SettingsScreen = () => {
     setLoading(true);
     try {
       const savedSettings = await AsyncStorage.getItem('user_settings');
-      if (savedSettings) {
+      if (savedSettings && savedSettings !== 'undefined' && savedSettings !== 'null') {
         setSettings(JSON.parse(savedSettings));
       }
     } catch (error) {

@@ -35,7 +35,7 @@ export const addToOfflineQueue = async (
   try {
     // 기존 큐 가져오기
     const queueString = await AsyncStorage.getItem(OFFLINE_QUEUE_KEY);
-    const queue: OfflineQueueItem[] = queueString ? JSON.parse(queueString) : [];
+    const queue: OfflineQueueItem[] = (queueString && queueString !== 'undefined' && queueString !== 'null') ? JSON.parse(queueString) : [];
     
     // 새 아이템 생성
     const id = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
@@ -65,7 +65,7 @@ export const addToOfflineQueue = async (
 export const getOfflineQueue = async (): Promise<OfflineQueueItem[]> => {
   try {
     const queueString = await AsyncStorage.getItem(OFFLINE_QUEUE_KEY);
-    return queueString ? JSON.parse(queueString) : [];
+    return (queueString && queueString !== 'undefined' && queueString !== 'null') ? JSON.parse(queueString) : [];
   } catch (error) {
     console.error('Failed to get offline queue', error);
     return [];
@@ -76,7 +76,7 @@ export const getOfflineQueue = async (): Promise<OfflineQueueItem[]> => {
 export const removeFromOfflineQueue = async (id: string): Promise<void> => {
   try {
     const queueString = await AsyncStorage.getItem(OFFLINE_QUEUE_KEY);
-    if (!queueString) return;
+    if (!queueString || queueString === 'undefined' || queueString === 'null') return;
     
     const queue: OfflineQueueItem[] = JSON.parse(queueString);
     const updatedQueue = queue.filter(item => item.id !== id);
@@ -92,7 +92,7 @@ export const removeFromOfflineQueue = async (id: string): Promise<void> => {
 export const saveOfflineData = async (key: string, data: any): Promise<void> => {
   try {
     const dataString = await AsyncStorage.getItem(OFFLINE_DATA_KEY);
-    const offlineData = dataString ? JSON.parse(dataString) : {};
+    const offlineData = (dataString && dataString !== 'undefined' && dataString !== 'null') ? JSON.parse(dataString) : {};
     
     offlineData[key] = {
       data,
@@ -110,7 +110,7 @@ export const saveOfflineData = async (key: string, data: any): Promise<void> => 
 export const getOfflineData = async (key: string): Promise<any> => {
   try {
     const dataString = await AsyncStorage.getItem(OFFLINE_DATA_KEY);
-    if (!dataString) return null;
+    if (!dataString || dataString === 'undefined' || dataString === 'null') return null;
     
     const offlineData = JSON.parse(dataString);
     return offlineData[key]?.data || null;
@@ -124,7 +124,7 @@ export const getOfflineData = async (key: string): Promise<any> => {
 export const removeOfflineData = async (key: string): Promise<void> => {
   try {
     const dataString = await AsyncStorage.getItem(OFFLINE_DATA_KEY);
-    if (!dataString) return;
+    if (!dataString || dataString === 'undefined' || dataString === 'null') return;
     
     const offlineData = JSON.parse(dataString);
     delete offlineData[key];
@@ -212,7 +212,7 @@ export const processOfflineQueue = async (
 export const cleanupExpiredOfflineData = async (): Promise<void> => {
   try {
     const dataString = await AsyncStorage.getItem(OFFLINE_DATA_KEY);
-    if (!dataString) return;
+    if (!dataString || dataString === 'undefined' || dataString === 'null') return;
     
     const offlineData = JSON.parse(dataString);
     const now = Date.now();
@@ -241,7 +241,7 @@ export const cleanupExpiredOfflineData = async (): Promise<void> => {
 export const saveOfflineHomework = async (homework: any): Promise<void> => {
   try {
     const homeworkString = await AsyncStorage.getItem(OFFLINE_HOMEWORK_KEY);
-    const homeworkData = homeworkString ? JSON.parse(homeworkString) : [];
+    const homeworkData = (homeworkString && homeworkString !== 'undefined' && homeworkString !== 'null') ? JSON.parse(homeworkString) : [];
     
     // 이미 존재하는 숙제인지 확인
     const existingIndex = homeworkData.findIndex((h: any) => h._id === homework._id);
@@ -271,7 +271,7 @@ export const saveOfflineHomework = async (homework: any): Promise<void> => {
 export const getOfflineHomework = async (): Promise<any[]> => {
   try {
     const homeworkString = await AsyncStorage.getItem(OFFLINE_HOMEWORK_KEY);
-    return homeworkString ? JSON.parse(homeworkString) : [];
+    return (homeworkString && homeworkString !== 'undefined' && homeworkString !== 'null') ? JSON.parse(homeworkString) : [];
   } catch (error) {
     console.error('Failed to get offline homework', error);
     return [];
@@ -282,7 +282,7 @@ export const getOfflineHomework = async (): Promise<any[]> => {
 export const saveOfflineSubmission = async (homeworkId: string, submission: any): Promise<string> => {
   try {
     const submissionsString = await AsyncStorage.getItem(OFFLINE_SUBMISSIONS_KEY);
-    const submissions = submissionsString ? JSON.parse(submissionsString) : [];
+    const submissions = (submissionsString && submissionsString !== 'undefined' && submissionsString !== 'null') ? JSON.parse(submissionsString) : [];
     
     // 제출 ID 생성
     const submissionId = `offline-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
@@ -310,7 +310,7 @@ export const saveOfflineSubmission = async (homeworkId: string, submission: any)
 export const getOfflineSubmissions = async (): Promise<any[]> => {
   try {
     const submissionsString = await AsyncStorage.getItem(OFFLINE_SUBMISSIONS_KEY);
-    return submissionsString ? JSON.parse(submissionsString) : [];
+    return (submissionsString && submissionsString !== 'undefined' && submissionsString !== 'null') ? JSON.parse(submissionsString) : [];
   } catch (error) {
     console.error('Failed to get offline submissions', error);
     return [];
@@ -321,7 +321,7 @@ export const getOfflineSubmissions = async (): Promise<any[]> => {
 export const saveOfflineAudioFile = async (audioUri: string, metadata: any): Promise<string> => {
   try {
     const audioFilesString = await AsyncStorage.getItem(OFFLINE_AUDIO_FILES_KEY);
-    const audioFiles = audioFilesString ? JSON.parse(audioFilesString) : {};
+    const audioFiles = (audioFilesString && audioFilesString !== 'undefined' && audioFilesString !== 'null') ? JSON.parse(audioFilesString) : {};
     
     // 파일 ID 생성
     const fileId = `offline-audio-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
@@ -345,7 +345,7 @@ export const saveOfflineAudioFile = async (audioUri: string, metadata: any): Pro
 export const getOfflineAudioFile = async (fileId: string): Promise<any> => {
   try {
     const audioFilesString = await AsyncStorage.getItem(OFFLINE_AUDIO_FILES_KEY);
-    if (!audioFilesString) return null;
+    if (!audioFilesString || audioFilesString === 'undefined' || audioFilesString === 'null') return null;
     
     const audioFiles = JSON.parse(audioFilesString);
     return audioFiles[fileId] || null;
@@ -401,7 +401,7 @@ export const syncOfflineQueue = async (): Promise<{ success: number; failed: num
     
     // 오프라인 큐 가져오기
     const queueString = await AsyncStorage.getItem(OFFLINE_QUEUE_KEY);
-    if (!queueString) {
+    if (!queueString || queueString === 'undefined' || queueString === 'null') {
       console.log('오프라인 큐가 비어있음');
       return { success: 0, failed: 0 };
     }
@@ -484,7 +484,7 @@ export const initializeSampleData = async (): Promise<void> => {
   try {
     // 이미 데이터가 있는지 확인
     const dataString = await AsyncStorage.getItem(OFFLINE_DATA_KEY);
-    const offlineData = dataString ? JSON.parse(dataString) : {};
+    const offlineData = (dataString && dataString !== 'undefined' && dataString !== 'null') ? JSON.parse(dataString) : {};
     
     // 피드백 데이터 초기화
     if (!offlineData.feedbacks) {

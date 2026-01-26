@@ -1,0 +1,777 @@
+### Open tabs
+- 0: (current) [nvoim-planner-pro | twins1850's Org | Supabase] (https://supabase.com/dashboard/project/ybcjkdcdruquqrdahtga/sql/952cd9a1-c52f-4b02-9b60-1dadd46d0fea)
+- 1: [Create Next App] (http://localhost:3000/dashboard)
+- 2: [홈] (http://localhost:10000/)
+
+### Page state
+- Page URL: https://supabase.com/dashboard/project/ybcjkdcdruquqrdahtga/sql/952cd9a1-c52f-4b02-9b60-1dadd46d0fea
+- Page Title: nvoim-planner-pro | twins1850's Org | Supabase
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e75]:
+    - banner [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - link "Supabase" [ref=e80] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e81]
+          - generic [ref=e82]:
+            - img [ref=e84]
+            - link "twins1850's Org Free" [ref=e86] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e87]
+              - generic [ref=e97]: twins1850's Org
+              - generic [ref=e98]: Free
+            - button [ref=e99] [cursor=pointer]:
+              - img [ref=e101]
+            - generic [ref=e104]:
+              - img [ref=e106]
+              - link "nvoim-planner-pro" [ref=e108] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e109]
+                - generic [ref=e112]: nvoim-planner-pro
+              - button [ref=e113] [cursor=pointer]:
+                - img [ref=e115]
+              - img [ref=e119]
+              - link "main Production" [ref=e121] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - generic [ref=e122]: main
+                - generic [ref=e123]: Production
+              - button [ref=e124] [cursor=pointer]:
+                - img [ref=e126]
+          - button "Connect" [ref=e130] [cursor=pointer]:
+            - img [ref=e132]
+            - generic [ref=e134]: Connect
+        - generic [ref=e135]:
+          - generic [ref=e137] [cursor=pointer]: Feedback
+          - generic [ref=e138]:
+            - button "Search..." [ref=e139] [cursor=pointer]:
+              - generic [ref=e140]:
+                - img [ref=e141]
+                - paragraph [ref=e144]: Search...
+              - generic [ref=e146]:
+                - img [ref=e147]
+                - generic [ref=e149]: K
+            - button [ref=e150] [cursor=pointer]:
+              - img [ref=e152]
+            - button [ref=e156] [cursor=pointer]:
+              - img [ref=e158]
+            - button [ref=e161] [cursor=pointer]:
+              - img [ref=e163]
+            - button [ref=e165] [cursor=pointer]:
+              - img [ref=e169]
+          - button "twins1850" [ref=e172] [cursor=pointer]:
+            - img "twins1850" [ref=e174]
+    - generic [ref=e175]:
+      - generic [ref=e179]:
+        - list [ref=e182]:
+          - generic [ref=e183]:
+            - listitem [ref=e184]:
+              - link "Project Overview" [ref=e185] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e186]
+                - generic: Project Overview
+            - listitem [ref=e188]:
+              - link "Table Editor" [ref=e189] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                - img [ref=e190]
+                - generic: Table Editor
+            - listitem [ref=e192]:
+              - link "SQL Editor" [ref=e193] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                - img [ref=e194]
+                - generic: SQL Editor
+          - generic [ref=e196]:
+            - listitem [ref=e197]:
+              - link "Database" [ref=e198] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                - img [ref=e199]
+                - generic: Database
+            - listitem [ref=e203]:
+              - link "Authentication" [ref=e204] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                - img [ref=e205]
+                - generic: Authentication
+            - listitem [ref=e207]:
+              - link "Storage" [ref=e208] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                - img [ref=e209]
+                - generic: Storage
+            - listitem [ref=e211]:
+              - link "Edge Functions" [ref=e212] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                - img [ref=e213]
+                - generic: Edge Functions
+            - listitem [ref=e218]:
+              - link "Realtime" [ref=e219] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                - img [ref=e220]
+                - generic: Realtime
+          - generic [ref=e222]:
+            - listitem [ref=e224]:
+              - link "Advisors" [ref=e225] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                - img [ref=e226]
+                - generic: Advisors
+            - listitem [ref=e228]:
+              - link "Observability" [ref=e229] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                - img [ref=e230]
+                - generic: Observability
+            - listitem [ref=e238]:
+              - link "Logs" [ref=e239] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                - img [ref=e240]
+                - generic: Logs
+            - listitem [ref=e241]:
+              - link "API Docs" [ref=e242] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                - img [ref=e243]
+                - generic: API Docs
+            - listitem [ref=e246]:
+              - link "Integrations" [ref=e247] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                - img [ref=e248]
+                - generic: Integrations
+          - listitem [ref=e252]:
+            - link "Project Settings" [ref=e253] [cursor=pointer]:
+              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+              - img [ref=e254]
+              - generic: Project Settings
+        - button [ref=e259] [cursor=pointer]:
+          - img [ref=e261]
+      - generic [ref=e267]:
+        - generic [ref=e270]:
+          - heading "SQL Editor" [level=4] [ref=e272]
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - generic [ref=e276]:
+                - generic [ref=e278]:
+                  - generic [ref=e279]: Search queries
+                  - textbox "Search queries..." [ref=e280]
+                  - button [ref=e281] [cursor=pointer]:
+                    - img [ref=e282]
+                  - img [ref=e285]
+                - button [ref=e288] [cursor=pointer]:
+                  - img [ref=e290]
+              - button "Shared" [ref=e293] [cursor=pointer]:
+                - img [ref=e294]
+                - generic [ref=e296]: Shared
+              - button "Favorites" [ref=e299] [cursor=pointer]:
+                - img [ref=e300]
+                - generic [ref=e302]: Favorites
+              - generic [ref=e304]:
+                - button "PRIVATE (63)" [expanded] [ref=e305] [cursor=pointer]:
+                  - img [ref=e306]
+                  - generic [ref=e308]: PRIVATE (63)
+                - tree "private-snippets" [ref=e310]:
+                  - generic [ref=e311] [cursor=pointer]:
+                    - img [ref=e312]
+                    - generic "Access policies for student_profiles" [ref=e318]
+                  - generic [ref=e319] [cursor=pointer]:
+                    - img [ref=e320]
+                    - generic "student_profiles row-level access policies" [ref=e326]
+                  - generic [ref=e327] [cursor=pointer]:
+                    - img [ref=e328]
+                    - generic "Reset user password" [ref=e334]
+                  - generic [ref=e335] [cursor=pointer]:
+                    - img [ref=e336]
+                    - generic "Promote user to admin" [ref=e342]
+                  - generic [ref=e343] [cursor=pointer]:
+                    - img [ref=e344]
+                    - generic "Add 'admin' to user_role enum" [ref=e350]
+                  - generic [ref=e351] [cursor=pointer]:
+                    - img [ref=e352]
+                    - generic "Add admin role and promote user" [ref=e358]
+                  - generic [ref=e359] [cursor=pointer]:
+                    - img [ref=e360]
+                    - generic "RLS Policies for licenses Table" [ref=e366]
+                  - generic [ref=e367] [cursor=pointer]:
+                    - img [ref=e368]
+                    - generic "Planner Self-Activation License Policy" [ref=e374]
+                  - generic [ref=e375] [cursor=pointer]:
+                    - img [ref=e376]
+                    - generic "Public Routines Lookup" [ref=e382]
+                  - generic [ref=e383] [cursor=pointer]:
+                    - img [ref=e384]
+                    - generic "Indexes on licenses, usage_tracking, student_profiles, homework" [ref=e390]
+                  - generic [ref=e391] [cursor=pointer]:
+                    - img [ref=e392]
+                    - generic "RLS policies for licenses and usage_tracking" [ref=e398]
+                  - generic [ref=e399] [cursor=pointer]:
+                    - img [ref=e400]
+                    - generic "Inspect usage_tracking schema" [ref=e406]
+                  - generic [ref=e407] [cursor=pointer]:
+                    - img [ref=e408]
+                    - generic "Licenses Table Schema Overview" [ref=e414]
+                  - generic [ref=e415] [cursor=pointer]:
+                    - img [ref=e416]
+                    - generic "License & Usage Schema Audit" [ref=e422]
+                  - generic [ref=e423] [cursor=pointer]:
+                    - img [ref=e424]
+                    - generic "Subscription License and Usage Management" [ref=e430]
+                  - generic [ref=e431] [cursor=pointer]:
+                    - img [ref=e432]
+                    - generic "Homework Counts by Student" [ref=e438]
+                  - generic [ref=e439] [cursor=pointer]:
+                    - img [ref=e440]
+                    - generic "Homework Assignments by Student" [ref=e446]
+                  - generic [ref=e447] [cursor=pointer]:
+                    - img [ref=e448]
+                    - generic "Students' Assigned Homework View Policy" [ref=e454]
+                  - generic [ref=e455] [cursor=pointer]:
+                    - img [ref=e456]
+                    - generic "Review RLS policies for homework_assignments" [ref=e462]
+                  - generic [ref=e463] [cursor=pointer]:
+                    - img [ref=e464]
+                    - generic "Homework Assignments Access Policies" [ref=e470]
+                  - generic [ref=e471] [cursor=pointer]:
+                    - img [ref=e472]
+                    - generic "Student Profiles Policy Check" [ref=e478]
+                  - generic [ref=e479] [cursor=pointer]:
+                    - img [ref=e480]
+                    - generic "Student profiles row-level access policies" [ref=e486]
+                  - generic [ref=e487] [cursor=pointer]:
+                    - img [ref=e488]
+                    - generic "Scheduled Homework" [ref=e494]
+                  - generic [ref=e495] [cursor=pointer]:
+                    - img [ref=e496]
+                    - generic "homework_assignments 외래 키 제약 확인" [ref=e502]
+                  - generic [ref=e503] [cursor=pointer]:
+                    - img [ref=e504]
+                    - generic "All Student Profiles" [ref=e510]
+                  - generic [ref=e511] [cursor=pointer]:
+                    - img [ref=e512]
+                    - generic "User and Profile Audit with Foreign-Key Check" [ref=e518]
+                  - generic [ref=e519] [cursor=pointer]:
+                    - img [ref=e520]
+                    - generic "Drop recursive RLS policy on homework" [ref=e526]
+                  - generic [ref=e527] [cursor=pointer]:
+                    - img [ref=e528]
+                    - generic "Messages table timestamps and auto-update trigger" [ref=e534]
+                  - generic [ref=e535] [cursor=pointer]:
+                    - img [ref=e536]
+                    - generic "Messages table with timestamps and update trigger" [ref=e542]
+                  - generic [ref=e543] [cursor=pointer]:
+                    - img [ref=e544]
+                    - generic "Messages table with RLS and indexing" [ref=e550]
+                  - generic [ref=e551] [cursor=pointer]:
+                    - img [ref=e552]
+                    - generic "Messages Table Restructure" [ref=e558]
+                  - generic [ref=e559] [cursor=pointer]:
+                    - img [ref=e560]
+                    - generic "Messages Schema Migration" [ref=e566]
+                  - generic [ref=e567] [cursor=pointer]:
+                    - img [ref=e568]
+                    - generic "Conversations and Messages Schema with Row-Level Security" [ref=e574]
+                  - generic [ref=e575] [cursor=pointer]:
+                    - img [ref=e576]
+                    - generic "Seed Student–Teacher Association" [ref=e582]
+                  - generic [ref=e583] [cursor=pointer]:
+                    - img [ref=e584]
+                    - generic "Verify Test User Accounts" [ref=e590]
+                  - generic [ref=e591] [cursor=pointer]:
+                    - img [ref=e592]
+                    - generic "Conversations Table for Teacher–Student Chats" [ref=e598]
+                  - generic [ref=e599] [cursor=pointer]:
+                    - img [ref=e600]
+                    - generic "Messaging and Conversation Tables" [ref=e606]
+                  - generic [ref=e607] [cursor=pointer]:
+                    - img [ref=e608]
+                    - generic "Enforce unique user_id on students" [ref=e614]
+                  - generic [ref=e615] [cursor=pointer]:
+                    - img [ref=e616]
+                    - generic "Fix student_profiles foreign key constraints" [ref=e622]
+                  - generic [ref=e623] [cursor=pointer]:
+                    - img [ref=e624]
+                    - generic "학생 연결 및 프로필 보장 함수" [ref=e630]
+                  - generic [ref=e631] [cursor=pointer]:
+                    - img [ref=e632]
+                    - generic "Planner authentication and profile relationship check" [ref=e638]
+                  - generic [ref=e639] [cursor=pointer]:
+                    - img [ref=e640]
+                    - generic "List public tables" [ref=e646]
+                  - generic [ref=e647] [cursor=pointer]:
+                    - img [ref=e648]
+                    - generic "Student Course Management Tables" [ref=e654]
+                  - generic [ref=e655] [cursor=pointer]:
+                    - img [ref=e656]
+                    - generic "Allow authenticated role to execute create_subscription" [ref=e662]
+                  - generic [ref=e663] [cursor=pointer]:
+                    - img [ref=e664]
+                    - generic "Subscription creation function" [ref=e670]
+                  - generic [ref=e671] [cursor=pointer]:
+                    - img [ref=e672]
+                    - generic "Student Subscriptions" [ref=e678]
+                  - generic [ref=e679] [cursor=pointer]:
+                    - img [ref=e680]
+                    - generic "Subscription and Lesson ENUM Types" [ref=e686]
+                  - generic [ref=e687] [cursor=pointer]:
+                    - img [ref=e688]
+                    - generic "Subscription Frequency Type" [ref=e694]
+                  - generic [ref=e695] [cursor=pointer]:
+                    - img [ref=e696]
+                    - generic "Connect Student via Invite Code" [ref=e702]
+                  - generic [ref=e703] [cursor=pointer]:
+                    - img [ref=e704]
+                    - generic "Ensure Student Profile for Current User" [ref=e710]
+                  - generic [ref=e711] [cursor=pointer]:
+                    - img [ref=e712]
+                    - generic "Connect Student via Invite Code" [ref=e718]
+                  - generic [ref=e719] [cursor=pointer]:
+                    - img [ref=e720]
+                    - generic "Link Student to Planner" [ref=e726]
+                  - generic [ref=e727] [cursor=pointer]:
+                    - img [ref=e728]
+                    - generic "Link Student to Planner Function" [ref=e734]
+                  - generic [ref=e735] [cursor=pointer]:
+                    - img [ref=e736]
+                    - generic "Link Student to Planner Function" [ref=e742]
+                  - generic [ref=e743] [cursor=pointer]:
+                    - img [ref=e744]
+                    - generic "Link student to planner function" [ref=e750]
+                  - generic [ref=e751] [cursor=pointer]:
+                    - img [ref=e752]
+                    - generic "All Invite Codes" [ref=e758]
+                  - generic [ref=e759] [cursor=pointer]:
+                    - img [ref=e760]
+                    - generic "Invite code generation and planner linking" [ref=e766]
+                  - generic [ref=e767] [cursor=pointer]:
+                    - img [ref=e768]
+                    - generic "Student & Teacher Profiles with RLS and Indexes" [ref=e774]
+                  - generic [ref=e775] [cursor=pointer]:
+                    - img [ref=e777]
+                    - generic "Invite Codes and Student–Teacher Connections" [ref=e783]
+                  - generic [ref=e784] [cursor=pointer]:
+                    - img [ref=e785]
+                    - generic "Remove Auth User Creation Trigger" [ref=e791]
+                  - generic [ref=e792] [cursor=pointer]:
+                    - img [ref=e793]
+                    - generic "User Registration Handler" [ref=e799]
+                  - generic [ref=e800] [cursor=pointer]:
+                    - img [ref=e801]
+                    - generic "Function Source Code Lookup" [ref=e807]
+                  - generic [ref=e808] [cursor=pointer]:
+                    - img [ref=e809]
+                    - generic "Educational Platform Database Schema" [ref=e815]
+              - generic [ref=e817]:
+                - button "Community" [expanded] [ref=e818] [cursor=pointer]:
+                  - img [ref=e819]
+                  - generic [ref=e821]: Community
+                - generic [ref=e822]:
+                  - link "templates" [ref=e823] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/templates
+                    - img [ref=e824]
+                    - text: templates
+                  - link "quickstarts" [ref=e826] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/quickstarts
+                    - img [ref=e827]
+                    - text: quickstarts
+            - button "View running queries" [ref=e831] [cursor=pointer]:
+              - generic [ref=e832]: View running queries
+        - separator [ref=e833]:
+          - img [ref=e835]
+        - main [ref=e843]:
+          - generic [ref=e844]:
+            - generic [ref=e845]:
+              - generic [ref=e846]:
+                - button [ref=e847] [cursor=pointer]:
+                  - img [ref=e848]
+                - tablist [ref=e851]:
+                  - button "Invite Codes and Student–Teacher Connections" [ref=e853] [cursor=pointer]:
+                    - tab "Invite Codes and Student–Teacher Connections" [selected] [ref=e854]:
+                      - img [ref=e855]
+                      - generic [ref=e862]: Invite Codes and Student–Teacher Connections
+                      - button [ref=e863]:
+                        - img [ref=e864]
+                    - separator [ref=e868]
+                  - button "Invite code generation and planner linking" [ref=e870] [cursor=pointer]:
+                    - tab "Invite code generation and planner linking" [ref=e871]:
+                      - img [ref=e872]
+                      - generic [ref=e879]: Invite code generation and planner linking
+                      - button [ref=e880]:
+                        - img [ref=e881]
+                    - separator [ref=e885]
+                  - button "Link student to planner function" [ref=e887] [cursor=pointer]:
+                    - tab "Link student to planner function" [ref=e888]:
+                      - img [ref=e889]
+                      - generic [ref=e896]: Link student to planner function
+                      - button [ref=e897]:
+                        - img [ref=e898]
+                    - separator [ref=e902]
+                  - button "Link Student to Planner Function" [ref=e904] [cursor=pointer]:
+                    - tab "Link Student to Planner Function" [ref=e905]:
+                      - img [ref=e906]
+                      - generic [ref=e913]: Link Student to Planner Function
+                      - button [ref=e914]:
+                        - img [ref=e915]
+                    - separator [ref=e919]
+                  - button "Link Student to Planner Function" [ref=e921] [cursor=pointer]:
+                    - tab "Link Student to Planner Function" [ref=e922]:
+                      - img [ref=e923]
+                      - generic [ref=e930]: Link Student to Planner Function
+                      - button [ref=e931]:
+                        - img [ref=e932]
+                    - separator [ref=e936]
+                  - button "Link Student to Planner" [ref=e938] [cursor=pointer]:
+                    - tab "Link Student to Planner" [ref=e939]:
+                      - img [ref=e940]
+                      - generic [ref=e947]: Link Student to Planner
+                      - button [ref=e948]:
+                        - img [ref=e949]
+                    - separator [ref=e953]
+                  - button "Connect Student via Invite Code" [ref=e955] [cursor=pointer]:
+                    - tab "Connect Student via Invite Code" [ref=e956]:
+                      - img [ref=e957]
+                      - generic [ref=e964]: Connect Student via Invite Code
+                      - button [ref=e965]:
+                        - img [ref=e966]
+                    - separator [ref=e970]
+                  - button "Ensure Student Profile for Current User" [ref=e972] [cursor=pointer]:
+                    - tab "Ensure Student Profile for Current User" [ref=e973]:
+                      - img [ref=e974]
+                      - generic [ref=e981]: Ensure Student Profile for Current User
+                      - button [ref=e982]:
+                        - img [ref=e983]
+                    - separator [ref=e987]
+                  - button "Connect Student via Invite Code" [ref=e989] [cursor=pointer]:
+                    - tab "Connect Student via Invite Code" [ref=e990]:
+                      - img [ref=e991]
+                      - generic [ref=e998]: Connect Student via Invite Code
+                      - button [ref=e999]:
+                        - img [ref=e1000]
+                    - separator [ref=e1004]
+                  - button "Planner authentication and profile relationship check" [ref=e1006] [cursor=pointer]:
+                    - tab "Planner authentication and profile relationship check" [ref=e1007]:
+                      - img [ref=e1008]
+                      - generic [ref=e1015]: Planner authentication and profile relationship check
+                      - button [ref=e1016]:
+                        - img [ref=e1017]
+                    - separator [ref=e1021]
+                  - button "학생 연결 및 프로필 보장 함수" [ref=e1023] [cursor=pointer]:
+                    - tab "학생 연결 및 프로필 보장 함수" [ref=e1024]:
+                      - img [ref=e1025]
+                      - generic [ref=e1032]: 학생 연결 및 프로필 보장 함수
+                      - button [ref=e1033]:
+                        - img [ref=e1034]
+                    - separator [ref=e1038]
+                  - button "Fix student_profiles foreign key constraints" [ref=e1040] [cursor=pointer]:
+                    - tab "Fix student_profiles foreign key constraints" [ref=e1041]:
+                      - img [ref=e1042]
+                      - generic [ref=e1049]: Fix student_profiles foreign key constraints
+                      - button [ref=e1050]:
+                        - img [ref=e1051]
+                    - separator [ref=e1055]
+                  - button "Enforce unique user_id on students" [ref=e1057] [cursor=pointer]:
+                    - tab "Enforce unique user_id on students" [ref=e1058]:
+                      - img [ref=e1059]
+                      - generic [ref=e1066]: Enforce unique user_id on students
+                      - button [ref=e1067]:
+                        - img [ref=e1068]
+                    - separator [ref=e1072]
+                  - button "Messaging and Conversation Tables" [ref=e1074] [cursor=pointer]:
+                    - tab "Messaging and Conversation Tables" [ref=e1075]:
+                      - img [ref=e1076]
+                      - generic [ref=e1083]: Messaging and Conversation Tables
+                      - button [ref=e1084]:
+                        - img [ref=e1085]
+                    - separator [ref=e1089]
+                  - button "Conversations Table for Teacher–Student Chats" [ref=e1091] [cursor=pointer]:
+                    - tab "Conversations Table for Teacher–Student Chats" [ref=e1092]:
+                      - img [ref=e1093]
+                      - generic [ref=e1100]: Conversations Table for Teacher–Student Chats
+                      - button [ref=e1101]:
+                        - img [ref=e1102]
+                    - separator [ref=e1106]
+                  - button "Seed Student–Teacher Association" [ref=e1108] [cursor=pointer]:
+                    - tab "Seed Student–Teacher Association" [ref=e1109]:
+                      - img [ref=e1110]
+                      - generic [ref=e1117]: Seed Student–Teacher Association
+                      - button [ref=e1118]:
+                        - img [ref=e1119]
+                    - separator [ref=e1123]
+                  - button "Conversations and Messages Schema with Row-Level Security" [ref=e1125] [cursor=pointer]:
+                    - tab "Conversations and Messages Schema with Row-Level Security" [ref=e1126]:
+                      - img [ref=e1127]
+                      - generic [ref=e1134]: Conversations and Messages Schema with Row-Level Security
+                      - button [ref=e1135]:
+                        - img [ref=e1136]
+                    - separator [ref=e1140]
+                  - button "Messages Schema Migration" [ref=e1142] [cursor=pointer]:
+                    - tab "Messages Schema Migration" [ref=e1143]:
+                      - img [ref=e1144]
+                      - generic [ref=e1151]: Messages Schema Migration
+                      - button [ref=e1152]:
+                        - img [ref=e1153]
+                    - separator [ref=e1157]
+                  - button "Messages table timestamps and auto-update trigger" [ref=e1159] [cursor=pointer]:
+                    - tab "Messages table timestamps and auto-update trigger" [ref=e1160]:
+                      - img [ref=e1161]
+                      - generic [ref=e1168]: Messages table timestamps and auto-update trigger
+                      - button [ref=e1169]:
+                        - img [ref=e1170]
+                    - separator [ref=e1174]
+                  - button "Drop recursive RLS policy on homework" [ref=e1176] [cursor=pointer]:
+                    - tab "Drop recursive RLS policy on homework" [ref=e1177]:
+                      - img [ref=e1178]
+                      - generic [ref=e1185]: Drop recursive RLS policy on homework
+                      - button [ref=e1186]:
+                        - img [ref=e1187]
+                    - separator [ref=e1191]
+                  - button "User and Profile Audit with Foreign-Key Check" [ref=e1193] [cursor=pointer]:
+                    - tab "User and Profile Audit with Foreign-Key Check" [ref=e1194]:
+                      - img [ref=e1195]
+                      - generic [ref=e1202]: User and Profile Audit with Foreign-Key Check
+                      - button [ref=e1203]:
+                        - img [ref=e1204]
+                    - separator [ref=e1208]
+                  - button "All Student Profiles" [ref=e1210] [cursor=pointer]:
+                    - tab "All Student Profiles" [ref=e1211]:
+                      - img [ref=e1212]
+                      - generic [ref=e1219]: All Student Profiles
+                      - button [ref=e1220]:
+                        - img [ref=e1221]
+                    - separator [ref=e1225]
+                  - button "homework_assignments 외래 키 제약 확인" [ref=e1227] [cursor=pointer]:
+                    - tab "homework_assignments 외래 키 제약 확인" [ref=e1228]:
+                      - img [ref=e1229]
+                      - generic [ref=e1236]: homework_assignments 외래 키 제약 확인
+                      - button [ref=e1237]:
+                        - img [ref=e1238]
+                    - separator [ref=e1242]
+                  - button "Scheduled Homework" [ref=e1244] [cursor=pointer]:
+                    - tab "Scheduled Homework" [ref=e1245]:
+                      - img [ref=e1246]
+                      - generic [ref=e1253]: Scheduled Homework
+                      - button [ref=e1254]:
+                        - img [ref=e1255]
+                    - separator [ref=e1259]
+                  - button "Student profiles row-level access policies" [ref=e1261] [cursor=pointer]:
+                    - tab "Student profiles row-level access policies" [ref=e1262]:
+                      - img [ref=e1263]
+                      - generic [ref=e1270]: Student profiles row-level access policies
+                      - button [ref=e1271]:
+                        - img [ref=e1272]
+                    - separator [ref=e1276]
+                  - button "Student Profiles Policy Check" [ref=e1278] [cursor=pointer]:
+                    - tab "Student Profiles Policy Check" [ref=e1279]:
+                      - img [ref=e1280]
+                      - generic [ref=e1287]: Student Profiles Policy Check
+                      - button [ref=e1288]:
+                        - img [ref=e1289]
+                    - separator [ref=e1293]
+                  - button "Homework Assignments Access Policies" [ref=e1295] [cursor=pointer]:
+                    - tab "Homework Assignments Access Policies" [ref=e1296]:
+                      - img [ref=e1297]
+                      - generic [ref=e1304]: Homework Assignments Access Policies
+                      - button [ref=e1305]:
+                        - img [ref=e1306]
+                    - separator [ref=e1310]
+                  - button "Review RLS policies for homework_assignments" [ref=e1312] [cursor=pointer]:
+                    - tab "Review RLS policies for homework_assignments" [ref=e1313]:
+                      - img [ref=e1314]
+                      - generic [ref=e1321]: Review RLS policies for homework_assignments
+                      - button [ref=e1322]:
+                        - img [ref=e1323]
+                    - separator [ref=e1327]
+                  - button "Students' Assigned Homework View Policy" [ref=e1329] [cursor=pointer]:
+                    - tab "Students' Assigned Homework View Policy" [ref=e1330]:
+                      - img [ref=e1331]
+                      - generic [ref=e1338]: Students' Assigned Homework View Policy
+                      - button [ref=e1339]:
+                        - img [ref=e1340]
+                    - separator [ref=e1344]
+                  - button "Homework Assignments by Student" [ref=e1346] [cursor=pointer]:
+                    - tab "Homework Assignments by Student" [ref=e1347]:
+                      - img [ref=e1348]
+                      - generic [ref=e1355]: Homework Assignments by Student
+                      - button [ref=e1356]:
+                        - img [ref=e1357]
+                    - separator [ref=e1361]
+                  - button "Homework Counts by Student" [ref=e1363] [cursor=pointer]:
+                    - tab "Homework Counts by Student" [ref=e1364]:
+                      - img [ref=e1365]
+                      - generic [ref=e1372]: Homework Counts by Student
+                      - button [ref=e1373]:
+                        - img [ref=e1374]
+                    - separator [ref=e1378]
+                  - button "Subscription License and Usage Management" [ref=e1380] [cursor=pointer]:
+                    - tab "Subscription License and Usage Management" [ref=e1381]:
+                      - img [ref=e1382]
+                      - generic [ref=e1389]: Subscription License and Usage Management
+                      - button [ref=e1390]:
+                        - img [ref=e1391]
+                    - separator [ref=e1395]
+                  - button "License & Usage Schema Audit" [ref=e1397] [cursor=pointer]:
+                    - tab "License & Usage Schema Audit" [ref=e1398]:
+                      - img [ref=e1399]
+                      - generic [ref=e1406]: License & Usage Schema Audit
+                      - button [ref=e1407]:
+                        - img [ref=e1408]
+                    - separator [ref=e1412]
+                  - button "Licenses Table Schema Overview" [ref=e1414] [cursor=pointer]:
+                    - tab "Licenses Table Schema Overview" [ref=e1415]:
+                      - img [ref=e1416]
+                      - generic [ref=e1423]: Licenses Table Schema Overview
+                      - button [ref=e1424]:
+                        - img [ref=e1425]
+                    - separator [ref=e1429]
+                  - button "Inspect usage_tracking schema" [ref=e1431] [cursor=pointer]:
+                    - tab "Inspect usage_tracking schema" [ref=e1432]:
+                      - img [ref=e1433]
+                      - generic [ref=e1440]: Inspect usage_tracking schema
+                      - button [ref=e1441]:
+                        - img [ref=e1442]
+                    - separator [ref=e1446]
+                  - button "RLS policies for licenses and usage_tracking" [ref=e1448] [cursor=pointer]:
+                    - tab "RLS policies for licenses and usage_tracking" [ref=e1449]:
+                      - img [ref=e1450]
+                      - generic [ref=e1457]: RLS policies for licenses and usage_tracking
+                      - button [ref=e1458]:
+                        - img [ref=e1459]
+                    - separator [ref=e1463]
+                  - button "Indexes on licenses, usage_tracking, student_profiles, homework" [ref=e1465] [cursor=pointer]:
+                    - tab "Indexes on licenses, usage_tracking, student_profiles, homework" [ref=e1466]:
+                      - img [ref=e1467]
+                      - generic [ref=e1474]: Indexes on licenses, usage_tracking, student_profiles, homework
+                      - button [ref=e1475]:
+                        - img [ref=e1476]
+                    - separator [ref=e1480]
+                  - button "Public Routines Lookup" [ref=e1482] [cursor=pointer]:
+                    - tab "Public Routines Lookup" [ref=e1483]:
+                      - img [ref=e1484]
+                      - generic [ref=e1491]: Public Routines Lookup
+                      - button [ref=e1492]:
+                        - img [ref=e1493]
+                    - separator [ref=e1497]
+                  - button "Planner Self-Activation License Policy" [ref=e1499] [cursor=pointer]:
+                    - tab "Planner Self-Activation License Policy" [ref=e1500]:
+                      - img [ref=e1501]
+                      - generic [ref=e1508]: Planner Self-Activation License Policy
+                      - button [ref=e1509]:
+                        - img [ref=e1510]
+                    - separator [ref=e1514]
+                  - button "Add admin role and promote user" [ref=e1516] [cursor=pointer]:
+                    - tab "Add admin role and promote user" [ref=e1517]:
+                      - img [ref=e1518]
+                      - generic [ref=e1525]: Add admin role and promote user
+                      - button [ref=e1526]:
+                        - img [ref=e1527]
+                    - separator [ref=e1531]
+                  - button "Add 'admin' to user_role enum" [ref=e1533] [cursor=pointer]:
+                    - tab "Add 'admin' to user_role enum" [ref=e1534]:
+                      - img [ref=e1535]
+                      - generic [ref=e1542]: Add 'admin' to user_role enum
+                      - button [ref=e1543]:
+                        - img [ref=e1544]
+                    - separator [ref=e1548]
+                  - button "Promote user to admin" [ref=e1550] [cursor=pointer]:
+                    - tab "Promote user to admin" [ref=e1551]:
+                      - img [ref=e1552]
+                      - generic [ref=e1559]: Promote user to admin
+                      - button [ref=e1560]:
+                        - img [ref=e1561]
+                    - separator [ref=e1565]
+                  - button "Reset user password" [ref=e1567] [cursor=pointer]:
+                    - tab "Reset user password" [ref=e1568]:
+                      - img [ref=e1569]
+                      - generic [ref=e1576]: Reset user password
+                      - button [ref=e1577]:
+                        - img [ref=e1578]
+                    - separator [ref=e1582]
+                  - button "student_profiles row-level access policies" [ref=e1584] [cursor=pointer]:
+                    - tab "student_profiles row-level access policies" [ref=e1585]:
+                      - img [ref=e1586]
+                      - generic [ref=e1593]: student_profiles row-level access policies
+                      - button [ref=e1594]:
+                        - img [ref=e1595]
+                    - separator [ref=e1599]
+                  - button "Access policies for student_profiles" [ref=e1601] [cursor=pointer]:
+                    - tab "Access policies for student_profiles" [ref=e1602]:
+                      - img [ref=e1603]
+                      - generic [ref=e1610]: Access policies for student_profiles
+                      - button [ref=e1611]:
+                        - img [ref=e1612]
+                    - separator [ref=e1616]
+                  - button [ref=e1617] [cursor=pointer]:
+                    - img [ref=e1618]
+              - status [ref=e1620]
+            - generic [ref=e1623]:
+              - code [ref=e1629]:
+                - generic [ref=e1630]:
+                  - generic [ref=e1632]:
+                    - generic [ref=e1944]: "1"
+                    - generic [ref=e1946]: "2"
+                    - generic [ref=e1948]: "3"
+                    - generic [ref=e1950]: "4"
+                    - generic [ref=e1952]: "5"
+                    - generic [ref=e1954]: "6"
+                    - generic [ref=e1956]: "7"
+                    - generic [ref=e1958]: "8"
+                    - generic [ref=e1960]: "9"
+                    - generic [ref=e1962]: "10"
+                    - generic [ref=e1964]: "11"
+                    - generic [ref=e1966]: "12"
+                    - generic [ref=e1968]: "13"
+                  - generic [ref=e1682]:
+                    - generic [ref=e1984]: "-- ============================================================================"
+                    - generic [ref=e1986]: "-- Step 1: FK 제약조건 수정 (students → student_profiles)"
+                    - generic [ref=e1988]: "-- ============================================================================"
+                    - generic [ref=e1991]: "-- 1. 기존 FK 제약조건 삭제"
+                    - generic [ref=e1993]: ALTER TABLE homework_assignments
+                    - generic [ref=e1995]: DROP CONSTRAINT homework_assignments_student_id_fkey;
+                    - generic [ref=e1998]: "-- 2. 새 FK 제약조건 생성 (student_profiles 참조)"
+                    - generic [ref=e2000]: ALTER TABLE homework_assignments
+                    - generic [ref=e2002]: ADD CONSTRAINT homework_assignments_student_id_fkey
+                    - generic [ref=e2004]: FOREIGN KEY (student_id) REFERENCES student_profiles(id)
+                    - generic [ref=e2006]: ON DELETE CASCADE;
+                  - textbox "Editor content" [ref=e1713]: "-- ============================================================================ -- Step 1: FK 제약조건 수정 (students → student_profiles) -- ============================================================================ -- 1. 기존 FK 제약조건 삭제 ALTER TABLE homework_assignments DROP CONSTRAINT homework_assignments_student_id_fkey; -- 2. 새 FK 제약조건 생성 (student_profiles 참조) ALTER TABLE homework_assignments"
+              - separator [ref=e1715]:
+                - img [ref=e1717]
+              - generic [ref=e1725]:
+                - tablist [ref=e1726]:
+                  - generic [ref=e1727]:
+                    - tab "Results" [selected] [ref=e1728] [cursor=pointer]:
+                      - generic [ref=e1729]: Results
+                    - tab "Explain" [ref=e1730] [cursor=pointer]:
+                      - generic [ref=e1731]: Explain
+                    - tab "Chart" [ref=e1732] [cursor=pointer]:
+                      - generic [ref=e1733]: Chart
+                    - button "Export" [disabled]:
+                      - generic: Export
+                      - generic:
+                        - img
+                  - generic [ref=e1734]:
+                    - button [ref=e1735] [cursor=pointer]:
+                      - img [ref=e1737]
+                    - generic [ref=e1742]:
+                      - generic [ref=e1743] [cursor=pointer]:
+                        - generic [ref=e1744]: Source
+                        - button "Primary database" [ref=e1745]:
+                          - generic [ref=e1746]: Primary database
+                          - img [ref=e1748]
+                      - button "Role postgres" [ref=e1750] [cursor=pointer]:
+                        - generic [ref=e1752]:
+                          - generic [ref=e1753]: Role
+                          - generic [ref=e1754]: postgres
+                          - img [ref=e1755]
+                      - button "Run" [ref=e1757] [cursor=pointer]:
+                        - generic [ref=e1758]: Run
+                        - generic [ref=e2010]:
+                          - img [ref=e2011]
+                          - img [ref=e2013]
+                - generic [ref=e2017]:
+                  - paragraph [ref=e2019]: "Error: Failed to run sql query: ERROR: 23503: insert or update on table \"homework_assignments\" violates foreign key constraint \"homework_assignments_student_id_fkey\" DETAIL: Key (student_id)=(63dbe7a2-d87b-45aa-ad74-ea4ce80ab66c) is not present in table \"student_profiles\"."
+                  - button "Debug with Assistant" [ref=e2021] [cursor=pointer]:
+                    - img [ref=e2025]
+                    - generic [ref=e2028]: Debug with Assistant
+              - generic "Table grid footer" [ref=e2029]:
+                - button "0 row" [ref=e2030] [cursor=pointer]:
+                  - paragraph [ref=e2031]:
+                    - generic [ref=e2032]: 0 row
+  - alert [ref=e1770]: Supabase
+  - generic [ref=e1771]:
+    - alert
+    - alert
+```

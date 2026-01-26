@@ -8,6 +8,7 @@ import HomeworkScreen from '../screens/HomeworkScreen';
 import ProgressScreen from '../screens/ProgressScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import ConversationScreen from '../screens/ConversationScreen';
+import MessagesScreen from '../screens/MessagesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
 // 타입 임포트
@@ -32,6 +33,8 @@ const MainTabNavigator = () => {
             iconName = focused ? 'chatbubble' : 'chatbubble-outline';
           } else if (route.name === 'Conversation') {
             iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
+          } else if (route.name === 'Messages') {
+            iconName = focused ? 'mail' : 'mail-outline';
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
           }
@@ -62,6 +65,11 @@ const MainTabNavigator = () => {
         name="Conversation" 
         component={ConversationScreen} 
         options={{ title: '대화' }}
+      />
+      <Tab.Screen 
+        name="Messages" 
+        component={MessagesScreen} 
+        options={{ title: '메시지' }}
       />
       <Tab.Screen 
         name="Feedback" 

@@ -1,10 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
 import { createClient } from '@/lib/supabase/client'
 import MainLayout from '@/components/layout/MainLayout'
-import { 
+import {
   User as UserIcon,
   Mail,
   Phone,
@@ -15,7 +16,8 @@ import {
   Save,
   Camera,
   Eye,
-  EyeOff
+  EyeOff,
+  Smartphone
 } from 'lucide-react'
 
 interface SettingsContentProps {
@@ -24,6 +26,7 @@ interface SettingsContentProps {
 }
 
 export default function SettingsContent({ user, profile }: SettingsContentProps) {
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState('profile')
   const [formData, setFormData] = useState({
     full_name: profile?.full_name || '',
@@ -37,7 +40,7 @@ export default function SettingsContent({ user, profile }: SettingsContentProps)
   })
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setSaving] = useState(false)
-  
+
   const supabase = createClient()
 
   const handleSave = async () => {
@@ -68,8 +71,17 @@ export default function SettingsContent({ user, profile }: SettingsContentProps)
     { id: 'profile', name: '프로필', icon: UserIcon },
     { id: 'notifications', name: '알림', icon: Bell },
     { id: 'security', name: '보안', icon: Shield },
+    { id: 'devices', name: '디바이스 관리', icon: Smartphone, isLink: true },
     { id: 'preferences', name: '환경설정', icon: Palette }
   ]
+
+  const handleTabClick = (tabId: string, isLink?: boolean) => {
+    if (isLink && tabId === 'devices') {
+      router.push('/settings/devices')
+    } else {
+      setActiveTab(tabId)
+    }
+  }
 
   return (
     <MainLayout user={user} profile={profile}>
@@ -93,7 +105,7 @@ export default function SettingsContent({ user, profile }: SettingsContentProps)
                     return (
                       <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
+                        onClick={() => handleTabClick(tab.id, tab.isLink)}
                         className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md ${
                           activeTab === tab.id
                             ? 'bg-indigo-100 text-indigo-700'

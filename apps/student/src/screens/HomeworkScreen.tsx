@@ -49,15 +49,20 @@ const HomeworkScreen = () => {
     setLoading(true);
     
     try {
+      console.log('🏠 HomeworkScreen: loadHomeworks 시작...');
+      
       // 오프라인 모드 상태 확인
       const offlineModeEnabled = await checkOfflineMode();
+      console.log('🔧 오프라인 모드:', offlineModeEnabled);
       setIsOfflineModeActive(offlineModeEnabled);
       
       // 네트워크 연결 상태 확인
       const connected = await isConnected();
+      console.log('🌐 네트워크 연결:', connected);
       
       // 먼저 캐시된 데이터 확인 (빠른 화면 표시를 위해)
       const cachedHomeworks = await getOfflineData('homeworks');
+      console.log('💾 캐시된 숙제 데이터:', cachedHomeworks?.length || 0, '개');
       if (cachedHomeworks && cachedHomeworks.length > 0) {
         // 캐시된 데이터가 있으면 먼저 표시
         setHomeworks(cachedHomeworks);
@@ -66,13 +71,20 @@ const HomeworkScreen = () => {
       if (connected && !offlineModeEnabled) {
         // 온라인 모드
         try {
+          console.log('📡 homeworkAPI.getHomeworks() 호출 중...');
           const response = await homeworkAPI.getHomeworks();
+          console.log('📡 API 응답:', response);
           if (response.success) {
+            console.log('✅ API 성공 - 숙제 개수:', response.data?.homeworks?.length || 0);
+            console.log('📝 첫 번째 숙제 제목:', response.data?.homeworks?.[0]?.title);
+            console.log('📝 숙제 데이터 상세:', response.data?.homeworks?.[0]);
             setHomeworks(response.data.homeworks || []);
             setIsOfflineModeActive(false);
             
             // 오프라인 사용을 위해 캐시
             await saveOfflineData('homeworks', response.data.homeworks || []);
+          } else {
+            console.log('❌ API 실패:', response.error);
           }
         } catch (apiError) {
           console.error('API error:', apiError);

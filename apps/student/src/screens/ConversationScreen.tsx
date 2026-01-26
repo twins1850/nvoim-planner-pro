@@ -64,7 +64,7 @@ const ConversationScreen = () => {
     try {
       // 로컬 저장소에서 메시지 불러오기
       const savedMessages = await AsyncStorage.getItem('conversation_messages');
-      if (savedMessages) {
+      if (savedMessages && savedMessages !== 'undefined' && savedMessages !== 'null') {
         const parsedMessages = JSON.parse(savedMessages);
         setMessages(parsedMessages);
       } else {

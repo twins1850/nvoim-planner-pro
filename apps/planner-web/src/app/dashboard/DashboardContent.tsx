@@ -2,7 +2,6 @@
 
 import { User } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation'
-import MainLayout from '@/components/layout/MainLayout'
 import { 
   Users, 
   BookOpen, 
@@ -33,8 +32,7 @@ export default function DashboardContent({
   const router = useRouter()
 
   return (
-    <MainLayout user={user} profile={profile}>
-      <div className="p-6">
+    <div className="p-6">
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900">
@@ -137,7 +135,7 @@ export default function DashboardContent({
             <div className="px-6 py-4">
               <div className="grid grid-cols-2 gap-4">
                 <button
-                  onClick={() => router.push('/students')}
+                  onClick={() => router.push('/dashboard/students')}
                   className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-colors"
                 >
                   <Users className="h-8 w-8 text-indigo-600 mb-2" />
@@ -168,7 +166,6 @@ export default function DashboardContent({
             </div>
           </div>
         </div>
-      </div>
-    </MainLayout>
+    </div>
   )
 }

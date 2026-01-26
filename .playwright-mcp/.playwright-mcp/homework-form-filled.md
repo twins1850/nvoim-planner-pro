@@ -1,0 +1,718 @@
+### Page state
+- Page URL: http://localhost:3000/homework
+- Page Title: Create Next App
+- Page Snapshot:
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - heading "NVOIM Planner" [level=1] [ref=e5]
+      - generic [ref=e7]: homework
+    - generic [ref=e9]:
+      - button "대시보드" [ref=e10]:
+        - img [ref=e11]
+        - generic [ref=e14]: 대시보드
+      - button "학생" [ref=e15]:
+        - img [ref=e16]
+        - generic [ref=e21]: 학생
+      - button "메시지" [ref=e22]:
+        - img [ref=e23]
+        - generic [ref=e25]: 메시지
+      - button "숙제" [ref=e26]:
+        - img [ref=e27]
+        - generic [ref=e29]: 숙제
+      - button "더보기" [ref=e30]:
+        - img [ref=e31]
+        - generic [ref=e32]: 더보기
+    - generic [ref=e35]:
+      - heading "숙제 관리" [level=1] [ref=e38]
+      - main [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - heading "숙제 관리" [level=1] [ref=e43]
+              - paragraph [ref=e44]: 학생들의 숙제를 생성하고 관리하세요.
+            - generic [ref=e45]:
+              - link "예약 숙제" [ref=e46] [cursor=pointer]:
+                - /url: /homework/scheduled
+                - img [ref=e47]
+                - text: 예약 숙제
+              - button "숙제 생성" [ref=e49]:
+                - img [ref=e50]
+                - text: 숙제 생성
+          - generic [ref=e51]:
+            - generic [ref=e53]:
+              - img [ref=e55]
+              - generic [ref=e58]:
+                - paragraph [ref=e59]: 전체 숙제
+                - paragraph [ref=e60]: "25"
+            - generic [ref=e62]:
+              - img [ref=e64]
+              - generic [ref=e66]:
+                - paragraph [ref=e67]: 미제출
+                - paragraph [ref=e68]: "21"
+            - generic [ref=e70]:
+              - img [ref=e72]
+              - generic [ref=e75]:
+                - paragraph [ref=e76]: 완료
+                - paragraph [ref=e77]: "0"
+          - generic [ref=e78]:
+            - generic [ref=e80]:
+              - generic:
+                - img
+              - textbox "숙제 제목으로 검색..." [ref=e81]
+            - combobox [ref=e82]:
+              - option "모든 상태" [selected]
+              - option "대기 중"
+              - option "제출됨"
+              - option "검토됨"
+              - option "완료"
+          - generic [ref=e83]:
+            - heading "숙제 목록" [level=3] [ref=e85]
+            - generic [ref=e86]:
+              - generic [ref=e88]:
+                - generic [ref=e89]:
+                  - heading "올바른 ID 테스트 숙제" [level=4] [ref=e91]
+                  - paragraph [ref=e92]: 올바른 학생 ID로 숙제를 배정하여 학생 앱에서 정상적으로 표시되는지 테스트합니다. 이 숙제가 학생 앱에 나타나면 ID 문제가 해결된 것입니다.
+                  - generic [ref=e93]:
+                    - generic [ref=e94]:
+                      - img [ref=e95]
+                      - text: "마감: 01월 13일 08:59"
+                    - generic [ref=e97]:
+                      - img [ref=e98]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e101]:
+                      - img [ref=e102]
+                      - text: "배정: 1명"
+                  - generic [ref=e108]:
+                    - img [ref=e109]
+                    - generic [ref=e112]: 대기 중 1
+                - generic [ref=e113]:
+                  - button "보기" [ref=e114]:
+                    - img [ref=e115]
+                    - text: 보기
+                  - button "편집" [ref=e118]:
+                    - img [ref=e119]
+                    - text: 편집
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - heading "연결 테스트 숙제" [level=4] [ref=e126]
+                  - paragraph [ref=e127]: 새로 연결된 학생에게 숙제가 정상적으로 전달되는지 테스트하는 숙제입니다. 학생 앱에서 이 숙제가 보이면 연결이 성공적으로 완료된 것입니다.
+                  - generic [ref=e128]:
+                    - generic [ref=e129]:
+                      - img [ref=e130]
+                      - text: "마감: 01월 11일 08:59"
+                    - generic [ref=e132]:
+                      - img [ref=e133]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e136]:
+                      - img [ref=e137]
+                      - text: "배정: 1명"
+                  - generic [ref=e143]:
+                    - img [ref=e144]
+                    - generic [ref=e147]: 대기 중 1
+                - generic [ref=e148]:
+                  - button "보기" [ref=e149]:
+                    - img [ref=e150]
+                    - text: 보기
+                  - button "편집" [ref=e153]:
+                    - img [ref=e154]
+                    - text: 편집
+              - generic [ref=e158]:
+                - generic [ref=e159]:
+                  - heading "완전한 테스트 숙제" [level=4] [ref=e161]
+                  - paragraph [ref=e162]: 전체 프로세스 확인용
+                  - generic [ref=e163]:
+                    - generic [ref=e164]:
+                      - img [ref=e165]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e167]:
+                      - img [ref=e168]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e171]:
+                      - img [ref=e172]
+                      - text: "배정: 1명"
+                  - generic [ref=e178]:
+                    - img [ref=e179]
+                    - generic [ref=e182]: 대기 중 1
+                - generic [ref=e183]:
+                  - button "보기" [ref=e184]:
+                    - img [ref=e185]
+                    - text: 보기
+                  - button "편집" [ref=e188]:
+                    - img [ref=e189]
+                    - text: 편집
+              - generic [ref=e193]:
+                - generic [ref=e194]:
+                  - heading "디버그 테스트 숙제" [level=4] [ref=e196]
+                  - paragraph [ref=e197]: 콘솔 로그 확인용 테스트
+                  - generic [ref=e198]:
+                    - generic [ref=e199]:
+                      - img [ref=e200]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e202]:
+                      - img [ref=e203]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e206]:
+                      - img [ref=e207]
+                      - text: "배정: 1명"
+                  - generic [ref=e213]:
+                    - img [ref=e214]
+                    - generic [ref=e217]: 대기 중 1
+                - generic [ref=e218]:
+                  - button "보기" [ref=e219]:
+                    - img [ref=e220]
+                    - text: 보기
+                  - button "편집" [ref=e223]:
+                    - img [ref=e224]
+                    - text: 편집
+              - generic [ref=e228]:
+                - generic [ref=e229]:
+                  - heading "간단한 테스트 숙제" [level=4] [ref=e231]
+                  - paragraph [ref=e232]: 파일 없이 테스트
+                  - generic [ref=e233]:
+                    - generic [ref=e234]:
+                      - img [ref=e235]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e237]:
+                      - img [ref=e238]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e241]:
+                      - img [ref=e242]
+                      - text: "배정: 1명"
+                  - generic [ref=e248]:
+                    - img [ref=e249]
+                    - generic [ref=e252]: 대기 중 1
+                - generic [ref=e253]:
+                  - button "보기" [ref=e254]:
+                    - img [ref=e255]
+                    - text: 보기
+                  - button "편집" [ref=e258]:
+                    - img [ref=e259]
+                    - text: 편집
+              - generic [ref=e263]:
+                - generic [ref=e264]:
+                  - heading "간단한 테스트 숙제" [level=4] [ref=e266]
+                  - paragraph [ref=e267]: 파일 없이 테스트
+                  - generic [ref=e268]:
+                    - generic [ref=e269]:
+                      - img [ref=e270]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e272]:
+                      - img [ref=e273]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e276]:
+                      - img [ref=e277]
+                      - text: "배정: 1명"
+                  - generic [ref=e283]:
+                    - img [ref=e284]
+                    - generic [ref=e287]: 대기 중 1
+                - generic [ref=e288]:
+                  - button "보기" [ref=e289]:
+                    - img [ref=e290]
+                    - text: 보기
+                  - button "편집" [ref=e293]:
+                    - img [ref=e294]
+                    - text: 편집
+              - generic [ref=e298]:
+                - generic [ref=e299]:
+                  - heading "파일 첨부 테스트 숙제" [level=4] [ref=e301]
+                  - paragraph [ref=e302]: 첨부파일을 확인하고 다운로드 테스트를 진행하세요
+                  - generic [ref=e303]:
+                    - generic [ref=e304]:
+                      - img [ref=e305]
+                      - text: "마감: 01월 21일 08:59"
+                    - generic [ref=e307]:
+                      - img [ref=e308]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e311]:
+                      - img [ref=e312]
+                      - text: "배정: 1명"
+                  - generic [ref=e318]:
+                    - img [ref=e319]
+                    - generic [ref=e322]: 대기 중 1
+                - generic [ref=e323]:
+                  - button "보기" [ref=e324]:
+                    - img [ref=e325]
+                    - text: 보기
+                  - button "편집" [ref=e328]:
+                    - img [ref=e329]
+                    - text: 편집
+              - generic [ref=e333]:
+                - generic [ref=e334]:
+                  - heading "테스트 숙제" [level=4] [ref=e336]
+                  - paragraph [ref=e337]: 간단한 테스트 과제입니다
+                  - generic [ref=e338]:
+                    - generic [ref=e339]:
+                      - img [ref=e340]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e342]:
+                      - img [ref=e343]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e346]:
+                      - img [ref=e347]
+                      - text: "배정: 1명"
+                  - generic [ref=e353]:
+                    - img [ref=e354]
+                    - generic [ref=e357]: 대기 중 1
+                - generic [ref=e358]:
+                  - button "보기" [ref=e359]:
+                    - img [ref=e360]
+                    - text: 보기
+                  - button "편집" [ref=e363]:
+                    - img [ref=e364]
+                    - text: 편집
+              - generic [ref=e368]:
+                - generic [ref=e369]:
+                  - heading "파일 첨부 테스트 숙제" [level=4] [ref=e371]
+                  - paragraph [ref=e372]: 첨부된 파일을 다운로드하여 확인하고 과제를 수행하세요. 파일이 학생 앱에서 제대로 표시되는지 테스트합니다.
+                  - generic [ref=e373]:
+                    - generic [ref=e374]:
+                      - img [ref=e375]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e377]:
+                      - img [ref=e378]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e381]:
+                      - img [ref=e382]
+                      - text: "배정: 1명"
+                  - generic [ref=e388]:
+                    - img [ref=e389]
+                    - generic [ref=e392]: 대기 중 1
+                - generic [ref=e393]:
+                  - button "보기" [ref=e394]:
+                    - img [ref=e395]
+                    - text: 보기
+                  - button "편집" [ref=e398]:
+                    - img [ref=e399]
+                    - text: 편집
+              - generic [ref=e403]:
+                - generic [ref=e404]:
+                  - heading "영어 회화 연습 숙제" [level=4] [ref=e406]
+                  - paragraph [ref=e407]: 오늘 배운 표현들을 사용하여 5분 분량의 음성 녹음을 제출해주세요.
+                  - generic [ref=e408]:
+                    - generic [ref=e409]:
+                      - img [ref=e410]
+                      - text: "마감: 01월 11일 03:00"
+                    - generic [ref=e412]:
+                      - img [ref=e413]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e416]:
+                      - img [ref=e417]
+                      - text: "배정: 1명"
+                  - generic [ref=e423]:
+                    - img [ref=e424]
+                    - generic [ref=e427]: 대기 중 1
+                - generic [ref=e428]:
+                  - button "보기" [ref=e429]:
+                    - img [ref=e430]
+                    - text: 보기
+                  - button "편집" [ref=e433]:
+                    - img [ref=e434]
+                    - text: 편집
+              - generic [ref=e438]:
+                - generic [ref=e439]:
+                  - heading "영어 회화 연습 숙제" [level=4] [ref=e441]
+                  - paragraph [ref=e442]: 오늘 배운 표현들을 사용하여 5분 분량의 음성 녹음을 제출해주세요.
+                  - generic [ref=e443]:
+                    - generic [ref=e444]:
+                      - img [ref=e445]
+                      - text: "마감: 01월 11일 03:00"
+                    - generic [ref=e447]:
+                      - img [ref=e448]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e451]:
+                      - img [ref=e452]
+                      - text: "배정: 1명"
+                  - generic [ref=e458]:
+                    - img [ref=e459]
+                    - generic [ref=e462]: 대기 중 1
+                - generic [ref=e463]:
+                  - button "보기" [ref=e464]:
+                    - img [ref=e465]
+                    - text: 보기
+                  - button "편집" [ref=e468]:
+                    - img [ref=e469]
+                    - text: 편집
+              - generic [ref=e473]:
+                - generic [ref=e474]:
+                  - heading "영어 회화 연습 숙제" [level=4] [ref=e476]
+                  - paragraph [ref=e477]: 오늘 배운 표현들을 사용하여 5분 분량의 음성 녹음을 제출해주세요.
+                  - generic [ref=e478]:
+                    - generic [ref=e479]:
+                      - img [ref=e480]
+                      - text: "마감: 01월 11일 03:00"
+                    - generic [ref=e482]:
+                      - img [ref=e483]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e486]:
+                      - img [ref=e487]
+                      - text: "배정: 1명"
+                  - generic [ref=e493]:
+                    - img [ref=e494]
+                    - generic [ref=e497]: 대기 중 1
+                - generic [ref=e498]:
+                  - button "보기" [ref=e499]:
+                    - img [ref=e500]
+                    - text: 보기
+                  - button "편집" [ref=e503]:
+                    - img [ref=e504]
+                    - text: 편집
+              - generic [ref=e508]:
+                - generic [ref=e509]:
+                  - heading "영어 회화 연습 숙제" [level=4] [ref=e511]
+                  - paragraph [ref=e512]: 오늘 배운 표현들을 사용하여 5분 분량의 음성 녹음을 제출해주세요. 자유 주제로 이야기하시면 됩니다.
+                  - generic [ref=e513]:
+                    - generic [ref=e514]:
+                      - img [ref=e515]
+                      - text: "마감: 01월 11일 03:00"
+                    - generic [ref=e517]:
+                      - img [ref=e518]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e521]:
+                      - img [ref=e522]
+                      - text: "배정: 1명"
+                  - generic [ref=e528]:
+                    - img [ref=e529]
+                    - generic [ref=e532]: 대기 중 1
+                - generic [ref=e533]:
+                  - button "보기" [ref=e534]:
+                    - img [ref=e535]
+                    - text: 보기
+                  - button "편집" [ref=e538]:
+                    - img [ref=e539]
+                    - text: 편집
+              - generic [ref=e543]:
+                - generic [ref=e544]:
+                  - heading "간단한 테스트 숙제" [level=4] [ref=e546]
+                  - paragraph [ref=e547]: 이것은 파일 첨부 없는 간단한 테스트 숙제입니다. 학생 앱에서 숙제가 정상적으로 보이는지 확인해주세요.
+                  - generic [ref=e548]:
+                    - generic [ref=e549]:
+                      - img [ref=e550]
+                      - text: "마감: 01월 12일 08:59"
+                    - generic [ref=e552]:
+                      - img [ref=e553]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e556]:
+                      - img [ref=e557]
+                      - text: "배정: 1명"
+                  - generic [ref=e563]:
+                    - img [ref=e564]
+                    - generic [ref=e567]: 대기 중 1
+                - generic [ref=e568]:
+                  - button "보기" [ref=e569]:
+                    - img [ref=e570]
+                    - text: 보기
+                  - button "편집" [ref=e573]:
+                    - img [ref=e574]
+                    - text: 편집
+              - generic [ref=e578]:
+                - generic [ref=e579]:
+                  - heading "영어 회화 연습 - 파일 첨부 테스트" [level=4] [ref=e581]
+                  - paragraph [ref=e582]: 첨부된 파일을 확인하고 영어로 5분간 말하기 연습을 해주세요. 학생 앱에서 파일이 정상적으로 보이는지 테스트하는 숙제입니다.
+                  - generic [ref=e583]:
+                    - generic [ref=e584]:
+                      - img [ref=e585]
+                      - text: "마감: 01월 12일 08:59"
+                    - generic [ref=e587]:
+                      - img [ref=e588]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e591]:
+                      - img [ref=e592]
+                      - text: "배정: 1명"
+                  - generic [ref=e598]:
+                    - img [ref=e599]
+                    - generic [ref=e602]: 대기 중 1
+                - generic [ref=e603]:
+                  - button "보기" [ref=e604]:
+                    - img [ref=e605]
+                    - text: 보기
+                  - button "편집" [ref=e608]:
+                    - img [ref=e609]
+                    - text: 편집
+              - generic [ref=e613]:
+                - generic [ref=e614]:
+                  - heading "테스트 숙제" [level=4] [ref=e616]
+                  - paragraph [ref=e617]: 학생앱 전달 테스트용 숙제
+                  - generic [ref=e618]:
+                    - generic [ref=e619]:
+                      - img [ref=e620]
+                      - text: "마감: 01월 13일 08:59"
+                    - generic [ref=e622]:
+                      - img [ref=e623]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e626]:
+                      - img [ref=e627]
+                      - text: "배정: 1명"
+                  - generic [ref=e633]:
+                    - img [ref=e634]
+                    - generic [ref=e637]: 대기 중 1
+                - generic [ref=e638]:
+                  - button "보기" [ref=e639]:
+                    - img [ref=e640]
+                    - text: 보기
+                  - button "편집" [ref=e643]:
+                    - img [ref=e644]
+                    - text: 편집
+              - generic [ref=e648]:
+                - generic [ref=e649]:
+                  - heading "첨부파일 테스트 숙제" [level=4] [ref=e651]
+                  - paragraph [ref=e652]: 첨부파일 기능을 테스트하기 위한 숙제입니다.
+                  - generic [ref=e653]:
+                    - generic [ref=e654]:
+                      - img [ref=e655]
+                      - text: "마감: 01월 12일 08:59"
+                    - generic [ref=e657]:
+                      - img [ref=e658]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e661]:
+                      - img [ref=e662]
+                      - text: "배정: 1명"
+                  - generic [ref=e668]:
+                    - img [ref=e669]
+                    - generic [ref=e672]: 대기 중 1
+                - generic [ref=e673]:
+                  - button "보기" [ref=e674]:
+                    - img [ref=e675]
+                    - text: 보기
+                  - button "편집" [ref=e678]:
+                    - img [ref=e679]
+                    - text: 편집
+              - generic [ref=e683]:
+                - generic [ref=e684]:
+                  - heading "파일 첨부 테스트 숙제" [level=4] [ref=e686]
+                  - paragraph [ref=e687]: 이 숙제는 파일 첨부 기능이 정상적으로 작동하는지 테스트하기 위한 숙제입니다. 첨부된 파일을 확인해보세요.
+                  - generic [ref=e688]:
+                    - generic [ref=e689]:
+                      - img [ref=e690]
+                      - text: "마감: 01월 11일 09:40"
+                    - generic [ref=e692]:
+                      - img [ref=e693]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e696]:
+                      - img [ref=e697]
+                      - text: "배정: 1명"
+                  - generic [ref=e703]:
+                    - img [ref=e704]
+                    - generic [ref=e707]: 대기 중 1
+                - generic [ref=e708]:
+                  - button "보기" [ref=e709]:
+                    - img [ref=e710]
+                    - text: 보기
+                  - button "편집" [ref=e713]:
+                    - img [ref=e714]
+                    - text: 편집
+              - generic [ref=e718]:
+                - generic [ref=e719]:
+                  - heading "테스트" [level=4] [ref=e721]
+                  - paragraph [ref=e722]: 테스트
+                  - generic [ref=e723]:
+                    - generic [ref=e724]:
+                      - img [ref=e725]
+                      - text: "마감: 01월 12일 09:38"
+                    - generic [ref=e727]:
+                      - img [ref=e728]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e731]:
+                      - img [ref=e732]
+                      - text: "배정: 1명"
+                  - generic [ref=e738]:
+                    - img [ref=e739]
+                    - generic [ref=e742]: 대기 중 1
+                - generic [ref=e743]:
+                  - button "보기" [ref=e744]:
+                    - img [ref=e745]
+                    - text: 보기
+                  - button "편집" [ref=e748]:
+                    - img [ref=e749]
+                    - text: 편집
+              - generic [ref=e753]:
+                - generic [ref=e754]:
+                  - heading "파일 업로드 테스트 숙제" [level=4] [ref=e756]
+                  - paragraph [ref=e757]: 파일 업로드 기능을 테스트하기 위한 숙제입니다. 오디오, 이미지, 동영상 등의 파일을 첨부해 보세요.
+                  - generic [ref=e758]:
+                    - generic [ref=e759]:
+                      - img [ref=e760]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e762]:
+                      - img [ref=e763]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e766]:
+                      - img [ref=e767]
+                      - text: "배정: 1명"
+                  - generic [ref=e773]:
+                    - img [ref=e774]
+                    - generic [ref=e777]: 대기 중 1
+                - generic [ref=e778]:
+                  - button "보기" [ref=e779]:
+                    - img [ref=e780]
+                    - text: 보기
+                  - button "편집" [ref=e783]:
+                    - img [ref=e784]
+                    - text: 편집
+              - generic [ref=e788]:
+                - generic [ref=e789]:
+                  - heading "Unit 5 Speaking Test" [level=4] [ref=e791]
+                  - paragraph [ref=e792]: Unit 5의 새로운 단어와 표현을 사용하여 3분간 영어로 자기소개를 해보세요. 음성 파일로 녹음하여 제출하세요.
+                  - generic [ref=e793]:
+                    - generic [ref=e794]:
+                      - img [ref=e795]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e797]:
+                      - img [ref=e798]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e801]:
+                      - img [ref=e802]
+                      - text: "배정: 1명"
+                  - generic [ref=e808]:
+                    - img [ref=e809]
+                    - generic [ref=e812]: 대기 중 1
+                - generic [ref=e813]:
+                  - button "보기" [ref=e814]:
+                    - img [ref=e815]
+                    - text: 보기
+                  - button "편집" [ref=e818]:
+                    - img [ref=e819]
+                    - text: 편집
+              - generic [ref=e823]:
+                - generic [ref=e824]:
+                  - heading "파일 업로드 테스트 숙제" [level=4] [ref=e826]
+                  - paragraph [ref=e827]: 파일 업로드 기능을 테스트하기 위한 숙제입니다. 오디오 파일을 업로드해보세요.
+                  - generic [ref=e828]:
+                    - generic [ref=e829]:
+                      - img [ref=e830]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e832]:
+                      - img [ref=e833]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e836]:
+                      - img [ref=e837]
+                      - text: "배정: 0명"
+                - generic [ref=e842]:
+                  - button "보기" [ref=e843]:
+                    - img [ref=e844]
+                    - text: 보기
+                  - button "편집" [ref=e847]:
+                    - img [ref=e848]
+                    - text: 편집
+              - generic [ref=e852]:
+                - generic [ref=e853]:
+                  - heading "파일 첨부 테스트 숙제" [level=4] [ref=e855]
+                  - paragraph [ref=e856]: 파일 업로드 기능과 자동 삭제 시스템을 테스트하기 위한 숙제입니다. 첨부된 파일을 다운로드하고 과제를 완료해주세요.
+                  - generic [ref=e857]:
+                    - generic [ref=e858]:
+                      - img [ref=e859]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e861]:
+                      - img [ref=e862]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e865]:
+                      - img [ref=e866]
+                      - text: "배정: 0명"
+                - generic [ref=e871]:
+                  - button "보기" [ref=e872]:
+                    - img [ref=e873]
+                    - text: 보기
+                  - button "편집" [ref=e876]:
+                    - img [ref=e877]
+                    - text: 편집
+              - generic [ref=e881]:
+                - generic [ref=e882]:
+                  - heading "파일 업로드 기능 최종 테스트" [level=4] [ref=e884]
+                  - paragraph [ref=e885]: RLS 정책 무한 재귀 문제를 해결한 후 파일 업로드와 숙제 생성이 정상적으로 작동하는지 최종 테스트합니다.
+                  - generic [ref=e886]:
+                    - generic [ref=e887]:
+                      - img [ref=e888]
+                      - text: "마감: 01월 17일 08:59"
+                    - generic [ref=e890]:
+                      - img [ref=e891]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e894]:
+                      - img [ref=e895]
+                      - text: "배정: 0명"
+                - generic [ref=e900]:
+                  - button "보기" [ref=e901]:
+                    - img [ref=e902]
+                    - text: 보기
+                  - button "편집" [ref=e905]:
+                    - img [ref=e906]
+                    - text: 편집
+              - generic [ref=e910]:
+                - generic [ref=e911]:
+                  - heading "파일 첨부 테스트 숙제" [level=4] [ref=e913]
+                  - paragraph [ref=e914]: 파일 첨부 기능 테스트를 위한 숙제입니다.
+                  - generic [ref=e915]:
+                    - generic [ref=e916]:
+                      - img [ref=e917]
+                      - text: "마감: 01월 16일 08:59"
+                    - generic [ref=e919]:
+                      - img [ref=e920]
+                      - text: "예상 시간: 0분"
+                    - generic [ref=e923]:
+                      - img [ref=e924]
+                      - text: "배정: 0명"
+                - generic [ref=e929]:
+                  - button "보기" [ref=e930]:
+                    - img [ref=e931]
+                    - text: 보기
+                  - button "편집" [ref=e934]:
+                    - img [ref=e935]
+                    - text: 편집
+        - generic [ref=e940]:
+          - generic [ref=e942]:
+            - heading "새 숙제 생성" [level=2] [ref=e943]
+            - button [ref=e944]:
+              - img [ref=e945]
+          - generic [ref=e948]:
+            - generic [ref=e949]:
+              - generic [ref=e950]:
+                - img [ref=e951]
+                - text: 숙제 제목
+              - 'textbox "예: Unit 5 Speaking Practice" [ref=e954]': E2E Test Homework - 2026.01.16
+            - generic [ref=e955]:
+              - generic [ref=e956]: 설명 및 지시사항
+              - textbox "학생들이 수행해야 할 과제 내용을 자세히 입력하세요..." [ref=e957]: "이것은 전체 워크플로우 E2E 테스트를 위한 숙제입니다. 지시사항: 1. 학생 앱에서 이 숙제가 정상적으로 표시되는지 확인 2. 제목, 설명, 마감일이 모두 표시되는지 확인 3. 숙제 상세 화면이 오류 없이 로드되는지 확인 이 테스트는 플래너 앱에서 학생 앱까지의 완전한 데이터 흐름을 검증합니다."
+            - generic [ref=e958]:
+              - generic [ref=e959]:
+                - img [ref=e960]
+                - text: 마감일
+              - textbox [ref=e962]: 2026-01-19T23:59
+            - generic [ref=e963]:
+              - generic [ref=e964]:
+                - img [ref=e965]
+                - text: 첨부파일 (선택사항)
+              - generic [ref=e970] [cursor=pointer]:
+                - img [ref=e971]
+                - paragraph [ref=e974]: 클릭하여 파일 선택 또는 드래그앤드롭
+                - paragraph [ref=e975]: MP3, 동영상, 사진, 문서 (최대 20MB)
+            - generic [ref=e976]:
+              - generic [ref=e977]:
+                - img [ref=e978]
+                - text: 배정할 학생 선택 (2/2명 선택됨)
+              - generic [ref=e983]:
+                - generic [ref=e984]:
+                  - checkbox "전체 선택" [checked] [active] [ref=e985]
+                  - generic [ref=e986]: 전체 선택
+                - generic [ref=e987]:
+                  - generic [ref=e988]:
+                    - checkbox "사용자(test@example.com)" [checked] [ref=e989]
+                    - generic [ref=e990] [cursor=pointer]:
+                      - text: 사용자
+                      - generic [ref=e991]: (test@example.com)
+                  - generic [ref=e992]:
+                    - checkbox "테스트 학생(teststudent@example.com)" [checked] [ref=e993]
+                    - generic [ref=e994] [cursor=pointer]:
+                      - text: 테스트 학생
+                      - generic [ref=e995]: (teststudent@example.com)
+            - generic [ref=e996]:
+              - checkbox "학생들에게 실시간 알림 전송" [checked] [ref=e997]
+              - generic [ref=e998]: 학생들에게 실시간 알림 전송
+          - generic [ref=e1000]:
+            - button "취소" [ref=e1001]
+            - button "숙제 생성 및 배정" [ref=e1002]:
+              - img [ref=e1003]
+              - text: 숙제 생성 및 배정
+  - button "Open Next.js Dev Tools" [ref=e1011] [cursor=pointer]:
+    - img [ref=e1012]
+  - alert [ref=e1015]
+```

@@ -1,0 +1,581 @@
+### New console messages
+- [WARNING] The resource https://vercel.com/_next/static/chunks/e8e37f8ff1fdb82d.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/71fa55f8605ff157.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/9cd2b0ac243a3460.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/7db02895550e0f4a.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/ede5e2cf99338bc8.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/f333c089d25d0cf1.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/6d155db81c9d2268.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/77be3cead573498a.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/5d13c439ac2e54e1.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/f8b9e2f1f308005f.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/4cd62063ee94d3af.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/7f50d9f66f249f6d.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/c2715692b6156390.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/5b0f9b7444c3600a.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/650d89da45e23bae.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/356b385077a21030.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/087d50132d1defaf.css?dpl=dpl_3tS28AHUD...
+- [WARNING] The resource https://vercel.com/_next/static/chunks/f847e672021e15ad.css?dpl=dpl_3tS28AHUD...
+
+### Open tabs
+- 0: [앱 비밀번호] (https://myaccount.google.com/apppasswords?rapt=AEjHL4PBay91be3ZFgpzNemyRgvk3B3JtLOZGdYap_sEzBsoszWWPo3tHpi1AKhfSLGuEP1UIvEDxM67I_-gT5Op65YU6dnlf0aZjJ0BTlBvrf-A1BG8LhU)
+- 1: (current) [nvoim-planner-pro - Overview – Vercel] (https://vercel.com/twins1850s-projects/nvoim-planner-pro/settings/environment-variables?create=true)
+
+### Page state
+- Page URL: https://vercel.com/twins1850s-projects/nvoim-planner-pro/settings/environment-variables?create=true
+- Page Title: nvoim-planner-pro - Overview – Vercel
+- Page Snapshot:
+```yaml
+- generic:
+  - link:
+    - /url: "#geist-skip-nav"
+    - text: Skip to content
+  - generic:
+    - banner:
+      - button:
+        - img
+      - navigation:
+        - list:
+          - listitem:
+            - img
+            - generic:
+              - link:
+                - /url: /twins1850s-projects
+                - img:
+                  - img
+                - paragraph: twins1850's projects
+                - generic:
+                  - generic: Hobby
+              - generic:
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+          - listitem:
+            - img
+            - generic:
+              - link:
+                - /url: /twins1850s-projects/nvoim-planner-pro
+                - img
+                - paragraph: nvoim-planner-pro
+              - generic:
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+        - generic:
+          - list:
+            - button [ref=e680]:
+              - generic [ref=e42]:
+                - img [ref=e44]
+                - generic [ref=e46]: Find…
+                - generic [ref=e48]: F
+            - generic:
+              - button:
+                - generic: Feedback
+          - generic:
+            - generic:
+              - button:
+                - generic:
+                  - generic:
+                    - img
+                  - img
+            - button:
+              - generic:
+                - img
+            - generic:
+              - button:
+                - generic:
+                  - img:
+                    - img
+    - main:
+      - generic:
+        - generic:
+          - generic:
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro
+              - text: Overview
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/deployments
+              - text: Deployments
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/analytics
+              - text: Analytics
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/speed-insights
+              - text: Speed Insights
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/logs
+              - text: Logs
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/observability
+              - text: Observability
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/cdn/redirects
+              - text: Redirects
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/firewall
+              - text: Firewall
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/ai-gateway
+              - text: AI Gateway
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/sandboxes
+              - text: Sandboxes
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/stores
+              - text: Storage
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/flags
+              - text: Flags
+            - link:
+              - /url: /twins1850s-projects/nvoim-planner-pro/settings
+              - text: Settings
+        - generic:
+          - button:
+            - generic:
+              - img
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading [level=1]: Project Settings
+                            - link:
+                              - /url: /twins1850s-projects/~/settings
+                              - img
+                              - text: Go to Team Settings
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - searchbox
+                        - generic:
+                          - img
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/general
+                      - generic: General
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/build-and-deployment
+                      - generic: Build and Deployment
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/domains
+                      - generic: Domains
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/environments
+                      - generic: Environments
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/environment-variables
+                      - generic: Environment Variables
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/git
+                      - generic: Git
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/integrations
+                      - generic: Integrations
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/deployment-protection
+                      - generic: Deployment Protection
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/functions
+                      - generic: Functions
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/caches
+                      - generic: Caches
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/cron-jobs
+                      - generic: Cron Jobs
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/microfrontends
+                      - generic: Microfrontends
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/project-members
+                      - generic: Project Members
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/drains
+                      - generic: Drains
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/security
+                      - generic: Security
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/connectivity
+                      - generic: Connectivity
+                    - link:
+                      - /url: /twins1850s-projects/nvoim-planner-pro/settings/advanced
+                      - generic: Advanced
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading [level=2]: Environment Variables
+                            - paragraph:
+                              - text: Store API keys, tokens, and config securely.
+                              - link:
+                                - /url: /docs/environment-variables
+                                - text: Learn more
+                                - img
+                          - generic:
+                            - button:
+                              - generic: Link Shared Variable
+                            - button:
+                              - generic: Add Environment Variable
+                      - tablist:
+                        - tab [selected]: Project
+                        - tab: Shared
+                      - generic:
+                        - generic:
+                          - generic:
+                            - searchbox
+                            - generic:
+                              - img
+                        - generic:
+                          - combobox:
+                            - generic:
+                              - generic:
+                                - searchbox: All Environments
+                                - button:
+                                  - img
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - img
+                              - combobox
+                              - generic:
+                                - img
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - img
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - button:
+                                                - generic: GMAIL_USER
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Production
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - img
+                                          - paragraph: •••••••••••••••
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic [ref=e436] [cursor=pointer]:
+                                            - generic [ref=e437]: Added
+                                            - text: 56s ago
+                                          - generic:
+                                            - img
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - img
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - button:
+                                                - generic: SUPABASE_SERVICE_ROLE_KEY
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Production
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - img
+                                          - paragraph: •••••••••••••••
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic [ref=e478] [cursor=pointer]:
+                                            - generic [ref=e479]: Added
+                                            - text: 11m ago
+                                          - generic:
+                                            - img
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - img
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - button:
+                                                - generic: NEXT_PUBLIC_APP_URL
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: All Environments
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - img
+                                          - paragraph: •••••••••••••••
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic [ref=e520] [cursor=pointer]:
+                                            - generic [ref=e521]: Added
+                                            - text: 21m ago
+                                          - generic:
+                                            - img
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - img
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - button:
+                                                - generic: NEXT_PUBLIC_SUPABASE_URL
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: All Environments
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - img
+                                          - paragraph: •••••••••••••••
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic [ref=e562] [cursor=pointer]:
+                                            - generic [ref=e563]: Added
+                                            - text: Jan 14
+                                          - generic:
+                                            - img
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - img
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - button:
+                                                - generic: NEXT_PUBLIC_SUPABASE_ANON_KEY
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: All Environments
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - img
+                                          - paragraph: •••••••••••••••
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic [ref=e604] [cursor=pointer]:
+                                            - generic [ref=e605]: Added
+                                            - text: Jan 14
+                                          - generic:
+                                            - img
+                                      - generic:
+                                        - generic:
+                                          - button:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - img
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - checkbox [checked]
+                                  - generic:
+                                    - img
+                              - generic:
+                                - text: Automatically expose
+                                - link:
+                                  - /url: /docs/environment-variables/system-environment-variables
+                                  - text: System Environment Variables
+                                  - img
+    - contentinfo:
+      - navigation:
+        - generic:
+          - link:
+            - /url: /home
+            - img
+          - list:
+            - listitem:
+              - link:
+                - /url: /home
+                - text: Home
+            - listitem:
+              - link:
+                - /url: /docs
+                - text: Docs
+            - listitem:
+              - link:
+                - /url: /kb
+                - text: Knowledge Base
+            - listitem:
+              - link:
+                - /url: /academy
+                - text: Academy
+            - listitem:
+              - button:
+                - generic:
+                  - generic:
+                    - text: SDKs
+                    - img
+            - listitem:
+              - link:
+                - /url: /help
+                - text: Help
+            - listitem:
+              - link:
+                - /url: /contact
+                - text: Contact
+            - listitem:
+              - button:
+                - generic:
+                  - generic:
+                    - text: Legal
+                    - img
+        - generic:
+          - link:
+            - /url: https://vercel-status.com
+            - generic:
+              - paragraph: Loading status…
+          - group:
+            - generic: "Select a display theme:"
+            - generic:
+              - generic:
+                - generic: system
+                - img
+            - generic:
+              - generic:
+                - generic: light
+                - img
+            - generic:
+              - generic:
+                - generic: dark
+                - img
+  - alert
+  - generic:
+    - generic:
+      - img
+  - dialog "Add Environment Variable" [ref=e682]:
+    - generic [ref=e683]:
+      - heading "Add Environment Variable" [level=2] [ref=e684]
+      - button "Close" [ref=e685] [cursor=pointer]:
+        - img [ref=e687]
+    - generic [ref=e691]:
+      - generic [ref=e692]:
+        - generic [ref=e693]:
+          - generic [ref=e695]:
+            - generic [ref=e696]:
+              - generic [ref=e699]:
+                - generic [ref=e700]: key
+                - textbox "environment variable key" [ref=e702]:
+                  - /placeholder: CLIENT_KEY…
+                  - text: GMAIL_APP_PASSWORD
+              - generic [ref=e704]:
+                - generic [ref=e705]: value
+                - textbox "shared environment variable value" [ref=e708]: wmpdyjqzjkndqaei
+            - button "Add Note" [ref=e709] [cursor=pointer]:
+              - generic [ref=e710]: Add Note
+          - button "Add Another" [ref=e712] [cursor=pointer]:
+            - img [ref=e714]
+            - generic [ref=e716]: Add Another
+        - separator [ref=e719]
+        - generic [ref=e720]:
+          - generic [ref=e721]:
+            - generic [ref=e723]: Environments
+            - generic [ref=e724]:
+              - button "Production" [active] [ref=e810] [cursor=pointer]:
+                - generic [ref=e727]:
+                  - img [ref=e811]
+                  - generic [ref=e731]: Production
+                - img [ref=e733]
+              - generic [ref=e735]:
+                - generic [ref=e737]: Branch
+                - button "Select a Custom Preview Branch" [ref=e739] [cursor=pointer]:
+                  - generic [ref=e740]: Select a Custom Preview Branch
+          - generic [ref=e742]:
+            - generic "Sensitive" [ref=e813]:
+              - generic [ref=e814]: Sensitive
+              - checkbox "Sensitive" [ref=e815]
+            - img [ref=e751]
+      - generic [ref=e755]:
+        - generic [ref=e757]:
+          - button "Import .env" [ref=e759] [cursor=pointer]:
+            - img [ref=e761]
+            - generic [ref=e763]: Import .env
+          - paragraph [ref=e764]: or paste .env contents in Key input
+        - button "Save" [ref=e767] [cursor=pointer]:
+          - generic [ref=e768]: Save
+```

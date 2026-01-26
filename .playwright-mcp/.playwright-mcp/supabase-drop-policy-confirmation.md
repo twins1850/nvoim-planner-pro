@@ -1,0 +1,967 @@
+### Page state
+- Page URL: https://supabase.com/dashboard/project/ybcjkdcdruquqrdahtga/sql/f2a85970-8607-4da9-ac84-b0918e1fc642
+- Page Title: nvoim-planner-pro | twins1850's Org | Supabase
+- Page Snapshot:
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - banner:
+            - generic:
+              - generic:
+                - link:
+                  - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                  - img
+                - generic:
+                  - generic:
+                    - img
+                  - link:
+                    - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                    - img
+                    - generic: twins1850's Org
+                    - generic: Free
+                  - button:
+                    - generic:
+                      - img
+                  - generic:
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - img
+                      - generic: nvoim-planner-pro
+                    - button:
+                      - generic:
+                        - img
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - generic: main
+                      - generic: Production
+                    - button:
+                      - generic:
+                        - img
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+                    - generic: Connect
+              - generic:
+                - generic:
+                  - generic: Feedback
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+                      - paragraph: Search...
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: K
+                  - button [ref=e38] [cursor=pointer]:
+                    - img [ref=e40]
+                  - button [ref=e44] [cursor=pointer]:
+                    - img [ref=e46]
+                  - button [ref=e48] [cursor=pointer]:
+                    - img [ref=e50]
+                  - button [ref=e52] [cursor=pointer]:
+                    - img [ref=e56]
+                - button:
+                  - generic:
+                    - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - list:
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                            - img
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                            - img
+                      - generic:
+                        - generic:
+                          - listitem:
+                            - link:
+                              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                              - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                            - img
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+                            - img
+                - generic:
+                  - generic:
+                    - button:
+                      - generic:
+                        - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading [level=4]: SQL Editor
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic: Search queries
+                                      - textbox:
+                                        - /placeholder: Search queries...
+                                      - button:
+                                        - img
+                                      - img
+                                  - button:
+                                    - generic:
+                                      - img
+                                - generic:
+                                  - button:
+                                    - img
+                                    - generic: Shared
+                                - generic:
+                                  - button:
+                                    - img
+                                    - generic: Favorites
+                                - generic:
+                                  - button [expanded]:
+                                    - img
+                                    - generic: PRIVATE (68)
+                                  - generic:
+                                    - tree:
+                                      - generic:
+                                        - img
+                                        - generic: Homework Assignments Schema
+                                      - generic:
+                                        - img
+                                        - generic: Homework assignments row-level security
+                                      - generic:
+                                        - img
+                                        - generic: Add encryption IV column to planner_api_keys
+                                      - generic:
+                                        - img
+                                        - generic: Lesson Videos Bucket & Access Policies
+                                      - generic:
+                                        - img
+                                        - generic: AI Video Analysis Schema
+                                      - generic:
+                                        - img
+                                        - generic: Access policies for student_profiles
+                                      - generic:
+                                        - img
+                                        - generic: student_profiles row-level access policies
+                                      - generic:
+                                        - img
+                                        - generic: Reset user password
+                                      - generic:
+                                        - img
+                                        - generic: Promote user to admin
+                                      - generic:
+                                        - img
+                                        - generic: Add 'admin' to user_role enum
+                                      - generic:
+                                        - img
+                                        - generic: Add admin role and promote user
+                                      - generic:
+                                        - img
+                                        - generic: RLS Policies for licenses Table
+                                      - generic:
+                                        - img
+                                        - generic: Planner Self-Activation License Policy
+                                      - generic:
+                                        - img
+                                        - generic: Public Routines Lookup
+                                      - generic:
+                                        - img
+                                        - generic: Indexes on licenses, usage_tracking, student_profiles, homework
+                                      - generic:
+                                        - img
+                                        - generic: RLS policies for licenses and usage_tracking
+                                      - generic:
+                                        - img
+                                        - generic: Inspect usage_tracking schema
+                                      - generic:
+                                        - img
+                                        - generic: Licenses Table Schema Overview
+                                      - generic:
+                                        - img
+                                        - generic: License & Usage Schema Audit
+                                      - generic:
+                                        - img
+                                        - generic: Subscription License and Usage Management
+                                      - generic:
+                                        - img
+                                        - generic: Homework Counts by Student
+                                      - generic:
+                                        - img
+                                        - generic: Homework Assignments by Student
+                                      - generic:
+                                        - img
+                                        - generic: Students' Assigned Homework View Policy
+                                      - generic:
+                                        - img
+                                        - generic: Review RLS policies for homework_assignments
+                                      - generic:
+                                        - img
+                                        - generic: Homework Assignments Access Policies
+                                      - generic:
+                                        - img
+                                        - generic: Student Profiles Policy Check
+                                      - generic:
+                                        - img
+                                        - generic: Student profiles row-level access policies
+                                      - generic:
+                                        - img
+                                        - generic: Scheduled Homework
+                                      - generic:
+                                        - img
+                                        - generic: homework_assignments 외래 키 제약 확인
+                                      - generic:
+                                        - img
+                                        - generic: All Student Profiles
+                                      - generic:
+                                        - img
+                                        - generic: User and Profile Audit with Foreign-Key Check
+                                      - generic:
+                                        - img
+                                        - generic: Drop recursive RLS policy on homework
+                                      - generic:
+                                        - img
+                                        - generic: Messages table timestamps and auto-update trigger
+                                      - generic:
+                                        - img
+                                        - generic: Messages table with timestamps and update trigger
+                                      - generic:
+                                        - img
+                                        - generic: Messages table with RLS and indexing
+                                      - generic:
+                                        - img
+                                        - generic: Messages Table Restructure
+                                      - generic:
+                                        - img
+                                        - generic: Messages Schema Migration
+                                      - generic:
+                                        - img
+                                        - generic: Conversations and Messages Schema with Row-Level Security
+                                      - generic:
+                                        - img
+                                        - generic: Seed Student–Teacher Association
+                                      - generic:
+                                        - img
+                                        - generic: Verify Test User Accounts
+                                      - generic:
+                                        - img
+                                        - generic: Conversations Table for Teacher–Student Chats
+                                      - generic:
+                                        - img
+                                        - generic: Messaging and Conversation Tables
+                                      - generic:
+                                        - img
+                                        - generic: Enforce unique user_id on students
+                                      - generic:
+                                        - img
+                                        - generic: Fix student_profiles foreign key constraints
+                                      - generic:
+                                        - img
+                                        - generic: 학생 연결 및 프로필 보장 함수
+                                      - generic:
+                                        - img
+                                        - generic: Planner authentication and profile relationship check
+                                      - generic:
+                                        - img
+                                        - generic: List public tables
+                                      - generic:
+                                        - img
+                                        - generic: Student Course Management Tables
+                                      - generic:
+                                        - img
+                                        - generic: Allow authenticated role to execute create_subscription
+                                      - generic:
+                                        - img
+                                        - generic: Subscription creation function
+                                      - generic:
+                                        - img
+                                        - generic: Student Subscriptions
+                                      - generic:
+                                        - img
+                                        - generic: Subscription and Lesson ENUM Types
+                                      - generic:
+                                        - img
+                                        - generic: Subscription Frequency Type
+                                      - generic:
+                                        - img
+                                        - generic: Connect Student via Invite Code
+                                      - generic:
+                                        - img
+                                        - generic: Ensure Student Profile for Current User
+                                      - generic:
+                                        - img
+                                        - generic: Connect Student via Invite Code
+                                      - generic:
+                                        - img
+                                        - generic: Link Student to Planner
+                                      - generic:
+                                        - img
+                                        - generic: Link Student to Planner Function
+                                      - generic:
+                                        - img
+                                        - generic: Link Student to Planner Function
+                                      - generic:
+                                        - img
+                                        - generic: Link student to planner function
+                                      - generic:
+                                        - img
+                                        - generic: All Invite Codes
+                                      - generic:
+                                        - img
+                                        - generic: Invite code generation and planner linking
+                                      - generic:
+                                        - img
+                                        - generic: Student & Teacher Profiles with RLS and Indexes
+                                      - generic:
+                                        - img
+                                        - generic: Invite Codes and Student–Teacher Connections
+                                      - generic:
+                                        - img
+                                        - generic: Remove Auth User Creation Trigger
+                                      - generic:
+                                        - img
+                                        - generic: User Registration Handler
+                                      - generic:
+                                        - img
+                                        - generic: Function Source Code Lookup
+                                      - generic:
+                                        - img
+                                        - generic: Educational Platform Database Schema
+                                - generic:
+                                  - button [expanded]:
+                                    - img
+                                    - generic: Community
+                                  - generic:
+                                    - link:
+                                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/templates
+                                      - img
+                                      - text: templates
+                                    - link:
+                                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/quickstarts
+                                      - img
+                                      - text: quickstarts
+                              - generic:
+                                - button:
+                                  - generic: View running queries
+                    - separator:
+                      - generic:
+                        - img
+                    - generic:
+                      - main:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - button:
+                                - img
+                              - tablist:
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Invite Codes and Student–Teacher Connections
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Invite code generation and planner linking
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link student to planner function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner Function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner Function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Connect Student via Invite Code
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Ensure Student Profile for Current User
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Connect Student via Invite Code
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Planner authentication and profile relationship check
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: 학생 연결 및 프로필 보장 함수
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Fix student_profiles foreign key constraints
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Enforce unique user_id on students
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messaging and Conversation Tables
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Conversations Table for Teacher–Student Chats
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Seed Student–Teacher Association
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Conversations and Messages Schema with Row-Level Security
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messages Schema Migration
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messages table timestamps and auto-update trigger
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab [selected]:
+                                      - img
+                                      - generic:
+                                        - generic: Drop recursive RLS policy on homework
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: User and Profile Audit with Foreign-Key Check
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: All Student Profiles
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: homework_assignments 외래 키 제약 확인
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Scheduled Homework
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Student profiles row-level access policies
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Student Profiles Policy Check
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Homework Assignments Access Policies
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Review RLS policies for homework_assignments
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Students' Assigned Homework View Policy
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Homework Assignments by Student
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Homework Counts by Student
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Subscription License and Usage Management
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: License & Usage Schema Audit
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Licenses Table Schema Overview
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Inspect usage_tracking schema
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: RLS policies for licenses and usage_tracking
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Indexes on licenses, usage_tracking, student_profiles, homework
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Public Routines Lookup
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Planner Self-Activation License Policy
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Add admin role and promote user
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Add 'admin' to user_role enum
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Promote user to admin
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Reset user password
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: student_profiles row-level access policies
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Access policies for student_profiles
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: AI Video Analysis Schema
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Add encryption IV column to planner_api_keys
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Homework assignments row-level security
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Homework Assignments Schema
+                                      - button:
+                                        - img
+                                    - separator
+                                - button:
+                                  - img
+                            - status
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - code:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: "1"
+                                                  - generic:
+                                                    - generic: "2"
+                                                  - generic:
+                                                    - generic: "3"
+                                                  - generic:
+                                                    - generic: "4"
+                                                  - generic:
+                                                    - generic: "5"
+                                                  - generic:
+                                                    - generic: "6"
+                                                  - generic:
+                                                    - generic: "7"
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: "-- Delete the problematic RLS policy that causes infinite recursion"
+                                                  - generic:
+                                                    - generic: DROP POLICY IF EXISTS "Students can view assigned homework" ON public.homework;
+                                                  - generic:
+                                                    - generic: "-- Check remaining policies on homework table"
+                                                  - generic:
+                                                    - generic: SELECT schemaname, tablename, policyname, permissive, roles, cmd, qual
+                                                  - generic:
+                                                    - generic: FROM pg_policies
+                                                  - generic:
+                                                    - generic: WHERE tablename = 'homework';
+                                              - textbox: "-- Delete"
+                                - separator:
+                                  - generic:
+                                    - img
+                                - generic:
+                                  - generic:
+                                    - tablist:
+                                      - generic:
+                                        - tab [selected]:
+                                          - generic: Results
+                                        - tab:
+                                          - generic: Explain
+                                        - tab:
+                                          - generic: Chart
+                                      - generic:
+                                        - button:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Source
+                                              - button:
+                                                - generic: Primary database
+                                                - generic:
+                                                  - img
+                                            - button [ref=e1917] [cursor=pointer]:
+                                              - generic [ref=e1900]:
+                                                - generic [ref=e1901]: Role
+                                                - generic [ref=e1902]: postgres
+                                                - img [ref=e1903]
+                                            - button:
+                                              - generic: Run
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                                  - img
+                                    - generic:
+                                      - paragraph:
+                                        - text: Click
+                                        - code: Run
+                                        - text: to execute your query.
+  - generic:
+    - alert: nvoim-planner-pro | twins1850's Org | Supabase
+  - dialog "Potential issue detected with your query" [ref=e1919]:
+    - heading "Potential issue detected with your query" [level=2] [ref=e1921]
+    - alert [ref=e1922]:
+      - img [ref=e1923]
+      - generic [ref=e1926]:
+        - heading "The following potential issue has been detected:" [level=5] [ref=e1927]
+        - paragraph [ref=e1929]: Ensure that these are intentional before executing this query
+    - generic [ref=e1930]:
+      - list [ref=e1932]:
+        - listitem [ref=e1933]:
+          - generic [ref=e1934]: Query has destructive operation
+          - generic [ref=e1935]: Make sure you are not accidentally removing something important.
+      - paragraph [ref=e1936]: Please confirm that you would like to execute this query.
+    - generic [ref=e1938]:
+      - button "Cancel" [active] [ref=e1939] [cursor=pointer]:
+        - generic [ref=e1940]: Cancel
+      - button "Run this query" [ref=e1941] [cursor=pointer]:
+        - generic [ref=e1942]: Run this query
+    - button "Close" [ref=e1943] [cursor=pointer]:
+      - img [ref=e1944]
+      - generic [ref=e1947]: Close
+```

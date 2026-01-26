@@ -20,6 +20,8 @@ import {
 
 interface LessonVideo {
   id: string;
+  planner_id: string;
+  student_id: string | null;
   video_title: string;
   processing_status: string;
   error_message: string | null;
@@ -58,6 +60,7 @@ export default function LessonResultPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [showTranscript, setShowTranscript] = useState(false);
+  const [creatingHomework, setCreatingHomework] = useState(false);
 
   const supabase = createClient();
 
@@ -110,28 +113,68 @@ export default function LessonResultPage() {
   }
 
   async function createHomeworkFromRecommendation() {
-    if (!analysis?.recommended_homework) return;
+    if (!analysis?.recommended_homework || !video) return;
 
     const { title, description, difficulty, focus_areas } = analysis.recommended_homework;
 
+    setCreatingHomework(true);
+    setError('');
+
     try {
+      // 현재 사용자 (플래너) 정보 가져오기
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+      if (userError || !user) {
+        throw new Error('로그인 정보를 확인할 수 없습니다. 다시 로그인해주세요.');
+      }
+
       // homework 테이블에 추가
-      const { error } = await supabase
+      const { data: homeworkData, error: insertError } = await supabase
         .from('homework')
         .insert({
+          planner_id: user.id,
           title,
           description,
           difficulty,
-          resources: { focus_areas }
-        });
+          resources: {
+            focus_areas,
+            from_ai_analysis: true,
+            lesson_video_id: video.id,
+            lesson_video_title: video.video_title,
+            analysis_date: analysis.created_at
+          }
+        })
+        .select()
+        .single();
 
-      if (error) throw error;
+      if (insertError) throw insertError;
 
-      alert('추천 숙제가 성공적으로 생성되었습니다!');
+      // 만약 영상에 특정 학생이 연결되어 있다면 자동으로 과제 할당
+      if (video.student_id && homeworkData) {
+        const { error: assignError } = await supabase
+          .from('homework_assignments')
+          .insert({
+            homework_id: homeworkData.id,
+            student_id: video.student_id,
+            status: 'pending'
+          });
+
+        if (assignError) {
+          console.error('Assignment error (non-critical):', assignError);
+          // 과제 할당 실패는 치명적이지 않으므로 계속 진행
+        }
+      }
+
+      // 성공 메시지
+      alert('✅ 추천 숙제가 성공적으로 생성되었습니다!' +
+            (video.student_id ? '\n학생에게 자동으로 할당되었습니다.' : ''));
+
       router.push('/homework');
     } catch (err: any) {
       console.error('Homework creation error:', err);
-      alert('숙제 생성 중 오류가 발생했습니다.');
+      setError(err.message || '숙제 생성 중 오류가 발생했습니다. 다시 시도해주세요.');
+    } finally {
+      setCreatingHomework(false);
     }
   }
 
@@ -289,11 +332,28 @@ export default function LessonResultPage() {
           </div>
           <button
             onClick={createHomeworkFromRecommendation}
-            className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700"
+            disabled={creatingHomework}
+            className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
           >
-            숙제로 추가
+            {creatingHomework ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                생성 중...
+              </>
+            ) : (
+              '숙제로 추가'
+            )}
           </button>
         </div>
+
+        {/* 에러 메시지 표시 */}
+        {error && (
+          <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3 flex items-start gap-2">
+            <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-red-800">{error}</p>
+          </div>
+        )}
+
         <div className="space-y-3">
           <div>
             <h4 className="font-semibold text-purple-900 mb-1">

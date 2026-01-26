@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>엔보임 플래너 프로 - 관리자 라이선스 관리</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tab-button {
+      @apply px-6 py-3 rounded-lg font-semibold transition-colors;
+    }
+    .tab-button.active {
+      @apply bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg;
+    }
+    .tab-button:not(.active) {
+      @apply bg-white text-gray-700 hover:bg-gray-100;
+    }
+    .tab-content {
+      @apply hidden;
+    }
+    .tab-content.active {
+      @apply block;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- 헤더 -->
+  <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold">📊 엔보임 플래너 프로 - 라이선스 관리 시스템</h1>
+      <p class="mt-2">관리자 직접 발급 및 통합 관리</p>
+    </div>
+  </div>
+
+  <!-- 메인 컨텐츠 -->
+  <div class="container mx-auto px-4 py-8">
+    <!-- Tab Navigation -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button id="tab-issue" class="tab-button active" onclick="switchTab('issue')">
+        라이선스 발급
+      </button>
+      <button id="tab-list" class="tab-button" onclick="switchTab('list')">
+        전체 라이선스
+      </button>
+      <button id="tab-manage" class="tab-button" onclick="switchTab('manage')">
+        라이선스 관리
+      </button>
+      <button id="tab-usage" class="tab-button" onclick="switchTab('usage')">
+        사용 내역
+      </button>
+    </div>
+
+    <!-- Tab 1: 라이선스 발급 -->
+    <div id="content-issue" class="tab-content active">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- 왼쪽: 라이선스 발급 폼 -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-2xl font-bold mb-6">📝 라이선스 발급</h2>
+
+          <form id="licenseForm" class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">사용 기간 (일)</label>
+              <input type="number" id="durationDays" min="1" max="365" value="30" required
+                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">최대 학생 수</label>
+              <input type="number" id="maxStudents" min="1" max="100" value="10" required
+                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">고객 이름</label>
+              <input type="text" id="customerName" placeholder="홍길동" required
+                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">이메일 주소 *</label>
+              <input type="email" id="customerEmail" placeholder="customer@example.com" required
+                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">발급 사유 (메모)</label>
+              <textarea id="notes" rows="3" placeholder="예: 서비스 보상 4일, 학생 수 증가 등"
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-bold hover:from-purple-700 hover:to-indigo-700">
+              🚀 라이선스 발급 및 이메일 전송
+            </button>
+          </form>
+
+          <div id="resultMessage" class="mt-4 hidden"></div>
+        </div>
+
+        <!-- 오른쪽: 안내 -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4">💡 사용 안내</h2>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li>• <strong>사용 기간</strong>: 1~365일 사이에서 자유롭게 설정</li>
+              <li>• <strong>학생 수</strong>: 플래너가 관리할 수 있는 최대 학생 수</li>
+              <li>• <strong>이메일 발송</strong>: 라이선스 발급 즉시 자동 발송</li>
+              <li>• <strong>활성화 방법</strong>: 고객이 이메일에서 라이선스 키 확인 후 활성화</li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h3 class="text-lg font-bold mb-2">📋 사용 사례</h3>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li>• 현금/다른 계좌 직접 입금 시</li>
+              <li>• 서비스 보상 (시스템 오류 등)</li>
+              <li>• 학생 수 증가 (일할 계산)</li>
+              <li>• 무료 체험 (1일 단기)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: 전체 라이선스 -->
+    <div id="content-list" class="tab-content">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-6">📋 전체 라이선스</h2>
+
+        <!-- 검색 및 필터 -->
+        <div class="flex flex-wrap gap-4 mb-6">
+          <input type="text" id="search-licenses" placeholder="라이선스 키 검색"
+                 class="flex-1 min-w-[200px] px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+          <select id="filter-status" class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+            <option value="">전체 상태</option>
+            <option value="pending">대기중</option>
+            <option value="active">활성</option>
+            <option value="expired">만료</option>
+            <option value="superseded">대체됨</option>
+          </select>
+          <button onclick="loadAllLicenses()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            검색
+          </button>
+        </div>
+
+        <!-- 라이선스 테이블 -->
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border text-left">라이선스 키</th>
+                <th class="px-4 py-2 border text-left">상태</th>
+                <th class="px-4 py-2 border text-left">기간/학생수</th>
+                <th class="px-4 py-2 border text-left">만료일</th>
+                <th class="px-4 py-2 border text-left">남은 일수</th>
+                <th class="px-4 py-2 border text-left">디바이스</th>
+                <th class="px-4 py-2 border text-left">발급일</th>
+              </tr>
+            </thead>
+            <tbody id="licenses-table-body">
+              <tr>
+                <td colspan="7" class="px-4 py-8 text-center text-gray-500">
+                  검색 버튼을 클릭하여 라이선스 목록을 조회하세요
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 페이지네이션 -->
+        <div id="pagination" class="flex justify-center mt-6 gap-2"></div>
+      </div>
+    </div>
+
+    <!-- Tab 3: 라이선스 관리 -->
+    <div id="content-manage" class="tab-content">
+      <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-6">⚙️ 라이선스 관리</h2>
+
+        <form id="manageForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">라이선스 키</label>
+            <input type="text" id="manage-license-key" placeholder="예: 30D-15P-ABC123DEF456"
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500" required>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">작업 선택</label>
+            <select id="manage-operation" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500" required>
+              <option value="">-- 작업 선택 --</option>
+              <option value="extend">기간 연장</option>
+              <option value="suspend">라이선스 정지</option>
+              <option value="reactivate">라이선스 활성화</option>
+              <option value="update_students">학생 수 변경</option>
+              <option value="delete">라이선스 삭제 (위험)</option>
+            </select>
+          </div>
+
+          <div id="operation-fields"></div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">작업 사유</label>
+            <textarea id="manage-reason" rows="3" placeholder="작업 사유를 입력하세요"
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500" required></textarea>
+          </div>
+
+          <button type="submit"
+                  class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700">
+            실행
+          </button>
+        </form>
+
+        <div id="manage-result" class="mt-4 hidden"></div>
+      </div>
+    </div>
+
+    <!-- Tab 4: 사용 내역 -->
+    <div id="content-usage" class="tab-content">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-6">📜 라이선스 사용 내역</h2>
+
+        <!-- 라이선스 키 입력 -->
+        <div class="max-w-2xl mb-6">
+          <div class="flex gap-4">
+            <input type="text" id="usage-license-key" placeholder="라이선스 키를 입력하세요"
+                   class="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+            <button onclick="loadUsageStats()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              조회하기
+            </button>
+          </div>
+        </div>
+
+        <!-- 라이선스 정보 카드 -->
+        <div id="usage-license-info" class="hidden mb-6"></div>
+
+        <!-- 사용량 통계 -->
+        <div id="usage-stats" class="hidden mb-6"></div>
+
+        <!-- 일별 사용 내역 테이블 -->
+        <div id="usage-daily" class="hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Global variables
+    let currentPage = 1;
+    let adminPassword = null;
+
+    // Tab switching
+    function switchTab(tabName) {
+      // Hide all tabs and deactivate buttons
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+
+      // Show selected tab and activate button
+      document.getElementById(`content-${tabName}`).classList.add('active');
+      document.getElementById(`tab-${tabName}`).classList.add('active');
+
+      // Load data when switching to list tab
+      if (tabName === 'list') {
+        loadAllLicenses();
+      }
+    }
+
+    // Utility functions
+    function getStatusColor(status) {
+      const colors = {
+        pending: 'bg-yellow-100 text-yellow-800',
+        active: 'bg-green-100 text-green-800',
+        expired: 'bg-red-100 text-red-800',
+        superseded: 'bg-gray-100 text-gray-800'
+      };
+      return colors[status] || 'bg-gray-100';
+    }
+
+    function getStatusLabel(status) {
+      const labels = {
+        pending: '대기중',
+        active: '활성',
+        expired: '만료',
+        superseded: '대체됨'
+      };
+      return labels[status] || status;
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return '-';
+      const date = new Date(dateString);
+      return date.toLocaleDateString('ko-KR');
+    }
+
+    // Password verification on load
+    window.addEventListener('DOMContentLoaded', async () => {
+      adminPassword = sessionStorage.getItem('adminPassword');
+
+      if (!adminPassword) {
+        adminPassword = prompt('관리자 비밀번호를 입력하세요:');
+
+        if (!adminPassword) {
+          alert('비밀번호를 입력해야 합니다.');
+          window.location.href = '/';
+          return;
+        }
+
+        try {
+          const response = await fetch('/api/admin/verify-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password: adminPassword })
+          });
+
+          if (!response.ok) {
+            alert('비밀번호가 틀렸습니다.');
+            window.location.href = '/';
+            return;
+          }
+
+          sessionStorage.setItem('adminPassword', adminPassword);
+        } catch (error) {
+          console.error('비밀번호 검증 오류:', error);
+          alert('비밀번호 검증 중 오류가 발생했습니다.');
+          window.location.href = '/';
+        }
+      }
+    });
+
+    // Tab 1: License Issuance Form
+    document.getElementById('licenseForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        durationDays: parseInt(document.getElementById('durationDays').value),
+        maxStudents: parseInt(document.getElementById('maxStudents').value),
+        customerName: document.getElementById('customerName').value,
+        customerEmail: document.getElementById('customerEmail').value,
+        notes: document.getElementById('notes').value,
+        sendEmail: true
+      };
+
+      const resultDiv = document.getElementById('resultMessage');
+      resultDiv.className = 'mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg';
+      resultDiv.textContent = '라이선스 발급 중...';
+      resultDiv.classList.remove('hidden');
+
+      try {
+        const response = await fetch('/api/admin/licenses/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Admin-Password': adminPassword
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          resultDiv.className = 'mt-4 p-4 bg-green-50 border border-green-200 rounded-lg';
+          resultDiv.innerHTML = `
+            <h3 class="font-bold text-green-800 mb-2">✅ 라이선스 발급 성공!</h3>
+            <p class="text-sm text-green-700">라이선스 키: <strong>${result.license.license_key}</strong></p>
+            <p class="text-sm text-green-700">이메일 발송: ${result.emailSent ? '완료' : '실패'}</p>
+          `;
+          document.getElementById('licenseForm').reset();
+        } else {
+          throw new Error(result.error || '라이선스 발급 실패');
+        }
+      } catch (error) {
+        resultDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg';
+        resultDiv.innerHTML = `
+          <h3 class="font-bold text-red-800 mb-2">❌ 오류 발생</h3>
+          <p class="text-sm text-red-700">${error.message}</p>
+        `;
+      }
+    });
+
+    // Tab 2: Load All Licenses
+    async function loadAllLicenses(page = 1) {
+      const search = document.getElementById('search-licenses').value;
+      const status = document.getElementById('filter-status').value;
+
+      const params = new URLSearchParams({
+        page: page,
+        limit: 20,
+        ...(search && { search }),
+        ...(status && { status })
+      });
+
+      try {
+        const response = await fetch(`/api/admin/licenses?${params}`, {
+          headers: { 'X-Admin-Password': adminPassword }
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || '라이선스 조회 실패');
+        }
+
+        const tbody = document.getElementById('licenses-table-body');
+
+        if (!data.licenses || data.licenses.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="7" class="px-4 py-8 text-center text-gray-500">
+                조회된 라이선스가 없습니다
+              </td>
+            </tr>
+          `;
+        } else {
+          tbody.innerHTML = data.licenses.map(license => `
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-2 border font-mono text-sm">${license.license_key}</td>
+              <td class="px-4 py-2 border">
+                <span class="px-2 py-1 rounded text-sm ${getStatusColor(license.status)}">
+                  ${getStatusLabel(license.status)}
+                </span>
+              </td>
+              <td class="px-4 py-2 border">${license.duration_days}일 / ${license.max_students}명</td>
+              <td class="px-4 py-2 border">${formatDate(license.expires_at)}</td>
+              <td class="px-4 py-2 border ${license.remaining_days && license.remaining_days < 7 ? 'text-red-600 font-bold' : ''}">
+                ${license.remaining_days || '-'}일
+              </td>
+              <td class="px-4 py-2 border">${license.device_count}/${license.max_devices || 2}</td>
+              <td class="px-4 py-2 border">${formatDate(license.created_at)}</td>
+            </tr>
+          `).join('');
+        }
+
+        renderPagination(data.pagination);
+        currentPage = page;
+
+      } catch (error) {
+        console.error('Load licenses error:', error);
+        alert(error.message);
+      }
+    }
+
+    function renderPagination(pagination) {
+      const paginationDiv = document.getElementById('pagination');
+
+      if (!pagination || pagination.totalPages <= 1) {
+        paginationDiv.innerHTML = '';
+        return;
+      }
+
+      const buttons = [];
+
+      // Previous button
+      if (pagination.page > 1) {
+        buttons.push(`
+          <button onclick="loadAllLicenses(${pagination.page - 1})"
+                  class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+            이전
+          </button>
+        `);
+      }
+
+      // Page numbers
+      for (let i = 1; i <= pagination.totalPages; i++) {
+        if (i === pagination.page) {
+          buttons.push(`
+            <button class="px-4 py-2 bg-purple-600 text-white rounded">
+              ${i}
+            </button>
+          `);
+        } else {
+          buttons.push(`
+            <button onclick="loadAllLicenses(${i})"
+                    class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+              ${i}
+            </button>
+          `);
+        }
+      }
+
+      // Next button
+      if (pagination.page < pagination.totalPages) {
+        buttons.push(`
+          <button onclick="loadAllLicenses(${pagination.page + 1})"
+                  class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+            다음
+          </button>
+        `);
+      }
+
+      paginationDiv.innerHTML = buttons.join('');
+    }
+
+    // Tab 3: License Management
+    document.getElementById('manage-operation').addEventListener('change', (e) => {
+      const operation = e.target.value;
+      const fieldsDiv = document.getElementById('operation-fields');
+
+      if (operation === 'extend') {
+        fieldsDiv.innerHTML = `
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">연장 일수</label>
+            <input type="number" id="additional-days" min="1" max="365"
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+                   placeholder="예: 30" required>
+          </div>
+        `;
+      } else if (operation === 'update_students') {
+        fieldsDiv.innerHTML = `
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">새 학생 수</label>
+            <input type="number" id="new-max-students" min="1" max="100"
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+                   placeholder="예: 20" required>
+          </div>
+        `;
+      } else {
+        fieldsDiv.innerHTML = '';
+      }
+    });
+
+    document.getElementById('manageForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await executeLicenseOperation();
+    });
+
+    async function executeLicenseOperation() {
+      const licenseKey = document.getElementById('manage-license-key').value;
+      const operation = document.getElementById('manage-operation').value;
+      const reason = document.getElementById('manage-reason').value;
+
+      if (!licenseKey || !operation || !reason) {
+        alert('모든 필드를 입력해주세요.');
+        return;
+      }
+
+      const body = { operation, reason };
+
+      if (operation === 'extend') {
+        const additionalDays = document.getElementById('additional-days');
+        if (!additionalDays || !additionalDays.value) {
+          alert('연장 일수를 입력해주세요.');
+          return;
+        }
+        body.additional_days = parseInt(additionalDays.value);
+      } else if (operation === 'update_students') {
+        const newMaxStudents = document.getElementById('new-max-students');
+        if (!newMaxStudents || !newMaxStudents.value) {
+          alert('새 학생 수를 입력해주세요.');
+          return;
+        }
+        body.new_max_students = parseInt(newMaxStudents.value);
+      }
+
+      try {
+        let response;
+
+        if (operation === 'delete') {
+          if (!confirm('정말로 이 라이선스를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+            return;
+          }
+
+          response = await fetch(`/api/admin/licenses/${encodeURIComponent(licenseKey)}`, {
+            method: 'DELETE',
+            headers: {
+              'X-Admin-Password': adminPassword,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ reason })
+          });
+        } else {
+          response = await fetch(`/api/admin/licenses/${encodeURIComponent(licenseKey)}`, {
+            method: 'PATCH',
+            headers: {
+              'X-Admin-Password': adminPassword,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+          });
+        }
+
+        const result = await response.json();
+        showManageResult(result, response.ok);
+
+      } catch (error) {
+        console.error('License operation error:', error);
+        showManageResult({ error: error.message }, false);
+      }
+    }
+
+    function showManageResult(result, success) {
+      const resultDiv = document.getElementById('manage-result');
+      resultDiv.className = `mt-4 p-4 rounded-lg ${success ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`;
+      resultDiv.innerHTML = `
+        <h3 class="font-bold ${success ? 'text-green-800' : 'text-red-800'} mb-2">
+          ${success ? '✅ 작업 완료' : '❌ 작업 실패'}
+        </h3>
+        <p class="${success ? 'text-green-700' : 'text-red-700'}">${result.message || result.error}</p>
+      `;
+      resultDiv.classList.remove('hidden');
+
+      if (success) {
+        document.getElementById('manage-license-key').value = '';
+        document.getElementById('manage-operation').value = '';
+        document.getElementById('manage-reason').value = '';
+        document.getElementById('operation-fields').innerHTML = '';
+      }
+    }
+
+    // Tab 4: Usage Stats
+    async function loadUsageStats() {
+      const licenseKey = document.getElementById('usage-license-key').value;
+
+      if (!licenseKey) {
+        alert('라이선스 키를 입력해주세요.');
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/admin/licenses/${encodeURIComponent(licenseKey)}/usage`, {
+          headers: { 'X-Admin-Password': adminPassword }
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || '조회 실패');
+        }
+
+        // License info card
+        const infoDiv = document.getElementById('usage-license-info');
+        infoDiv.innerHTML = `
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-bold mb-4">라이선스 정보</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-sm text-gray-600">라이선스 키</p>
+                <p class="font-mono font-bold">${data.license.license_key}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600">상태</p>
+                <p class="font-bold">${getStatusLabel(data.license.status)}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600">기간 / 학생 수</p>
+                <p>${data.license.duration_days}일 / ${data.license.max_students}명</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600">만료일</p>
+                <p>${formatDate(data.license.expires_at)}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        infoDiv.classList.remove('hidden');
+
+        // Usage stats
+        const statsDiv = document.getElementById('usage-stats');
+        statsDiv.innerHTML = `
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-bold mb-4">사용량 요약</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="text-center">
+                <p class="text-3xl font-bold text-blue-600">${data.usage.total_days_used}</p>
+                <p class="text-sm text-gray-600">사용 일수</p>
+              </div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-green-600">${data.usage.remaining_days}</p>
+                <p class="text-sm text-gray-600">남은 일수</p>
+              </div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-purple-600">${data.usage.devices.length}</p>
+                <p class="text-sm text-gray-600">등록 디바이스</p>
+              </div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-orange-600">${data.usage.daily_stats.length}</p>
+                <p class="text-sm text-gray-600">활동 일수</p>
+              </div>
+            </div>
+
+            ${data.usage.devices.length > 0 ? `
+              <div class="mt-6">
+                <h4 class="font-bold mb-2">등록된 디바이스</h4>
+                ${data.usage.devices.map(device => `
+                  <div class="flex justify-between items-center bg-gray-50 p-3 rounded mb-2">
+                    <span class="font-mono text-sm">${device.fingerprint.substring(0, 16)}...</span>
+                    <span class="text-sm text-gray-600">${formatDate(device.registered_at)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : '<p class="mt-4 text-gray-500">등록된 디바이스 없음</p>'}
+          </div>
+        `;
+        statsDiv.classList.remove('hidden');
+
+        // Daily usage table
+        const dailyDiv = document.getElementById('usage-daily');
+        dailyDiv.innerHTML = `
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-bold mb-4">일별 사용 내역 (최근 30일)</h3>
+            <div class="overflow-x-auto">
+              <table class="min-w-full border">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="px-4 py-2 border text-left">날짜</th>
+                    <th class="px-4 py-2 border text-center">학생 수</th>
+                    <th class="px-4 py-2 border text-center">숙제 수</th>
+                    <th class="px-4 py-2 border text-center">메시지 수</th>
+                    <th class="px-4 py-2 border text-center">저장소 (MB)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${data.usage.daily_stats.length > 0 ? data.usage.daily_stats.map(stat => `
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-4 py-2 border">${stat.date}</td>
+                      <td class="px-4 py-2 border text-center">${stat.student_count}</td>
+                      <td class="px-4 py-2 border text-center">${stat.homework_count}</td>
+                      <td class="px-4 py-2 border text-center">${stat.message_count}</td>
+                      <td class="px-4 py-2 border text-center">${stat.storage_used_mb.toFixed(2)}</td>
+                    </tr>
+                  `).join('') : `
+                    <tr>
+                      <td colspan="5" class="px-4 py-2 border text-center text-gray-500">사용 내역 없음</td>
+                    </tr>
+                  `}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+        dailyDiv.classList.remove('hidden');
+
+      } catch (error) {
+        console.error('Load usage error:', error);
+        alert(error.message);
+      }
+    }
+  </script>
+</body>
+</html>

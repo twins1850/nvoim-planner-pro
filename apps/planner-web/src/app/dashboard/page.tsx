@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import DashboardLayout from '../../components/DashboardLayout'
 import DashboardContent from './DashboardContent'
 
 export default async function DashboardPage() {
@@ -53,13 +54,15 @@ export default async function DashboardPage() {
     .eq('status', 'pending')
 
   return (
-    <DashboardContent 
-      user={user}
-      profile={profile}
-      plannerProfile={plannerProfile}
-      studentCount={studentCount || 0}
-      todayLessons={todayLessons || []}
-      pendingHomeworkCount={pendingHomework?.length || 0}
-    />
+    <DashboardLayout title="대시보드">
+      <DashboardContent 
+        user={user}
+        profile={profile}
+        plannerProfile={plannerProfile}
+        studentCount={studentCount || 0}
+        todayLessons={todayLessons || []}
+        pendingHomeworkCount={pendingHomework?.length || 0}
+      />
+    </DashboardLayout>
   )
 }

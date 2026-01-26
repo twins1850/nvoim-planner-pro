@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -31,18 +31,7 @@ const ProfileScreen = () => {
   const [profile, setProfile] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    loadProfile();
-    
-    // 화면 포커스 시 데이터 새로고침
-    const unsubscribe = navigation.addListener('focus', () => {
-      loadProfile();
-    });
-    
-    return unsubscribe;
-  }, [navigation]);
-
-  const loadProfile = async () => {
+  const loadProfile = useCallback(async () => {
     setLoading(true);
     setError(null);
     
@@ -58,7 +47,16 @@ const ProfileScreen = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    loadProfile();
+    
+    // 화면 포커스 시 데이터 새로고침
+    const unsubscribe = navigation.addListener('focus', loadProfile);
+    
+    return unsubscribe;
+  }, [navigation, loadProfile]);
 
   const handleLogout = () => {
     // 웹 환경에서는 window.confirm 사용, 모바일에서는 Alert 사용

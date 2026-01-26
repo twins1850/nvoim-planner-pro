@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import DashboardLayout from '../../components/DashboardLayout'
 import HomeworkContent from './HomeworkContent'
 
 export default async function HomeworkPage() {
@@ -19,32 +20,25 @@ export default async function HomeworkPage() {
     .single()
 
   // 숙제 목록 가져오기 (최근 생성 순)
-  const { data: homework } = await supabase
+  console.log("📚 homework 목록 가져오기 시작...");
+  const { data: homework, error: homeworkFetchError } = await supabase
     .from('homework')
     .select(`
       *,
-      lessons (
-        id,
-        title,
-        classes (
-          id,
-          name
-        )
-      ),
       homework_assignments (
         id,
         student_id,
         status,
-        assigned_at,
-        profiles (
-          id,
-          full_name,
-          email
-        )
+        assigned_at
       )
     `)
     .eq('planner_id', user.id)
     .order('created_at', { ascending: false })
+  
+  console.log("homework 목록 결과:", { homework, homeworkFetchError });
+  if (homeworkFetchError) {
+    console.error("homework 목록 가져오기 실패:", homeworkFetchError);
+  }
 
   // 통계 데이터
   const totalHomework = homework?.length || 0
@@ -56,15 +50,17 @@ export default async function HomeworkPage() {
   ) || 0
 
   return (
-    <HomeworkContent 
-      user={user}
-      profile={profile}
-      homework={homework || []}
-      stats={{
-        total: totalHomework,
-        pending: pendingSubmissions,
-        completed: completedSubmissions
-      }}
-    />
+    <DashboardLayout title="숙제 관리">
+      <HomeworkContent 
+        user={user}
+        profile={profile}
+        homework={homework || []}
+        stats={{
+          total: totalHomework,
+          pending: pendingSubmissions,
+          completed: completedSubmissions
+        }}
+      />
+    </DashboardLayout>
   )
 }

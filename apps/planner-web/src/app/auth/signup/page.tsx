@@ -1,232 +1,265 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { createClient } from '@/lib/supabase/client'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
-
-const signupSchema = z.object({
-  email: z.string().email('유효한 이메일 주소를 입력해주세요'),
-  password: z.string().min(6, '비밀번호는 최소 6자 이상이어야 합니다'),
-  confirmPassword: z.string(),
-  fullName: z.string().min(2, '이름은 최소 2자 이상이어야 합니다'),
-  phone: z.string().optional(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: '비밀번호가 일치하지 않습니다',
-  path: ['confirmPassword'],
-})
-
-type SignupFormData = z.infer<typeof signupSchema>
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
+import { AlertCircle, Loader2, UserPlus } from 'lucide-react';
 
 export default function SignupPage() {
-  const router = useRouter()
-  const supabase = createClient()
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState(false)
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const activationToken = searchParams.get('token');
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignupFormData>({
-    resolver: zodResolver(signupSchema),
-  })
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [licenseInfo, setLicenseInfo] = useState<any>(null);
 
-  const onSubmit = async (data: SignupFormData) => {
-    setIsLoading(true)
-    setError(null)
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  useEffect(() => {
+    // 활성화 토큰 검증
+    if (!activationToken) {
+      router.push('/license-activate');
+      return;
+    }
+
+    // 토큰 디코딩 및 검증
+    try {
+      const decoded = JSON.parse(Buffer.from(activationToken, 'base64').toString());
+
+      if (decoded.expiresAt < Date.now()) {
+        setError('라이선스 활성화가 만료되었습니다. 다시 시도해주세요.');
+        setTimeout(() => router.push('/license-activate'), 3000);
+        return;
+      }
+
+      setLicenseInfo(decoded);
+    } catch (err) {
+      setError('유효하지 않은 활성화 토큰입니다.');
+      setTimeout(() => router.push('/license-activate'), 3000);
+    }
+  }, [activationToken, router]);
+
+  async function handleSignup(e: React.FormEvent) {
+    e.preventDefault();
+    setError('');
+
+    // 비밀번호 확인
+    if (formData.password !== formData.confirmPassword) {
+      setError('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    if (!licenseInfo) {
+      setError('라이선스 정보를 찾을 수 없습니다.');
+      return;
+    }
+
+    setLoading(true);
 
     try {
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: data.email,
-        password: data.password,
-      })
+      const supabase = createClient();
 
-      if (authError) {
-        setError(authError.message)
-        return
-      }
-
-      if (authData.user) {
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .insert({
-            id: authData.user.id,
-            email: data.email,
-            full_name: data.fullName,
-            phone: data.phone,
+      // 1. Supabase 가입
+      const { data: authData, error: signupError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            full_name: formData.fullName,
             role: 'planner'
-          })
-
-        if (profileError) {
-          setError('프로필 생성 중 오류가 발생했습니다: ' + profileError.message)
-          return
+          }
         }
+      });
+
+      if (signupError) {
+        setError(signupError.message);
+        return;
       }
 
-      setSuccess(true)
-    } catch (err) {
-      setError('회원가입 중 오류가 발생했습니다')
+      if (!authData.user) {
+        setError('회원가입에 실패했습니다.');
+        return;
+      }
+
+      // 2-1. 기존 활성 라이선스 비활성화
+      const { error: deactivateError } = await supabase
+        .from('licenses')
+        .update({
+          status: 'superseded',  // 새 라이선스로 대체됨
+          updated_at: new Date().toISOString()
+        })
+        .eq('planner_id', authData.user.id)
+        .eq('status', 'active');
+
+      if (deactivateError) {
+        console.error('Failed to deactivate old licenses:', deactivateError);
+        // 에러가 발생해도 계속 진행 (비즈니스 로직 우선)
+      } else {
+        console.log('Old licenses deactivated for user:', authData.user.id);
+      }
+
+      // 2-2. 새 라이선스 활성화
+      const expiresAt = new Date();
+      expiresAt.setDate(expiresAt.getDate() + (licenseInfo.license?.durationDays || 30));
+
+      const { error: licenseUpdateError } = await supabase
+        .from('licenses')
+        .update({
+          planner_id: authData.user.id,
+          status: 'active',
+          activated_at: new Date().toISOString(),
+          activated_by_user_id: authData.user.id,
+          expires_at: expiresAt.toISOString()
+        })
+        .eq('id', licenseInfo.licenseId);
+
+      if (licenseUpdateError) {
+        console.error('License update error:', licenseUpdateError);
+        // 가입은 성공했지만 라이선스 연결 실패
+        // 관리자에게 알림 필요
+      } else {
+        console.log('New license activated:', licenseInfo.licenseId);
+      }
+
+      // 3. profiles 테이블 업데이트 (트리거로 자동 생성되지만 명시적으로 확인)
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .upsert({
+          id: authData.user.id,
+          email: formData.email,
+          full_name: formData.fullName,
+          role: 'planner'
+        });
+
+      if (profileError) {
+        console.error('Profile creation error:', profileError);
+      }
+
+      // 4. 대시보드로 리다이렉트
+      router.push('/dashboard');
+
+    } catch (err: any) {
+      setError('서버 오류가 발생했습니다: ' + err.message);
     } finally {
-      setIsLoading(false)
+      setLoading(false);
     }
   }
 
-  if (success) {
+  if (!licenseInfo && !error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
-          <div className="bg-green-50 p-4 rounded-md">
-            <h3 className="text-sm font-medium text-green-800">
-              회원가입이 완료되었습니다!
-            </h3>
-            <div className="mt-2 text-sm text-green-700">
-              <p>입력하신 이메일로 확인 메일을 전송했습니다.</p>
-              <p>이메일을 확인하여 계정을 활성화해주세요.</p>
-            </div>
-            <div className="mt-4">
-              <Link
-                href="/auth/login"
-                className="text-sm font-medium text-green-800 hover:text-green-700"
-              >
-                로그인 페이지로 이동 →
-              </Link>
-            </div>
-          </div>
-        </div>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
       </div>
-    )
+    );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            플래너 회원가입
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            앤보임 영어회화 관리 시스템
-          </p>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <div className="flex items-center justify-center mb-6">
+          <UserPlus className="w-12 h-12 text-blue-600" />
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
-                이름
-              </label>
-              <input
-                {...register('fullName')}
-                id="fullName"
-                type="text"
-                autoComplete="name"
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="이름을 입력하세요"
-              />
-              {errors.fullName && (
-                <p className="mt-1 text-sm text-red-600">{errors.fullName.message}</p>
-              )}
-            </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                이메일
-              </label>
-              <input
-                {...register('email')}
-                id="email"
-                type="email"
-                autoComplete="email"
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="이메일 주소"
-              />
-              {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-              )}
-            </div>
+        <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">
+          플래너 계정 생성
+        </h1>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                전화번호 (선택)
-              </label>
-              <input
-                {...register('phone')}
-                id="phone"
-                type="tel"
-                autoComplete="tel"
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="전화번호"
-              />
-              {errors.phone && (
-                <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                비밀번호
-              </label>
-              <input
-                {...register('password')}
-                id="password"
-                type="password"
-                autoComplete="new-password"
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="비밀번호 (최소 6자)"
-              />
-              {errors.password && (
-                <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                비밀번호 확인
-              </label>
-              <input
-                {...register('confirmPassword')}
-                id="confirmPassword"
-                type="password"
-                autoComplete="new-password"
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="비밀번호 확인"
-              />
-              {errors.confirmPassword && (
-                <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
-              )}
-            </div>
+        {licenseInfo && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <p className="text-sm text-blue-800">
+              라이선스: {licenseInfo.license?.durationDays || 30}일 / 최대 {licenseInfo.license?.maxStudents || 10}명
+            </p>
           </div>
+        )}
 
-          {error && (
-            <div className="rounded-md bg-red-50 p-4">
-              <div className="text-sm text-red-800">{error}</div>
-            </div>
-          )}
-
-          <div className="flex items-center justify-between">
-            <Link
-              href="/auth/login"
-              className="text-sm text-indigo-600 hover:text-indigo-500"
-            >
-              이미 계정이 있으신가요? 로그인
-            </Link>
+        <form onSubmit={handleSignup} className="space-y-4">
+          <div>
+            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+              이름
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              value={formData.fullName}
+              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
           </div>
 
           <div>
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isLoading ? '가입 중...' : '회원가입'}
-            </button>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              이메일
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
           </div>
+
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              비밀번호
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              minLength={6}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+              비밀번호 확인
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              minLength={6}
+            />
+          </div>
+
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-800">{error}</p>
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full px-4 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            {loading ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                가입 중...
+              </>
+            ) : (
+              '계정 생성'
+            )}
+          </button>
         </form>
       </div>
     </div>
-  )
+  );
 }

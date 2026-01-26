@@ -48,11 +48,41 @@ const HomeScreen = () => {
 
   const loadUserInfo = async () => {
     try {
+      // AsyncStorage에서 먼저 시도
       const userInfo = await AsyncStorage.getItem('userInfo');
       if (userInfo && userInfo !== 'undefined' && userInfo !== 'null') {
         const parsed = JSON.parse(userInfo);
         if (parsed && parsed.profile && parsed.profile.name) {
           setUserName(parsed.profile.name);
+          return; // 성공하면 여기서 종료
+        }
+      }
+      
+      // AsyncStorage에 데이터가 없으면 Supabase에서 직접 가져오기
+      const { createClient } = await import('@supabase/supabase-js');
+      const supabase = createClient(
+        process.env.EXPO_PUBLIC_SUPABASE_URL!,
+        process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!
+      );
+      
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: profile } = await supabase
+          .from('student_profiles')
+          .select('full_name')
+          .eq('id', user.id)
+          .single();
+
+        if (profile && profile.full_name) {
+          setUserName(profile.full_name);
+
+          // AsyncStorage에 캐시
+          const userInfoToCache = {
+            profile: {
+              name: profile.full_name
+            }
+          };
+          await AsyncStorage.setItem('userInfo', JSON.stringify(userInfoToCache));
         }
       }
     } catch (error) {
@@ -67,8 +97,11 @@ const HomeScreen = () => {
     try {
       // 숙제 데이터 로드
       const homeworkResponse = await homeworkAPI.getHomeworks();
+      console.log("🏠 HomeScreen homework response:", homeworkResponse);
       if (homeworkResponse.success) {
-        const homeworks = homeworkResponse.data || [];
+        const homeworks = homeworkResponse.data?.homeworks || [];
+        console.log("🏠 HomeScreen homeworks data:", homeworks);
+        console.log("🏠 첫 번째 숙제 상세:", homeworks[0]);
         setUpcomingHomeworks(homeworks.slice(0, 3)); // 최근 3개만 표시
       }
       

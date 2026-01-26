@@ -21,6 +21,7 @@ const HomeworkCard: React.FC<HomeworkCardProps> = ({
   onPress,
   isOffline = false,
 }) => {
+  console.log(`🃏 HomeworkCard props - id: ${id}, title: "${title}", type: ${type}, status: ${status}`);
   // 상태에 따른 색상 및 아이콘 설정
   const getStatusColor = () => {
     switch (status) {

@@ -112,7 +112,7 @@ export default function LoginPage() {
               비밀번호를 잊으셨나요?
             </Link>
             <Link
-              href="/auth/signup"
+              href="/license-activate"
               className="text-sm text-indigo-600 hover:text-indigo-500"
             >
               회원가입

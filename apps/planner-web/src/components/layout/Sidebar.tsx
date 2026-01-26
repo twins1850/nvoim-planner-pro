@@ -2,33 +2,70 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { 
+import { useEffect, useState } from 'react'
+import {
   Home,
-  Users, 
-  BookOpen, 
-  ClipboardList, 
+  Users,
+  BookOpen,
+  ClipboardList,
   Calendar,
   MessageSquare,
   FileText,
   Settings,
-  BarChart
+  BarChart,
+  BrainCircuit,
+  Shield,
+  KeyRound
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { createClient } from '@/lib/supabase/client'
 
-const navigation = [
+const baseNavigation = [
   { name: '대시보드', href: '/dashboard', icon: Home },
-  { name: '학생 관리', href: '/students', icon: Users },
-  { name: '수업 관리', href: '/lessons', icon: BookOpen },
-  { name: '숙제 관리', href: '/homework', icon: ClipboardList },
-  { name: '일정 관리', href: '/calendar', icon: Calendar },
-  { name: '메시지', href: '/messages', icon: MessageSquare },
-  { name: '학습 자료', href: '/materials', icon: FileText },
-  { name: '진도 분석', href: '/analytics', icon: BarChart },
-  { name: '설정', href: '/settings', icon: Settings },
+  { name: '학생 관리', href: '/dashboard/students', icon: Users },
+  { name: '수업 관리', href: '/dashboard/lessons', icon: BookOpen },
+  { name: '숙제 관리', href: '/dashboard/homework', icon: ClipboardList },
+  { name: 'AI 피드백', href: '/dashboard/ai-feedback', icon: BrainCircuit },
+  { name: '일정 관리', href: '/dashboard/calendar', icon: Calendar },
+  { name: '메시지', href: '/dashboard/messages', icon: MessageSquare },
+  { name: '학습 자료', href: '/dashboard/materials', icon: FileText },
+  { name: '진도 분석', href: '/dashboard/analytics', icon: BarChart },
+  { name: '내 라이선스', href: '/license', icon: Shield },
+  { name: '구독 설정', href: '/dashboard/settings/subscription', icon: Settings },
+]
+
+const adminNavigation = [
+  { name: '라이선스 관리', href: '/admin/licenses', icon: KeyRound, adminOnly: true },
 ]
 
 export default function Sidebar() {
   const pathname = usePathname()
+  const [userRole, setUserRole] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function getUserRole() {
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+
+      if (user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', user.id)
+          .single()
+
+        setUserRole(profile?.role || null)
+      }
+    }
+
+    getUserRole()
+  }, [])
+
+  // Combine navigation arrays and filter based on user role
+  const navigation = [
+    ...baseNavigation,
+    ...(userRole === 'admin' ? adminNavigation : [])
+  ]
 
   return (
     <div className="flex h-full w-64 flex-col bg-gray-900">

@@ -14,6 +14,7 @@ export type MainTabParamList = {
   Progress: undefined;
   Feedback: undefined;
   Conversation: undefined;
+  Messages: undefined;
   Profile: undefined;
 };
 
@@ -42,11 +43,12 @@ export type ProfileStackParamList = {
 
 // 루트 네비게이션 타입
 export type RootStackParamList = {
-  Auth: NavigatorScreenParams<AuthStackParamList>;
-  Main: NavigatorScreenParams<MainTabParamList>;
+  Main: undefined;
+  Auth: undefined;
+  ConnectPlanner: undefined;
   HomeworkDetail: { homeworkId: string };
   HomeworkSubmission: { homeworkId: string };
-  AudioRecording: { homeworkId: string; questionId: string };
+  AudioRecording: { homeworkId: string };
   FeedbackDetail: { feedbackId: string };
   Settings: undefined;
   Notifications: undefined;

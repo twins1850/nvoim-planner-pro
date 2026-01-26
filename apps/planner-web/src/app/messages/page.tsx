@@ -1,6 +1,7 @@
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import DashboardLayout from '../../components/DashboardLayout'
 import MessagesContent from './MessagesContent'
 
 export default async function MessagesPage() {
@@ -57,10 +58,12 @@ export default async function MessagesPage() {
   }
 
   return (
-    <MessagesContent 
-      user={user} 
-      profile={profile}
-      students={students}
-    />
+    <DashboardLayout title="메시지">
+      <MessagesContent 
+        user={user} 
+        profile={profile}
+        students={students}
+      />
+    </DashboardLayout>
   )
 }

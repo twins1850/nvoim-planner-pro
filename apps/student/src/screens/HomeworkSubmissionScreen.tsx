@@ -22,7 +22,7 @@ import AudioRecorder from '../components/AudioRecorder';
 import { RootStackParamList } from '../navigation/types';
 
 // API
-import { homeworkAPI } from '../services/supabaseApi';
+import { homeworkAPI, aiAPI } from '../services/supabaseApi';
 import { 
   isConnected, 
   getOfflineData, 
@@ -48,6 +48,8 @@ const HomeworkSubmissionScreen = () => {
   const [error, setError] = useState<string | null>(null);
   const [isOfflineMode, setIsOfflineMode] = useState(false);
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
+  const [processingAI, setProcessingAI] = useState(false);
+  const [aiResults, setAIResults] = useState<{ [key: string]: any }>({});
 
   useEffect(() => {
     loadHomeworkDetail();
@@ -169,13 +171,85 @@ const HomeworkSubmissionScreen = () => {
     setAnswers(updatedAnswers);
   };
 
-  const handleAudioRecordingComplete = (audioFile: any, index: number) => {
+  const handleAudioRecordingComplete = async (audioFile: any, index: number) => {
     const updatedAnswers = [...answers];
     updatedAnswers[index] = {
       ...updatedAnswers[index],
       audioFile
     };
     setAnswers(updatedAnswers);
+
+    // AI 처리 시작 (온라인 모드에서만)
+    if (!isOfflineMode && audioFile && !audioFile.isOffline) {
+      await processAudioWithAI(audioFile, index);
+    }
+  };
+
+  const processAudioWithAI = async (audioFile: any, questionIndex: number) => {
+    try {
+      setProcessingAI(true);
+      
+      // 임시 제출 ID 생성 (실제로는 제출 후 받아와야 함)
+      const tempSubmissionId = `temp_${Date.now()}_${questionIndex}`;
+      
+      Alert.alert(
+        'AI 분석 중',
+        '음성을 분석하여 발음 피드백을 생성하고 있습니다. 잠시만 기다려주세요.',
+        [{ text: '확인' }]
+      );
+
+      const result = await aiAPI.processAudioSubmission(audioFile.uri, tempSubmissionId);
+      
+      if (result.success) {
+        // AI 결과 저장
+        setAIResults(prev => ({
+          ...prev,
+          [questionIndex]: result
+        }));
+
+        Alert.alert(
+          'AI 분석 완료! 🎉',
+          `발음 점수: ${result.analysis.score}점\n\n"${result.transcript}"\n\n${result.analysis.positive_feedback}`,
+          [
+            { 
+              text: '상세 피드백 보기', 
+              onPress: () => showDetailedFeedback(result, questionIndex) 
+            },
+            { text: '확인' }
+          ]
+        );
+      }
+    } catch (error) {
+      console.error('AI processing failed:', error);
+      Alert.alert(
+        'AI 분석 실패',
+        '음성 분석 중 문제가 발생했습니다. 나중에 다시 시도하거나 그대로 제출해도 됩니다.',
+        [{ text: '확인' }]
+      );
+    } finally {
+      setProcessingAI(false);
+    }
+  };
+
+  const showDetailedFeedback = (result: any, questionIndex: number) => {
+    // 상세 피드백을 보여주는 모달이나 별도 화면으로 이동
+    // 여기서는 Alert로 간단히 표시
+    const { transcript, analysis } = result;
+    let message = `🎤 발화: "${transcript}"\n\n`;
+    message += `📊 점수: ${analysis.score}점\n\n`;
+    message += `✨ 잘한 점: ${analysis.positive_feedback}\n\n`;
+    
+    if (analysis.corrections && analysis.corrections.length > 0) {
+      message += `🔧 교정사항:\n${analysis.corrections.join('\n')}\n\n`;
+    }
+    
+    if (analysis.better_expressions && analysis.better_expressions.length > 0) {
+      message += `🚀 더 나은 표현:\n${analysis.better_expressions.join('\n')}\n\n`;
+    }
+    
+    message += `📈 개선사항: ${analysis.areas_for_improvement}`;
+
+    Alert.alert('🤖 AI 피드백 상세', message, [{ text: '확인' }]);
   };
 
   const handleSubmit = async () => {
@@ -377,7 +451,32 @@ const HomeworkSubmissionScreen = () => {
                         <Text style={styles.audioFileText}>
                           음성 녹음 완료
                         </Text>
+                        {aiResults[activeQuestionIndex] && (
+                          <View style={styles.aiScoreContainer}>
+                            <Ionicons name="sparkles" size={16} color="#FF9800" />
+                            <Text style={styles.aiScoreText}>
+                              AI 점수: {aiResults[activeQuestionIndex].analysis.score}점
+                            </Text>
+                          </View>
+                        )}
                       </View>
+                      
+                      {processingAI && (
+                        <View style={styles.processingAI}>
+                          <ActivityIndicator size="small" color="#FF9800" />
+                          <Text style={styles.processingAIText}>AI가 음성을 분석하고 있습니다...</Text>
+                        </View>
+                      )}
+                      
+                      {aiResults[activeQuestionIndex] && (
+                        <TouchableOpacity
+                          style={styles.viewFeedbackButton}
+                          onPress={() => showDetailedFeedback(aiResults[activeQuestionIndex], activeQuestionIndex)}
+                        >
+                          <Ionicons name="sparkles" size={16} color="#FFFFFF" />
+                          <Text style={styles.viewFeedbackButtonText}>AI 피드백 보기</Text>
+                        </TouchableOpacity>
+                      )}
                       
                       <TouchableOpacity
                         style={styles.rerecordButton}
@@ -701,6 +800,50 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+  },
+  aiScoreContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 12,
+    backgroundColor: '#FFF3E0',
+    borderRadius: 12,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  aiScoreText: {
+    fontSize: 12,
+    color: '#F57F17',
+    fontWeight: '600',
+    marginLeft: 4,
+  },
+  processingAI: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF8E1',
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 8,
+  },
+  processingAIText: {
+    fontSize: 14,
+    color: '#F57F17',
+    marginLeft: 8,
+  },
+  viewFeedbackButton: {
+    backgroundColor: '#FF9800',
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 8,
+  },
+  viewFeedbackButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
+    marginLeft: 8,
   },
 });
 

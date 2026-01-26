@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { User } from '@supabase/supabase-js'
-import MainLayout from '@/components/layout/MainLayout'
+import CreateHomeworkModal from '@/components/homework/CreateHomeworkModal'
 import { 
   Plus, 
   Search, 
@@ -34,6 +34,7 @@ interface HomeworkContentProps {
 export default function HomeworkContent({ user, profile, homework, stats }: HomeworkContentProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -66,7 +67,7 @@ export default function HomeworkContent({ user, profile, homework, stats }: Home
   }
 
   return (
-    <MainLayout user={user} profile={profile}>
+    <>
       <div className="p-6">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
@@ -76,10 +77,21 @@ export default function HomeworkContent({ user, profile, homework, stats }: Home
               학생들의 숙제를 생성하고 관리하세요.
             </p>
           </div>
-          <button className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <Plus className="h-4 w-4 mr-2" />
-            숙제 생성
-          </button>
+          <div className="flex items-center space-x-3">
+            <a
+              href="/homework/scheduled"
+              className="inline-flex items-center px-4 py-2 bg-white border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <Calendar className="h-4 w-4 mr-2" />
+              예약 숙제
+            </a>
+            <button 
+              onClick={() => setIsCreateModalOpen(true)}
+              className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <Plus className="h-4 w-4 mr-2" />
+              숙제 생성
+            </button>
+          </div>
         </div>
 
         {/* Stats Cards */}
@@ -235,7 +247,9 @@ export default function HomeworkContent({ user, profile, homework, stats }: Home
                 첫 번째 숙제를 생성해보세요!
               </p>
               <div className="mt-6">
-                <button className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">
+                <button 
+                  onClick={() => setIsCreateModalOpen(true)}
+                  className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">
                   <Plus className="h-4 w-4 mr-2" />
                   숙제 생성
                 </button>
@@ -244,6 +258,16 @@ export default function HomeworkContent({ user, profile, homework, stats }: Home
           )}
         </div>
       </div>
-    </MainLayout>
+
+      {/* 숙제 생성 모달 */}
+      <CreateHomeworkModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        onSuccess={() => {
+          // 성공 시 숙제 목록 새로고침
+          window.location.reload();
+        }}
+      />
+    </>
   )
 }
