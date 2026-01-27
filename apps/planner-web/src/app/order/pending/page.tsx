@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
@@ -22,7 +22,7 @@ import { createClient } from '@/lib/supabase/client';
  * - 페이지 닫은 경우: PayAction Webhook은 계속 작동, 나중에 방문하면 확인 가능
  * - 입금 시간 제한 없음: 몇 분 후든, 몇 시간 후든 입금하면 자동 처리
  */
-export default function OrderPendingPage() {
+function OrderPendingPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -441,5 +441,26 @@ export default function OrderPendingPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function OrderPendingPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="animate-pulse">
+            <div className="h-10 bg-gray-200 rounded w-1/2 mx-auto mb-8"></div>
+            <div className="bg-white rounded-2xl shadow-lg p-8 space-y-4">
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <OrderPendingPageContent />
+    </Suspense>
   );
 }

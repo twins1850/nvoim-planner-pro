@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 /**
@@ -14,7 +14,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
  * - days: Duration in days (from price calculator)
  * - price: Total amount (from price calculator)
  */
-export default function OrderPage() {
+function OrderPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -364,5 +364,26 @@ export default function OrderPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function OrderPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="animate-pulse">
+            <div className="h-10 bg-gray-200 rounded w-1/2 mx-auto mb-8"></div>
+            <div className="bg-white rounded-2xl shadow-lg p-8 space-y-4">
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <OrderPageContent />
+    </Suspense>
   );
 }

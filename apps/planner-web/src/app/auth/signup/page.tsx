@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
+import { generateDeviceFingerprint } from '@/lib/deviceFingerprint';
 import { AlertCircle, Loader2, UserPlus } from 'lucide-react';
 
-export default function SignupPage() {
+function SignupPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const activationToken = searchParams.get('token');
@@ -13,6 +14,8 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [licenseInfo, setLicenseInfo] = useState<any>(null);
+  const [isTrialMode, setIsTrialMode] = useState(false);
+  const [deviceFingerprint, setDeviceFingerprint] = useState<string>('');
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -22,27 +25,63 @@ export default function SignupPage() {
   });
 
   useEffect(() => {
-    // 활성화 토큰 검증
-    if (!activationToken) {
-      router.push('/license-activate');
-      return;
-    }
+    async function initSignup() {
+      // 활성화 토큰이 없으면 체험 모드
+      if (!activationToken) {
+        setIsTrialMode(true);
+        // 디바이스 핑거프린트 생성
+        try {
+          const fingerprint = await generateDeviceFingerprint();
+          setDeviceFingerprint(fingerprint);
 
-    // 토큰 디코딩 및 검증
-    try {
-      const decoded = JSON.parse(Buffer.from(activationToken, 'base64').toString());
+          // 체험 자격 확인
+          const response = await fetch('/api/trial/check-eligibility', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ device_fingerprint: fingerprint }),
+          });
 
-      if (decoded.expiresAt < Date.now()) {
-        setError('라이선스 활성화가 만료되었습니다. 다시 시도해주세요.');
-        setTimeout(() => router.push('/license-activate'), 3000);
+          const data = await response.json();
+
+          if (!data.eligible) {
+            setError('이 기기에서는 이미 체험 라이선스를 사용하셨습니다.');
+            setTimeout(() => router.push('/'), 3000);
+            return;
+          }
+
+          // 체험 모드 정보 설정
+          setLicenseInfo({
+            license: {
+              durationDays: 7,
+              maxStudents: 5,
+            },
+            isTrial: true,
+          });
+        } catch (err) {
+          console.error('Failed to initialize trial mode:', err);
+          setError('체험 모드 초기화에 실패했습니다.');
+        }
         return;
       }
 
-      setLicenseInfo(decoded);
-    } catch (err) {
-      setError('유효하지 않은 활성화 토큰입니다.');
-      setTimeout(() => router.push('/license-activate'), 3000);
+      // 토큰 디코딩 및 검증
+      try {
+        const decoded = JSON.parse(Buffer.from(activationToken, 'base64').toString());
+
+        if (decoded.expiresAt < Date.now()) {
+          setError('라이선스 활성화가 만료되었습니다. 다시 시도해주세요.');
+          setTimeout(() => router.push('/license-activate'), 3000);
+          return;
+        }
+
+        setLicenseInfo(decoded);
+      } catch (err) {
+        setError('유효하지 않은 활성화 토큰입니다.');
+        setTimeout(() => router.push('/license-activate'), 3000);
+      }
     }
+
+    initSignup();
   }, [activationToken, router]);
 
   async function handleSignup(e: React.FormEvent) {
@@ -64,6 +103,30 @@ export default function SignupPage() {
 
     try {
       const supabase = createClient();
+
+      // 체험 모드: 체험 라이선스 생성
+      let trialLicense = null;
+      if (isTrialMode && deviceFingerprint) {
+        const trialResponse = await fetch('/api/trial/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            device_fingerprint: deviceFingerprint,
+            user_email: formData.email,
+            ip_address: window.location.hostname,
+            user_agent: navigator.userAgent,
+          }),
+        });
+
+        const trialData = await trialResponse.json();
+
+        if (!trialResponse.ok || !trialData.success) {
+          setError(trialData.error || '체험 라이선스 생성에 실패했습니다.');
+          return;
+        }
+
+        trialLicense = trialData.license;
+      }
 
       // 1. Supabase 가입
       const { data: authData, error: signupError } = await supabase.auth.signUp({
@@ -105,26 +168,58 @@ export default function SignupPage() {
       }
 
       // 2-2. 새 라이선스 활성화
-      const expiresAt = new Date();
-      expiresAt.setDate(expiresAt.getDate() + (licenseInfo.license?.durationDays || 30));
+      if (isTrialMode && trialLicense) {
+        // 체험 라이선스: 이미 생성되었으므로 planner_id와 activated_at만 업데이트
+        const { data: licenses, error: findError } = await supabase
+          .from('licenses')
+          .select('id')
+          .eq('license_key', trialLicense.license_key)
+          .single();
 
-      const { error: licenseUpdateError } = await supabase
-        .from('licenses')
-        .update({
-          planner_id: authData.user.id,
-          status: 'active',
-          activated_at: new Date().toISOString(),
-          activated_by_user_id: authData.user.id,
-          expires_at: expiresAt.toISOString()
-        })
-        .eq('id', licenseInfo.licenseId);
+        if (findError) {
+          console.error('Failed to find trial license:', findError);
+          setError('체험 라이선스 활성화에 실패했습니다.');
+          return;
+        }
 
-      if (licenseUpdateError) {
-        console.error('License update error:', licenseUpdateError);
-        // 가입은 성공했지만 라이선스 연결 실패
-        // 관리자에게 알림 필요
+        const { error: licenseUpdateError } = await supabase
+          .from('licenses')
+          .update({
+            planner_id: authData.user.id,
+            status: 'trial',
+            activated_at: new Date().toISOString(),
+            activated_by_user_id: authData.user.id,
+          })
+          .eq('id', licenses.id);
+
+        if (licenseUpdateError) {
+          console.error('Trial license update error:', licenseUpdateError);
+        } else {
+          console.log('Trial license activated:', licenses.id);
+        }
       } else {
-        console.log('New license activated:', licenseInfo.licenseId);
+        // 일반 라이선스: 기존 로직
+        const expiresAt = new Date();
+        expiresAt.setDate(expiresAt.getDate() + (licenseInfo.license?.durationDays || 30));
+
+        const { error: licenseUpdateError } = await supabase
+          .from('licenses')
+          .update({
+            planner_id: authData.user.id,
+            status: 'active',
+            activated_at: new Date().toISOString(),
+            activated_by_user_id: authData.user.id,
+            expires_at: expiresAt.toISOString()
+          })
+          .eq('id', licenseInfo.licenseId);
+
+        if (licenseUpdateError) {
+          console.error('License update error:', licenseUpdateError);
+          // 가입은 성공했지만 라이선스 연결 실패
+          // 관리자에게 알림 필요
+        } else {
+          console.log('New license activated:', licenseInfo.licenseId);
+        }
       }
 
       // 3. profiles 테이블 업데이트 (트리거로 자동 생성되지만 명시적으로 확인)
@@ -141,7 +236,12 @@ export default function SignupPage() {
         console.error('Profile creation error:', profileError);
       }
 
-      // 4. 대시보드로 리다이렉트
+      // 4. 체험 라이선스인 경우 디바이스 핑거프린트를 쿠키에 저장
+      if (isTrialMode && deviceFingerprint) {
+        document.cookie = `device_fingerprint=${deviceFingerprint}; path=/; max-age=${365 * 24 * 60 * 60}; secure; samesite=strict`;
+      }
+
+      // 5. 대시보드로 리다이렉트
       router.push('/dashboard');
 
     } catch (err: any) {
@@ -167,13 +267,14 @@ export default function SignupPage() {
         </div>
 
         <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">
-          플래너 계정 생성
+          {isTrialMode ? '무료 체험 시작' : '플래너 계정 생성'}
         </h1>
 
         {licenseInfo && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-            <p className="text-sm text-blue-800">
-              라이선스: {licenseInfo.license?.durationDays || 30}일 / 최대 {licenseInfo.license?.maxStudents || 10}명
+          <div className={`${isTrialMode ? 'bg-green-50 border-green-200' : 'bg-blue-50 border-blue-200'} border rounded-lg p-4 mb-6`}>
+            <p className={`text-sm ${isTrialMode ? 'text-green-800' : 'text-blue-800'}`}>
+              {isTrialMode && '🎉 7일 무료 체험 | 최대 5명 '}
+              {!isTrialMode && `라이선스: ${licenseInfo.license?.durationDays || 30}일 / 최대 ${licenseInfo.license?.maxStudents || 10}명`}
             </p>
           </div>
         )}
@@ -261,5 +362,17 @@ export default function SignupPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+      </div>
+    }>
+      <SignupPageContent />
+    </Suspense>
   );
 }

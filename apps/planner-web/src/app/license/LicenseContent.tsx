@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { parseLicenseKey } from '@/lib/licenseUtils'
@@ -27,7 +27,7 @@ interface LicenseContentProps {
   hasPlannerProfile: boolean
 }
 
-export default function LicenseContent({
+function LicenseContentInner({
   activeLicense,
   allLicenses,
   currentStudentCount,
@@ -53,6 +53,14 @@ export default function LicenseContent({
       setError('활성화된 라이선스가 없습니다. 새 라이선스를 입력하고 활성화해주세요.')
     } else if (redirectReason === 'expired') {
       setError('라이선스가 만료되었습니다. 새 라이선스를 구매하고 활성화해주세요.')
+    } else if (redirectReason === 'trial_expired') {
+      setError(
+        '🎉 7일 무료 체험 기간이 종료되었습니다! 계속 사용하시려면 관리자(support@nplannerpro.com)에게 문의하여 정식 라이선스를 발급받아주세요.'
+      )
+    } else if (redirectReason === 'device_mismatch') {
+      setError(
+        '⚠️ 체험 라이선스는 등록된 기기에서만 사용 가능합니다. 이 기기는 라이선스에 등록되지 않았습니다. 정식 라이선스를 구매하시려면 관리자(support@nplannerpro.com)에게 문의해주세요.'
+      )
     } else if (redirectReason === 'student_limit_exceeded') {
       setError(
         `학생 수 제한을 초과했습니다. 현재 ${currentCount}명이 등록되어 있으나, 라이선스 제한은 ${limitCount}명입니다. 라이선스를 업그레이드해주세요.`
@@ -128,6 +136,8 @@ export default function LicenseContent({
     switch (status) {
       case 'active':
         return 'bg-green-100 text-green-800'
+      case 'trial':
+        return 'bg-blue-100 text-blue-800'
       case 'expired':
         return 'bg-red-100 text-red-800'
       case 'pending':
@@ -142,6 +152,8 @@ export default function LicenseContent({
     switch (status) {
       case 'active':
         return '활성'
+      case 'trial':
+        return '체험'
       case 'expired':
         return '만료'
       case 'pending':
@@ -308,5 +320,25 @@ export default function LicenseContent({
         </div>
       )}
     </div>
+  )
+}
+
+export default function LicenseContent(props: LicenseContentProps) {
+  return (
+    <Suspense fallback={
+      <div className="p-4 max-w-4xl mx-auto">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div className="animate-pulse">
+            <div className="h-6 bg-gray-200 rounded w-1/4 mb-4"></div>
+            <div className="space-y-3">
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <LicenseContentInner {...props} />
+    </Suspense>
   )
 }
