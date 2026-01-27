@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run planner-web:build",
+  "installCommand": "npm install && npm run install:planner-web",
+  "outputDirectory": "apps/planner-web/.next"
+}
