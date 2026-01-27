@@ -109,18 +109,33 @@ export default function TrialBanner() {
             {trialInfo.daysLeft <= 3 && ' 체험 기간이 곧 종료됩니다!'}
           </p>
 
-          <div className={`flex items-center gap-2 text-sm ${getTextColor()}`}>
-            <Mail className="w-4 h-4" />
-            <span>
-              정식 버전으로 전환하시려면{' '}
-              <a
-                href="mailto:support@nplannerpro.com"
-                className="font-medium underline hover:no-underline"
-              >
-                관리자에게 문의
-              </a>
-              해주세요.
-            </span>
+          <div className="flex items-start sm:items-center gap-3 flex-col sm:flex-row">
+            <a
+              href="/upgrade"
+              className={`inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium text-white transition-all ${
+                trialInfo.daysLeft <= 1
+                  ? 'bg-red-600 hover:bg-red-700'
+                  : trialInfo.daysLeft <= 3
+                  ? 'bg-orange-600 hover:bg-orange-700'
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              지금 업그레이드하기
+            </a>
+
+            <div className={`flex items-center gap-2 text-sm ${getTextColor()}`}>
+              <Mail className="w-4 h-4" />
+              <span>
+                궁금한 점이 있으신가요?{' '}
+                <a
+                  href="mailto:support@nplannerpro.com"
+                  className="font-medium underline hover:no-underline"
+                >
+                  문의하기
+                </a>
+              </span>
+            </div>
           </div>
         </div>
       </div>
