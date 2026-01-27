@@ -55,9 +55,107 @@ export default async function AdminLicensesPage() {
     .order('created_at', { ascending: false })
     .limit(50)
 
+  // 통계 계산
+  const totalLicenses = recentLicenses?.length || 0;
+  const activeLicenses = recentLicenses?.filter((l) => l.status === 'active').length || 0;
+  const trialLicenses = recentLicenses?.filter((l) => l.status === 'trial').length || 0;
+  const expiredLicenses = recentLicenses?.filter((l) => l.status === 'expired').length || 0;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const todayLicenses = recentLicenses?.filter((l) => new Date(l.created_at) >= today).length || 0;
+
+  const weekAgo = new Date();
+  weekAgo.setDate(weekAgo.getDate() - 7);
+  weekAgo.setHours(0, 0, 0, 0);
+  const weekLicenses = recentLicenses?.filter((l) => new Date(l.created_at) >= weekAgo).length || 0;
+
+  const monthAgo = new Date();
+  monthAgo.setMonth(monthAgo.getMonth() - 1);
+  monthAgo.setHours(0, 0, 0, 0);
+  const monthLicenses = recentLicenses?.filter((l) => new Date(l.created_at) >= monthAgo).length || 0;
+
   return (
     <DashboardLayout title="라이선스 관리 (관리자)">
       <div className="max-w-7xl mx-auto">
+        {/* 통계 카드 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">총 라이선스</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">{totalLicenses}</p>
+              </div>
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">활성 라이선스</p>
+                <p className="text-2xl font-bold text-green-600 mt-1">{activeLicenses}</p>
+              </div>
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">체험 라이선스</p>
+                <p className="text-2xl font-bold text-blue-600 mt-1">{trialLicenses}</p>
+              </div>
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-600">만료 라이선스</p>
+                <p className="text-2xl font-bold text-red-600 mt-1">{expiredLicenses}</p>
+              </div>
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 발급 통계 */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">발급 통계</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="border-l-4 border-blue-600 pl-4">
+              <p className="text-sm text-gray-600">오늘</p>
+              <p className="text-xl font-bold text-gray-900">{todayLicenses}개</p>
+            </div>
+            <div className="border-l-4 border-green-600 pl-4">
+              <p className="text-sm text-gray-600">이번 주 (7일)</p>
+              <p className="text-xl font-bold text-gray-900">{weekLicenses}개</p>
+            </div>
+            <div className="border-l-4 border-purple-600 pl-4">
+              <p className="text-sm text-gray-600">이번 달 (30일)</p>
+              <p className="text-xl font-bold text-gray-900">{monthLicenses}개</p>
+            </div>
+          </div>
+        </div>
+
         {/* 주문 목록 */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
