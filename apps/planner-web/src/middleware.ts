@@ -67,29 +67,26 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl)
   }
 
-  // signup 페이지는 활성화 토큰 있을 때만 접근 가능
+  // signup 페이지는 토큰 없이도 접근 가능 (체험 모드 지원)
   if (request.nextUrl.pathname === '/auth/signup') {
     const token = request.nextUrl.searchParams.get('token')
 
-    if (!token) {
-      const redirectUrl = request.nextUrl.clone()
-      redirectUrl.pathname = '/license-activate'
-      return NextResponse.redirect(redirectUrl)
-    }
-
-    // 토큰 유효성 간단 검증 (상세 검증은 페이지에서)
-    try {
-      const decoded = JSON.parse(Buffer.from(token, 'base64').toString())
-      if (decoded.expiresAt < Date.now()) {
+    // 토큰이 있으면 유효성 검증
+    if (token) {
+      try {
+        const decoded = JSON.parse(Buffer.from(token, 'base64').toString())
+        if (decoded.expiresAt < Date.now()) {
+          const redirectUrl = request.nextUrl.clone()
+          redirectUrl.pathname = '/license-activate'
+          return NextResponse.redirect(redirectUrl)
+        }
+      } catch {
         const redirectUrl = request.nextUrl.clone()
         redirectUrl.pathname = '/license-activate'
         return NextResponse.redirect(redirectUrl)
       }
-    } catch {
-      const redirectUrl = request.nextUrl.clone()
-      redirectUrl.pathname = '/license-activate'
-      return NextResponse.redirect(redirectUrl)
     }
+    // 토큰이 없으면 체험 모드로 진행 (페이지에서 처리)
   }
 
   // Public paths that don't require authentication
@@ -159,12 +156,12 @@ export async function middleware(request: NextRequest) {
   // 관리자는 라이선스 검증 제외
   if (user && isProtectedPath && !request.nextUrl.pathname.startsWith('/license') && !request.nextUrl.pathname.startsWith('/admin')) {
     try {
-      // 현재 활성화된 라이선스 조회 (가장 최근 생성된 활성 라이선스)
+      // 현재 활성화된 라이선스 조회 (active 또는 trial 상태)
       const { data: licenses, error: licenseError } = await supabase
         .from('licenses')
         .select('*')
         .eq('planner_id', user.id)
-        .eq('status', 'active')
+        .in('status', ['active', 'trial'])
         .order('created_at', { ascending: false })
         .limit(1)
 
@@ -179,21 +176,35 @@ export async function middleware(request: NextRequest) {
       }
 
       // 만료일 확인
-      if (activeLicense.expires_at) {
-        const now = new Date()
-        const expiryDate = new Date(activeLicense.expires_at)
+      const now = new Date()
+      let expiryDate: Date | null = null
 
-        if (now > expiryDate) {
-          // 만료된 라이선스 → status를 'expired'로 업데이트
-          await supabase
-            .from('licenses')
-            .update({ status: 'expired' })
-            .eq('id', activeLicense.id)
+      // 체험 라이선스는 trial_expires_at 확인
+      if (activeLicense.is_trial && activeLicense.trial_expires_at) {
+        expiryDate = new Date(activeLicense.trial_expires_at)
+      } else if (activeLicense.expires_at) {
+        expiryDate = new Date(activeLicense.expires_at)
+      }
 
-          const redirectUrl = request.nextUrl.clone()
-          redirectUrl.pathname = '/license'
-          redirectUrl.searchParams.set('reason', 'expired')
-          return NextResponse.redirect(redirectUrl)
+      if (expiryDate && now > expiryDate) {
+        // 만료된 라이선스 → status를 'expired'로 업데이트
+        await supabase
+          .from('licenses')
+          .update({ status: 'expired' })
+          .eq('id', activeLicense.id)
+
+        const redirectUrl = request.nextUrl.clone()
+        redirectUrl.pathname = '/license'
+        redirectUrl.searchParams.set('reason', activeLicense.is_trial ? 'trial_expired' : 'expired')
+        return NextResponse.redirect(redirectUrl)
+      }
+
+      // 체험 만료 임박 시 헤더에 경고 추가 (3일 이내)
+      if (activeLicense.is_trial && expiryDate) {
+        const daysUntilExpiry = Math.ceil((expiryDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+        if (daysUntilExpiry <= 3 && daysUntilExpiry > 0) {
+          supabaseResponse.headers.set('X-Trial-Expiring', 'true')
+          supabaseResponse.headers.set('X-Trial-Days-Left', daysUntilExpiry.toString())
         }
       }
 
@@ -210,6 +221,29 @@ export async function middleware(request: NextRequest) {
         redirectUrl.searchParams.set('current', studentCount.toString())
         redirectUrl.searchParams.set('limit', activeLicense.max_students.toString())
         return NextResponse.redirect(redirectUrl)
+      }
+
+      // 체험 라이선스 디바이스 바인딩 검증
+      if (activeLicense.is_trial && activeLicense.device_tokens && activeLicense.device_tokens.length > 0) {
+        // 현재 디바이스의 핑거프린트 생성은 클라이언트에서만 가능
+        // 미들웨어는 서버에서 실행되므로 쿠키에 저장된 핑거프린트를 확인
+        const deviceFingerprint = request.cookies.get('device_fingerprint')?.value
+
+        if (!deviceFingerprint) {
+          // 디바이스 핑거프린트가 없으면 클라이언트에서 생성하도록 리다이렉트
+          const redirectUrl = request.nextUrl.clone()
+          redirectUrl.pathname = '/device-verify'
+          redirectUrl.searchParams.set('returnTo', request.nextUrl.pathname)
+          return NextResponse.redirect(redirectUrl)
+        }
+
+        // 등록된 디바이스인지 확인
+        if (!activeLicense.device_tokens.includes(deviceFingerprint)) {
+          const redirectUrl = request.nextUrl.clone()
+          redirectUrl.pathname = '/license'
+          redirectUrl.searchParams.set('reason', 'device_mismatch')
+          return NextResponse.redirect(redirectUrl)
+        }
       }
 
       // 라이선스 검증 통과 → 계속 진행

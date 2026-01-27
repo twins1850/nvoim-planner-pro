@@ -42,6 +42,11 @@ function LicenseContentInner({
   const supabase = createClient()
   const searchParams = useSearchParams()
 
+  // Set page title
+  useEffect(() => {
+    document.title = '라이선스 관리 | 엔보임 플래너 프로';
+  }, []);
+
   // 미들웨어에서 전달된 리다이렉트 이유 확인
   const redirectReason = searchParams.get('reason')
   const currentCount = searchParams.get('current')

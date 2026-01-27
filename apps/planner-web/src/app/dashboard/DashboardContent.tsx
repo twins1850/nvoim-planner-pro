@@ -2,10 +2,11 @@
 
 import { User } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation'
-import { 
-  Users, 
-  BookOpen, 
-  ClipboardList, 
+import TrialBanner from '@/components/trial/TrialBanner'
+import {
+  Users,
+  BookOpen,
+  ClipboardList,
   Calendar,
   Bell,
   TrendingUp,
@@ -33,6 +34,9 @@ export default function DashboardContent({
 
   return (
     <div className="p-6">
+        {/* Trial Banner */}
+        <TrialBanner />
+
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900">

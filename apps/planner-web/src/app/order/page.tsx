@@ -18,6 +18,11 @@ function OrderPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  // Set page title
+  useEffect(() => {
+    document.title = '주문하기 | 엔보임 플래너 프로';
+  }, []);
+
   // Get order details from URL parameters
   const studentCount = parseInt(searchParams.get('students') || '10');
   const durationDays = parseInt(searchParams.get('days') || '30');

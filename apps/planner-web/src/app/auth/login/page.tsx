@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
+import { generateDeviceFingerprint } from '@/lib/deviceFingerprint'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
@@ -42,6 +43,14 @@ export default function LoginPage() {
       if (error) {
         setError(error.message)
       } else {
+        // 로그인 성공 시 디바이스 핑거프린트를 쿠키에 저장
+        try {
+          const fingerprint = await generateDeviceFingerprint()
+          document.cookie = `device_fingerprint=${fingerprint}; path=/; max-age=${365 * 24 * 60 * 60}; secure; samesite=strict`
+        } catch (err) {
+          console.error('Failed to generate device fingerprint:', err)
+          // 에러가 발생해도 로그인은 계속 진행
+        }
         router.push('/dashboard')
       }
     } catch (err) {
