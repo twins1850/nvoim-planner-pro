@@ -93,8 +93,13 @@ export async function POST(req: NextRequest) {
 
     if (licenseError) {
       console.error('Error creating trial license:', licenseError)
+      console.error('License error details:', JSON.stringify(licenseError, null, 2))
       return NextResponse.json(
-        { error: 'Failed to create trial license' },
+        {
+          error: 'Failed to create trial license',
+          details: licenseError.message,
+          code: licenseError.code
+        },
         { status: 500 }
       )
     }
