@@ -33,12 +33,12 @@ export default function Home() {
               >
                 로그인
               </Link>
-              <a
-                href="#pricing"
+              <Link
+                href="/auth/signup"
                 className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg transition-all"
               >
-                시작하기
-              </a>
+                무료 체험 시작
+              </Link>
             </div>
           </div>
         </div>
@@ -64,17 +64,17 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#pricing"
+            <Link
+              href="/auth/signup"
               className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105"
             >
-              지금 시작하기 →
-            </a>
+              🎉 7일 무료 체험 시작하기 →
+            </Link>
             <Link
-              href="/license-activate"
+              href="/auth/login"
               className="px-8 py-4 bg-white text-gray-700 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-gray-200 hover:border-purple-300"
             >
-              라이선스 활성화
+              로그인
             </Link>
           </div>
 
@@ -264,17 +264,17 @@ export default function Home() {
       <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            지금 바로 시작하세요
+            지금 바로 무료로 체험하세요
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            더 나은 학습 관리 경험을 제공합니다
+            7일 무료 체험으로 더 나은 학습 관리 경험을 시작하세요
           </p>
-          <a
-            href="#pricing"
+          <Link
+            href="/auth/signup"
             className="inline-block px-8 py-4 bg-white text-purple-600 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
           >
-            가격 확인하기 →
-          </a>
+            무료 체험 시작하기 →
+          </Link>
         </div>
       </section>
 
