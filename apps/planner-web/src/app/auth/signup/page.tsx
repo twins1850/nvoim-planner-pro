@@ -150,7 +150,25 @@ function SignupPageContent() {
         return;
       }
 
-      // 2-1. 기존 활성 라이선스 비활성화
+      // 2-1. profiles 테이블 먼저 생성 (foreign key constraint 때문에 필수)
+      console.log('Creating profile first...');
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .upsert({
+          id: authData.user.id,
+          email: formData.email,
+          full_name: formData.fullName,
+          role: 'planner'
+        });
+
+      if (profileError) {
+        console.error('Profile creation error:', profileError);
+        setError('프로필 생성에 실패했습니다.');
+        return;
+      }
+      console.log('✅ Profile created');
+
+      // 2-2. 기존 활성 라이선스 비활성화
       const { error: deactivateError } = await supabase
         .from('licenses')
         .update({
@@ -167,36 +185,29 @@ function SignupPageContent() {
         console.log('Old licenses deactivated for user:', authData.user.id);
       }
 
-      // 2-2. 새 라이선스 활성화
+      // 2-3. 새 라이선스 활성화
       if (isTrialMode && trialLicense) {
-        // 체험 라이선스: 이미 생성되었으므로 planner_id와 activated_at만 업데이트
-        const { data: licenses, error: findError } = await supabase
-          .from('licenses')
-          .select('id')
-          .eq('license_key', trialLicense.license_key)
-          .single();
+        // 체험 라이선스: Server-side API를 사용하여 활성화 (RLS 우회)
+        console.log('Calling activate-license API...');
 
-        if (findError) {
-          console.error('Failed to find trial license:', findError);
-          setError('체험 라이선스 활성화에 실패했습니다.');
+        const activateResponse = await fetch('/api/trial/activate-license', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            license_key: trialLicense.license_key,
+            planner_id: authData.user.id,
+          }),
+        });
+
+        const activateData = await activateResponse.json();
+
+        if (!activateResponse.ok || !activateData.success) {
+          console.error('Trial license activation failed:', activateData.error);
+          setError('체험 라이선스 활성화에 실패했습니다: ' + activateData.error);
           return;
         }
 
-        const { error: licenseUpdateError } = await supabase
-          .from('licenses')
-          .update({
-            planner_id: authData.user.id,
-            status: 'trial',
-            activated_at: new Date().toISOString(),
-            activated_by_user_id: authData.user.id,
-          })
-          .eq('id', licenses.id);
-
-        if (licenseUpdateError) {
-          console.error('Trial license update error:', licenseUpdateError);
-        } else {
-          console.log('Trial license activated:', licenses.id);
-        }
+        console.log('✅ Trial license activated successfully:', activateData.license);
       } else {
         // 일반 라이선스: 기존 로직
         const expiresAt = new Date();
@@ -222,26 +233,12 @@ function SignupPageContent() {
         }
       }
 
-      // 3. profiles 테이블 업데이트 (트리거로 자동 생성되지만 명시적으로 확인)
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .upsert({
-          id: authData.user.id,
-          email: formData.email,
-          full_name: formData.fullName,
-          role: 'planner'
-        });
-
-      if (profileError) {
-        console.error('Profile creation error:', profileError);
-      }
-
-      // 4. 체험 라이선스인 경우 디바이스 핑거프린트를 쿠키에 저장
+      // 3. 체험 라이선스인 경우 디바이스 핑거프린트를 쿠키에 저장
       if (isTrialMode && deviceFingerprint) {
         document.cookie = `device_fingerprint=${deviceFingerprint}; path=/; max-age=${365 * 24 * 60 * 60}; secure; samesite=strict`;
       }
 
-      // 5. 대시보드로 리다이렉트
+      // 4. 대시보드로 리다이렉트
       router.push('/dashboard');
 
     } catch (err: any) {
