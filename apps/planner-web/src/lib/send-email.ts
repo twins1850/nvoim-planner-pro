@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 /**
  * 이메일 전송 설정 (Gmail SMTP)
  */
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false, // TLS
