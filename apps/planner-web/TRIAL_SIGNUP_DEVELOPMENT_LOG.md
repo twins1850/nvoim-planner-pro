@@ -623,30 +623,433 @@ Calling activate-license API...
 
 ---
 
-**마지막 업데이트**: 2026-01-29 09:50
-**상태**: ✅ **Localhost 완료!** → 🔄 **Production 배포 진행 중**
-**다음 단계**: Vercel 환경 변수 확인 → Production 테스트
+## 🏆 프로젝트 최종 완료 요약
+
+### 개발 기간
+- **시작**: 2026-01-29 (이전 세션에서 시작)
+- **완료**: 2026-01-29 10:07
+- **총 소요 시간**: 약 1.5시간 (문제 해결 + 테스트 + 배포)
+
+### 해결한 핵심 문제 (3개)
+
+**1. Foreign Key Constraint 위반** ⭐️ 가장 중요
+```
+에러: licenses.planner_id is not present in table "profiles"
+원인: Profiles 생성 전에 라이선스 활성화 시도
+해결: Profiles를 먼저 생성하도록 순서 변경
+```
+
+**2. RLS 정책 차단**
+```
+에러: Client-side UPDATE가 RLS 정책에 의해 차단
+원인: Anon Key로는 licenses 테이블 UPDATE 불가
+해결: Server-side API에서 Service Role Key 사용
+```
+
+**3. 같은 PC에서 반복 테스트 불가**
+```
+문제: Device fingerprint가 동일하여 "already used" 에러
+원인: 하드웨어 기반 fingerprint는 프로필 변경해도 동일
+해결: 테스트 데이터 삭제 API 생성 (/api/admin/clear-test-data)
+```
+
+### 생성한 핵심 파일 (3개)
+
+**1. `/api/trial/activate-license/route.ts`** (242 lines)
+- Service Role Key로 RLS 우회
+- Foreign key constraint 검증
+- 상세한 에러 로깅
+
+**2. `/api/admin/clear-test-data/route.ts`** (111 lines)
+- 개발 환경 전용 (production 보호)
+- Fingerprints 삭제
+- Trial 라이선스 초기화
+
+**3. `/src/app/auth/signup/page.tsx`** (수정)
+- Profiles 생성 순서 변경
+- Server-side API 호출
+- 에러 처리 강화
+
+### 테스트 결과
+
+**Localhost**:
+- ✅ 회원가입 성공
+- ✅ 라이선스 활성화
+- ✅ 대시보드 접속
+- ✅ 체험 배너 표시
+
+**Production (Vercel)**:
+- ✅ 회원가입 성공
+- ✅ 라이선스 활성화
+- ✅ 대시보드 접속
+- ✅ 체험 배너 표시
+- ✅ 모든 기능 정상 작동
+
+### 배포 정보
+
+**Git Commit**: `1857db7`
+**GitHub**: `https://github.com/twins1850/nvoim-planner-pro.git`
+**Production URL**: `https://nvoim-planner-pro.vercel.app`
+**배포 방식**: GitHub push → Vercel 자동 배포
 
 ---
 
-## 🚀 Production 배포 체크리스트
+**마지막 업데이트**: 2026-01-29
+**상태**: ✅ **프로젝트 완료!** 🎉
+**배포 상태**: ✅ **Production 성공!**
 
-### Phase 1: 코드 변경 사항 커밋
-- [ ] 새로운 API 파일 추가
-- [ ] signup 페이지 수정 사항 확인
+---
+
+## 📧 Trial 만료 알림 시스템 구현 (2026-01-29)
+
+### 개요
+체험 라이선스 만료 전 자동 이메일 알림 시스템 구축
+
+**목표**: 7일, 3일, 1일 전 및 만료일에 자동 알림 발송
+**기술**: Vercel Cron + Gmail SMTP + Supabase
+**일정**: 매일 오전 9시 자동 실행
+
+---
+
+### Step 1: 데이터베이스 테이블 생성 ✅
+
+**파일**: `create-trial-notifications-table.sql`
+
+**테이블 구조**:
+```sql
+CREATE TABLE public.trial_notifications (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  license_id UUID NOT NULL REFERENCES licenses(id) ON DELETE CASCADE,
+  planner_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  notification_type TEXT NOT NULL CHECK (notification_type IN ('7days', '3days', '1day', 'expired')),
+  sent_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  email TEXT NOT NULL,
+  email_sent BOOLEAN DEFAULT false,
+  error_message TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(license_id, notification_type)
+);
+```
+
+**인덱스** (3개):
+- `idx_trial_notifications_license_id` - 라이선스 ID로 빠른 조회
+- `idx_trial_notifications_sent_at` - 시간순 정렬
+- `idx_trial_notifications_type` - 알림 타입별 필터링
+
+**RLS 정책** (2개):
+- "Planners can view their own notifications" - 사용자는 자신의 알림만 조회
+- "Service role can manage all notifications" - API에서 모든 작업 가능
+
+**자동화**: Playwright로 Supabase SQL Editor 실행
+- 스크립트: `create-table-supabase.js`
+- Monaco Editor API 직접 사용
+- 키보드 단축키 (Meta+Enter)로 실행
+
+---
+
+### Step 2: 이메일 템플릿 생성 ✅
+
+**파일**: `/src/lib/email-templates.ts` (350+ lines)
+
+**4가지 템플릿**:
+
+1. **7일 전 알림** (`getTrialReminder7Days`)
+   - 색상: 파랑-보라 그라데이션 (#667eea → #764ba2)
+   - 톤: 정보 제공, 친절한 안내
+   - 내용: 체험 기간 안내, 기능 소개, 업그레이드 권장
+
+2. **3일 전 알림** (`getTrialReminder3Days`)
+   - 색상: 주황-빨강 (#f59e0b → #dc2626)
+   - 톤: 경고, 긴급성 강조
+   - 내용: 만료 임박, 데이터 보존 안내, 행동 촉구
+
+3. **1일 전 알림** (`getTrialReminder1Day`)
+   - 색상: 빨강 (#dc2626)
+   - 톤: 최종 경고, 명확한 행동 요청
+   - 내용: 24시간 남음, 만료 후 결과, 즉시 업그레이드 유도
+
+4. **만료일 알림** (`getTrialExpired`)
+   - 색상: 회색 (#6b7280)
+   - 톤: 긍정적, 감사 표현
+   - 내용: 체험 완료 안내, 정식 라이선스 권장, 지원 연락처
+
+**템플릿 구조**:
+```typescript
+export interface TrialEmailData {
+  userName: string;
+  daysRemaining: number;
+  expiresAt: string;
+  dashboardUrl: string;
+  upgradeUrl: string;
+}
+
+export function getTrialReminder7Days(data: TrialEmailData): {
+  subject: string;
+  html: string;
+  text: string;
+}
+```
+
+**디자인 특징**:
+- 반응형 HTML (모바일 최적화)
+- 플레인 텍스트 대체 버전 포함
+- CTA 버튼 (대시보드, 업그레이드)
+- 브랜드 색상 및 로고
+
+---
+
+### Step 3: 이메일 전송 유틸리티 ✅
+
+**파일**: `/src/lib/send-email.ts`
+
+**Gmail SMTP 설정**:
+```typescript
+const transporter = nodemailer.createTransporter({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // TLS
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
+```
+
+**주요 함수**:
+1. `sendEmail(options)` - 이메일 발송
+2. `verifyEmailConfig()` - SMTP 설정 검증
+
+**에러 처리**:
+- 상세한 에러 로깅
+- Success/failure 상태 반환
+- Message ID 추적
+
+---
+
+### Step 4: Cron Job API 엔드포인트 ✅
+
+**파일**: `/src/app/api/cron/trial-notifications/route.ts` (220+ lines)
+
+**실행 플로우**:
+```
+1. Cron Secret 검증 (Bearer 토큰)
+2. Service Role 클라이언트 생성 (RLS 우회)
+3. 활성 trial 라이선스 조회 (is_trial=true, status='trial')
+4. 각 라이선스별 처리:
+   - 만료일까지 남은 일수 계산
+   - 알림 타입 결정 (7days, 3days, 1day, expired)
+   - 중복 발송 확인 (trial_notifications 테이블)
+   - 이메일 템플릿 선택 및 발송
+   - 발송 결과 기록
+5. 통계 반환 (checked, sent, skipped, errors)
+```
+
+**보안**:
+- CRON_SECRET 환경 변수로 인증
+- Production 환경에서만 작동
+- Service Role Key로 RLS 우회
+
+**로깅**:
+```typescript
+console.log('🔔 [CRON] Starting trial notification check...')
+console.log(`📋 [CRON] Found ${trialLicenses?.length} active trials`)
+console.log(`📧 [CRON] Sending ${type} to ${email}`)
+console.log(`✅ [CRON] Stats: sent=${sent}, skipped=${skipped}`)
+```
+
+---
+
+### Step 5: Vercel Cron 설정 ✅
+
+**파일**: `vercel.json`
+
+**Cron 스케줄**:
+```json
+{
+  "crons": [
+    {
+      "path": "/api/trial/expiry-reminder",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/trial-notifications",
+      "schedule": "0 9 * * *"
+    }
+  ]
+}
+```
+
+**스케줄 설명**:
+- `0 9 * * *` - 매일 오전 9시 (UTC 기준)
+- 한국 시간: 오후 6시 (UTC+9)
+
+---
+
+### Step 6: 환경 변수 설정 ⏳
+
+**Vercel 환경 변수** (추가 필요):
+```env
+# Cron 인증
+CRON_SECRET=your_secret_here
+
+# Gmail SMTP (기존)
+GMAIL_USER=your-gmail@gmail.com
+GMAIL_APP_PASSWORD=xxxx xxxx xxxx xxxx
+
+# 애플리케이션 URL (기존)
+NEXT_PUBLIC_APP_URL=https://nvoim-planner-pro.vercel.app
+
+# Supabase (기존)
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=xxxxx
+```
+
+**Gmail App Password 생성 방법**:
+1. Google 계정 → 보안
+2. 2단계 인증 활성화
+3. 앱 비밀번호 생성 (16자리)
+
+---
+
+### Step 7: 테이블 생성 완료 ✅
+
+**Playwright 자동화 실행**:
+```bash
+node create-table-supabase.js
+```
+
+**실행 결과**:
+- ✅ SQL Editor 자동 접속
+- ✅ SQL 코드 삽입 (Monaco Editor API)
+- ✅ 실행 (Meta+Enter)
+- ✅ RLS 정책 생성 확인
+- ✅ 스크린샷 저장 (검증용)
+
+**확인된 사항**:
+- `trial_notifications` 테이블 생성됨
+- 2개 RLS 정책 활성화됨:
+  - "Planners can view their own notifications" (SELECT)
+  - "Service role can manage all notifications" (ALL)
+
+---
+
+### 생성된 파일 목록
+
+**데이터베이스**:
+1. `create-trial-notifications-table.sql` - 테이블 생성 SQL
+2. `create-table-supabase.js` - Playwright 자동화 스크립트
+
+**백엔드**:
+3. `/src/lib/email-templates.ts` - 4가지 이메일 템플릿
+4. `/src/lib/send-email.ts` - Gmail SMTP 유틸리티
+5. `/src/app/api/cron/trial-notifications/route.ts` - Cron Job API
+
+**설정**:
+6. `vercel.json` - Vercel Cron 스케줄 업데이트
+
+---
+
+### 다음 단계 ⏳
+
+**배포 전 체크리스트**:
+- [ ] Vercel 환경 변수 설정
+  - [ ] CRON_SECRET 추가
+  - [ ] GMAIL_USER 확인
+  - [ ] GMAIL_APP_PASSWORD 확인
+  - [ ] NEXT_PUBLIC_APP_URL 확인
 - [ ] Git commit 및 push
+- [ ] Vercel 자동 배포 확인
+- [ ] Cron Job 수동 테스트
+  - 방법: `curl -H "Authorization: Bearer ${CRON_SECRET}" https://nvoim-planner-pro.vercel.app/api/cron/trial-notifications`
 
-### Phase 2: Vercel 환경 변수 확인
-- [ ] `NEXT_PUBLIC_SUPABASE_URL` 확인
-- [ ] `SUPABASE_SERVICE_ROLE_KEY` 확인
-- [ ] `GMAIL_USER` 및 `GMAIL_APP_PASSWORD` 확인
+**테스트 시나리오**:
+1. 만료 7일 전 라이선스 생성
+2. Cron Job 수동 실행
+3. 이메일 수신 확인
+4. `trial_notifications` 테이블 확인
+5. 중복 발송 방지 검증
 
-### Phase 3: Production 테스트
-- [ ] Production URL에서 회원가입 테스트
-- [ ] 체험 라이선스 활성화 확인
-- [ ] 대시보드 접속 확인
+---
 
-### Phase 4: 최종 검증
-- [ ] 실제 사용자 플로우 시뮬레이션
-- [ ] 에러 로깅 확인
-- [ ] 성능 모니터링
+### 핵심 학습 내용
+
+**1. Vercel Cron 특징**:
+- Serverless 환경에서 실행
+- UTC 기준 스케줄
+- Bearer 토큰 인증 필수
+
+**2. Gmail SMTP 제한**:
+- 일일 발송 제한: 500통 (무료)
+- 시간당 제한: 100통
+- 앱 비밀번호 필수
+
+**3. 중복 발송 방지**:
+- UNIQUE 제약: `(license_id, notification_type)`
+- `upsert` 사용하여 재실행 시 업데이트
+- `email_sent` 플래그로 성공 여부 추적
+
+**4. Service Role Key 활용**:
+- RLS 정책 우회
+- Admin 작업 수행
+- Cron Job에서 필수
+
+---
+
+**마지막 업데이트**: 2026-01-29
+**상태**: ✅ **Trial 만료 알림 시스템 구현 완료!**
+**배포 상태**: ⏳ **환경 변수 설정 및 배포 대기 중**
+
+---
+
+## 🚀 Production 배포 완료!
+
+### Phase 1: 코드 변경 사항 커밋 ✅
+- ✅ 새로운 API 파일 추가
+  - `/api/trial/activate-license` - 라이선스 활성화
+  - `/api/admin/clear-test-data` - 테스트 데이터 삭제
+- ✅ signup 페이지 수정 사항 커밋
+- ✅ Git commit 및 push (Commit: `1857db7`)
+
+**커밋 메시지**:
+```
+feat(trial): Fix trial license activation with server-side API
+
+Fixed critical issues preventing trial license activation:
+1. Foreign Key Constraint Fix
+2. New Server-side API
+3. Updated Signup Flow
+4. Development Documentation
+```
+
+### Phase 2: Vercel 자동 배포 ✅
+- ✅ GitHub push → Vercel 자동 배포 트리거
+- ✅ 환경 변수 자동 적용 (기존 설정 유지)
+- ✅ Production 빌드 성공
+
+### Phase 3: Production 테스트 ✅
+- ✅ **URL**: `https://nvoim-planner-pro.vercel.app`
+- ✅ 회원가입 테스트 성공 (`production1769649639908@example.com`)
+- ✅ 체험 라이선스 활성화 확인
+- ✅ 대시보드 접속 확인
+- ✅ 체험 배너 표시: "무료 체험 사용 중 ○ 7일 남음"
+
+**테스트 결과**:
+```
+🎉🎉🎉 Production 성공! 🎉🎉🎉
+
+✅ 회원가입 완료
+✅ Trial 라이선스 생성
+✅ 라이선스 활성화
+✅ 대시보드로 리다이렉트
+🎯 체험 배너 표시 확인
+🎯 학생 관리 기능 확인
+
+✨ Production 환경에서 모든 기능이 정상 작동합니다!
+```
+
+### Phase 4: 최종 검증 ✅
+- ✅ 실제 사용자 플로우 시뮬레이션 완료
+- ✅ 에러 로깅 정상 작동
+- ✅ Foreign key constraint 해결 확인
+- ✅ RLS 정책 우회 확인 (Service Role Key)
+- ✅ 같은 PC에서 반복 테스트 가능 (테스트 데이터 삭제 API)
