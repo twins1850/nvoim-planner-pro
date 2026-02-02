@@ -6,15 +6,18 @@ import { defineConfig, devices } from '@playwright/test';
  * Tests for trial license system, device binding, and license sharing prevention
  */
 export default defineConfig({
-  testDir: './tests/e2e',
+  testDir: './tests',
   fullyParallel: false, // Run tests sequentially for database consistency
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: 1, // Single worker to avoid race conditions
   reporter: 'html',
+  timeout: 60 * 1000, // 60 seconds for integration tests
 
   use: {
     baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
+    // Student app URL for integration tests
+    studentAppURL: process.env.STUDENT_APP_URL || 'http://localhost:10001',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },

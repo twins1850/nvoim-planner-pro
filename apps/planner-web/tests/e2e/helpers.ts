@@ -1,13 +1,22 @@
 import { Page } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
 /**
  * Test Helper Functions for E2E Tests
  */
 
+// Load environment variables from .env.local
+dotenv.config({ path: path.resolve(__dirname, '../../.env.local') });
+
 // Supabase Admin Client for test data manipulation
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+
+if (!supabaseUrl || !supabaseServiceKey) {
+  throw new Error('Missing required environment variables. Make sure .env.local exists with NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY');
+}
 
 export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
   auth: {
@@ -18,11 +27,17 @@ export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
 
 /**
  * Generate unique test email
+ *
+ * 주의: Mailinator는 공개 임시 이메일 서비스입니다
+ * - 이메일: https://www.mailinator.com/v4/public/inboxes.jsp?to={username}
+ * - 모든 이메일이 공개되므로 테스트 데이터만 사용하세요
+ * - Production 환경에서는 실제 이메일 사용 권장
  */
 export function generateTestEmail(): string {
   const timestamp = Date.now();
   const random = Math.random().toString(36).substring(7);
-  return `test-${timestamp}-${random}@example.com`;
+  // Mailinator 사용: 실제 이메일을 받을 수 있는 무료 임시 이메일 서비스
+  return `nplanner-test-${timestamp}-${random}@mailinator.com`;
 }
 
 /**
