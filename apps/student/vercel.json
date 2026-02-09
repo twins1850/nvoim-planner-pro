@@ -1,13 +1,12 @@
 {
-  "version": 2,
   "buildCommand": "npm run build:web",
   "outputDirectory": "web-build",
   "framework": null,
   "installCommand": "npm install",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
