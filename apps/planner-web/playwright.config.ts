@@ -16,8 +16,6 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
-    // Student app URL for integration tests
-    studentAppURL: process.env.STUDENT_APP_URL || 'http://localhost:10001',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
