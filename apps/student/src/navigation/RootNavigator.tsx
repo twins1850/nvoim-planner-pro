@@ -66,7 +66,7 @@ const RootNavigator = () => {
           try {
             const { data: profile, error } = await supabase
               .from('student_profiles')
-              .select('planner_id')
+              .select('id, planner_id')
               .eq('id', user.id)
               .single();
               
@@ -92,8 +92,8 @@ const RootNavigator = () => {
               setHasPlanner(false);
             }
           } catch (profileError) {
-            console.log('student_profiles 접근 실패, 테스트를 위해 true로 설정:', profileError);
-            setHasPlanner(true); // 테스트를 위해 임시로 true로 설정
+            console.error('student_profiles 접근 실패:', profileError);
+            setHasPlanner(false); // 에러 발생 시 플래너 없음으로 처리
           }
         } else {
           setIsAuthenticated(false);
@@ -119,7 +119,7 @@ const RootNavigator = () => {
         // 로그인 시 플래너 체크 다시 수행 (폴백 로직 포함)
         supabase
           .from('student_profiles')
-          .select('planner_id')
+          .select('id, planner_id')
           .eq('id', session.user.id)
           .single()
           .then(({ data, error }) => {
@@ -145,8 +145,8 @@ const RootNavigator = () => {
             }
           })
           .catch((err) => {
-            console.log('student_profiles 접근 실패 (인증 변경 시), 테스트를 위해 true로 설정:', err);
-            setHasPlanner(true); // 테스트를 위해 임시로 true로 설정
+            console.error('student_profiles 접근 실패 (인증 변경 시):', err);
+            setHasPlanner(false); // 에러 발생 시 플래너 없음으로 처리
           });
       } else {
         setIsAuthenticated(false);
