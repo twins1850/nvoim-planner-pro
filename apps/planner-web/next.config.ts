@@ -9,8 +9,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false, // Keep type checking enabled
   },
-  // Skip static page generation to avoid prerender errors
-  output: 'standalone',
 };
 
 export default nextConfig;
