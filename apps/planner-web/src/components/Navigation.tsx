@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
 import {
   Home,
   MessageSquare,
@@ -16,7 +17,8 @@ import {
   Menu,
   X,
   ClipboardList,
-  KeyRound
+  KeyRound,
+  LogOut
 } from 'lucide-react';
 
 const mainNavigationItems = [
@@ -84,10 +86,22 @@ const moreMenuItems = [
     color: 'text-pink-600'
   },
   {
+    icon: KeyRound,
+    label: '라이선스',
+    href: '/license',
+    color: 'text-amber-600'
+  },
+  {
     icon: Settings,
     label: '설정',
     href: '/dashboard/settings',
     color: 'text-gray-600'
+  },
+  {
+    icon: LogOut,
+    label: '로그아웃',
+    href: '#logout',
+    color: 'text-red-600'
   }
 ];
 
@@ -95,6 +109,12 @@ export default function Navigation() {
   const pathname = usePathname();
   const router = useRouter();
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const supabase = createClient();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    window.location.href = '/';
+  };
 
   return (
     <>
@@ -134,16 +154,22 @@ export default function Navigation() {
                   <button
                     key={item.href}
                     onClick={() => {
-                      router.push(item.href);
+                      if (item.href === '#logout') {
+                        handleLogout();
+                      } else {
+                        router.push(item.href);
+                      }
                       setShowMoreMenu(false);
                     }}
                     className={`flex flex-col items-center gap-2 p-4 rounded-lg transition-colors ${
-                      isActive 
-                        ? 'bg-blue-50 text-blue-600' 
+                      isActive
+                        ? 'bg-blue-50 text-blue-600'
+                        : item.href === '#logout'
+                        ? 'hover:bg-red-50 text-red-600'
                         : 'hover:bg-gray-50 text-gray-700'
                     }`}
                   >
-                    <Icon className={`w-6 h-6 ${isActive ? item.color : ''}`} />
+                    <Icon className={`w-6 h-6 ${isActive ? item.color : item.href === '#logout' ? item.color : ''}`} />
                     <span className="text-xs font-medium">{item.label}</span>
                   </button>
                 );
