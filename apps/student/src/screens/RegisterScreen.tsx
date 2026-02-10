@@ -29,8 +29,10 @@ const RegisterScreen = () => {
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [agreeToPrivacy, setAgreeToPrivacy] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -99,7 +101,7 @@ const RegisterScreen = () => {
       setError('이름을 입력해주세요.');
       return;
     }
-    
+
     if (!email.trim()) {
       setError('이메일을 입력해주세요.');
       return;
@@ -110,14 +112,24 @@ const RegisterScreen = () => {
       setError('이메일 중복확인을 완료해주세요.');
       return;
     }
-    
+
+    if (!phone.trim()) {
+      setError('전화번호를 입력해주세요.');
+      return;
+    }
+
     if (!password.trim()) {
       setError('비밀번호를 입력해주세요.');
       return;
     }
-    
+
     if (password !== confirmPassword) {
       setError('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    if (!agreeToPrivacy) {
+      setError('개인정보 수집 및 이용에 동의해주세요.');
       return;
     }
     
@@ -128,17 +140,10 @@ const RegisterScreen = () => {
       const userData = {
         email,
         password,
-        role: 'student',
-        profile: {
-          name,
-          preferences: {
-            language: 'ko',
-            notifications: true,
-            timezone: 'Asia/Seoul'
-          }
-        }
+        full_name: name,  // authAPI.register expects full_name
+        phone,
       };
-      
+
       const response = await authAPI.register(userData);
       
       if (response.success) {
@@ -205,12 +210,13 @@ const RegisterScreen = () => {
               placeholderTextColor="#9E9E9E"
               value={name}
               onChangeText={setName}
+              testID="register-name-input"
             />
           </View>
 
           <View style={styles.emailContainer}>
             <View style={[
-              styles.inputContainer, 
+              styles.inputContainer,
               styles.emailInputContainer,
               emailCheckResult === 'available' ? styles.inputSuccess :
               emailCheckResult === 'taken' ? styles.inputError : null
@@ -224,6 +230,7 @@ const RegisterScreen = () => {
                 autoCapitalize="none"
                 value={email}
                 onChangeText={handleEmailChange}
+                testID="register-email-input"
               />
               {emailCheckResult === 'available' && (
                 <Ionicons name="checkmark-circle" size={20} color="#4CAF50" style={styles.statusIcon} />
@@ -249,6 +256,19 @@ const RegisterScreen = () => {
           </View>
 
           <View style={styles.inputContainer}>
+            <Ionicons name="call-outline" size={20} color="#757575" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="전화번호 (예: 010-1234-5678)"
+              placeholderTextColor="#9E9E9E"
+              keyboardType="phone-pad"
+              value={phone}
+              onChangeText={setPhone}
+              testID="register-phone-input"
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
             <Ionicons name="lock-closed-outline" size={20} color="#757575" style={styles.inputIcon} />
             <TextInput
               style={styles.input}
@@ -257,6 +277,7 @@ const RegisterScreen = () => {
               secureTextEntry={!showPassword}
               value={password}
               onChangeText={setPassword}
+              testID="register-password-input"
             />
             <TouchableOpacity
               style={styles.passwordToggle}
@@ -279,8 +300,24 @@ const RegisterScreen = () => {
               secureTextEntry={!showPassword}
               value={confirmPassword}
               onChangeText={setConfirmPassword}
+              testID="register-confirm-password-input"
             />
           </View>
+
+          <TouchableOpacity
+            style={styles.privacyContainer}
+            onPress={() => setAgreeToPrivacy(!agreeToPrivacy)}
+            testID="privacy-agreement-checkbox"
+          >
+            <View style={[styles.checkbox, agreeToPrivacy && styles.checkboxChecked]}>
+              {agreeToPrivacy && (
+                <Ionicons name="checkmark" size={18} color="#FFFFFF" />
+              )}
+            </View>
+            <Text style={styles.privacyText}>
+              개인정보 수집 및 이용에 동의합니다.
+            </Text>
+          </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.registerButton}
@@ -438,6 +475,30 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '600',
+  },
+  privacyContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+    marginTop: 8,
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: '#4F6CFF',
+    marginRight: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkboxChecked: {
+    backgroundColor: '#4F6CFF',
+  },
+  privacyText: {
+    flex: 1,
+    color: '#212121',
+    fontSize: 14,
   },
 });
 

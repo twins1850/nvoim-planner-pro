@@ -1,0 +1,78 @@
+- generic [ref=e31]:
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]: 안녕하세요, 관리자 테스트용 학생님!
+      - generic [ref=e41]: 오늘도 영어 공부 화이팅!
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]: 다가오는 숙제
+        - generic [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]: 전체보기
+          - generic [ref=e47]: 
+      - generic [ref=e48]:
+        - generic [ref=e49]: 
+        - generic [ref=e50]: 현재 진행 중인 숙제가 없습니다.
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]: 최근 알림
+        - generic [ref=e54] [cursor=pointer]:
+          - generic [ref=e55]: 전체보기
+          - generic [ref=e56]: 
+      - generic [ref=e57] [cursor=pointer]:
+        - generic [ref=e59]: 
+        - generic [ref=e60]:
+          - generic [ref=e61]: Admin님의 새 메시지
+          - generic [ref=e62]: 날짜 없음
+      - generic [ref=e64] [cursor=pointer]:
+        - generic [ref=e66]: 
+        - generic [ref=e67]:
+          - generic [ref=e68]: Admin님의 새 메시지
+          - generic [ref=e69]: 날짜 없음
+      - generic [ref=e71] [cursor=pointer]:
+        - generic [ref=e73]: 
+        - generic [ref=e74]:
+          - generic [ref=e75]: 직접 삽입 테스트
+          - generic [ref=e76]: 날짜 없음
+  - tablist [ref=e79]:
+    - link "  홈" [ref=e80] [cursor=pointer]:
+      - /url: /Main/Home
+      - generic:
+        - generic [ref=e82]: 
+        - generic [ref=e84]: 
+      - generic [ref=e85]: 홈
+    - link "  숙제" [ref=e86] [cursor=pointer]:
+      - /url: /Main/Homework
+      - generic:
+        - generic [ref=e88]: 
+        - generic [ref=e90]: 
+      - generic [ref=e91]: 숙제
+    - link "  진도" [ref=e92] [cursor=pointer]:
+      - /url: /Main/Progress
+      - generic:
+        - generic [ref=e94]: 
+        - generic [ref=e96]: 
+      - generic [ref=e97]: 진도
+    - link "  대화" [ref=e98] [cursor=pointer]:
+      - /url: /Main/Conversation
+      - generic:
+        - generic [ref=e100]: 
+        - generic [ref=e102]: 
+      - generic [ref=e103]: 대화
+    - link "  메시지" [ref=e104] [cursor=pointer]:
+      - /url: /Main/Messages
+      - generic:
+        - generic [ref=e106]: 
+        - generic [ref=e108]: 
+      - generic [ref=e109]: 메시지
+    - link "  피드백" [ref=e110] [cursor=pointer]:
+      - /url: /Main/Feedback
+      - generic:
+        - generic [ref=e112]: 
+        - generic [ref=e114]: 
+      - generic [ref=e115]: 피드백
+    - link "  프로필" [ref=e116] [cursor=pointer]:
+      - /url: /Main/Profile
+      - generic:
+        - generic [ref=e118]: 
+        - generic [ref=e120]: 
+      - generic [ref=e121]: 프로필

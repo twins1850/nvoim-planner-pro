@@ -1,0 +1,1 @@
+[     169ms] [WARNING] [expo-av]: Expo AV has been deprecated and will be removed in SDK 54. Use the `expo-audio` and `expo-video` packages to replace the required functionality. @ http://localhost:10000/_expo/static/js/web/index-20f3e1edabad4f204c383de234da4513.js:725

@@ -1,0 +1,15 @@
+[     190ms] [WARNING] [expo-av]: Expo AV has been deprecated and will be removed in SDK 54. Use the `expo-audio` and `expo-video` packages to replace the required functionality. @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:726
+[     346ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[     347ms] [ERROR] AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+    at i (http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:521:3139)
+    at async l (http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:521:3612)
+    at async _e._request (http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:521:924)
+    at async http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:528:31450
+    at async http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:524:1740 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:527
+[ 3410765ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id&id=eq.00516cf1-bef9-4cf0-b97e-ed599fec9e4b:0
+[ 3438724ms] [WARNING] [expo-av]: Expo AV has been deprecated and will be removed in SDK 54. Use the `expo-audio` and `expo-video` packages to replace the required functionality. @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:726
+[ 3438924ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id&id=eq.00516cf1-bef9-4cf0-b97e-ed599fec9e4b:0
+[ 3438964ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id&id=eq.00516cf1-bef9-4cf0-b97e-ed599fec9e4b:0
+[ 3439004ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id&id=eq.00516cf1-bef9-4cf0-b97e-ed599fec9e4b:0
+[ 3466004ms] [ERROR] 초대 코드를 입력해주세요. @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:758
+[ 3487412ms] [WARNING] Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key. @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:527

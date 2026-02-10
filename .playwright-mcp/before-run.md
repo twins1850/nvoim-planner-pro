@@ -1,0 +1,334 @@
+- generic [ref=e1]:
+  - generic [ref=e52]:
+    - generic [ref=e58]:
+      - img [ref=e59]
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: We are investigating a technical issue
+        - generic [ref=e64]:
+          - text: Follow the
+          - link "status page" [ref=e65] [cursor=pointer]:
+            - /url: https://status.supabase.com
+          - text: for updates
+    - generic [ref=e66]:
+      - navigation [ref=e68]:
+        - link "Supabase" [ref=e69] [cursor=pointer]:
+          - /url: /dashboard/organizations
+          - img "Supabase" [ref=e70]
+        - generic [ref=e71]:
+          - button [ref=e72] [cursor=pointer]:
+            - img [ref=e74]
+          - button "Menu dropdown button" [ref=e77] [cursor=pointer]:
+            - img [ref=e79]
+      - banner [ref=e80]:
+        - button "Menu dropdown button" [ref=e82] [cursor=pointer]
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - link "Free" [ref=e88] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                - img [ref=e89]
+                - generic [ref=e99]: Free
+              - button [ref=e100] [cursor=pointer]:
+                - img [ref=e102]
+              - generic [ref=e105]:
+                - img [ref=e107]
+                - link "nvoim-planner-pro" [ref=e109] [cursor=pointer]:
+                  - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                  - img [ref=e110]
+                  - generic [ref=e113]: nvoim-planner-pro
+                - button [ref=e114] [cursor=pointer]:
+                  - img [ref=e116]
+                - img [ref=e120]
+                - link "main Production" [ref=e122] [cursor=pointer]:
+                  - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                  - generic [ref=e123]: main
+                  - generic [ref=e124]: Production
+                - button [ref=e125] [cursor=pointer]:
+                  - img [ref=e127]
+            - button "Connect" [ref=e131] [cursor=pointer]:
+              - img [ref=e133]
+              - generic [ref=e135]: Connect
+          - generic [ref=e136]:
+            - generic [ref=e138] [cursor=pointer]: Feedback
+            - generic [ref=e139]:
+              - button [ref=e140] [cursor=pointer]:
+                - img [ref=e142]
+              - button [ref=e146] [cursor=pointer]:
+                - img [ref=e148]
+              - button [ref=e151] [cursor=pointer]:
+                - img [ref=e153]
+              - button [ref=e155] [cursor=pointer]:
+                - img [ref=e159]
+            - button "twins1850" [ref=e162] [cursor=pointer]:
+              - img "twins1850" [ref=e164]
+    - main [ref=e172]:
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - tablist [ref=e176]:
+            - button "Invite Codes and Student–Teacher Connections" [ref=e178] [cursor=pointer]:
+              - tab "Invite Codes and Student–Teacher Connections" [ref=e179]:
+                - img [ref=e180]
+                - generic [ref=e187]: Invite Codes and Student–Teacher Connections
+                - button [ref=e188]:
+                  - img [ref=e189]
+              - separator [ref=e193]
+            - button "Invite code generation and planner linking" [ref=e195] [cursor=pointer]:
+              - tab "Invite code generation and planner linking" [ref=e196]:
+                - img [ref=e197]
+                - generic [ref=e204]: Invite code generation and planner linking
+                - button [ref=e205]:
+                  - img [ref=e206]
+              - separator [ref=e210]
+            - button "Link student to planner function" [ref=e212] [cursor=pointer]:
+              - tab "Link student to planner function" [ref=e213]:
+                - img [ref=e214]
+                - generic [ref=e221]: Link student to planner function
+                - button [ref=e222]:
+                  - img [ref=e223]
+              - separator [ref=e227]
+            - button "Link Student to Planner Function" [ref=e229] [cursor=pointer]:
+              - tab "Link Student to Planner Function" [ref=e230]:
+                - img [ref=e231]
+                - generic [ref=e238]: Link Student to Planner Function
+                - button [ref=e239]:
+                  - img [ref=e240]
+              - separator [ref=e244]
+            - button "Link Student to Planner Function" [ref=e246] [cursor=pointer]:
+              - tab "Link Student to Planner Function" [ref=e247]:
+                - img [ref=e248]
+                - generic [ref=e255]: Link Student to Planner Function
+                - button [ref=e256]:
+                  - img [ref=e257]
+              - separator [ref=e261]
+            - button "Link Student to Planner" [ref=e263] [cursor=pointer]:
+              - tab "Link Student to Planner" [ref=e264]:
+                - img [ref=e265]
+                - generic [ref=e272]: Link Student to Planner
+                - button [ref=e273]:
+                  - img [ref=e274]
+              - separator [ref=e278]
+            - button "Connect Student via Invite Code" [ref=e280] [cursor=pointer]:
+              - tab "Connect Student via Invite Code" [ref=e281]:
+                - img [ref=e282]
+                - generic [ref=e289]: Connect Student via Invite Code
+                - button [ref=e290]:
+                  - img [ref=e291]
+              - separator [ref=e295]
+            - button "Ensure Student Profile for Current User" [ref=e297] [cursor=pointer]:
+              - tab "Ensure Student Profile for Current User" [ref=e298]:
+                - img [ref=e299]
+                - generic [ref=e306]: Ensure Student Profile for Current User
+                - button [ref=e307]:
+                  - img [ref=e308]
+              - separator [ref=e312]
+            - button "Connect Student via Invite Code" [ref=e314] [cursor=pointer]:
+              - tab "Connect Student via Invite Code" [ref=e315]:
+                - img [ref=e316]
+                - generic [ref=e323]: Connect Student via Invite Code
+                - button [ref=e324]:
+                  - img [ref=e325]
+              - separator [ref=e329]
+            - button "Planner authentication and profile relationship check" [ref=e331] [cursor=pointer]:
+              - tab "Planner authentication and profile relationship check" [ref=e332]:
+                - img [ref=e333]
+                - generic [ref=e340]: Planner authentication and profile relationship check
+                - button [ref=e341]:
+                  - img [ref=e342]
+              - separator [ref=e346]
+            - button "학생 연결 및 프로필 보장 함수" [ref=e348] [cursor=pointer]:
+              - tab "학생 연결 및 프로필 보장 함수" [ref=e349]:
+                - img [ref=e350]
+                - generic [ref=e357]: 학생 연결 및 프로필 보장 함수
+                - button [ref=e358]:
+                  - img [ref=e359]
+              - separator [ref=e363]
+            - button "Fix student_profiles foreign key constraints" [ref=e365] [cursor=pointer]:
+              - tab "Fix student_profiles foreign key constraints" [ref=e366]:
+                - img [ref=e367]
+                - generic [ref=e374]: Fix student_profiles foreign key constraints
+                - button [ref=e375]:
+                  - img [ref=e376]
+              - separator [ref=e380]
+            - button "Enforce unique user_id on students" [ref=e382] [cursor=pointer]:
+              - tab "Enforce unique user_id on students" [ref=e383]:
+                - img [ref=e384]
+                - generic [ref=e391]: Enforce unique user_id on students
+                - button [ref=e392]:
+                  - img [ref=e393]
+              - separator [ref=e397]
+            - button "Messaging and Conversation Tables" [ref=e399] [cursor=pointer]:
+              - tab "Messaging and Conversation Tables" [ref=e400]:
+                - img [ref=e401]
+                - generic [ref=e408]: Messaging and Conversation Tables
+                - button [ref=e409]:
+                  - img [ref=e410]
+              - separator [ref=e414]
+            - button "Conversations Table for Teacher–Student Chats" [ref=e416] [cursor=pointer]:
+              - tab "Conversations Table for Teacher–Student Chats" [ref=e417]:
+                - img [ref=e418]
+                - generic [ref=e425]: Conversations Table for Teacher–Student Chats
+                - button [ref=e426]:
+                  - img [ref=e427]
+              - separator [ref=e431]
+            - button "Seed Student–Teacher Association" [ref=e433] [cursor=pointer]:
+              - tab "Seed Student–Teacher Association" [ref=e434]:
+                - img [ref=e435]
+                - generic [ref=e442]: Seed Student–Teacher Association
+                - button [ref=e443]:
+                  - img [ref=e444]
+              - separator [ref=e448]
+            - button "Conversations and Messages Schema with Row-Level Security" [ref=e450] [cursor=pointer]:
+              - tab "Conversations and Messages Schema with Row-Level Security" [ref=e451]:
+                - img [ref=e452]
+                - generic [ref=e459]: Conversations and Messages Schema with Row-Level Security
+                - button [ref=e460]:
+                  - img [ref=e461]
+              - separator [ref=e465]
+            - button "Messages Schema Migration" [ref=e467] [cursor=pointer]:
+              - tab "Messages Schema Migration" [ref=e468]:
+                - img [ref=e469]
+                - generic [ref=e476]: Messages Schema Migration
+                - button [ref=e477]:
+                  - img [ref=e478]
+              - separator [ref=e482]
+            - button "Messages table timestamps and auto-update trigger" [ref=e484] [cursor=pointer]:
+              - tab "Messages table timestamps and auto-update trigger" [ref=e485]:
+                - img [ref=e486]
+                - generic [ref=e493]: Messages table timestamps and auto-update trigger
+                - button [ref=e494]:
+                  - img [ref=e495]
+              - separator [ref=e499]
+            - button "Drop recursive RLS policy on homework" [ref=e501] [cursor=pointer]:
+              - tab "Drop recursive RLS policy on homework" [ref=e502]:
+                - img [ref=e503]
+                - generic [ref=e510]: Drop recursive RLS policy on homework
+                - button [ref=e511]:
+                  - img [ref=e512]
+              - separator [ref=e516]
+            - button "Restore membership pricing templates" [ref=e518] [cursor=pointer]:
+              - tab "Restore membership pricing templates" [selected] [ref=e519]:
+                - img [ref=e520]
+                - generic [ref=e527]: Restore membership pricing templates
+                - button [ref=e528]:
+                  - img [ref=e529]
+              - separator [ref=e533]
+            - button [ref=e534] [cursor=pointer]:
+              - img [ref=e535]
+          - status [ref=e537]
+        - generic [ref=e540]:
+          - code [ref=e546]:
+            - generic [ref=e547]:
+              - generic [ref=e549]:
+                - generic [ref=e3351]: "158"
+                - generic [ref=e3353]: "159"
+                - generic [ref=e3355]: "160"
+                - generic [ref=e3357]: "161"
+                - generic [ref=e3557]:
+                  - generic [ref=e3558] [cursor=pointer]: 
+                  - generic [ref=e3559]: "162"
+                - generic [ref=e3361]: "163"
+                - generic [ref=e3363]: "164"
+                - generic [ref=e3365]: "165"
+                - generic [ref=e3367]: "166"
+                - generic [ref=e3369]: "167"
+                - generic [ref=e3371]: "168"
+                - generic [ref=e3373]: "169"
+                - generic [ref=e3375]: "170"
+                - generic [ref=e3560]:
+                  - generic [ref=e3561] [cursor=pointer]: 
+                  - generic [ref=e3562]: "171"
+                - generic [ref=e3563]:
+                  - generic [ref=e3564] [cursor=pointer]: 
+                  - generic [ref=e3565]: "172"
+                - generic [ref=e3566]:
+                  - generic [ref=e3567] [cursor=pointer]: 
+                  - generic [ref=e3568]: "173"
+                - generic [ref=e3383]: "174"
+                - generic [ref=e3385]: "175"
+                - generic [ref=e3387]: "176"
+                - generic [ref=e3389]: "177"
+                - generic [ref=e3391]: "178"
+                - generic [ref=e3393]: "179"
+                - generic [ref=e3395]: "180"
+                - generic [ref=e3397]: "181"
+                - generic [ref=e3401]: "182"
+                - generic [ref=e3403]: "183"
+                - generic [ref=e3407]: "184"
+              - generic [ref=e1552]:
+                - generic [ref=e3570]: END LOOP;
+                - generic [ref=e3572]: END IF;
+                - generic [ref=e3574]: "-- 성공 응답"
+                - generic [ref=e3576]: RETURN json_build_object(
+                - generic [ref=e3578]: "'success', true,"
+                - generic [ref=e3580]: "'subscription_id', v_subscription_id,"
+                - generic [ref=e3582]: "'subscription_name', v_subscription_name,"
+                - generic [ref=e3584]: "'total_lessons', v_total_lessons,"
+                - generic [ref=e3586]: "'max_postponements', v_max_postponements,"
+                - generic [ref=e3588]: "'end_date', v_end_date"
+                - generic [ref=e3590]: );
+                - generic [ref=e3525]: EXCEPTION
+                - generic [ref=e3592]: WHEN others THEN
+                - generic [ref=e3594]: RETURN json_build_object(
+                - generic [ref=e3596]: "'success', false,"
+                - generic [ref=e3598]: "'message', 'Failed to create subscription: ' || SQLERRM"
+                - generic [ref=e3600]: );
+                - generic [ref=e3602]: END;
+                - generic [ref=e3604]: $$ LANGUAGE plpgsql SECURITY DEFINER;
+                - generic [ref=e3606]: "-- 함수 실행 권한 부여"
+                - generic [ref=e3608]: GRANT EXECUTE ON FUNCTION create_subscription(UUID, subscription_frequency,
+                - generic [ref=e3610]: lesson_duration, payment_period, DATE, INT, JSONB, DECIMAL, DECIMAL, TEXT,
+                - generic [ref=e3612]: TEXT, TEXT) TO authenticated;
+                - generic [ref=e3614]: COMMENT ON FUNCTION create_subscription IS '수강권 생성 함수 - pricing_type,
+                - generic [ref=e3616]: payment_method, per_lesson_price, per_month_price, max_postponements 지원';
+              - textbox "Editor content" [active] [ref=e1624]: COMMENT ON FUNCTION create_subscription IS '수강권 생성 함수 - pricing_type, payment_method, per_lesson_price, per_month_price, max_postponements 지원';
+              - generic [ref=e3617]:
+                - generic [ref=e3618]:
+                  - generic [ref=e3619]: "34"
+                  - generic [ref=e3620]: 
+                - generic [ref=e3621]:
+                  - generic [ref=e3622]: "144"
+                  - generic [ref=e3623]: 
+                - generic [ref=e3624]:
+                  - list:
+                    - listitem [ref=e3625]:
+                      - generic [ref=e3626]: BEGIN
+                    - listitem [ref=e3627]:
+                      - generic [ref=e3628]: IF p_weekly_schedule IS NOT NULL AND p_frequency != '자율수강' THEN
+          - separator [ref=e1625]:
+            - img [ref=e1627]
+          - generic [ref=e1635]:
+            - tablist [ref=e1636]:
+              - generic [ref=e1637]:
+                - tab "Results" [selected] [ref=e1638] [cursor=pointer]:
+                  - generic [ref=e1639]: Results
+                - tab "Explain" [ref=e1640] [cursor=pointer]:
+                  - generic [ref=e1641]: Explain
+                - tab "Chart" [ref=e1642] [cursor=pointer]:
+                  - generic [ref=e1643]: Chart
+              - generic [ref=e1644]:
+                - button [ref=e1645] [cursor=pointer]:
+                  - img [ref=e1647]
+                - generic [ref=e1652]:
+                  - generic [ref=e1653] [cursor=pointer]:
+                    - generic [ref=e1654]: Source
+                    - button "Primary database" [ref=e1655]:
+                      - generic [ref=e1656]: Primary database
+                      - img [ref=e1658]
+                  - button "Role postgres" [ref=e1660] [cursor=pointer]:
+                    - generic [ref=e1662]:
+                      - generic [ref=e1663]: Role
+                      - generic [ref=e1664]: postgres
+                      - img [ref=e1665]
+                  - button "Run" [ref=e3633] [cursor=pointer]:
+                    - generic [ref=e1668]: Run
+                    - generic [ref=e1670]:
+                      - img [ref=e1671]
+                      - img [ref=e1673]
+            - paragraph [ref=e1677]:
+              - text: Click
+              - code [ref=e1678]: Run
+              - text: to execute your query.
+  - alert [ref=e1680]: Supabase
+  - generic [ref=e1681]:
+    - alert
+    - alert

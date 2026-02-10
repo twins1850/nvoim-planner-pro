@@ -3,6 +3,7 @@
 import { User } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation'
 import TrialBanner from '@/components/trial/TrialBanner'
+import DashboardCalendar from '@/components/DashboardCalendar'
 import {
   Users,
   BookOpen,
@@ -169,6 +170,11 @@ export default function DashboardContent({
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Calendar Widget */}
+        <div className="mt-6">
+          <DashboardCalendar />
         </div>
     </div>
   )

@@ -1,0 +1,86 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "엔보임 플래너 프로" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: 엔보임 플래너 프로
+        - generic [ref=e8]:
+          - link "홈" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - link "가격 안내" [ref=e10] [cursor=pointer]:
+            - /url: /#pricing
+          - link "주문하기" [ref=e11] [cursor=pointer]:
+            - /url: /order
+          - link "라이선스 활성화" [ref=e12] [cursor=pointer]:
+            - /url: /license-activate
+          - generic [ref=e27]:
+            - link "대시보드" [ref=e28] [cursor=pointer]:
+              - /url: /dashboard
+            - button "로그아웃" [ref=e29]
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - button [ref=e30]:
+        - img [ref=e31]
+      - generic [ref=e33]:
+        - generic [ref=e34]: 관
+        - generic [ref=e35]:
+          - heading "관리자 테스트용 학생" [level=1] [ref=e36]
+          - generic [ref=e37]:
+            - generic [ref=e38]: 비활성
+            - generic [ref=e39]: "레벨: 1"
+    - generic [ref=e40]:
+      - button "기본 정보" [ref=e41]
+      - button "수강권 현황" [active] [ref=e42]
+      - button "수업 일정" [ref=e43]
+      - button "수강 과정" [ref=e44]
+      - button "학습 기록" [ref=e45]
+    - generic [ref=e277]:
+      - generic [ref=e278]:
+        - heading "수강권 현황" [level=2] [ref=e279]
+        - button "수강권 추가" [ref=e280]:
+          - img [ref=e281]
+          - text: 수강권 추가
+      - generic [ref=e284]:
+        - generic [ref=e285]:
+          - generic [ref=e286]:
+            - heading "주2회 50분 수강권" [level=3] [ref=e287]
+            - generic [ref=e288]: 활성
+          - generic [ref=e289]:
+            - generic [ref=e290]:
+              - paragraph [ref=e291]: 수강 빈도
+              - paragraph [ref=e292]: 주2회
+            - generic [ref=e293]:
+              - paragraph [ref=e294]: 수업 시간
+              - paragraph [ref=e295]: 50분
+            - generic [ref=e296]:
+              - paragraph [ref=e297]: 수강 기간
+              - paragraph [ref=e298]: 2026. 2. 8. ~ 2026. 3. 8.
+            - generic [ref=e299]:
+              - paragraph [ref=e300]: 잔여 횟수
+              - paragraph [ref=e301]: 8/8회
+            - generic [ref=e302]:
+              - paragraph [ref=e303]: 진행률
+              - paragraph [ref=e304]: 0%
+            - generic [ref=e305]:
+              - paragraph [ref=e306]: 가격 타입
+              - paragraph [ref=e307]: 관리수강
+            - generic [ref=e308]:
+              - paragraph [ref=e309]: 결제 수단
+              - paragraph [ref=e310]: 현금
+            - generic [ref=e311]:
+              - paragraph [ref=e312]: 결제 금액
+              - paragraph [ref=e313]: 240,000원
+          - generic [ref=e314]:
+            - generic [ref=e315]:
+              - generic [ref=e316]: 연기권 사용 현황
+              - generic [ref=e317]: 1/2회
+            - paragraph [ref=e320]: "남은 연기권: 1회"
+          - generic [ref=e322]:
+            - generic [ref=e323]: 진행률
+            - generic [ref=e324]: 0%
+        - button [ref=e326]:
+          - img [ref=e327]
+  - button "Open Next.js Dev Tools" [ref=e22] [cursor=pointer]:
+    - img [ref=e23]
+  - alert [ref=e26]

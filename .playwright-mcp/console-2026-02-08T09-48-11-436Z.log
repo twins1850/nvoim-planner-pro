@@ -1,0 +1,13 @@
+[     247ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[  206844ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0
+[  300434ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[  333627ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[  360581ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[  382778ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[  416770ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0
+[  478999ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0
+[ 2036727ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[ 2062455ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[ 2468023ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/32817d2e7436/_next/static/chunks/86a543bb87658b3c.js?dpl=dpl_n5PKkT35wif6vtnGAXFts5bmxtK9:9
+[ 2475119ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0
+[ 2521537ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0

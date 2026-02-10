@@ -1,0 +1,4 @@
+[     721ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/dda0b526ac2a/_next/static/chunks/2f1398ead6ccf20d.js?dpl=dpl_GtmCwhk8vXT1Wyy2xKMq7912jjdt:9
+[ 2500379ms] [WARNING] Blocked aria-hidden on an element because its descendant retained focus. The focus must not be hidden from assistive technology users. Avoid using aria-hidden on a focused element or its ancestor. Consider using the inert attribute instead, which will also prevent focus. For more details, see the aria-hidden section of the WAI-ARIA specification at https://w3c.github.io/aria/#aria-hidden.
+Element with focus: <textarea.inputarea monaco-mouse-cursor-text>
+Ancestor with aria-hidden: <div.h-full> @ https://supabase.com/dashboard/project/ybcjkdcdruquqrdahtga/sql/7b7b61d8-dae1-4ec1-9d85-436288152116:0

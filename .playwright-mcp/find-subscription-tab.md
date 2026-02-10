@@ -1,0 +1,72 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "엔보임 플래너 프로" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: 엔보임 플래너 프로
+        - button "메뉴 열기" [ref=e9]:
+          - generic [ref=e10]: 메뉴 열기
+          - img [ref=e11]
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - button [ref=e27]:
+        - img [ref=e28]
+      - generic [ref=e30]:
+        - generic [ref=e31]: 신
+        - generic [ref=e32]:
+          - heading "신규학생" [level=1] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]: 비활성
+            - generic [ref=e36]: "레벨:"
+    - generic [ref=e37]:
+      - button "기본 정보" [ref=e38]
+      - button "수강권 현황" [ref=e39]
+      - button "수강 과정" [ref=e40]
+      - button "학습 기록" [ref=e41]
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - heading "기본 정보" [level=2] [ref=e45]
+        - button "수정" [ref=e46]:
+          - img [ref=e47]
+          - text: 수정
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e53]: 이메일
+            - paragraph [ref=e54]: newstudent@example.com
+          - generic [ref=e55]:
+            - generic [ref=e56]: 전화번호
+            - paragraph [ref=e57]: 010-9999-8888
+          - generic [ref=e58]:
+            - generic [ref=e59]: 생년월일
+            - paragraph [ref=e60]: "-"
+          - generic [ref=e61]:
+            - generic [ref=e62]: 주소
+            - paragraph [ref=e63]: "-"
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - generic [ref=e66]: 보호자 이름
+            - paragraph [ref=e67]: "-"
+          - generic [ref=e68]:
+            - generic [ref=e69]: 보호자 연락처
+            - paragraph [ref=e70]: "-"
+          - generic [ref=e71]:
+            - generic [ref=e72]: 레벨
+            - paragraph
+          - generic [ref=e73]:
+            - generic [ref=e74]: 메모
+            - paragraph [ref=e75]: "-"
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: 총 수업 횟수
+          - paragraph [ref=e80]: 회
+        - generic [ref=e81]:
+          - paragraph [ref=e82]: 완료율
+          - paragraph [ref=e83]: "%"
+        - generic [ref=e84]:
+          - paragraph [ref=e85]: 마지막 수업
+          - paragraph [ref=e86]: "-"
+  - button "Open Next.js Dev Tools" [ref=e22] [cursor=pointer]:
+    - img [ref=e23]
+  - alert [ref=e26]

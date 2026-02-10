@@ -13,7 +13,6 @@ export type MainTabParamList = {
   Homework: undefined;
   Progress: undefined;
   Feedback: undefined;
-  Conversation: undefined;
   Messages: undefined;
   Profile: undefined;
 };

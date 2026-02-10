@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { 
+import {
   ArrowLeft,
   User,
-  Mail, 
+  Mail,
   Phone,
   Calendar,
   BookOpen,
@@ -29,26 +29,29 @@ import {
   GraduationCap
 } from "lucide-react";
 import AddSubscriptionForm from "@/components/AddSubscriptionForm";
+import StudentCalendar, { StudentCalendarRef } from "@/components/StudentCalendar";
+import PostponeModal from "@/components/PostponeModal";
 
 interface Student {
   id: string;
-  name: string;
+  full_name: string;
   email: string;
   phone?: string;
   avatar_url?: string;
-  level: string;
-  status: 'active' | 'inactive' | 'paused';
+  level?: string;
+  status?: 'active' | 'inactive' | 'paused';
   created_at: string;
   last_lesson_date?: string;
-  total_lessons: number;
-  completion_rate: number;
+  total_lessons?: number;
+  completion_rate?: number;
   invite_code?: string;
-  is_connected: boolean;
+  is_connected?: boolean;
   birth_date?: string;
   address?: string;
   parent_name?: string;
   parent_phone?: string;
   notes?: string;
+  planner_id?: string;
 }
 
 interface Subscription {
@@ -67,6 +70,10 @@ interface Subscription {
   max_postponements: number;
   total_amount?: number;
   payment_amount?: number;
+  pricing_type?: 'managed' | 'regular' | 'base';
+  payment_method?: 'cash' | 'card';
+  per_lesson_price?: number;
+  per_month_price?: number;
   status: 'active' | 'paused' | 'expired' | 'cancelled';
   notes?: string;
 }
@@ -108,11 +115,13 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
   const [courses, setCourses] = useState<Course[]>([]);
   const [courseHistory, setCourseHistory] = useState<CourseHistory[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'info' | 'subscription' | 'course' | 'history'>('info');
+  const [activeTab, setActiveTab] = useState<'info' | 'subscription' | 'schedule' | 'course' | 'history'>('info');
   const [editMode, setEditMode] = useState(false);
   const [editedStudent, setEditedStudent] = useState<Student | null>(null);
   const [showAddSubscription, setShowAddSubscription] = useState(false);
   const [showAddCourse, setShowAddCourse] = useState(false);
+  const [postponeModal, setPostponeModal] = useState({ open: false, lessonId: '' });
+  const calendarRef = useRef<StudentCalendarRef>(null);
 
   useEffect(() => {
     fetchStudentData();
@@ -130,10 +139,10 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
 
       // 실제 데이터베이스에서 학생 정보 가져오기
       const { data: studentData, error: studentError } = await supabase
-        .from('students')
+        .from('student_profiles')
         .select('*')
         .eq('id', studentId)
-        .eq('teacher_id', user.id)
+        .eq('planner_id', user.id)
         .single();
 
       if (studentError) {
@@ -241,12 +250,12 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
           </button>
           <div className="flex items-center gap-3">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-              {student.name.charAt(0)}
+              {student.full_name.charAt(0)}
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">{student.name}</h1>
+              <h1 className="text-2xl font-bold text-gray-900">{student.full_name}</h1>
               <div className="flex items-center gap-2 mt-1">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(student.status)}`}>
+                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(student.status || 'inactive')}`}>
                   {student.status === 'active' ? '활성' : student.status === 'paused' ? '일시정지' : '비활성'}
                 </span>
                 <span className="text-sm text-gray-500">레벨: {student.level}</span>
@@ -276,18 +285,28 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
         <button
           onClick={() => setActiveTab('subscription')}
           className={`flex-1 px-4 py-2 rounded-md font-medium transition-colors ${
-            activeTab === 'subscription' 
-              ? 'bg-white text-blue-600 shadow-sm' 
+            activeTab === 'subscription'
+              ? 'bg-white text-blue-600 shadow-sm'
               : 'text-gray-600 hover:text-gray-900'
           }`}
         >
           수강권 현황
         </button>
         <button
+          onClick={() => setActiveTab('schedule')}
+          className={`flex-1 px-4 py-2 rounded-md font-medium transition-colors ${
+            activeTab === 'schedule'
+              ? 'bg-white text-blue-600 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          수업 일정
+        </button>
+        <button
           onClick={() => setActiveTab('course')}
           className={`flex-1 px-4 py-2 rounded-md font-medium transition-colors ${
-            activeTab === 'course' 
-              ? 'bg-white text-blue-600 shadow-sm' 
+            activeTab === 'course'
+              ? 'bg-white text-blue-600 shadow-sm'
               : 'text-gray-600 hover:text-gray-900'
           }`}
         >
@@ -543,18 +562,91 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
                             {Math.round((subscription.completed_lessons / subscription.total_lessons) * 100)}%
                           </p>
                         </div>
-                        <div>
-                          <p className="text-gray-600">연기 횟수</p>
-                          <p className="font-medium">
-                            {subscription.postponements_used}/{subscription.max_postponements}회
-                          </p>
-                        </div>
+
+                        {/* 가격 타입 */}
+                        {subscription.pricing_type && (
+                          <div>
+                            <p className="text-gray-600">가격 타입</p>
+                            <p className="font-medium">
+                              {subscription.pricing_type === 'managed' ? '관리수강' :
+                               subscription.pricing_type === 'regular' ? '일반수강' : '원단가'}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* 결제 수단 */}
+                        {subscription.payment_method && (
+                          <div>
+                            <p className="text-gray-600">결제 수단</p>
+                            <p className="font-medium">
+                              {subscription.payment_method === 'cash' ? '현금' : '카드'}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* 회당 단가 */}
+                        {subscription.per_lesson_price && (
+                          <div>
+                            <p className="text-gray-600">회당 단가</p>
+                            <p className="font-medium text-blue-600">
+                              {subscription.per_lesson_price.toLocaleString()}원
+                            </p>
+                          </div>
+                        )}
+
+                        {/* 월 단가 */}
+                        {subscription.per_month_price && (
+                          <div>
+                            <p className="text-gray-600">월 단가</p>
+                            <p className="font-medium text-blue-600">
+                              {subscription.per_month_price.toLocaleString()}원
+                            </p>
+                          </div>
+                        )}
+
+                        {/* 결제 금액 */}
                         {subscription.payment_amount && (
                           <div>
                             <p className="text-gray-600">결제 금액</p>
-                            <p className="font-medium">{subscription.payment_amount.toLocaleString()}원</p>
+                            <p className="font-medium text-green-600">
+                              {subscription.payment_amount.toLocaleString()}원
+                            </p>
                           </div>
                         )}
+                      </div>
+
+                      {/* 연기권 프로그레스 바 */}
+                      <div className="mt-4">
+                        <div className="flex items-center justify-between text-sm mb-1">
+                          <span className="text-gray-600 flex items-center gap-1">
+                            연기권 사용 현황
+                            {subscription.postponements_used >= subscription.max_postponements && (
+                              <AlertCircle className="w-4 h-4 text-red-500" />
+                            )}
+                          </span>
+                          <span className={`font-medium ${
+                            subscription.postponements_used >= subscription.max_postponements
+                              ? 'text-red-600'
+                              : 'text-gray-900'
+                          }`}>
+                            {subscription.postponements_used}/{subscription.max_postponements}회
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            className={`h-2 rounded-full transition-all ${
+                              subscription.postponements_used >= subscription.max_postponements
+                                ? 'bg-red-500'
+                                : subscription.postponements_used / subscription.max_postponements > 0.7
+                                ? 'bg-yellow-500'
+                                : 'bg-green-500'
+                            }`}
+                            style={{ width: `${(subscription.postponements_used / subscription.max_postponements) * 100}%` }}
+                          />
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          남은 연기권: {subscription.max_postponements - subscription.postponements_used}회
+                        </p>
                       </div>
                       <div className="mt-3">
                         <div className="flex justify-between text-sm mb-1">
@@ -598,6 +690,21 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {activeTab === 'schedule' && (
+          <div className="p-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">수업 일정</h2>
+            {student && (
+              <StudentCalendar
+                ref={calendarRef}
+                studentId={student.id}
+                onPostpone={(lessonId) => {
+                  setPostponeModal({ open: true, lessonId });
+                }}
+              />
+            )}
           </div>
         )}
 
@@ -1077,6 +1184,18 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
           </div>
         </div>
       )}
+
+      {/* Postpone Modal */}
+      <PostponeModal
+        isOpen={postponeModal.open}
+        lessonId={postponeModal.lessonId}
+        onClose={() => setPostponeModal({ open: false, lessonId: '' })}
+        onSuccess={async () => {
+          setPostponeModal({ open: false, lessonId: '' });
+          // 학생 캘린더 자동 갱신
+          await calendarRef.current?.refresh();
+        }}
+      />
 
       {/* Add Course Modal */}
       {showAddCourse && <AddCourseModal />}

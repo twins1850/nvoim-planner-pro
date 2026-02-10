@@ -1,0 +1,1984 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Supabase" [ref=e9] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e10]
+          - generic [ref=e11]:
+            - img [ref=e327]
+            - link "twins1850's Org Free" [ref=e329] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e330]
+              - generic [ref=e340]: twins1850's Org
+              - generic [ref=e341]: Free
+            - button [ref=e342] [cursor=pointer]:
+              - img [ref=e344]
+            - generic [ref=e12]:
+              - img [ref=e14]
+              - link "nvoim-planner-pro" [ref=e347] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e348]
+                - generic "nvoim-planner-pro" [ref=e351]
+              - button [ref=e352] [cursor=pointer]:
+                - img [ref=e354]
+              - img [ref=e358]
+              - link "main Production" [ref=e360] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - generic "main" [ref=e361]
+                - generic [ref=e362]: Production
+              - button [ref=e363] [cursor=pointer]:
+                - img [ref=e365]
+          - button "Connect" [ref=e18] [cursor=pointer]:
+            - img [ref=e20]
+            - generic [ref=e22]: Connect
+        - generic [ref=e23]:
+          - generic [ref=e25] [cursor=pointer]: Feedback
+          - generic [ref=e26]:
+            - button "Search..." [ref=e27] [cursor=pointer]:
+              - generic [ref=e28]:
+                - img [ref=e29]
+                - paragraph [ref=e32]: Search...
+              - generic [ref=e34]:
+                - img [ref=e35]
+                - generic [ref=e37]: K
+            - button [ref=e38] [cursor=pointer]:
+              - img [ref=e40]
+            - button [ref=e44] [cursor=pointer]:
+              - img [ref=e46]
+            - button [ref=e48] [cursor=pointer]:
+              - img [ref=e50]
+            - button [ref=e52] [cursor=pointer]:
+              - img [ref=e56]
+          - button "twins1850" [ref=e369] [cursor=pointer]:
+            - img "twins1850" [ref=e370]
+    - generic [ref=e64]:
+      - generic [ref=e68]:
+        - list [ref=e71]:
+          - generic [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Project Overview" [ref=e74] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e75]
+                - generic: Project Overview
+            - listitem [ref=e77]:
+              - link "Table Editor" [ref=e371] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                - img [ref=e372]
+                - generic: Table Editor
+            - listitem [ref=e78]:
+              - link "SQL Editor" [ref=e374] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                - img [ref=e375]
+                - generic: SQL Editor
+          - generic [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Database" [ref=e377] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                - img [ref=e378]
+                - generic: Database
+            - listitem [ref=e81]:
+              - link "Authentication" [ref=e382] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                - img [ref=e383]
+                - generic: Authentication
+            - listitem [ref=e82]:
+              - link "Storage" [ref=e385] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                - img [ref=e386]
+                - generic: Storage
+            - listitem [ref=e83]:
+              - link "Edge Functions" [ref=e84] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                - img [ref=e85]
+                - generic: Edge Functions
+            - listitem [ref=e90]:
+              - link "Realtime" [ref=e388] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                - img [ref=e389]
+                - generic: Realtime
+          - generic [ref=e91]:
+            - listitem [ref=e93]:
+              - link "Advisors" [ref=e391] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                - img [ref=e392]
+                - generic: Advisors
+            - listitem [ref=e94]:
+              - link "Observability" [ref=e394] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                - img [ref=e395]
+                - generic: Observability
+            - listitem [ref=e95]:
+              - link "Logs" [ref=e403] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                - img [ref=e404]
+                - generic: Logs
+            - listitem [ref=e96]:
+              - link "API Docs" [ref=e405] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                - img [ref=e406]
+                - generic: API Docs
+            - listitem [ref=e97]:
+              - link "Integrations" [ref=e409] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                - img [ref=e410]
+                - generic: Integrations
+          - listitem [ref=e99]:
+            - link "Project Settings" [ref=e100] [cursor=pointer]:
+              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+              - img [ref=e101]
+              - generic: Project Settings
+        - button [ref=e106] [cursor=pointer]:
+          - img [ref=e108]
+      - generic [ref=e112]:
+        - generic [ref=e414]:
+          - generic [ref=e417]:
+            - heading "Authentication" [level=4] [ref=e419]
+            - menu "Sidebar" [ref=e422]:
+              - list [ref=e423]:
+                - generic [ref=e426]:
+                  - generic [ref=e430]: Manage
+                  - generic [ref=e431]:
+                    - link "Users" [ref=e432] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                      - menuitem "Users" [ref=e433]:
+                        - generic "Users" [ref=e436]:
+                          - generic [ref=e437]: Users
+                    - link "OAuth Apps" [ref=e438] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/oauth-apps
+                      - menuitem "OAuth Apps" [ref=e439]:
+                        - generic "OAuth Apps" [ref=e442]:
+                          - generic [ref=e443]: OAuth Apps
+                - generic [ref=e447]:
+                  - generic [ref=e451]: Notifications
+                  - link "Email" [ref=e453] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/templates
+                    - menuitem "Email" [ref=e454]:
+                      - generic "Email" [ref=e457]:
+                        - generic [ref=e458]: Email
+                - generic [ref=e462]:
+                  - generic [ref=e466]: Configuration
+                  - generic [ref=e467]:
+                    - link "Policies" [ref=e468] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/policies
+                      - menuitem "Policies" [ref=e469]:
+                        - generic "Policies" [ref=e472]:
+                          - generic [ref=e473]: Policies
+                    - link "Sign In / Providers" [ref=e474] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/providers
+                      - menuitem "Sign In / Providers" [ref=e475]:
+                        - generic "Sign In / Providers" [ref=e478]:
+                          - generic [ref=e479]: Sign In / Providers
+                    - link "OAuth Server Beta" [ref=e480] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/oauth-server
+                      - menuitem "OAuth Server Beta" [ref=e481]:
+                        - generic "OAuth Server" [ref=e484]:
+                          - generic [ref=e485]: OAuth Server
+                          - generic [ref=e486]: Beta
+                    - link "Sessions" [ref=e487] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/sessions
+                      - menuitem "Sessions" [ref=e488]:
+                        - generic "Sessions" [ref=e491]:
+                          - generic [ref=e492]: Sessions
+                    - link "Rate Limits" [ref=e493] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/rate-limits
+                      - menuitem "Rate Limits" [ref=e494]:
+                        - generic "Rate Limits" [ref=e497]:
+                          - generic [ref=e498]: Rate Limits
+                    - link "Multi-Factor" [ref=e499] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/mfa
+                      - menuitem "Multi-Factor" [ref=e500]:
+                        - generic "Multi-Factor" [ref=e503]:
+                          - generic [ref=e504]: Multi-Factor
+                    - link "URL Configuration" [ref=e505] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/url-configuration
+                      - menuitem "URL Configuration" [ref=e506]:
+                        - generic "URL Configuration" [ref=e509]:
+                          - generic [ref=e510]: URL Configuration
+                    - link "Attack Protection" [ref=e511] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/protection
+                      - menuitem "Attack Protection" [ref=e512]:
+                        - generic "Attack Protection" [ref=e515]:
+                          - generic [ref=e516]: Attack Protection
+                    - link "Auth Hooks Beta" [ref=e517] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/hooks
+                      - menuitem "Auth Hooks Beta" [ref=e518]:
+                        - generic "Auth Hooks" [ref=e521]:
+                          - generic [ref=e522]: Auth Hooks
+                          - generic [ref=e523]: Beta
+                    - link "Audit Logs" [ref=e524] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/audit-logs
+                      - menuitem "Audit Logs" [ref=e525]:
+                        - generic "Audit Logs" [ref=e528]:
+                          - generic [ref=e529]: Audit Logs
+                    - link "Performance" [ref=e530] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/performance
+                      - menuitem "Performance" [ref=e531]:
+                        - generic "Performance" [ref=e534]:
+                          - generic [ref=e535]: Performance
+          - separator [ref=e536]:
+            - img [ref=e538]
+          - main [ref=e546]:
+            - generic [ref=e549]:
+              - generic [ref=e550]:
+                - heading "Policies" [level=1] [ref=e551]
+                - generic [ref=e552]: Manage Row Level Security policies for your tables
+              - link "Docs" [ref=e554] [cursor=pointer]:
+                - /url: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
+                - img [ref=e556]
+                - generic [ref=e559]: Docs
+            - generic [ref=e562]:
+              - generic [ref=e563]:
+                - button "schema public" [ref=e565] [cursor=pointer]:
+                  - generic [ref=e567]:
+                    - paragraph [ref=e568]: schema
+                    - paragraph [ref=e569]: public
+                  - img [ref=e571]
+                - generic [ref=e574]:
+                  - textbox "Filter tables and policies" [ref=e575]
+                  - generic:
+                    - img
+              - generic [ref=e576]:
+                - generic [ref=e578]:
+                  - generic [ref=e580]:
+                    - link "ai_lesson_analyses" [ref=e582] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/45054
+                      - img [ref=e583]
+                      - heading "ai_lesson_analyses" [level=3] [ref=e585]
+                    - generic [ref=e587]:
+                      - button "Disable RLS" [ref=e588] [cursor=pointer]:
+                        - generic [ref=e589]: Disable RLS
+                      - button "Create policy" [ref=e590] [cursor=pointer]:
+                        - generic [ref=e591]: Create policy
+                      - button [ref=e592] [cursor=pointer]:
+                        - img [ref=e596]
+                  - table [ref=e602]:
+                    - rowgroup [ref=e603]:
+                      - row "Name Command Applied to Actions" [ref=e604]:
+                        - columnheader "Name" [ref=e605]
+                        - columnheader "Command" [ref=e606]
+                        - columnheader "Applied to" [ref=e607]
+                        - columnheader "Actions" [ref=e608]:
+                          - generic [ref=e609]: Actions
+                    - rowgroup [ref=e610]:
+                      - row "Planners can manage their analyses ALL public" [ref=e611]:
+                        - cell "Planners can manage their analyses" [ref=e612]:
+                          - button "Planners can manage their analyses" [ref=e614] [cursor=pointer]:
+                            - generic [ref=e615]: Planners can manage their analyses
+                        - cell "ALL" [ref=e616]:
+                          - code [ref=e617]: ALL
+                        - cell "public" [ref=e618]:
+                          - code [ref=e622]: public
+                        - cell [ref=e623]:
+                          - button [ref=e624] [cursor=pointer]:
+                            - img [ref=e626]
+                - generic [ref=e631]:
+                  - generic [ref=e633]:
+                    - link "attendance" [ref=e635] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17656
+                      - img [ref=e636]
+                      - heading "attendance" [level=3] [ref=e638]
+                    - generic [ref=e640]:
+                      - button "Disable RLS" [ref=e641] [cursor=pointer]:
+                        - generic [ref=e642]: Disable RLS
+                      - button "Create policy" [ref=e643] [cursor=pointer]:
+                        - generic [ref=e644]: Create policy
+                      - button [ref=e645] [cursor=pointer]:
+                        - img [ref=e649]
+                  - alert [ref=e652]:
+                    - paragraph [ref=e655]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e657]: No policies created yet
+                - generic [ref=e659]:
+                  - generic [ref=e661]:
+                    - link "class_enrollments" [ref=e663] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17430
+                      - img [ref=e664]
+                      - heading "class_enrollments" [level=3] [ref=e666]
+                    - generic [ref=e668]:
+                      - button "Disable RLS" [ref=e669] [cursor=pointer]:
+                        - generic [ref=e670]: Disable RLS
+                      - button "Create policy" [ref=e671] [cursor=pointer]:
+                        - generic [ref=e672]: Create policy
+                      - button [ref=e673] [cursor=pointer]:
+                        - img [ref=e677]
+                  - alert [ref=e680]:
+                    - paragraph [ref=e683]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e685]: No policies created yet
+                - generic [ref=e687]:
+                  - generic [ref=e689]:
+                    - link "classes" [ref=e691] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17414
+                      - img [ref=e692]
+                      - heading "classes" [level=3] [ref=e694]
+                    - generic [ref=e696]:
+                      - button "Disable RLS" [ref=e697] [cursor=pointer]:
+                        - generic [ref=e698]: Disable RLS
+                      - button "Create policy" [ref=e699] [cursor=pointer]:
+                        - generic [ref=e700]: Create policy
+                      - button [ref=e701] [cursor=pointer]:
+                        - img [ref=e705]
+                  - table [ref=e711]:
+                    - rowgroup [ref=e712]:
+                      - row "Name Command Applied to Actions" [ref=e713]:
+                        - columnheader "Name" [ref=e714]
+                        - columnheader "Command" [ref=e715]
+                        - columnheader "Applied to" [ref=e716]
+                        - columnheader "Actions" [ref=e717]:
+                          - generic [ref=e718]: Actions
+                    - rowgroup [ref=e719]:
+                      - row "Planners can manage their own classes ALL public" [ref=e720]:
+                        - cell "Planners can manage their own classes" [ref=e721]:
+                          - button "Planners can manage their own classes" [ref=e723] [cursor=pointer]:
+                            - generic [ref=e724]: Planners can manage their own classes
+                        - cell "ALL" [ref=e725]:
+                          - code [ref=e726]: ALL
+                        - cell "public" [ref=e727]:
+                          - code [ref=e731]: public
+                        - cell [ref=e732]:
+                          - button [ref=e733] [cursor=pointer]:
+                            - img [ref=e735]
+                      - row "Students can view their enrolled classes SELECT public" [ref=e739]:
+                        - cell "Students can view their enrolled classes" [ref=e740]:
+                          - button "Students can view their enrolled classes" [ref=e742] [cursor=pointer]:
+                            - generic [ref=e743]: Students can view their enrolled classes
+                        - cell "SELECT" [ref=e744]:
+                          - code [ref=e745]: SELECT
+                        - cell "public" [ref=e746]:
+                          - code [ref=e750]: public
+                        - cell [ref=e751]:
+                          - button [ref=e752] [cursor=pointer]:
+                            - img [ref=e754]
+                - generic [ref=e759]:
+                  - generic [ref=e761]:
+                    - link "conversations RLS Disabled" [ref=e763] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/41122
+                      - img [ref=e764]
+                      - heading "conversations" [level=3] [ref=e766]
+                      - generic [ref=e767]: RLS Disabled
+                    - generic [ref=e769]:
+                      - button "Enable RLS" [ref=e770] [cursor=pointer]:
+                        - generic [ref=e771]: Enable RLS
+                      - button "Create policy" [ref=e772] [cursor=pointer]:
+                        - generic [ref=e773]: Create policy
+                      - button [ref=e774] [cursor=pointer]:
+                        - img [ref=e778]
+                  - alert [ref=e781]:
+                    - paragraph [ref=e784]: This table can be accessed by anyone via the Data API as RLS is disabled.
+                  - paragraph [ref=e786]: No policies created yet
+                - generic [ref=e788]:
+                  - generic [ref=e790]:
+                    - link "course_history RLS Disabled" [ref=e792] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/39878
+                      - img [ref=e793]
+                      - heading "course_history" [level=3] [ref=e795]
+                      - generic [ref=e796]: RLS Disabled
+                    - generic [ref=e798]:
+                      - button "Enable RLS" [ref=e799] [cursor=pointer]:
+                        - generic [ref=e800]: Enable RLS
+                      - button "Create policy" [ref=e801] [cursor=pointer]:
+                        - generic [ref=e802]: Create policy
+                      - button [ref=e803] [cursor=pointer]:
+                        - img [ref=e807]
+                  - alert [ref=e810]:
+                    - paragraph [ref=e813]: This table can be accessed by anyone via the Data API as RLS is disabled.
+                  - paragraph [ref=e815]: No policies created yet
+                - generic [ref=e817]:
+                  - generic [ref=e819]:
+                    - link "course_recommendations RLS Disabled" [ref=e821] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/39899
+                      - img [ref=e822]
+                      - heading "course_recommendations" [level=3] [ref=e824]
+                      - generic [ref=e825]: RLS Disabled
+                    - generic [ref=e827]:
+                      - button "Enable RLS" [ref=e828] [cursor=pointer]:
+                        - generic [ref=e829]: Enable RLS
+                      - button "Create policy" [ref=e830] [cursor=pointer]:
+                        - generic [ref=e831]: Create policy
+                      - button [ref=e832] [cursor=pointer]:
+                        - img [ref=e836]
+                  - alert [ref=e839]:
+                    - paragraph [ref=e842]: This table can be accessed by anyone via the Data API as RLS is disabled.
+                  - paragraph [ref=e844]: No policies created yet
+                - generic [ref=e846]:
+                  - generic [ref=e848]:
+                    - link "curricula" [ref=e850] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/39807
+                      - img [ref=e851]
+                      - heading "curricula" [level=3] [ref=e853]
+                    - generic [ref=e855]:
+                      - button "Disable RLS" [ref=e856] [cursor=pointer]:
+                        - generic [ref=e857]: Disable RLS
+                      - button "Create policy" [ref=e858] [cursor=pointer]:
+                        - generic [ref=e859]: Create policy
+                      - button [ref=e860] [cursor=pointer]:
+                        - img [ref=e864]
+                  - table [ref=e870]:
+                    - rowgroup [ref=e871]:
+                      - row "Name Command Applied to Actions" [ref=e872]:
+                        - columnheader "Name" [ref=e873]
+                        - columnheader "Command" [ref=e874]
+                        - columnheader "Applied to" [ref=e875]
+                        - columnheader "Actions" [ref=e876]:
+                          - generic [ref=e877]: Actions
+                    - rowgroup [ref=e878]:
+                      - row "Authenticated users can view curricula SELECT authenticated" [ref=e879]:
+                        - cell "Authenticated users can view curricula" [ref=e880]:
+                          - button "Authenticated users can view curricula" [ref=e882] [cursor=pointer]:
+                            - generic [ref=e883]: Authenticated users can view curricula
+                        - cell "SELECT" [ref=e884]:
+                          - code [ref=e885]: SELECT
+                        - cell "authenticated" [ref=e886]:
+                          - code [ref=e890]: authenticated
+                        - cell [ref=e891]:
+                          - button [ref=e892] [cursor=pointer]:
+                            - img [ref=e894]
+                      - row "Teachers can manage curricula ALL authenticated" [ref=e898]:
+                        - cell "Teachers can manage curricula" [ref=e899]:
+                          - button "Teachers can manage curricula" [ref=e901] [cursor=pointer]:
+                            - generic [ref=e902]: Teachers can manage curricula
+                        - cell "ALL" [ref=e903]:
+                          - code [ref=e904]: ALL
+                        - cell "authenticated" [ref=e905]:
+                          - code [ref=e909]: authenticated
+                        - cell [ref=e910]:
+                          - button [ref=e911] [cursor=pointer]:
+                            - img [ref=e913]
+                - generic [ref=e918]:
+                  - generic [ref=e920]:
+                    - link "feedback" [ref=e922] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17531
+                      - img [ref=e923]
+                      - heading "feedback" [level=3] [ref=e925]
+                    - generic [ref=e927]:
+                      - button "Disable RLS" [ref=e928] [cursor=pointer]:
+                        - generic [ref=e929]: Disable RLS
+                      - button "Create policy" [ref=e930] [cursor=pointer]:
+                        - generic [ref=e931]: Create policy
+                      - button [ref=e932] [cursor=pointer]:
+                        - img [ref=e936]
+                  - alert [ref=e939]:
+                    - paragraph [ref=e942]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e944]: No policies created yet
+                - generic [ref=e946]:
+                  - generic [ref=e948]:
+                    - link "flexible_bookings" [ref=e950] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/54776
+                      - img [ref=e951]
+                      - heading "flexible_bookings" [level=3] [ref=e953]
+                    - generic [ref=e955]:
+                      - button "Disable RLS" [ref=e956] [cursor=pointer]:
+                        - generic [ref=e957]: Disable RLS
+                      - button "Create policy" [ref=e958] [cursor=pointer]:
+                        - generic [ref=e959]: Create policy
+                      - button [ref=e960] [cursor=pointer]:
+                        - img [ref=e964]
+                  - table [ref=e970]:
+                    - rowgroup [ref=e971]:
+                      - row "Name Command Applied to Actions" [ref=e972]:
+                        - columnheader "Name" [ref=e973]
+                        - columnheader "Command" [ref=e974]
+                        - columnheader "Applied to" [ref=e975]
+                        - columnheader "Actions" [ref=e976]:
+                          - generic [ref=e977]: Actions
+                    - rowgroup [ref=e978]:
+                      - row "Students can create their flexible bookings INSERT public" [ref=e979]:
+                        - cell "Students can create their flexible bookings" [ref=e980]:
+                          - button "Students can create their flexible bookings" [ref=e982] [cursor=pointer]:
+                            - generic [ref=e983]: Students can create their flexible bookings
+                        - cell "INSERT" [ref=e984]:
+                          - code [ref=e985]: INSERT
+                        - cell "public" [ref=e986]:
+                          - code [ref=e990]: public
+                        - cell [ref=e991]:
+                          - button [ref=e992] [cursor=pointer]:
+                            - img [ref=e994]
+                      - row "Students can view their flexible bookings SELECT public" [ref=e998]:
+                        - cell "Students can view their flexible bookings" [ref=e999]:
+                          - button "Students can view their flexible bookings" [ref=e1001] [cursor=pointer]:
+                            - generic [ref=e1002]: Students can view their flexible bookings
+                        - cell "SELECT" [ref=e1003]:
+                          - code [ref=e1004]: SELECT
+                        - cell "public" [ref=e1005]:
+                          - code [ref=e1009]: public
+                        - cell [ref=e1010]:
+                          - button [ref=e1011] [cursor=pointer]:
+                            - img [ref=e1013]
+                      - row "Teachers can manage flexible bookings ALL public" [ref=e1017]:
+                        - cell "Teachers can manage flexible bookings" [ref=e1018]:
+                          - button "Teachers can manage flexible bookings" [ref=e1020] [cursor=pointer]:
+                            - generic [ref=e1021]: Teachers can manage flexible bookings
+                        - cell "ALL" [ref=e1022]:
+                          - code [ref=e1023]: ALL
+                        - cell "public" [ref=e1024]:
+                          - code [ref=e1028]: public
+                        - cell [ref=e1029]:
+                          - button [ref=e1030] [cursor=pointer]:
+                            - img [ref=e1032]
+                - generic [ref=e1037]:
+                  - generic [ref=e1039]:
+                    - link "holidays" [ref=e1041] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/54764
+                      - img [ref=e1042]
+                      - heading "holidays" [level=3] [ref=e1044]
+                    - generic [ref=e1046]:
+                      - button "Disable RLS" [ref=e1047] [cursor=pointer]:
+                        - generic [ref=e1048]: Disable RLS
+                      - button "Create policy" [ref=e1049] [cursor=pointer]:
+                        - generic [ref=e1050]: Create policy
+                      - button [ref=e1051] [cursor=pointer]:
+                        - img [ref=e1055]
+                  - table [ref=e1061]:
+                    - rowgroup [ref=e1062]:
+                      - row "Name Command Applied to Actions" [ref=e1063]:
+                        - columnheader "Name" [ref=e1064]
+                        - columnheader "Command" [ref=e1065]
+                        - columnheader "Applied to" [ref=e1066]
+                        - columnheader "Actions" [ref=e1067]:
+                          - generic [ref=e1068]: Actions
+                    - rowgroup [ref=e1069]:
+                      - row "Authenticated users can view holidays SELECT authenticated" [ref=e1070]:
+                        - cell "Authenticated users can view holidays" [ref=e1071]:
+                          - button "Authenticated users can view holidays" [ref=e1073] [cursor=pointer]:
+                            - generic [ref=e1074]: Authenticated users can view holidays
+                        - cell "SELECT" [ref=e1075]:
+                          - code [ref=e1076]: SELECT
+                        - cell "authenticated" [ref=e1077]:
+                          - code [ref=e1081]: authenticated
+                        - cell [ref=e1082]:
+                          - button [ref=e1083] [cursor=pointer]:
+                            - img [ref=e1085]
+                      - row "Teachers can manage holidays ALL authenticated" [ref=e1089]:
+                        - cell "Teachers can manage holidays" [ref=e1090]:
+                          - button "Teachers can manage holidays" [ref=e1092] [cursor=pointer]:
+                            - generic [ref=e1093]: Teachers can manage holidays
+                        - cell "ALL" [ref=e1094]:
+                          - code [ref=e1095]: ALL
+                        - cell "authenticated" [ref=e1096]:
+                          - code [ref=e1100]: authenticated
+                        - cell [ref=e1101]:
+                          - button [ref=e1102] [cursor=pointer]:
+                            - img [ref=e1104]
+                - generic [ref=e1109]:
+                  - generic [ref=e1111]:
+                    - link "homework" [ref=e1113] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17471
+                      - img [ref=e1114]
+                      - heading "homework" [level=3] [ref=e1116]
+                    - generic [ref=e1118]:
+                      - button "Disable RLS" [ref=e1119] [cursor=pointer]:
+                        - generic [ref=e1120]: Disable RLS
+                      - button "Create policy" [ref=e1121] [cursor=pointer]:
+                        - generic [ref=e1122]: Create policy
+                      - button [ref=e1123] [cursor=pointer]:
+                        - img [ref=e1127]
+                  - table [ref=e1133]:
+                    - rowgroup [ref=e1134]:
+                      - row "Name Command Applied to Actions" [ref=e1135]:
+                        - columnheader "Name" [ref=e1136]
+                        - columnheader "Command" [ref=e1137]
+                        - columnheader "Applied to" [ref=e1138]
+                        - columnheader "Actions" [ref=e1139]:
+                          - generic [ref=e1140]: Actions
+                    - rowgroup [ref=e1141]:
+                      - row "Planners can manage their homework ALL public" [ref=e1142]:
+                        - cell "Planners can manage their homework" [ref=e1143]:
+                          - button "Planners can manage their homework" [ref=e1145] [cursor=pointer]:
+                            - generic [ref=e1146]: Planners can manage their homework
+                        - cell "ALL" [ref=e1147]:
+                          - code [ref=e1148]: ALL
+                        - cell "public" [ref=e1149]:
+                          - code [ref=e1153]: public
+                        - cell [ref=e1154]:
+                          - button [ref=e1155] [cursor=pointer]:
+                            - img [ref=e1157]
+                      - row "Students can view homework content SELECT authenticated" [ref=e1161]:
+                        - cell "Students can view homework content" [ref=e1162]:
+                          - button "Students can view homework content" [ref=e1164] [cursor=pointer]:
+                            - generic [ref=e1165]: Students can view homework content
+                        - cell "SELECT" [ref=e1166]:
+                          - code [ref=e1167]: SELECT
+                        - cell "authenticated" [ref=e1168]:
+                          - code [ref=e1172]: authenticated
+                        - cell [ref=e1173]:
+                          - button [ref=e1174] [cursor=pointer]:
+                            - img [ref=e1176]
+                - generic [ref=e1181]:
+                  - generic [ref=e1183]:
+                    - link "homework_assignments" [ref=e1185] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17491
+                      - img [ref=e1186]
+                      - heading "homework_assignments" [level=3] [ref=e1188]
+                    - generic [ref=e1190]:
+                      - button "Disable RLS" [ref=e1191] [cursor=pointer]:
+                        - generic [ref=e1192]: Disable RLS
+                      - button "Create policy" [ref=e1193] [cursor=pointer]:
+                        - generic [ref=e1194]: Create policy
+                      - button [ref=e1195] [cursor=pointer]:
+                        - img [ref=e1199]
+                  - table [ref=e1205]:
+                    - rowgroup [ref=e1206]:
+                      - row "Name Command Applied to Actions" [ref=e1207]:
+                        - columnheader "Name" [ref=e1208]
+                        - columnheader "Command" [ref=e1209]
+                        - columnheader "Applied to" [ref=e1210]
+                        - columnheader "Actions" [ref=e1211]:
+                          - generic [ref=e1212]: Actions
+                    - rowgroup [ref=e1213]:
+                      - row "homework_assignments_delete_policy DELETE authenticated" [ref=e1214]:
+                        - cell "homework_assignments_delete_policy" [ref=e1215]:
+                          - button "homework_assignments_delete_policy" [ref=e1217] [cursor=pointer]:
+                            - generic [ref=e1218]: homework_assignments_delete_policy
+                        - cell "DELETE" [ref=e1219]:
+                          - code [ref=e1220]: DELETE
+                        - cell "authenticated" [ref=e1221]:
+                          - code [ref=e1225]: authenticated
+                        - cell [ref=e1226]:
+                          - button [ref=e1227] [cursor=pointer]:
+                            - img [ref=e1229]
+                      - row "homework_assignments_insert_policy INSERT authenticated" [ref=e1233]:
+                        - cell "homework_assignments_insert_policy" [ref=e1234]:
+                          - button "homework_assignments_insert_policy" [ref=e1236] [cursor=pointer]:
+                            - generic [ref=e1237]: homework_assignments_insert_policy
+                        - cell "INSERT" [ref=e1238]:
+                          - code [ref=e1239]: INSERT
+                        - cell "authenticated" [ref=e1240]:
+                          - code [ref=e1244]: authenticated
+                        - cell [ref=e1245]:
+                          - button [ref=e1246] [cursor=pointer]:
+                            - img [ref=e1248]
+                      - row "homework_assignments_select_policy SELECT authenticated" [ref=e1252]:
+                        - cell "homework_assignments_select_policy" [ref=e1253]:
+                          - button "homework_assignments_select_policy" [ref=e1255] [cursor=pointer]:
+                            - generic [ref=e1256]: homework_assignments_select_policy
+                        - cell "SELECT" [ref=e1257]:
+                          - code [ref=e1258]: SELECT
+                        - cell "authenticated" [ref=e1259]:
+                          - code [ref=e1263]: authenticated
+                        - cell [ref=e1264]:
+                          - button [ref=e1265] [cursor=pointer]:
+                            - img [ref=e1267]
+                      - row "homework_assignments_update_policy UPDATE authenticated" [ref=e1271]:
+                        - cell "homework_assignments_update_policy" [ref=e1272]:
+                          - button "homework_assignments_update_policy" [ref=e1274] [cursor=pointer]:
+                            - generic [ref=e1275]: homework_assignments_update_policy
+                        - cell "UPDATE" [ref=e1276]:
+                          - code [ref=e1277]: UPDATE
+                        - cell "authenticated" [ref=e1278]:
+                          - code [ref=e1282]: authenticated
+                        - cell [ref=e1283]:
+                          - button [ref=e1284] [cursor=pointer]:
+                            - img [ref=e1286]
+                      - row "Planners can create homework assignments INSERT public" [ref=e1290]:
+                        - cell "Planners can create homework assignments" [ref=e1291]:
+                          - button "Planners can create homework assignments" [ref=e1293] [cursor=pointer]:
+                            - generic [ref=e1294]: Planners can create homework assignments
+                        - cell "INSERT" [ref=e1295]:
+                          - code [ref=e1296]: INSERT
+                        - cell "public" [ref=e1297]:
+                          - code [ref=e1301]: public
+                        - cell [ref=e1302]:
+                          - button [ref=e1303] [cursor=pointer]:
+                            - img [ref=e1305]
+                      - row "Planners can delete homework assignments DELETE public" [ref=e1309]:
+                        - cell "Planners can delete homework assignments" [ref=e1310]:
+                          - button "Planners can delete homework assignments" [ref=e1312] [cursor=pointer]:
+                            - generic [ref=e1313]: Planners can delete homework assignments
+                        - cell "DELETE" [ref=e1314]:
+                          - code [ref=e1315]: DELETE
+                        - cell "public" [ref=e1316]:
+                          - code [ref=e1320]: public
+                        - cell [ref=e1321]:
+                          - button [ref=e1322] [cursor=pointer]:
+                            - img [ref=e1324]
+                      - row "Planners can update homework assignments UPDATE public" [ref=e1328]:
+                        - cell "Planners can update homework assignments" [ref=e1329]:
+                          - button "Planners can update homework assignments" [ref=e1331] [cursor=pointer]:
+                            - generic [ref=e1332]: Planners can update homework assignments
+                        - cell "UPDATE" [ref=e1333]:
+                          - code [ref=e1334]: UPDATE
+                        - cell "public" [ref=e1335]:
+                          - code [ref=e1339]: public
+                        - cell [ref=e1340]:
+                          - button [ref=e1341] [cursor=pointer]:
+                            - img [ref=e1343]
+                      - row "Planners can view homework assignments they created SELECT public" [ref=e1347]:
+                        - cell "Planners can view homework assignments they created" [ref=e1348]:
+                          - button "Planners can view homework assignments they created" [ref=e1350] [cursor=pointer]:
+                            - generic [ref=e1351]: Planners can view homework assignments they created
+                        - cell "SELECT" [ref=e1352]:
+                          - code [ref=e1353]: SELECT
+                        - cell "public" [ref=e1354]:
+                          - code [ref=e1358]: public
+                        - cell [ref=e1359]:
+                          - button [ref=e1360] [cursor=pointer]:
+                            - img [ref=e1362]
+                      - row "Students can view their assignments SELECT public" [ref=e1366]:
+                        - cell "Students can view their assignments" [ref=e1367]:
+                          - button "Students can view their assignments" [ref=e1369] [cursor=pointer]:
+                            - generic [ref=e1370]: Students can view their assignments
+                        - cell "SELECT" [ref=e1371]:
+                          - code [ref=e1372]: SELECT
+                        - cell "public" [ref=e1373]:
+                          - code [ref=e1377]: public
+                        - cell [ref=e1378]:
+                          - button [ref=e1379] [cursor=pointer]:
+                            - img [ref=e1381]
+                      - row "Students can view their homework assignments SELECT public" [ref=e1385]:
+                        - cell "Students can view their homework assignments" [ref=e1386]:
+                          - button "Students can view their homework assignments" [ref=e1388] [cursor=pointer]:
+                            - generic [ref=e1389]: Students can view their homework assignments
+                        - cell "SELECT" [ref=e1390]:
+                          - code [ref=e1391]: SELECT
+                        - cell "public" [ref=e1392]:
+                          - code [ref=e1396]: public
+                        - cell [ref=e1397]:
+                          - button [ref=e1398] [cursor=pointer]:
+                            - img [ref=e1400]
+                - generic [ref=e1405]:
+                  - generic [ref=e1407]:
+                    - link "homework_submissions" [ref=e1409] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17511
+                      - img [ref=e1410]
+                      - heading "homework_submissions" [level=3] [ref=e1412]
+                    - generic [ref=e1414]:
+                      - button "Disable RLS" [ref=e1415] [cursor=pointer]:
+                        - generic [ref=e1416]: Disable RLS
+                      - button "Create policy" [ref=e1417] [cursor=pointer]:
+                        - generic [ref=e1418]: Create policy
+                      - button [ref=e1419] [cursor=pointer]:
+                        - img [ref=e1423]
+                  - table [ref=e1429]:
+                    - rowgroup [ref=e1430]:
+                      - row "Name Command Applied to Actions" [ref=e1431]:
+                        - columnheader "Name" [ref=e1432]
+                        - columnheader "Command" [ref=e1433]
+                        - columnheader "Applied to" [ref=e1434]
+                        - columnheader "Actions" [ref=e1435]:
+                          - generic [ref=e1436]: Actions
+                    - rowgroup [ref=e1437]:
+                      - row "Planners can view student submissions SELECT public" [ref=e1438]:
+                        - cell "Planners can view student submissions" [ref=e1439]:
+                          - button "Planners can view student submissions" [ref=e1441] [cursor=pointer]:
+                            - generic [ref=e1442]: Planners can view student submissions
+                        - cell "SELECT" [ref=e1443]:
+                          - code [ref=e1444]: SELECT
+                        - cell "public" [ref=e1445]:
+                          - code [ref=e1449]: public
+                        - cell [ref=e1450]:
+                          - button [ref=e1451] [cursor=pointer]:
+                            - img [ref=e1453]
+                      - row "Students can manage their submissions ALL public" [ref=e1457]:
+                        - cell "Students can manage their submissions" [ref=e1458]:
+                          - button "Students can manage their submissions" [ref=e1460] [cursor=pointer]:
+                            - generic [ref=e1461]: Students can manage their submissions
+                        - cell "ALL" [ref=e1462]:
+                          - code [ref=e1463]: ALL
+                        - cell "public" [ref=e1464]:
+                          - code [ref=e1468]: public
+                        - cell [ref=e1469]:
+                          - button [ref=e1470] [cursor=pointer]:
+                            - img [ref=e1472]
+                - generic [ref=e1477]:
+                  - generic [ref=e1479]:
+                    - link "invite_codes" [ref=e1481] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/38444
+                      - img [ref=e1482]
+                      - heading "invite_codes" [level=3] [ref=e1484]
+                    - generic [ref=e1486]:
+                      - button "Disable RLS" [ref=e1487] [cursor=pointer]:
+                        - generic [ref=e1488]: Disable RLS
+                      - button "Create policy" [ref=e1489] [cursor=pointer]:
+                        - generic [ref=e1490]: Create policy
+                      - button [ref=e1491] [cursor=pointer]:
+                        - img [ref=e1495]
+                  - table [ref=e1501]:
+                    - rowgroup [ref=e1502]:
+                      - row "Name Command Applied to Actions" [ref=e1503]:
+                        - columnheader "Name" [ref=e1504]
+                        - columnheader "Command" [ref=e1505]
+                        - columnheader "Applied to" [ref=e1506]
+                        - columnheader "Actions" [ref=e1507]:
+                          - generic [ref=e1508]: Actions
+                    - rowgroup [ref=e1509]:
+                      - row "Teachers can create invite codes INSERT public" [ref=e1510]:
+                        - cell "Teachers can create invite codes" [ref=e1511]:
+                          - button "Teachers can create invite codes" [ref=e1513] [cursor=pointer]:
+                            - generic [ref=e1514]: Teachers can create invite codes
+                        - cell "INSERT" [ref=e1515]:
+                          - code [ref=e1516]: INSERT
+                        - cell "public" [ref=e1517]:
+                          - code [ref=e1521]: public
+                        - cell [ref=e1522]:
+                          - button [ref=e1523] [cursor=pointer]:
+                            - img [ref=e1525]
+                      - row "Teachers can view own invite codes SELECT public" [ref=e1529]:
+                        - cell "Teachers can view own invite codes" [ref=e1530]:
+                          - button "Teachers can view own invite codes" [ref=e1532] [cursor=pointer]:
+                            - generic [ref=e1533]: Teachers can view own invite codes
+                        - cell "SELECT" [ref=e1534]:
+                          - code [ref=e1535]: SELECT
+                        - cell "public" [ref=e1536]:
+                          - code [ref=e1540]: public
+                        - cell [ref=e1541]:
+                          - button [ref=e1542] [cursor=pointer]:
+                            - img [ref=e1544]
+                - generic [ref=e1549]:
+                  - generic [ref=e1551]:
+                    - link "lesson_videos" [ref=e1553] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/45020
+                      - img [ref=e1554]
+                      - heading "lesson_videos" [level=3] [ref=e1556]
+                    - generic [ref=e1558]:
+                      - button "Disable RLS" [ref=e1559] [cursor=pointer]:
+                        - generic [ref=e1560]: Disable RLS
+                      - button "Create policy" [ref=e1561] [cursor=pointer]:
+                        - generic [ref=e1562]: Create policy
+                      - button [ref=e1563] [cursor=pointer]:
+                        - img [ref=e1567]
+                  - table [ref=e1573]:
+                    - rowgroup [ref=e1574]:
+                      - row "Name Command Applied to Actions" [ref=e1575]:
+                        - columnheader "Name" [ref=e1576]
+                        - columnheader "Command" [ref=e1577]
+                        - columnheader "Applied to" [ref=e1578]
+                        - columnheader "Actions" [ref=e1579]:
+                          - generic [ref=e1580]: Actions
+                    - rowgroup [ref=e1581]:
+                      - row "Planners can manage their lesson videos ALL public" [ref=e1582]:
+                        - cell "Planners can manage their lesson videos" [ref=e1583]:
+                          - button "Planners can manage their lesson videos" [ref=e1585] [cursor=pointer]:
+                            - generic [ref=e1586]: Planners can manage their lesson videos
+                        - cell "ALL" [ref=e1587]:
+                          - code [ref=e1588]: ALL
+                        - cell "public" [ref=e1589]:
+                          - code [ref=e1593]: public
+                        - cell [ref=e1594]:
+                          - button [ref=e1595] [cursor=pointer]:
+                            - img [ref=e1597]
+                      - row "Students can view their lesson videos SELECT public" [ref=e1601]:
+                        - cell "Students can view their lesson videos" [ref=e1602]:
+                          - button "Students can view their lesson videos" [ref=e1604] [cursor=pointer]:
+                            - generic [ref=e1605]: Students can view their lesson videos
+                        - cell "SELECT" [ref=e1606]:
+                          - code [ref=e1607]: SELECT
+                        - cell "public" [ref=e1608]:
+                          - code [ref=e1612]: public
+                        - cell [ref=e1613]:
+                          - button [ref=e1614] [cursor=pointer]:
+                            - img [ref=e1616]
+                - generic [ref=e1621]:
+                  - generic [ref=e1623]:
+                    - link "lessons" [ref=e1625] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/54706
+                      - img [ref=e1626]
+                      - heading "lessons" [level=3] [ref=e1628]
+                    - generic [ref=e1630]:
+                      - button "Disable RLS" [ref=e1631] [cursor=pointer]:
+                        - generic [ref=e1632]: Disable RLS
+                      - button "Create policy" [ref=e1633] [cursor=pointer]:
+                        - generic [ref=e1634]: Create policy
+                      - button [ref=e1635] [cursor=pointer]:
+                        - img [ref=e1639]
+                  - table [ref=e1645]:
+                    - rowgroup [ref=e1646]:
+                      - row "Name Command Applied to Actions" [ref=e1647]:
+                        - columnheader "Name" [ref=e1648]
+                        - columnheader "Command" [ref=e1649]
+                        - columnheader "Applied to" [ref=e1650]
+                        - columnheader "Actions" [ref=e1651]:
+                          - generic [ref=e1652]: Actions
+                    - rowgroup [ref=e1653]:
+                      - row "Students can view their lessons SELECT public" [ref=e1654]:
+                        - cell "Students can view their lessons" [ref=e1655]:
+                          - button "Students can view their lessons" [ref=e1657] [cursor=pointer]:
+                            - generic [ref=e1658]: Students can view their lessons
+                        - cell "SELECT" [ref=e1659]:
+                          - code [ref=e1660]: SELECT
+                        - cell "public" [ref=e1661]:
+                          - code [ref=e1665]: public
+                        - cell [ref=e1666]:
+                          - button [ref=e1667] [cursor=pointer]:
+                            - img [ref=e1669]
+                      - row "Teachers can manage lessons ALL public" [ref=e1673]:
+                        - cell "Teachers can manage lessons" [ref=e1674]:
+                          - button "Teachers can manage lessons" [ref=e1676] [cursor=pointer]:
+                            - generic [ref=e1677]: Teachers can manage lessons
+                        - cell "ALL" [ref=e1678]:
+                          - code [ref=e1679]: ALL
+                        - cell "public" [ref=e1680]:
+                          - code [ref=e1684]: public
+                        - cell [ref=e1685]:
+                          - button [ref=e1686] [cursor=pointer]:
+                            - img [ref=e1688]
+                - generic [ref=e1693]:
+                  - generic [ref=e1695]:
+                    - link "licenses" [ref=e1697] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/43719
+                      - img [ref=e1698]
+                      - heading "licenses" [level=3] [ref=e1700]
+                    - generic [ref=e1702]:
+                      - button "Disable RLS" [ref=e1703] [cursor=pointer]:
+                        - generic [ref=e1704]: Disable RLS
+                      - button "Create policy" [ref=e1705] [cursor=pointer]:
+                        - generic [ref=e1706]: Create policy
+                      - button [ref=e1707] [cursor=pointer]:
+                        - img [ref=e1711]
+                  - table [ref=e1717]:
+                    - rowgroup [ref=e1718]:
+                      - row "Name Command Applied to Actions" [ref=e1719]:
+                        - columnheader "Name" [ref=e1720]
+                        - columnheader "Command" [ref=e1721]
+                        - columnheader "Applied to" [ref=e1722]
+                        - columnheader "Actions" [ref=e1723]:
+                          - generic [ref=e1724]: Actions
+                    - rowgroup [ref=e1725]:
+                      - row "Planners can activate their licenses UPDATE public" [ref=e1726]:
+                        - cell "Planners can activate their licenses" [ref=e1727]:
+                          - button "Planners can activate their licenses" [ref=e1729] [cursor=pointer]:
+                            - generic [ref=e1730]: Planners can activate their licenses
+                        - cell "UPDATE" [ref=e1731]:
+                          - code [ref=e1732]: UPDATE
+                        - cell "public" [ref=e1733]:
+                          - code [ref=e1737]: public
+                        - cell [ref=e1738]:
+                          - button [ref=e1739] [cursor=pointer]:
+                            - img [ref=e1741]
+                      - row "Planners can insert their own licenses INSERT public" [ref=e1745]:
+                        - cell "Planners can insert their own licenses" [ref=e1746]:
+                          - button "Planners can insert their own licenses" [ref=e1748] [cursor=pointer]:
+                            - generic [ref=e1749]: Planners can insert their own licenses
+                        - cell "INSERT" [ref=e1750]:
+                          - code [ref=e1751]: INSERT
+                        - cell "public" [ref=e1752]:
+                          - code [ref=e1756]: public
+                        - cell [ref=e1757]:
+                          - button [ref=e1758] [cursor=pointer]:
+                            - img [ref=e1760]
+                      - row "Planners can view their own licenses SELECT public" [ref=e1764]:
+                        - cell "Planners can view their own licenses" [ref=e1765]:
+                          - button "Planners can view their own licenses" [ref=e1767] [cursor=pointer]:
+                            - generic [ref=e1768]: Planners can view their own licenses
+                        - cell "SELECT" [ref=e1769]:
+                          - code [ref=e1770]: SELECT
+                        - cell "public" [ref=e1771]:
+                          - code [ref=e1775]: public
+                        - cell [ref=e1776]:
+                          - button [ref=e1777] [cursor=pointer]:
+                            - img [ref=e1779]
+                      - row "Service role can manage licenses ALL public" [ref=e1783]:
+                        - cell "Service role can manage licenses" [ref=e1784]:
+                          - button "Service role can manage licenses" [ref=e1786] [cursor=pointer]:
+                            - generic [ref=e1787]: Service role can manage licenses
+                        - cell "ALL" [ref=e1788]:
+                          - code [ref=e1789]: ALL
+                        - cell "public" [ref=e1790]:
+                          - code [ref=e1794]: public
+                        - cell [ref=e1795]:
+                          - button [ref=e1796] [cursor=pointer]:
+                            - img [ref=e1798]
+                - generic [ref=e1803]:
+                  - generic [ref=e1805]:
+                    - link "material_access" [ref=e1807] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17632
+                      - img [ref=e1808]
+                      - heading "material_access" [level=3] [ref=e1810]
+                    - generic [ref=e1812]:
+                      - button "Disable RLS" [ref=e1813] [cursor=pointer]:
+                        - generic [ref=e1814]: Disable RLS
+                      - button "Create policy" [ref=e1815] [cursor=pointer]:
+                        - generic [ref=e1816]: Create policy
+                      - button [ref=e1817] [cursor=pointer]:
+                        - img [ref=e1821]
+                  - alert [ref=e1824]:
+                    - paragraph [ref=e1827]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e1829]: No policies created yet
+                - generic [ref=e1831]:
+                  - generic [ref=e1833]:
+                    - link "messages" [ref=e1835] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/41225
+                      - img [ref=e1836]
+                      - heading "messages" [level=3] [ref=e1838]
+                    - generic [ref=e1840]:
+                      - button "Disable RLS" [ref=e1841] [cursor=pointer]:
+                        - generic [ref=e1842]: Disable RLS
+                      - button "Create policy" [ref=e1843] [cursor=pointer]:
+                        - generic [ref=e1844]: Create policy
+                      - button [ref=e1845] [cursor=pointer]:
+                        - img [ref=e1849]
+                  - table [ref=e1855]:
+                    - rowgroup [ref=e1856]:
+                      - row "Name Command Applied to Actions" [ref=e1857]:
+                        - columnheader "Name" [ref=e1858]
+                        - columnheader "Command" [ref=e1859]
+                        - columnheader "Applied to" [ref=e1860]
+                        - columnheader "Actions" [ref=e1861]:
+                          - generic [ref=e1862]: Actions
+                    - rowgroup [ref=e1863]:
+                      - row "Conversation participants can update messages UPDATE public" [ref=e1864]:
+                        - cell "Conversation participants can update messages" [ref=e1865]:
+                          - button "Conversation participants can update messages" [ref=e1867] [cursor=pointer]:
+                            - generic [ref=e1868]: Conversation participants can update messages
+                        - cell "UPDATE" [ref=e1869]:
+                          - code [ref=e1870]: UPDATE
+                        - cell "public" [ref=e1871]:
+                          - code [ref=e1875]: public
+                        - cell [ref=e1876]:
+                          - button [ref=e1877] [cursor=pointer]:
+                            - img [ref=e1879]
+                      - row "Conversation participants can view messages SELECT public" [ref=e1883]:
+                        - cell "Conversation participants can view messages" [ref=e1884]:
+                          - button "Conversation participants can view messages" [ref=e1886] [cursor=pointer]:
+                            - generic [ref=e1887]: Conversation participants can view messages
+                        - cell "SELECT" [ref=e1888]:
+                          - code [ref=e1889]: SELECT
+                        - cell "public" [ref=e1890]:
+                          - code [ref=e1894]: public
+                        - cell [ref=e1895]:
+                          - button [ref=e1896] [cursor=pointer]:
+                            - img [ref=e1898]
+                      - row "Messages conversation participants can insert INSERT public" [ref=e1902]:
+                        - cell "Messages conversation participants can insert" [ref=e1903]:
+                          - button "Messages conversation participants can insert" [ref=e1905] [cursor=pointer]:
+                            - generic [ref=e1906]: Messages conversation participants can insert
+                        - cell "INSERT" [ref=e1907]:
+                          - code [ref=e1908]: INSERT
+                        - cell "public" [ref=e1909]:
+                          - code [ref=e1913]: public
+                        - cell [ref=e1914]:
+                          - button [ref=e1915] [cursor=pointer]:
+                            - img [ref=e1917]
+                - generic [ref=e1922]:
+                  - generic [ref=e1924]:
+                    - link "notifications" [ref=e1926] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17577
+                      - img [ref=e1927]
+                      - heading "notifications" [level=3] [ref=e1929]
+                    - generic [ref=e1931]:
+                      - button "Disable RLS" [ref=e1932] [cursor=pointer]:
+                        - generic [ref=e1933]: Disable RLS
+                      - button "Create policy" [ref=e1934] [cursor=pointer]:
+                        - generic [ref=e1935]: Create policy
+                      - button [ref=e1936] [cursor=pointer]:
+                        - img [ref=e1940]
+                  - table [ref=e1946]:
+                    - rowgroup [ref=e1947]:
+                      - row "Name Command Applied to Actions" [ref=e1948]:
+                        - columnheader "Name" [ref=e1949]
+                        - columnheader "Command" [ref=e1950]
+                        - columnheader "Applied to" [ref=e1951]
+                        - columnheader "Actions" [ref=e1952]:
+                          - generic [ref=e1953]: Actions
+                    - rowgroup [ref=e1954]:
+                      - row "System can insert notifications INSERT public" [ref=e1955]:
+                        - cell "System can insert notifications" [ref=e1956]:
+                          - button "System can insert notifications" [ref=e1958] [cursor=pointer]:
+                            - generic [ref=e1959]: System can insert notifications
+                        - cell "INSERT" [ref=e1960]:
+                          - code [ref=e1961]: INSERT
+                        - cell "public" [ref=e1962]:
+                          - code [ref=e1966]: public
+                        - cell [ref=e1967]:
+                          - button [ref=e1968] [cursor=pointer]:
+                            - img [ref=e1970]
+                      - row "Users can update their notifications UPDATE public" [ref=e1974]:
+                        - cell "Users can update their notifications" [ref=e1975]:
+                          - button "Users can update their notifications" [ref=e1977] [cursor=pointer]:
+                            - generic [ref=e1978]: Users can update their notifications
+                        - cell "UPDATE" [ref=e1979]:
+                          - code [ref=e1980]: UPDATE
+                        - cell "public" [ref=e1981]:
+                          - code [ref=e1985]: public
+                        - cell [ref=e1986]:
+                          - button [ref=e1987] [cursor=pointer]:
+                            - img [ref=e1989]
+                      - row "Users can view their notifications SELECT public" [ref=e1993]:
+                        - cell "Users can view their notifications" [ref=e1994]:
+                          - button "Users can view their notifications" [ref=e1996] [cursor=pointer]:
+                            - generic [ref=e1997]: Users can view their notifications
+                        - cell "SELECT" [ref=e1998]:
+                          - code [ref=e1999]: SELECT
+                        - cell "public" [ref=e2000]:
+                          - code [ref=e2004]: public
+                        - cell [ref=e2005]:
+                          - button [ref=e2006] [cursor=pointer]:
+                            - img [ref=e2008]
+                - generic [ref=e2013]:
+                  - generic [ref=e2015]:
+                    - link "orders" [ref=e2017] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/47357
+                      - img [ref=e2018]
+                      - heading "orders" [level=3] [ref=e2020]
+                    - generic [ref=e2022]:
+                      - button "Disable RLS" [ref=e2023] [cursor=pointer]:
+                        - generic [ref=e2024]: Disable RLS
+                      - button "Create policy" [ref=e2025] [cursor=pointer]:
+                        - generic [ref=e2026]: Create policy
+                      - button [ref=e2027] [cursor=pointer]:
+                        - img [ref=e2031]
+                  - table [ref=e2037]:
+                    - rowgroup [ref=e2038]:
+                      - row "Name Command Applied to Actions" [ref=e2039]:
+                        - columnheader "Name" [ref=e2040]
+                        - columnheader "Command" [ref=e2041]
+                        - columnheader "Applied to" [ref=e2042]
+                        - columnheader "Actions" [ref=e2043]:
+                          - generic [ref=e2044]: Actions
+                    - rowgroup [ref=e2045]:
+                      - row "Admin can manage orders ALL public" [ref=e2046]:
+                        - cell "Admin can manage orders" [ref=e2047]:
+                          - button "Admin can manage orders" [ref=e2049] [cursor=pointer]:
+                            - generic [ref=e2050]: Admin can manage orders
+                        - cell "ALL" [ref=e2051]:
+                          - code [ref=e2052]: ALL
+                        - cell "public" [ref=e2053]:
+                          - code [ref=e2057]: public
+                        - cell [ref=e2058]:
+                          - button [ref=e2059] [cursor=pointer]:
+                            - img [ref=e2061]
+                      - row "Allow order creation INSERT anon, authenticated" [ref=e2065]:
+                        - cell "Allow order creation" [ref=e2066]:
+                          - button "Allow order creation" [ref=e2068] [cursor=pointer]:
+                            - generic [ref=e2069]: Allow order creation
+                        - cell "INSERT" [ref=e2070]:
+                          - code [ref=e2071]: INSERT
+                        - cell "anon, authenticated" [ref=e2072]:
+                          - generic [ref=e2074]:
+                            - generic [ref=e2075]:
+                              - code [ref=e2076]: anon
+                              - text: ","
+                            - code [ref=e2078]: authenticated
+                        - cell [ref=e2079]:
+                          - button [ref=e2080] [cursor=pointer]:
+                            - img [ref=e2082]
+                      - row "Customers can view their orders SELECT public" [ref=e2086]:
+                        - cell "Customers can view their orders" [ref=e2087]:
+                          - button "Customers can view their orders" [ref=e2089] [cursor=pointer]:
+                            - generic [ref=e2090]: Customers can view their orders
+                        - cell "SELECT" [ref=e2091]:
+                          - code [ref=e2092]: SELECT
+                        - cell "public" [ref=e2093]:
+                          - code [ref=e2097]: public
+                        - cell [ref=e2098]:
+                          - button [ref=e2099] [cursor=pointer]:
+                            - img [ref=e2101]
+                - generic [ref=e2106]:
+                  - generic [ref=e2108]:
+                    - link "planner_api_keys" [ref=e2110] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/44998
+                      - img [ref=e2111]
+                      - heading "planner_api_keys" [level=3] [ref=e2113]
+                    - generic [ref=e2115]:
+                      - button "Disable RLS" [ref=e2116] [cursor=pointer]:
+                        - generic [ref=e2117]: Disable RLS
+                      - button "Create policy" [ref=e2118] [cursor=pointer]:
+                        - generic [ref=e2119]: Create policy
+                      - button [ref=e2120] [cursor=pointer]:
+                        - img [ref=e2124]
+                  - table [ref=e2130]:
+                    - rowgroup [ref=e2131]:
+                      - row "Name Command Applied to Actions" [ref=e2132]:
+                        - columnheader "Name" [ref=e2133]
+                        - columnheader "Command" [ref=e2134]
+                        - columnheader "Applied to" [ref=e2135]
+                        - columnheader "Actions" [ref=e2136]:
+                          - generic [ref=e2137]: Actions
+                    - rowgroup [ref=e2138]:
+                      - row "Planners can manage their own API keys ALL public" [ref=e2139]:
+                        - cell "Planners can manage their own API keys" [ref=e2140]:
+                          - button "Planners can manage their own API keys" [ref=e2142] [cursor=pointer]:
+                            - generic [ref=e2143]: Planners can manage their own API keys
+                        - cell "ALL" [ref=e2144]:
+                          - code [ref=e2145]: ALL
+                        - cell "public" [ref=e2146]:
+                          - code [ref=e2150]: public
+                        - cell [ref=e2151]:
+                          - button [ref=e2152] [cursor=pointer]:
+                            - img [ref=e2154]
+                - generic [ref=e2159]:
+                  - generic [ref=e2161]:
+                    - link "planner_pricing_settings" [ref=e2163] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/53267
+                      - img [ref=e2164]
+                      - heading "planner_pricing_settings" [level=3] [ref=e2166]
+                    - generic [ref=e2168]:
+                      - button "Disable RLS" [ref=e2169] [cursor=pointer]:
+                        - generic [ref=e2170]: Disable RLS
+                      - button "Create policy" [ref=e2171] [cursor=pointer]:
+                        - generic [ref=e2172]: Create policy
+                      - button [ref=e2173] [cursor=pointer]:
+                        - img [ref=e2177]
+                  - alert [ref=e2180]:
+                    - paragraph [ref=e2183]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e2185]: No policies created yet
+                - generic [ref=e2187]:
+                  - generic [ref=e2189]:
+                    - link "planner_profiles" [ref=e2191] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17380
+                      - img [ref=e2192]
+                      - heading "planner_profiles" [level=3] [ref=e2194]
+                    - generic [ref=e2196]:
+                      - button "Disable RLS" [ref=e2197] [cursor=pointer]:
+                        - generic [ref=e2198]: Disable RLS
+                      - button "Create policy" [ref=e2199] [cursor=pointer]:
+                        - generic [ref=e2200]: Create policy
+                      - button [ref=e2201] [cursor=pointer]:
+                        - img [ref=e2205]
+                  - alert [ref=e2208]:
+                    - paragraph [ref=e2211]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e2213]: No policies created yet
+                - generic [ref=e2215]:
+                  - generic [ref=e2217]:
+                    - link "postponement_rules" [ref=e2219] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/53285
+                      - img [ref=e2220]
+                      - heading "postponement_rules" [level=3] [ref=e2222]
+                    - generic [ref=e2224]:
+                      - button "Disable RLS" [ref=e2225] [cursor=pointer]:
+                        - generic [ref=e2226]: Disable RLS
+                      - button "Create policy" [ref=e2227] [cursor=pointer]:
+                        - generic [ref=e2228]: Create policy
+                      - button [ref=e2229] [cursor=pointer]:
+                        - img [ref=e2233]
+                  - alert [ref=e2236]:
+                    - paragraph [ref=e2239]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e2241]: No policies created yet
+                - generic [ref=e2243]:
+                  - generic [ref=e2245]:
+                    - link "postponements" [ref=e2247] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/54735
+                      - img [ref=e2248]
+                      - heading "postponements" [level=3] [ref=e2250]
+                    - generic [ref=e2252]:
+                      - button "Disable RLS" [ref=e2253] [cursor=pointer]:
+                        - generic [ref=e2254]: Disable RLS
+                      - button "Create policy" [ref=e2255] [cursor=pointer]:
+                        - generic [ref=e2256]: Create policy
+                      - button [ref=e2257] [cursor=pointer]:
+                        - img [ref=e2261]
+                  - table [ref=e2267]:
+                    - rowgroup [ref=e2268]:
+                      - row "Name Command Applied to Actions" [ref=e2269]:
+                        - columnheader "Name" [ref=e2270]
+                        - columnheader "Command" [ref=e2271]
+                        - columnheader "Applied to" [ref=e2272]
+                        - columnheader "Actions" [ref=e2273]:
+                          - generic [ref=e2274]: Actions
+                    - rowgroup [ref=e2275]:
+                      - row "Teachers and students can request postponements INSERT public" [ref=e2276]:
+                        - cell "Teachers and students can request postponements" [ref=e2277]:
+                          - button "Teachers and students can request postponements" [ref=e2279] [cursor=pointer]:
+                            - generic [ref=e2280]: Teachers and students can request postponements
+                        - cell "INSERT" [ref=e2281]:
+                          - code [ref=e2282]: INSERT
+                        - cell "public" [ref=e2283]:
+                          - code [ref=e2287]: public
+                        - cell [ref=e2288]:
+                          - button [ref=e2289] [cursor=pointer]:
+                            - img [ref=e2291]
+                      - row "Teachers and students can view postponements SELECT public" [ref=e2295]:
+                        - cell "Teachers and students can view postponements" [ref=e2296]:
+                          - button "Teachers and students can view postponements" [ref=e2298] [cursor=pointer]:
+                            - generic [ref=e2299]: Teachers and students can view postponements
+                        - cell "SELECT" [ref=e2300]:
+                          - code [ref=e2301]: SELECT
+                        - cell "public" [ref=e2302]:
+                          - code [ref=e2306]: public
+                        - cell [ref=e2307]:
+                          - button [ref=e2308] [cursor=pointer]:
+                            - img [ref=e2310]
+                - generic [ref=e2315]:
+                  - generic [ref=e2317]:
+                    - link "pricing_templates" [ref=e2319] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/53249
+                      - img [ref=e2320]
+                      - heading "pricing_templates" [level=3] [ref=e2322]
+                    - generic [ref=e2324]:
+                      - button "Disable RLS" [ref=e2325] [cursor=pointer]:
+                        - generic [ref=e2326]: Disable RLS
+                      - button "Create policy" [ref=e2327] [cursor=pointer]:
+                        - generic [ref=e2328]: Create policy
+                      - button [ref=e2329] [cursor=pointer]:
+                        - img [ref=e2333]
+                  - alert [ref=e2336]:
+                    - paragraph [ref=e2339]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e2341]: No policies created yet
+                - generic [ref=e2343]:
+                  - generic [ref=e2345]:
+                    - link "profiles" [ref=e2347] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17363
+                      - img [ref=e2348]
+                      - heading "profiles" [level=3] [ref=e2350]
+                    - generic [ref=e2352]:
+                      - button "Disable RLS" [ref=e2353] [cursor=pointer]:
+                        - generic [ref=e2354]: Disable RLS
+                      - button "Create policy" [ref=e2355] [cursor=pointer]:
+                        - generic [ref=e2356]: Create policy
+                      - button [ref=e2357] [cursor=pointer]:
+                        - img [ref=e2361]
+                  - table [ref=e2367]:
+                    - rowgroup [ref=e2368]:
+                      - row "Name Command Applied to Actions" [ref=e2369]:
+                        - columnheader "Name" [ref=e2370]
+                        - columnheader "Command" [ref=e2371]
+                        - columnheader "Applied to" [ref=e2372]
+                        - columnheader "Actions" [ref=e2373]:
+                          - generic [ref=e2374]: Actions
+                    - rowgroup [ref=e2375]:
+                      - row "Admins can view all profiles SELECT authenticated" [ref=e2376]:
+                        - cell "Admins can view all profiles" [ref=e2377]:
+                          - button "Admins can view all profiles" [ref=e2379] [cursor=pointer]:
+                            - generic [ref=e2380]: Admins can view all profiles
+                        - cell "SELECT" [ref=e2381]:
+                          - code [ref=e2382]: SELECT
+                        - cell "authenticated" [ref=e2383]:
+                          - code [ref=e2387]: authenticated
+                        - cell [ref=e2388]:
+                          - button [ref=e2389] [cursor=pointer]:
+                            - img [ref=e2391]
+                      - row "Allow insert during signup INSERT public" [ref=e2395]:
+                        - cell "Allow insert during signup" [ref=e2396]:
+                          - button "Allow insert during signup" [ref=e2398] [cursor=pointer]:
+                            - generic [ref=e2399]: Allow insert during signup
+                        - cell "INSERT" [ref=e2400]:
+                          - code [ref=e2401]: INSERT
+                        - cell "public" [ref=e2402]:
+                          - code [ref=e2406]: public
+                        - cell [ref=e2407]:
+                          - button [ref=e2408] [cursor=pointer]:
+                            - img [ref=e2410]
+                      - row "Enable insert for authenticated users only INSERT authenticated" [ref=e2414]:
+                        - cell "Enable insert for authenticated users only" [ref=e2415]:
+                          - button "Enable insert for authenticated users only" [ref=e2417] [cursor=pointer]:
+                            - generic [ref=e2418]: Enable insert for authenticated users only
+                        - cell "INSERT" [ref=e2419]:
+                          - code [ref=e2420]: INSERT
+                        - cell "authenticated" [ref=e2421]:
+                          - code [ref=e2425]: authenticated
+                        - cell [ref=e2426]:
+                          - button [ref=e2427] [cursor=pointer]:
+                            - img [ref=e2429]
+                      - row "Planners can view student profiles SELECT public" [ref=e2433]:
+                        - cell "Planners can view student profiles" [ref=e2434]:
+                          - button "Planners can view student profiles" [ref=e2436] [cursor=pointer]:
+                            - generic [ref=e2437]: Planners can view student profiles
+                        - cell "SELECT" [ref=e2438]:
+                          - code [ref=e2439]: SELECT
+                        - cell "public" [ref=e2440]:
+                          - code [ref=e2444]: public
+                        - cell [ref=e2445]:
+                          - button [ref=e2446] [cursor=pointer]:
+                            - img [ref=e2448]
+                      - row "Users can update their own profile UPDATE public" [ref=e2452]:
+                        - cell "Users can update their own profile" [ref=e2453]:
+                          - button "Users can update their own profile" [ref=e2455] [cursor=pointer]:
+                            - generic [ref=e2456]: Users can update their own profile
+                        - cell "UPDATE" [ref=e2457]:
+                          - code [ref=e2458]: UPDATE
+                        - cell "public" [ref=e2459]:
+                          - code [ref=e2463]: public
+                        - cell [ref=e2464]:
+                          - button [ref=e2465] [cursor=pointer]:
+                            - img [ref=e2467]
+                      - row "Users can view their own profile SELECT public" [ref=e2471]:
+                        - cell "Users can view their own profile" [ref=e2472]:
+                          - button "Users can view their own profile" [ref=e2474] [cursor=pointer]:
+                            - generic [ref=e2475]: Users can view their own profile
+                        - cell "SELECT" [ref=e2476]:
+                          - code [ref=e2477]: SELECT
+                        - cell "public" [ref=e2478]:
+                          - code [ref=e2482]: public
+                        - cell [ref=e2483]:
+                          - button [ref=e2484] [cursor=pointer]:
+                            - img [ref=e2486]
+                - generic [ref=e2491]:
+                  - generic [ref=e2493]:
+                    - link "progress_tracking" [ref=e2495] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17592
+                      - img [ref=e2496]
+                      - heading "progress_tracking" [level=3] [ref=e2498]
+                    - generic [ref=e2500]:
+                      - button "Disable RLS" [ref=e2501] [cursor=pointer]:
+                        - generic [ref=e2502]: Disable RLS
+                      - button "Create policy" [ref=e2503] [cursor=pointer]:
+                        - generic [ref=e2504]: Create policy
+                      - button [ref=e2505] [cursor=pointer]:
+                        - img [ref=e2509]
+                  - alert [ref=e2512]:
+                    - paragraph [ref=e2515]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e2517]: No policies created yet
+                - generic [ref=e2519]:
+                  - generic [ref=e2521]:
+                    - link "scheduled_homework" [ref=e2523] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/41402
+                      - img [ref=e2524]
+                      - heading "scheduled_homework" [level=3] [ref=e2526]
+                    - generic [ref=e2528]:
+                      - button "Disable RLS" [ref=e2529] [cursor=pointer]:
+                        - generic [ref=e2530]: Disable RLS
+                      - button "Create policy" [ref=e2531] [cursor=pointer]:
+                        - generic [ref=e2532]: Create policy
+                      - button [ref=e2533] [cursor=pointer]:
+                        - img [ref=e2537]
+                  - table [ref=e2543]:
+                    - rowgroup [ref=e2544]:
+                      - row "Name Command Applied to Actions" [ref=e2545]:
+                        - columnheader "Name" [ref=e2546]
+                        - columnheader "Command" [ref=e2547]
+                        - columnheader "Applied to" [ref=e2548]
+                        - columnheader "Actions" [ref=e2549]:
+                          - generic [ref=e2550]: Actions
+                    - rowgroup [ref=e2551]:
+                      - row "Planners can manage their scheduled homework ALL public" [ref=e2552]:
+                        - cell "Planners can manage their scheduled homework" [ref=e2553]:
+                          - button "Planners can manage their scheduled homework" [ref=e2555] [cursor=pointer]:
+                            - generic [ref=e2556]: Planners can manage their scheduled homework
+                        - cell "ALL" [ref=e2557]:
+                          - code [ref=e2558]: ALL
+                        - cell "public" [ref=e2559]:
+                          - code [ref=e2563]: public
+                        - cell [ref=e2564]:
+                          - button [ref=e2565] [cursor=pointer]:
+                            - img [ref=e2567]
+                - generic [ref=e2572]:
+                  - generic [ref=e2574]:
+                    - link "student_courses" [ref=e2576] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/39821
+                      - img [ref=e2577]
+                      - heading "student_courses" [level=3] [ref=e2579]
+                    - generic [ref=e2581]:
+                      - button "Disable RLS" [ref=e2582] [cursor=pointer]:
+                        - generic [ref=e2583]: Disable RLS
+                      - button "Create policy" [ref=e2584] [cursor=pointer]:
+                        - generic [ref=e2585]: Create policy
+                      - button [ref=e2586] [cursor=pointer]:
+                        - img [ref=e2590]
+                  - table [ref=e2596]:
+                    - rowgroup [ref=e2597]:
+                      - row "Name Command Applied to Actions" [ref=e2598]:
+                        - columnheader "Name" [ref=e2599]
+                        - columnheader "Command" [ref=e2600]
+                        - columnheader "Applied to" [ref=e2601]
+                        - columnheader "Actions" [ref=e2602]:
+                          - generic [ref=e2603]: Actions
+                    - rowgroup [ref=e2604]:
+                      - row "Students can view their own courses SELECT public" [ref=e2605]:
+                        - cell "Students can view their own courses" [ref=e2606]:
+                          - button "Students can view their own courses" [ref=e2608] [cursor=pointer]:
+                            - generic [ref=e2609]: Students can view their own courses
+                        - cell "SELECT" [ref=e2610]:
+                          - code [ref=e2611]: SELECT
+                        - cell "public" [ref=e2612]:
+                          - code [ref=e2616]: public
+                        - cell [ref=e2617]:
+                          - button [ref=e2618] [cursor=pointer]:
+                            - img [ref=e2620]
+                      - row "Teachers can manage their students' courses ALL public" [ref=e2624]:
+                        - cell "Teachers can manage their students' courses" [ref=e2625]:
+                          - button "Teachers can manage their students' courses" [ref=e2627] [cursor=pointer]:
+                            - generic [ref=e2628]: Teachers can manage their students' courses
+                        - cell "ALL" [ref=e2629]:
+                          - code [ref=e2630]: ALL
+                        - cell "public" [ref=e2631]:
+                          - code [ref=e2635]: public
+                        - cell [ref=e2636]:
+                          - button [ref=e2637] [cursor=pointer]:
+                            - img [ref=e2639]
+                - generic [ref=e2644]:
+                  - generic [ref=e2646]:
+                    - link "student_profiles" [ref=e2648] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17395
+                      - img [ref=e2649]
+                      - heading "student_profiles" [level=3] [ref=e2651]
+                    - generic [ref=e2653]:
+                      - button "Disable RLS" [ref=e2654] [cursor=pointer]:
+                        - generic [ref=e2655]: Disable RLS
+                      - button "Create policy" [ref=e2656] [cursor=pointer]:
+                        - generic [ref=e2657]: Create policy
+                      - button [ref=e2658] [cursor=pointer]:
+                        - img [ref=e2662]
+                  - table [ref=e2668]:
+                    - rowgroup [ref=e2669]:
+                      - row "Name Command Applied to Actions" [ref=e2670]:
+                        - columnheader "Name" [ref=e2671]
+                        - columnheader "Command" [ref=e2672]
+                        - columnheader "Applied to" [ref=e2673]
+                        - columnheader "Actions" [ref=e2674]:
+                          - generic [ref=e2675]: Actions
+                    - rowgroup [ref=e2676]:
+                      - row "planner_can_view_student_profiles SELECT authenticated" [ref=e2677]:
+                        - cell "planner_can_view_student_profiles" [ref=e2678]:
+                          - button "planner_can_view_student_profiles" [ref=e2680] [cursor=pointer]:
+                            - generic [ref=e2681]: planner_can_view_student_profiles
+                        - cell "SELECT" [ref=e2682]:
+                          - code [ref=e2683]: SELECT
+                        - cell "authenticated" [ref=e2684]:
+                          - code [ref=e2688]: authenticated
+                        - cell [ref=e2689]:
+                          - button [ref=e2690] [cursor=pointer]:
+                            - img [ref=e2692]
+                      - row "Planners can update their students profiles UPDATE public" [ref=e2696]:
+                        - cell "Planners can update their students profiles" [ref=e2697]:
+                          - button "Planners can update their students profiles" [ref=e2699] [cursor=pointer]:
+                            - generic [ref=e2700]: Planners can update their students profiles
+                        - cell "UPDATE" [ref=e2701]:
+                          - code [ref=e2702]: UPDATE
+                        - cell "public" [ref=e2703]:
+                          - code [ref=e2707]: public
+                        - cell [ref=e2708]:
+                          - button [ref=e2709] [cursor=pointer]:
+                            - img [ref=e2711]
+                      - row "student_can_view_own_profile SELECT authenticated" [ref=e2715]:
+                        - cell "student_can_view_own_profile" [ref=e2716]:
+                          - button "student_can_view_own_profile" [ref=e2718] [cursor=pointer]:
+                            - generic [ref=e2719]: student_can_view_own_profile
+                        - cell "SELECT" [ref=e2720]:
+                          - code [ref=e2721]: SELECT
+                        - cell "authenticated" [ref=e2722]:
+                          - code [ref=e2726]: authenticated
+                        - cell [ref=e2727]:
+                          - button [ref=e2728] [cursor=pointer]:
+                            - img [ref=e2730]
+                      - row "Students can update their own profile UPDATE public" [ref=e2734]:
+                        - cell "Students can update their own profile" [ref=e2735]:
+                          - button "Students can update their own profile" [ref=e2737] [cursor=pointer]:
+                            - generic [ref=e2738]: Students can update their own profile
+                        - cell "UPDATE" [ref=e2739]:
+                          - code [ref=e2740]: UPDATE
+                        - cell "public" [ref=e2741]:
+                          - code [ref=e2745]: public
+                        - cell [ref=e2746]:
+                          - button [ref=e2747] [cursor=pointer]:
+                            - img [ref=e2749]
+                      - row "Users can insert own profile INSERT public" [ref=e2753]:
+                        - cell "Users can insert own profile" [ref=e2754]:
+                          - button "Users can insert own profile" [ref=e2756] [cursor=pointer]:
+                            - generic [ref=e2757]: Users can insert own profile
+                        - cell "INSERT" [ref=e2758]:
+                          - code [ref=e2759]: INSERT
+                        - cell "public" [ref=e2760]:
+                          - code [ref=e2764]: public
+                        - cell [ref=e2765]:
+                          - button [ref=e2766] [cursor=pointer]:
+                            - img [ref=e2768]
+                      - row "Users can update own profile UPDATE public" [ref=e2772]:
+                        - cell "Users can update own profile" [ref=e2773]:
+                          - button "Users can update own profile" [ref=e2775] [cursor=pointer]:
+                            - generic [ref=e2776]: Users can update own profile
+                        - cell "UPDATE" [ref=e2777]:
+                          - code [ref=e2778]: UPDATE
+                        - cell "public" [ref=e2779]:
+                          - code [ref=e2783]: public
+                        - cell [ref=e2784]:
+                          - button [ref=e2785] [cursor=pointer]:
+                            - img [ref=e2787]
+                - generic [ref=e2792]:
+                  - generic [ref=e2794]:
+                    - link "student_teacher_links" [ref=e2796] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/38465
+                      - img [ref=e2797]
+                      - heading "student_teacher_links" [level=3] [ref=e2799]
+                    - generic [ref=e2801]:
+                      - button "Disable RLS" [ref=e2802] [cursor=pointer]:
+                        - generic [ref=e2803]: Disable RLS
+                      - button "Create policy" [ref=e2804] [cursor=pointer]:
+                        - generic [ref=e2805]: Create policy
+                      - button [ref=e2806] [cursor=pointer]:
+                        - img [ref=e2810]
+                  - table [ref=e2816]:
+                    - rowgroup [ref=e2817]:
+                      - row "Name Command Applied to Actions" [ref=e2818]:
+                        - columnheader "Name" [ref=e2819]
+                        - columnheader "Command" [ref=e2820]
+                        - columnheader "Applied to" [ref=e2821]
+                        - columnheader "Actions" [ref=e2822]:
+                          - generic [ref=e2823]: Actions
+                    - rowgroup [ref=e2824]:
+                      - row "Users can view their connections SELECT public" [ref=e2825]:
+                        - cell "Users can view their connections" [ref=e2826]:
+                          - button "Users can view their connections" [ref=e2828] [cursor=pointer]:
+                            - generic [ref=e2829]: Users can view their connections
+                        - cell "SELECT" [ref=e2830]:
+                          - code [ref=e2831]: SELECT
+                        - cell "public" [ref=e2832]:
+                          - code [ref=e2836]: public
+                        - cell [ref=e2837]:
+                          - button [ref=e2838] [cursor=pointer]:
+                            - img [ref=e2840]
+                - generic [ref=e2845]:
+                  - generic [ref=e2847]:
+                    - link "students" [ref=e2849] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/38516
+                      - img [ref=e2850]
+                      - heading "students" [level=3] [ref=e2852]
+                    - generic [ref=e2854]:
+                      - button "Disable RLS" [ref=e2855] [cursor=pointer]:
+                        - generic [ref=e2856]: Disable RLS
+                      - button "Create policy" [ref=e2857] [cursor=pointer]:
+                        - generic [ref=e2858]: Create policy
+                      - button [ref=e2859] [cursor=pointer]:
+                        - img [ref=e2863]
+                  - table [ref=e2869]:
+                    - rowgroup [ref=e2870]:
+                      - row "Name Command Applied to Actions" [ref=e2871]:
+                        - columnheader "Name" [ref=e2872]
+                        - columnheader "Command" [ref=e2873]
+                        - columnheader "Applied to" [ref=e2874]
+                        - columnheader "Actions" [ref=e2875]:
+                          - generic [ref=e2876]: Actions
+                    - rowgroup [ref=e2877]:
+                      - row "Students can view own data SELECT public" [ref=e2878]:
+                        - cell "Students can view own data" [ref=e2879]:
+                          - button "Students can view own data" [ref=e2881] [cursor=pointer]:
+                            - generic [ref=e2882]: Students can view own data
+                        - cell "SELECT" [ref=e2883]:
+                          - code [ref=e2884]: SELECT
+                        - cell "public" [ref=e2885]:
+                          - code [ref=e2889]: public
+                        - cell [ref=e2890]:
+                          - button [ref=e2891] [cursor=pointer]:
+                            - img [ref=e2893]
+                      - row "Teachers can insert students INSERT public" [ref=e2897]:
+                        - cell "Teachers can insert students" [ref=e2898]:
+                          - button "Teachers can insert students" [ref=e2900] [cursor=pointer]:
+                            - generic [ref=e2901]: Teachers can insert students
+                        - cell "INSERT" [ref=e2902]:
+                          - code [ref=e2903]: INSERT
+                        - cell "public" [ref=e2904]:
+                          - code [ref=e2908]: public
+                        - cell [ref=e2909]:
+                          - button [ref=e2910] [cursor=pointer]:
+                            - img [ref=e2912]
+                      - row "Teachers can update their students UPDATE public" [ref=e2916]:
+                        - cell "Teachers can update their students" [ref=e2917]:
+                          - button "Teachers can update their students" [ref=e2919] [cursor=pointer]:
+                            - generic [ref=e2920]: Teachers can update their students
+                        - cell "UPDATE" [ref=e2921]:
+                          - code [ref=e2922]: UPDATE
+                        - cell "public" [ref=e2923]:
+                          - code [ref=e2927]: public
+                        - cell [ref=e2928]:
+                          - button [ref=e2929] [cursor=pointer]:
+                            - img [ref=e2931]
+                      - row "Teachers can view their students SELECT public" [ref=e2935]:
+                        - cell "Teachers can view their students" [ref=e2936]:
+                          - button "Teachers can view their students" [ref=e2938] [cursor=pointer]:
+                            - generic [ref=e2939]: Teachers can view their students
+                        - cell "SELECT" [ref=e2940]:
+                          - code [ref=e2941]: SELECT
+                        - cell "public" [ref=e2942]:
+                          - code [ref=e2946]: public
+                        - cell [ref=e2947]:
+                          - button [ref=e2948] [cursor=pointer]:
+                            - img [ref=e2950]
+                - generic [ref=e2955]:
+                  - generic [ref=e2957]:
+                    - link "study_materials" [ref=e2959] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17616
+                      - img [ref=e2960]
+                      - heading "study_materials" [level=3] [ref=e2962]
+                    - generic [ref=e2964]:
+                      - button "Disable RLS" [ref=e2965] [cursor=pointer]:
+                        - generic [ref=e2966]: Disable RLS
+                      - button "Create policy" [ref=e2967] [cursor=pointer]:
+                        - generic [ref=e2968]: Create policy
+                      - button [ref=e2969] [cursor=pointer]:
+                        - img [ref=e2973]
+                  - alert [ref=e2976]:
+                    - paragraph [ref=e2979]: This table can be accessed via the Data API but no RLS policies exist so no data will be returned.
+                  - paragraph [ref=e2981]: No policies created yet
+                - generic [ref=e2983]:
+                  - generic [ref=e2985]:
+                    - link "subscriptions" [ref=e2987] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/38629
+                      - img [ref=e2988]
+                      - heading "subscriptions" [level=3] [ref=e2990]
+                    - generic [ref=e2992]:
+                      - button "Disable RLS" [ref=e2993] [cursor=pointer]:
+                        - generic [ref=e2994]: Disable RLS
+                      - button "Create policy" [ref=e2995] [cursor=pointer]:
+                        - generic [ref=e2996]: Create policy
+                      - button [ref=e2997] [cursor=pointer]:
+                        - img [ref=e3001]
+                  - table [ref=e3007]:
+                    - rowgroup [ref=e3008]:
+                      - row "Name Command Applied to Actions" [ref=e3009]:
+                        - columnheader "Name" [ref=e3010]
+                        - columnheader "Command" [ref=e3011]
+                        - columnheader "Applied to" [ref=e3012]
+                        - columnheader "Actions" [ref=e3013]:
+                          - generic [ref=e3014]: Actions
+                    - rowgroup [ref=e3015]:
+                      - row "Students can view their own subscriptions SELECT public" [ref=e3016]:
+                        - cell "Students can view their own subscriptions" [ref=e3017]:
+                          - button "Students can view their own subscriptions" [ref=e3019] [cursor=pointer]:
+                            - generic [ref=e3020]: Students can view their own subscriptions
+                        - cell "SELECT" [ref=e3021]:
+                          - code [ref=e3022]: SELECT
+                        - cell "public" [ref=e3023]:
+                          - code [ref=e3027]: public
+                        - cell [ref=e3028]:
+                          - button [ref=e3029] [cursor=pointer]:
+                            - img [ref=e3031]
+                      - row "Teachers can create subscriptions for their students INSERT public" [ref=e3035]:
+                        - cell "Teachers can create subscriptions for their students" [ref=e3036]:
+                          - button "Teachers can create subscriptions for their students" [ref=e3038] [cursor=pointer]:
+                            - generic [ref=e3039]: Teachers can create subscriptions for their students
+                        - cell "INSERT" [ref=e3040]:
+                          - code [ref=e3041]: INSERT
+                        - cell "public" [ref=e3042]:
+                          - code [ref=e3046]: public
+                        - cell [ref=e3047]:
+                          - button [ref=e3048] [cursor=pointer]:
+                            - img [ref=e3050]
+                      - row "Teachers can update their students' subscriptions UPDATE public" [ref=e3054]:
+                        - cell "Teachers can update their students' subscriptions" [ref=e3055]:
+                          - button "Teachers can update their students' subscriptions" [ref=e3057] [cursor=pointer]:
+                            - generic [ref=e3058]: Teachers can update their students' subscriptions
+                        - cell "UPDATE" [ref=e3059]:
+                          - code [ref=e3060]: UPDATE
+                        - cell "public" [ref=e3061]:
+                          - code [ref=e3065]: public
+                        - cell [ref=e3066]:
+                          - button [ref=e3067] [cursor=pointer]:
+                            - img [ref=e3069]
+                      - row "Teachers can view their students' subscriptions SELECT public" [ref=e3073]:
+                        - cell "Teachers can view their students' subscriptions" [ref=e3074]:
+                          - button "Teachers can view their students' subscriptions" [ref=e3076] [cursor=pointer]:
+                            - generic [ref=e3077]: Teachers can view their students' subscriptions
+                        - cell "SELECT" [ref=e3078]:
+                          - code [ref=e3079]: SELECT
+                        - cell "public" [ref=e3080]:
+                          - code [ref=e3084]: public
+                        - cell [ref=e3085]:
+                          - button [ref=e3086] [cursor=pointer]:
+                            - img [ref=e3088]
+                - generic [ref=e3093]:
+                  - generic [ref=e3095]:
+                    - link "teacher_profiles" [ref=e3097] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/38500
+                      - img [ref=e3098]
+                      - heading "teacher_profiles" [level=3] [ref=e3100]
+                    - generic [ref=e3102]:
+                      - button "Disable RLS" [ref=e3103] [cursor=pointer]:
+                        - generic [ref=e3104]: Disable RLS
+                      - button "Create policy" [ref=e3105] [cursor=pointer]:
+                        - generic [ref=e3106]: Create policy
+                      - button [ref=e3107] [cursor=pointer]:
+                        - img [ref=e3111]
+                  - table [ref=e3117]:
+                    - rowgroup [ref=e3118]:
+                      - row "Name Command Applied to Actions" [ref=e3119]:
+                        - columnheader "Name" [ref=e3120]
+                        - columnheader "Command" [ref=e3121]
+                        - columnheader "Applied to" [ref=e3122]
+                        - columnheader "Actions" [ref=e3123]:
+                          - generic [ref=e3124]: Actions
+                    - rowgroup [ref=e3125]:
+                      - row "Teachers can insert own profile INSERT public" [ref=e3126]:
+                        - cell "Teachers can insert own profile" [ref=e3127]:
+                          - button "Teachers can insert own profile" [ref=e3129] [cursor=pointer]:
+                            - generic [ref=e3130]: Teachers can insert own profile
+                        - cell "INSERT" [ref=e3131]:
+                          - code [ref=e3132]: INSERT
+                        - cell "public" [ref=e3133]:
+                          - code [ref=e3137]: public
+                        - cell [ref=e3138]:
+                          - button [ref=e3139] [cursor=pointer]:
+                            - img [ref=e3141]
+                      - row "Teachers can update own profile UPDATE public" [ref=e3145]:
+                        - cell "Teachers can update own profile" [ref=e3146]:
+                          - button "Teachers can update own profile" [ref=e3148] [cursor=pointer]:
+                            - generic [ref=e3149]: Teachers can update own profile
+                        - cell "UPDATE" [ref=e3150]:
+                          - code [ref=e3151]: UPDATE
+                        - cell "public" [ref=e3152]:
+                          - code [ref=e3156]: public
+                        - cell [ref=e3157]:
+                          - button [ref=e3158] [cursor=pointer]:
+                            - img [ref=e3160]
+                      - row "Teachers can view own profile SELECT public" [ref=e3164]:
+                        - cell "Teachers can view own profile" [ref=e3165]:
+                          - button "Teachers can view own profile" [ref=e3167] [cursor=pointer]:
+                            - generic [ref=e3168]: Teachers can view own profile
+                        - cell "SELECT" [ref=e3169]:
+                          - code [ref=e3170]: SELECT
+                        - cell "public" [ref=e3171]:
+                          - code [ref=e3175]: public
+                        - cell [ref=e3176]:
+                          - button [ref=e3177] [cursor=pointer]:
+                            - img [ref=e3179]
+                - generic [ref=e3184]:
+                  - generic [ref=e3186]:
+                    - link "trial_device_fingerprints" [ref=e3188] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/49692
+                      - img [ref=e3189]
+                      - heading "trial_device_fingerprints" [level=3] [ref=e3191]
+                    - generic [ref=e3193]:
+                      - button "Disable RLS" [ref=e3194] [cursor=pointer]:
+                        - generic [ref=e3195]: Disable RLS
+                      - button "Create policy" [ref=e3196] [cursor=pointer]:
+                        - generic [ref=e3197]: Create policy
+                      - button [ref=e3198] [cursor=pointer]:
+                        - img [ref=e3202]
+                  - table [ref=e3208]:
+                    - rowgroup [ref=e3209]:
+                      - row "Name Command Applied to Actions" [ref=e3210]:
+                        - columnheader "Name" [ref=e3211]
+                        - columnheader "Command" [ref=e3212]
+                        - columnheader "Applied to" [ref=e3213]
+                        - columnheader "Actions" [ref=e3214]:
+                          - generic [ref=e3215]: Actions
+                    - rowgroup [ref=e3216]:
+                      - row "admin_can_view_trial_devices SELECT authenticated" [ref=e3217]:
+                        - cell "admin_can_view_trial_devices" [ref=e3218]:
+                          - button "admin_can_view_trial_devices" [ref=e3220] [cursor=pointer]:
+                            - generic [ref=e3221]: admin_can_view_trial_devices
+                        - cell "SELECT" [ref=e3222]:
+                          - code [ref=e3223]: SELECT
+                        - cell "authenticated" [ref=e3224]:
+                          - code [ref=e3228]: authenticated
+                        - cell [ref=e3229]:
+                          - button [ref=e3230] [cursor=pointer]:
+                            - img [ref=e3232]
+                - generic [ref=e3237]:
+                  - generic [ref=e3239]:
+                    - link "trial_notifications" [ref=e3241] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/50837
+                      - img [ref=e3242]
+                      - heading "trial_notifications" [level=3] [ref=e3244]
+                    - generic [ref=e3246]:
+                      - button "Disable RLS" [ref=e3247] [cursor=pointer]:
+                        - generic [ref=e3248]: Disable RLS
+                      - button "Create policy" [ref=e3249] [cursor=pointer]:
+                        - generic [ref=e3250]: Create policy
+                      - button [ref=e3251] [cursor=pointer]:
+                        - img [ref=e3255]
+                  - table [ref=e3261]:
+                    - rowgroup [ref=e3262]:
+                      - row "Name Command Applied to Actions" [ref=e3263]:
+                        - columnheader "Name" [ref=e3264]
+                        - columnheader "Command" [ref=e3265]
+                        - columnheader "Applied to" [ref=e3266]
+                        - columnheader "Actions" [ref=e3267]:
+                          - generic [ref=e3268]: Actions
+                    - rowgroup [ref=e3269]:
+                      - row "Planners can view their own notifications SELECT public" [ref=e3270]:
+                        - cell "Planners can view their own notifications" [ref=e3271]:
+                          - button "Planners can view their own notifications" [ref=e3273] [cursor=pointer]:
+                            - generic [ref=e3274]: Planners can view their own notifications
+                        - cell "SELECT" [ref=e3275]:
+                          - code [ref=e3276]: SELECT
+                        - cell "public" [ref=e3277]:
+                          - code [ref=e3281]: public
+                        - cell [ref=e3282]:
+                          - button [ref=e3283] [cursor=pointer]:
+                            - img [ref=e3285]
+                      - row "Service role can manage all notifications ALL public" [ref=e3289]:
+                        - cell "Service role can manage all notifications" [ref=e3290]:
+                          - button "Service role can manage all notifications" [ref=e3292] [cursor=pointer]:
+                            - generic [ref=e3293]: Service role can manage all notifications
+                        - cell "ALL" [ref=e3294]:
+                          - code [ref=e3295]: ALL
+                        - cell "public" [ref=e3296]:
+                          - code [ref=e3300]: public
+                        - cell [ref=e3301]:
+                          - button [ref=e3302] [cursor=pointer]:
+                            - img [ref=e3304]
+                - generic [ref=e3309]:
+                  - generic [ref=e3311]:
+                    - link "usage_tracking" [ref=e3313] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/43740
+                      - img [ref=e3314]
+                      - heading "usage_tracking" [level=3] [ref=e3316]
+                    - generic [ref=e3318]:
+                      - button "Disable RLS" [ref=e3319] [cursor=pointer]:
+                        - generic [ref=e3320]: Disable RLS
+                      - button "Create policy" [ref=e3321] [cursor=pointer]:
+                        - generic [ref=e3322]: Create policy
+                      - button [ref=e3323] [cursor=pointer]:
+                        - img [ref=e3327]
+                  - table [ref=e3333]:
+                    - rowgroup [ref=e3334]:
+                      - row "Name Command Applied to Actions" [ref=e3335]:
+                        - columnheader "Name" [ref=e3336]
+                        - columnheader "Command" [ref=e3337]
+                        - columnheader "Applied to" [ref=e3338]
+                        - columnheader "Actions" [ref=e3339]:
+                          - generic [ref=e3340]: Actions
+                    - rowgroup [ref=e3341]:
+                      - row "Planners can view their own usage SELECT public" [ref=e3342]:
+                        - cell "Planners can view their own usage" [ref=e3343]:
+                          - button "Planners can view their own usage" [ref=e3345] [cursor=pointer]:
+                            - generic [ref=e3346]: Planners can view their own usage
+                        - cell "SELECT" [ref=e3347]:
+                          - code [ref=e3348]: SELECT
+                        - cell "public" [ref=e3349]:
+                          - code [ref=e3353]: public
+                        - cell [ref=e3354]:
+                          - button [ref=e3355] [cursor=pointer]:
+                            - img [ref=e3357]
+                      - row "Service role can manage usage tracking ALL public" [ref=e3361]:
+                        - cell "Service role can manage usage tracking" [ref=e3362]:
+                          - button "Service role can manage usage tracking" [ref=e3364] [cursor=pointer]:
+                            - generic [ref=e3365]: Service role can manage usage tracking
+                        - cell "ALL" [ref=e3366]:
+                          - code [ref=e3367]: ALL
+                        - cell "public" [ref=e3368]:
+                          - code [ref=e3372]: public
+                        - cell [ref=e3373]:
+                          - button [ref=e3374] [cursor=pointer]:
+                            - img [ref=e3376]
+                - generic [ref=e3381]:
+                  - generic [ref=e3383]:
+                    - link "weekly_schedules" [ref=e3385] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/54692
+                      - img [ref=e3386]
+                      - heading "weekly_schedules" [level=3] [ref=e3388]
+                    - generic [ref=e3390]:
+                      - button "Disable RLS" [ref=e3391] [cursor=pointer]:
+                        - generic [ref=e3392]: Disable RLS
+                      - button "Create policy" [ref=e3393] [cursor=pointer]:
+                        - generic [ref=e3394]: Create policy
+                      - button [ref=e3395] [cursor=pointer]:
+                        - img [ref=e3399]
+                  - table [ref=e3405]:
+                    - rowgroup [ref=e3406]:
+                      - row "Name Command Applied to Actions" [ref=e3407]:
+                        - columnheader "Name" [ref=e3408]
+                        - columnheader "Command" [ref=e3409]
+                        - columnheader "Applied to" [ref=e3410]
+                        - columnheader "Actions" [ref=e3411]:
+                          - generic [ref=e3412]: Actions
+                    - rowgroup [ref=e3413]:
+                      - row "Teachers can manage weekly schedules ALL public" [ref=e3414]:
+                        - cell "Teachers can manage weekly schedules" [ref=e3415]:
+                          - button "Teachers can manage weekly schedules" [ref=e3417] [cursor=pointer]:
+                            - generic [ref=e3418]: Teachers can manage weekly schedules
+                        - cell "ALL" [ref=e3419]:
+                          - code [ref=e3420]: ALL
+                        - cell "public" [ref=e3421]:
+                          - code [ref=e3425]: public
+                        - cell [ref=e3426]:
+                          - button [ref=e3427] [cursor=pointer]:
+                            - img [ref=e3429]
+        - generic [ref=e3434]:
+          - generic:
+            - generic:
+              - generic:
+                - img "Background pattern"
+              - generic:
+                - generic:
+                  - button "Close banner":
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                  - generic:
+                    - paragraph: Auto-enable RLS for new tables
+                    - paragraph: Create an event trigger that enables Row Level Security on all new tables
+                  - button "Create ensure_rls trigger" [ref=e3435] [cursor=pointer]:
+                    - generic [ref=e3436]: Create ensure_rls trigger
+  - alert [ref=e325]: Authentication | Supabase

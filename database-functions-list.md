@@ -1,0 +1,564 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Supabase" [ref=e9] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e10]
+          - generic [ref=e11]:
+            - img [ref=e319]
+            - link "twins1850's Org Free" [ref=e321] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e322]
+              - generic [ref=e332]: twins1850's Org
+              - generic [ref=e333]: Free
+            - button [ref=e334] [cursor=pointer]:
+              - img [ref=e336]
+            - generic [ref=e12]:
+              - img [ref=e14]
+              - link "nvoim-planner-pro" [ref=e339] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e340]
+                - generic "nvoim-planner-pro" [ref=e343]
+              - button [ref=e344] [cursor=pointer]:
+                - img [ref=e346]
+              - img [ref=e350]
+              - link "main Production" [ref=e352] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - generic "main" [ref=e353]
+                - generic [ref=e354]: Production
+              - button [ref=e355] [cursor=pointer]:
+                - img [ref=e357]
+          - button "Connect" [ref=e18] [cursor=pointer]:
+            - img [ref=e20]
+            - generic [ref=e22]: Connect
+        - generic [ref=e23]:
+          - generic [ref=e25] [cursor=pointer]: Feedback
+          - generic [ref=e26]:
+            - button "Search..." [ref=e27] [cursor=pointer]:
+              - generic [ref=e28]:
+                - img [ref=e29]
+                - paragraph [ref=e32]: Search...
+              - generic [ref=e34]:
+                - img [ref=e35]
+                - generic [ref=e37]: K
+            - button [ref=e38] [cursor=pointer]:
+              - img [ref=e40]
+            - button [ref=e44] [cursor=pointer]:
+              - img [ref=e46]
+            - button [ref=e48] [cursor=pointer]:
+              - img [ref=e50]
+            - button [ref=e52] [cursor=pointer]:
+              - img [ref=e56]
+          - button "twins1850" [ref=e361] [cursor=pointer]:
+            - img "twins1850" [ref=e362]
+    - generic [ref=e64]:
+      - generic [ref=e68]:
+        - list [ref=e71]:
+          - generic [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Project Overview" [ref=e74] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e75]
+                - generic: Project Overview
+            - listitem [ref=e77]:
+              - link "Table Editor" [ref=e363] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                - img [ref=e364]
+                - generic: Table Editor
+            - listitem [ref=e78]:
+              - link "SQL Editor" [ref=e366] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                - img [ref=e367]
+                - generic: SQL Editor
+          - generic [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Database" [ref=e369] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                - img [ref=e370]
+                - generic: Database
+            - listitem [ref=e81]:
+              - link "Authentication" [ref=e374] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                - img [ref=e375]
+                - generic: Authentication
+            - listitem [ref=e82]:
+              - link "Storage" [ref=e377] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                - img [ref=e378]
+                - generic: Storage
+            - listitem [ref=e83]:
+              - link "Edge Functions" [ref=e84] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                - img [ref=e85]
+                - generic: Edge Functions
+            - listitem [ref=e90]:
+              - link "Realtime" [ref=e380] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                - img [ref=e381]
+                - generic: Realtime
+          - generic [ref=e91]:
+            - listitem [ref=e93]:
+              - link "Advisors" [ref=e383] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                - img [ref=e384]
+                - generic: Advisors
+            - listitem [ref=e94]:
+              - link "Observability" [ref=e386] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                - img [ref=e387]
+                - generic: Observability
+            - listitem [ref=e95]:
+              - link "Logs" [ref=e395] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                - img [ref=e396]
+                - generic: Logs
+            - listitem [ref=e96]:
+              - link "API Docs" [ref=e397] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                - img [ref=e398]
+                - generic: API Docs
+            - listitem [ref=e97]:
+              - link "Integrations" [ref=e401] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                - img [ref=e402]
+                - generic: Integrations
+          - listitem [ref=e99]:
+            - link "Project Settings" [ref=e100] [cursor=pointer]:
+              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+              - img [ref=e101]
+              - generic: Project Settings
+        - button [ref=e106] [cursor=pointer]:
+          - img [ref=e108]
+      - generic [ref=e114]:
+        - generic [ref=e117]:
+          - heading "Database" [level=4] [ref=e119]
+          - menu "Sidebar" [ref=e122]:
+            - list [ref=e123]:
+              - generic [ref=e126]:
+                - generic [ref=e130]: Database Management
+                - generic [ref=e131]:
+                  - link "Schema Visualizer" [ref=e132] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                    - menuitem "Schema Visualizer" [ref=e133]:
+                      - generic "Schema Visualizer" [ref=e136]:
+                        - generic [ref=e137]: Schema Visualizer
+                  - link "Tables" [ref=e138] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/tables
+                    - menuitem "Tables" [ref=e139]:
+                      - generic "Tables" [ref=e142]:
+                        - generic [ref=e143]: Tables
+                  - link "Functions" [ref=e144] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/functions
+                    - menuitem "Functions" [ref=e145]:
+                      - generic "Functions" [ref=e148]:
+                        - generic [ref=e149]: Functions
+                  - link "Triggers" [ref=e150] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/triggers/data
+                    - menuitem "Triggers" [ref=e151]:
+                      - generic "Triggers" [ref=e154]:
+                        - generic [ref=e155]: Triggers
+                  - link "Enumerated Types" [ref=e156] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/types
+                    - menuitem "Enumerated Types" [ref=e157]:
+                      - generic "Enumerated Types" [ref=e160]:
+                        - generic [ref=e161]: Enumerated Types
+                  - link "Extensions" [ref=e162] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/extensions
+                    - menuitem "Extensions" [ref=e163]:
+                      - generic "Extensions" [ref=e166]:
+                        - generic [ref=e167]: Extensions
+                  - link "Indexes" [ref=e168] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/indexes
+                    - menuitem "Indexes" [ref=e169]:
+                      - generic "Indexes" [ref=e172]:
+                        - generic [ref=e173]: Indexes
+                  - link "Publications" [ref=e174] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/publications
+                    - menuitem "Publications" [ref=e175]:
+                      - generic "Publications" [ref=e178]:
+                        - generic [ref=e179]: Publications
+              - generic [ref=e183]:
+                - generic [ref=e187]: Configuration
+                - generic [ref=e188]:
+                  - link "Roles" [ref=e189] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/roles
+                    - menuitem "Roles" [ref=e190]:
+                      - generic "Roles" [ref=e193]:
+                        - generic [ref=e194]: Roles
+                  - link "Policies" [ref=e195] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/policies
+                    - menuitem "Policies" [ref=e196]:
+                      - generic [ref=e198]:
+                        - generic "Policies" [ref=e199]:
+                          - generic [ref=e200]: Policies
+                        - img [ref=e202]
+                  - link "Settings" [ref=e205] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/settings
+                    - menuitem "Settings" [ref=e206]:
+                      - generic "Settings" [ref=e209]:
+                        - generic [ref=e210]: Settings
+              - generic [ref=e214]:
+                - generic [ref=e218]: Platform
+                - generic [ref=e219]:
+                  - link "Replication" [ref=e220] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/replication
+                    - menuitem "Replication" [ref=e221]:
+                      - generic "Replication" [ref=e224]:
+                        - generic [ref=e225]: Replication
+                  - link "Backups" [ref=e226] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/backups/scheduled
+                    - menuitem "Backups" [ref=e227]:
+                      - generic "Backups" [ref=e230]:
+                        - generic [ref=e231]: Backups
+                  - link "Migrations" [ref=e232] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/migrations
+                    - menuitem "Migrations" [ref=e233]:
+                      - generic "Migrations" [ref=e236]:
+                        - generic [ref=e237]: Migrations
+                  - link "Wrappers" [ref=e238] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations?category=wrapper
+                    - menuitem "Wrappers" [ref=e239]:
+                      - generic [ref=e241]:
+                        - generic "Wrappers" [ref=e242]:
+                          - generic [ref=e243]: Wrappers
+                        - img [ref=e245]
+                  - link "Webhooks" [ref=e405] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations/webhooks/overview
+                    - menuitem "Webhooks" [ref=e406]:
+                      - generic [ref=e408]:
+                        - generic "Webhooks" [ref=e409]:
+                          - generic [ref=e410]: Webhooks
+                        - img [ref=e412]
+              - generic [ref=e251]:
+                - generic [ref=e255]: Tools
+                - generic [ref=e256]:
+                  - link "Security Advisor" [ref=e257] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                    - menuitem "Security Advisor" [ref=e258]:
+                      - generic [ref=e260]:
+                        - generic "Security Advisor" [ref=e261]:
+                          - generic [ref=e262]: Security Advisor
+                        - img [ref=e264]
+                  - link "Performance Advisor" [ref=e267] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/performance
+                    - menuitem "Performance Advisor" [ref=e268]:
+                      - generic [ref=e270]:
+                        - generic "Performance Advisor" [ref=e271]:
+                          - generic [ref=e272]: Performance Advisor
+                        - img [ref=e274]
+                  - link "Query Performance" [ref=e277] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability/query-performance
+                    - menuitem "Query Performance" [ref=e278]:
+                      - generic [ref=e280]:
+                        - generic "Query Performance" [ref=e281]:
+                          - generic [ref=e282]: Query Performance
+                        - img [ref=e284]
+        - separator [ref=e287]:
+          - img [ref=e289]
+        - main [ref=e297]:
+          - generic [ref=e417]:
+            - heading "Database Functions" [level=1] [ref=e419]
+            - link "Docs" [ref=e421] [cursor=pointer]:
+              - /url: https://supabase.com/docs/guides/database/functions
+              - img [ref=e423]
+              - generic [ref=e426]: Docs
+          - generic [ref=e430]:
+            - generic [ref=e431]:
+              - generic [ref=e432]:
+                - button "schema public" [ref=e434] [cursor=pointer]:
+                  - generic [ref=e436]:
+                    - paragraph [ref=e437]: schema
+                    - paragraph [ref=e438]: public
+                  - img [ref=e440]
+                - generic [ref=e446]:
+                  - textbox "Search for a function" [ref=e447]
+                  - generic:
+                    - img
+                - button "Return Type" [ref=e448] [cursor=pointer]:
+                  - generic [ref=e449]: Return Type
+                  - img [ref=e451]
+                - button "Security" [ref=e453] [cursor=pointer]:
+                  - generic [ref=e454]: Security
+                  - img [ref=e456]
+              - generic [ref=e458]:
+                - button "Create a new function" [ref=e459] [cursor=pointer]:
+                  - generic [ref=e460]: Create a new function
+                - button [ref=e461] [cursor=pointer]:
+                  - img [ref=e465]
+            - table [ref=e471]:
+              - rowgroup [ref=e472]:
+                - row "Name Arguments Return type Security" [ref=e473]:
+                  - columnheader "Name" [ref=e474]
+                  - columnheader "Arguments" [ref=e475]
+                  - columnheader "Return type" [ref=e476]
+                  - columnheader "Security" [ref=e477]
+                  - columnheader [ref=e478]
+              - rowgroup [ref=e479]:
+                - row "aggregate_daily_usage – void Definer More options" [ref=e480]:
+                  - cell "aggregate_daily_usage" [ref=e481]:
+                    - button "aggregate_daily_usage" [ref=e482] [cursor=pointer]:
+                      - generic [ref=e483]: aggregate_daily_usage
+                  - cell "–" [ref=e484]:
+                    - paragraph [ref=e485]: –
+                  - cell "void" [ref=e486]:
+                    - paragraph [ref=e487]: void
+                  - cell "Definer" [ref=e488]:
+                    - paragraph [ref=e489]: Definer
+                  - cell "More options" [ref=e490]:
+                    - button "More options" [ref=e492] [cursor=pointer]:
+                      - img [ref=e494]
+                - row "calculate_max_postponements p_total_lessons integer integer Definer More options" [ref=e498]:
+                  - cell "calculate_max_postponements" [ref=e499]:
+                    - button "calculate_max_postponements" [ref=e500] [cursor=pointer]:
+                      - generic [ref=e501]: calculate_max_postponements
+                  - cell "p_total_lessons integer" [ref=e502]:
+                    - paragraph [ref=e503]: p_total_lessons integer
+                  - cell "integer" [ref=e504]:
+                    - paragraph [ref=e505]: integer
+                  - cell "Definer" [ref=e506]:
+                    - paragraph [ref=e507]: Definer
+                  - cell "More options" [ref=e508]:
+                    - button "More options" [ref=e510] [cursor=pointer]:
+                      - img [ref=e512]
+                - row "calculate_subscription_price p_planner_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_total_lessons integer, p_pricing_type text DEFAULT 'managed'::text, p_payment_method text DEFAULT 'cash'::text jsonb Definer More options" [ref=e516]:
+                  - cell "calculate_subscription_price" [ref=e517]:
+                    - button "calculate_subscription_price" [ref=e518] [cursor=pointer]:
+                      - generic [ref=e519]: calculate_subscription_price
+                  - cell "p_planner_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_total_lessons integer, p_pricing_type text DEFAULT 'managed'::text, p_payment_method text DEFAULT 'cash'::text" [ref=e520]:
+                    - paragraph [ref=e521]: p_planner_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_total_lessons integer, p_pricing_type text DEFAULT 'managed'::text, p_payment_method text DEFAULT 'cash'::text
+                  - cell "jsonb" [ref=e522]:
+                    - paragraph [ref=e523]: jsonb
+                  - cell "Definer" [ref=e524]:
+                    - paragraph [ref=e525]: Definer
+                  - cell "More options" [ref=e526]:
+                    - button "More options" [ref=e528] [cursor=pointer]:
+                      - img [ref=e530]
+                - row "check_license_expiration – void Definer More options" [ref=e534]:
+                  - cell "check_license_expiration" [ref=e535]:
+                    - button "check_license_expiration" [ref=e536] [cursor=pointer]:
+                      - generic [ref=e537]: check_license_expiration
+                  - cell "–" [ref=e538]:
+                    - paragraph [ref=e539]: –
+                  - cell "void" [ref=e540]:
+                    - paragraph [ref=e541]: void
+                  - cell "Definer" [ref=e542]:
+                    - paragraph [ref=e543]: Definer
+                  - cell "More options" [ref=e544]:
+                    - button "More options" [ref=e546] [cursor=pointer]:
+                      - img [ref=e548]
+                - row "connect_student_with_info invite_code_input text, student_name text, student_phone text, student_email text json Definer More options" [ref=e552]:
+                  - cell "connect_student_with_info" [ref=e553]:
+                    - button "connect_student_with_info" [ref=e554] [cursor=pointer]:
+                      - generic [ref=e555]: connect_student_with_info
+                  - cell "invite_code_input text, student_name text, student_phone text, student_email text" [ref=e556]:
+                    - paragraph [ref=e557]: invite_code_input text, student_name text, student_phone text, student_email text
+                  - cell "json" [ref=e558]:
+                    - paragraph [ref=e559]: json
+                  - cell "Definer" [ref=e560]:
+                    - paragraph [ref=e561]: Definer
+                  - cell "More options" [ref=e562]:
+                    - button "More options" [ref=e564] [cursor=pointer]:
+                      - img [ref=e566]
+                - row "connect_student_with_invite invite_code_input text json Definer More options" [ref=e570]:
+                  - cell "connect_student_with_invite" [ref=e571]:
+                    - button "connect_student_with_invite" [ref=e572] [cursor=pointer]:
+                      - generic [ref=e573]: connect_student_with_invite
+                  - cell "invite_code_input text" [ref=e574]:
+                    - paragraph [ref=e575]: invite_code_input text
+                  - cell "json" [ref=e576]:
+                    - paragraph [ref=e577]: json
+                  - cell "Definer" [ref=e578]:
+                    - paragraph [ref=e579]: Definer
+                  - cell "More options" [ref=e580]:
+                    - button "More options" [ref=e582] [cursor=pointer]:
+                      - img [ref=e584]
+                - row "create_invite_code – json Definer More options" [ref=e588]:
+                  - cell "create_invite_code" [ref=e589]:
+                    - button "create_invite_code" [ref=e590] [cursor=pointer]:
+                      - generic [ref=e591]: create_invite_code
+                  - cell "–" [ref=e592]:
+                    - paragraph [ref=e593]: –
+                  - cell "json" [ref=e594]:
+                    - paragraph [ref=e595]: json
+                  - cell "Definer" [ref=e596]:
+                    - paragraph [ref=e597]: Definer
+                  - cell "More options" [ref=e598]:
+                    - button "More options" [ref=e600] [cursor=pointer]:
+                      - img [ref=e602]
+                - row "create_message_notification – trigger Definer More options" [ref=e606]:
+                  - cell "create_message_notification" [ref=e607]:
+                    - button "create_message_notification" [ref=e608] [cursor=pointer]:
+                      - generic [ref=e609]: create_message_notification
+                  - cell "–" [ref=e610]:
+                    - paragraph [ref=e611]: –
+                  - cell "trigger" [ref=e612]:
+                    - link "trigger" [ref=e613] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/triggers?search=create_message_notification
+                  - cell "Definer" [ref=e614]:
+                    - paragraph [ref=e615]: Definer
+                  - cell "More options" [ref=e616]:
+                    - button "More options" [ref=e618] [cursor=pointer]:
+                      - img [ref=e620]
+                - row "create_subscription p_student_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_start_date date, p_flexible_lessons_per_month integer DEFAULT NULL::integer, p_weekly_schedule jsonb DEFAULT NULL::jsonb, p_total_amount numeric DEFAULT NULL::numeric, p_payment_amount numeric DEFAULT NULL::numeric, p_pricing_type text DEFAULT 'managed'::text, p_payment_method text DEFAULT 'cash'::text, p_notes text DEFAULT NULL::text json Definer More options" [ref=e624]:
+                  - cell "create_subscription" [ref=e625]:
+                    - button "create_subscription" [ref=e626] [cursor=pointer]:
+                      - generic [ref=e627]: create_subscription
+                  - cell "p_student_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_start_date date, p_flexible_lessons_per_month integer DEFAULT NULL::integer, p_weekly_schedule jsonb DEFAULT NULL::jsonb, p_total_amount numeric DEFAULT NULL::numeric, p_payment_amount numeric DEFAULT NULL::numeric, p_pricing_type text DEFAULT 'managed'::text, p_payment_method text DEFAULT 'cash'::text, p_notes text DEFAULT NULL::text" [ref=e628]:
+                    - paragraph [ref=e629]: p_student_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_start_date date, p_flexible_lessons_per_month integer DEFAULT NULL::integer, p_weekly_schedule jsonb DEFAULT NULL::jsonb, p_total_amount numeric DEFAULT NULL::numeric, p_payment_amount numeric DEFAULT NULL::numeric, p_pricing_type text DEFAULT 'managed'::text, p_payment_method text DEFAULT 'cash'::text, p_notes text DEFAULT NULL::text
+                  - cell "json" [ref=e630]:
+                    - paragraph [ref=e631]: json
+                  - cell "Definer" [ref=e632]:
+                    - paragraph [ref=e633]: Definer
+                  - cell "More options" [ref=e634]:
+                    - button "More options" [ref=e636] [cursor=pointer]:
+                      - img [ref=e638]
+                - row "ensure_student_profile – void Definer More options" [ref=e642]:
+                  - cell "ensure_student_profile" [ref=e643]:
+                    - button "ensure_student_profile" [ref=e644] [cursor=pointer]:
+                      - generic [ref=e645]: ensure_student_profile
+                  - cell "–" [ref=e646]:
+                    - paragraph [ref=e647]: –
+                  - cell "void" [ref=e648]:
+                    - paragraph [ref=e649]: void
+                  - cell "Definer" [ref=e650]:
+                    - paragraph [ref=e651]: Definer
+                  - cell "More options" [ref=e652]:
+                    - button "More options" [ref=e654] [cursor=pointer]:
+                      - img [ref=e656]
+                - row "expire_trial_licenses – void Definer More options" [ref=e660]:
+                  - cell "expire_trial_licenses" [ref=e661]:
+                    - button "expire_trial_licenses" [ref=e662] [cursor=pointer]:
+                      - generic [ref=e663]: expire_trial_licenses
+                  - cell "–" [ref=e664]:
+                    - paragraph [ref=e665]: –
+                  - cell "void" [ref=e666]:
+                    - paragraph [ref=e667]: void
+                  - cell "Definer" [ref=e668]:
+                    - paragraph [ref=e669]: Definer
+                  - cell "More options" [ref=e670]:
+                    - button "More options" [ref=e672] [cursor=pointer]:
+                      - img [ref=e674]
+                - row "generate_lesson_schedule p_subscription_id uuid, p_exclude_holidays boolean DEFAULT true json Definer More options" [ref=e678]:
+                  - cell "generate_lesson_schedule" [ref=e679]:
+                    - button "generate_lesson_schedule" [ref=e680] [cursor=pointer]:
+                      - generic [ref=e681]: generate_lesson_schedule
+                  - cell "p_subscription_id uuid, p_exclude_holidays boolean DEFAULT true" [ref=e682]:
+                    - paragraph [ref=e683]: p_subscription_id uuid, p_exclude_holidays boolean DEFAULT true
+                  - cell "json" [ref=e684]:
+                    - paragraph [ref=e685]: json
+                  - cell "Definer" [ref=e686]:
+                    - paragraph [ref=e687]: Definer
+                  - cell "More options" [ref=e688]:
+                    - button "More options" [ref=e690] [cursor=pointer]:
+                      - img [ref=e692]
+                - row "get_all_subscription_prices p_planner_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_total_lessons integer jsonb Definer More options" [ref=e696]:
+                  - cell "get_all_subscription_prices" [ref=e697]:
+                    - button "get_all_subscription_prices" [ref=e698] [cursor=pointer]:
+                      - generic [ref=e699]: get_all_subscription_prices
+                  - cell "p_planner_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_total_lessons integer" [ref=e700]:
+                    - paragraph [ref=e701]: p_planner_id uuid, p_frequency subscription_frequency, p_duration lesson_duration, p_payment_period payment_period, p_total_lessons integer
+                  - cell "jsonb" [ref=e702]:
+                    - paragraph [ref=e703]: jsonb
+                  - cell "Definer" [ref=e704]:
+                    - paragraph [ref=e705]: Definer
+                  - cell "More options" [ref=e706]:
+                    - button "More options" [ref=e708] [cursor=pointer]:
+                      - img [ref=e710]
+                - row "get_dashboard_calendar_events p_planner_id uuid, p_start_date date, p_end_date date jsonb Definer More options" [ref=e714]:
+                  - cell "get_dashboard_calendar_events" [ref=e715]:
+                    - button "get_dashboard_calendar_events" [ref=e716] [cursor=pointer]:
+                      - generic [ref=e717]: get_dashboard_calendar_events
+                  - cell "p_planner_id uuid, p_start_date date, p_end_date date" [ref=e718]:
+                    - paragraph [ref=e719]: p_planner_id uuid, p_start_date date, p_end_date date
+                  - cell "jsonb" [ref=e720]:
+                    - paragraph [ref=e721]: jsonb
+                  - cell "Definer" [ref=e722]:
+                    - paragraph [ref=e723]: Definer
+                  - cell "More options" [ref=e724]:
+                    - button "More options" [ref=e726] [cursor=pointer]:
+                      - img [ref=e728]
+                - row "handle_new_user – trigger Definer More options" [ref=e732]:
+                  - cell "handle_new_user" [ref=e733]:
+                    - button "handle_new_user" [ref=e734] [cursor=pointer]:
+                      - generic [ref=e735]: handle_new_user
+                  - cell "–" [ref=e736]:
+                    - paragraph [ref=e737]: –
+                  - cell "trigger" [ref=e738]:
+                    - link "trigger" [ref=e739] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/triggers?search=handle_new_user
+                  - cell "Definer" [ref=e740]:
+                    - paragraph [ref=e741]: Definer
+                  - cell "More options" [ref=e742]:
+                    - button "More options" [ref=e744] [cursor=pointer]:
+                      - img [ref=e746]
+                - row "is_admin – boolean Definer More options" [ref=e750]:
+                  - cell "is_admin" [ref=e751]:
+                    - button "is_admin" [ref=e752] [cursor=pointer]:
+                      - generic [ref=e753]: is_admin
+                  - cell "–" [ref=e754]:
+                    - paragraph [ref=e755]: –
+                  - cell "boolean" [ref=e756]:
+                    - paragraph [ref=e757]: boolean
+                  - cell "Definer" [ref=e758]:
+                    - paragraph [ref=e759]: Definer
+                  - cell "More options" [ref=e760]:
+                    - button "More options" [ref=e762] [cursor=pointer]:
+                      - img [ref=e764]
+                - row "link_student_to_planner invite_code_input text json Definer More options" [ref=e768]:
+                  - cell "link_student_to_planner" [ref=e769]:
+                    - button "link_student_to_planner" [ref=e770] [cursor=pointer]:
+                      - generic [ref=e771]: link_student_to_planner
+                  - cell "invite_code_input text" [ref=e772]:
+                    - paragraph [ref=e773]: invite_code_input text
+                  - cell "json" [ref=e774]:
+                    - paragraph [ref=e775]: json
+                  - cell "Definer" [ref=e776]:
+                    - paragraph [ref=e777]: Definer
+                  - cell "More options" [ref=e778]:
+                    - button "More options" [ref=e780] [cursor=pointer]:
+                      - img [ref=e782]
+                - row "set_license_expiration – trigger Invoker More options" [ref=e786]:
+                  - cell "set_license_expiration" [ref=e787]:
+                    - button "set_license_expiration" [ref=e788] [cursor=pointer]:
+                      - generic [ref=e789]: set_license_expiration
+                  - cell "–" [ref=e790]:
+                    - paragraph [ref=e791]: –
+                  - cell "trigger" [ref=e792]:
+                    - link "trigger" [ref=e793] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/triggers?search=set_license_expiration
+                  - cell "Invoker" [ref=e794]:
+                    - paragraph [ref=e795]: Invoker
+                  - cell "More options" [ref=e796]:
+                    - button "More options" [ref=e798] [cursor=pointer]:
+                      - img [ref=e800]
+                - row "update_orders_updated_at – trigger Invoker More options" [ref=e804]:
+                  - cell "update_orders_updated_at" [ref=e805]:
+                    - button "update_orders_updated_at" [ref=e806] [cursor=pointer]:
+                      - generic [ref=e807]: update_orders_updated_at
+                  - cell "–" [ref=e808]:
+                    - paragraph [ref=e809]: –
+                  - cell "trigger" [ref=e810]:
+                    - link "trigger" [ref=e811] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/triggers?search=update_orders_updated_at
+                  - cell "Invoker" [ref=e812]:
+                    - paragraph [ref=e813]: Invoker
+                  - cell "More options" [ref=e814]:
+                    - button "More options" [ref=e816] [cursor=pointer]:
+                      - img [ref=e818]
+                - row "update_updated_at_column – trigger Invoker More options" [ref=e822]:
+                  - cell "update_updated_at_column" [ref=e823]:
+                    - button "update_updated_at_column" [ref=e824] [cursor=pointer]:
+                      - generic [ref=e825]: update_updated_at_column
+                  - cell "–" [ref=e826]:
+                    - paragraph [ref=e827]: –
+                  - cell "trigger" [ref=e828]:
+                    - link "trigger" [ref=e829] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/triggers?search=update_updated_at_column
+                  - cell "Invoker" [ref=e830]:
+                    - paragraph [ref=e831]: Invoker
+                  - cell "More options" [ref=e832]:
+                    - button "More options" [ref=e834] [cursor=pointer]:
+                      - img [ref=e836]
+  - alert [ref=e317]: Supabase

@@ -1,0 +1,519 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Supabase" [ref=e9] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e10]
+          - generic [ref=e11]:
+            - img [ref=e134]
+            - link "twins1850's Org Free" [ref=e136] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e137]
+              - generic [ref=e147]: twins1850's Org
+              - generic [ref=e148]: Free
+            - button [ref=e149] [cursor=pointer]:
+              - img [ref=e151]
+            - generic [ref=e12]:
+              - img [ref=e14]
+              - link "nvoim-planner-pro" [ref=e154] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e155]
+                - generic "nvoim-planner-pro" [ref=e158]
+              - button [ref=e159] [cursor=pointer]:
+                - img [ref=e161]
+              - img [ref=e165]
+              - link "main Production" [ref=e167] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - generic "main" [ref=e168]
+                - generic [ref=e169]: Production
+              - button [ref=e170] [cursor=pointer]:
+                - img [ref=e172]
+          - button "Connect" [ref=e18] [cursor=pointer]:
+            - img [ref=e20]
+            - generic [ref=e22]: Connect
+        - generic [ref=e23]:
+          - generic [ref=e25] [cursor=pointer]: Feedback
+          - generic [ref=e26]:
+            - button "Search..." [ref=e27] [cursor=pointer]:
+              - generic [ref=e28]:
+                - img [ref=e29]
+                - paragraph [ref=e32]: Search...
+              - generic [ref=e34]:
+                - img [ref=e35]
+                - generic [ref=e37]: K
+            - button [ref=e38] [cursor=pointer]:
+              - img [ref=e40]
+            - button [ref=e44] [cursor=pointer]:
+              - img [ref=e46]
+            - button [ref=e48] [cursor=pointer]:
+              - img [ref=e50]
+            - button [ref=e52] [cursor=pointer]:
+              - img [ref=e56]
+          - button "twins1850" [ref=e176] [cursor=pointer]:
+            - img "twins1850" [ref=e177]
+    - generic [ref=e64]:
+      - generic [ref=e68]:
+        - list [ref=e71]:
+          - generic [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Project Overview" [ref=e74] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e75]
+                - generic: Project Overview
+            - listitem [ref=e77]:
+              - link "Table Editor" [ref=e178] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                - img [ref=e179]
+                - generic: Table Editor
+            - listitem [ref=e78]:
+              - link "SQL Editor" [ref=e181] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                - img [ref=e182]
+                - generic: SQL Editor
+          - generic [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Database" [ref=e184] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                - img [ref=e185]
+                - generic: Database
+            - listitem [ref=e81]:
+              - link "Authentication" [ref=e189] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                - img [ref=e190]
+                - generic: Authentication
+            - listitem [ref=e82]:
+              - link "Storage" [ref=e192] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                - img [ref=e193]
+                - generic: Storage
+            - listitem [ref=e83]:
+              - link "Edge Functions" [ref=e84] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                - img [ref=e85]
+                - generic: Edge Functions
+            - listitem [ref=e90]:
+              - link "Realtime" [ref=e195] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                - img [ref=e196]
+                - generic: Realtime
+          - generic [ref=e91]:
+            - listitem [ref=e93]:
+              - link "Advisors" [ref=e198] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                - img [ref=e199]
+                - generic: Advisors
+            - listitem [ref=e94]:
+              - link "Observability" [ref=e201] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                - img [ref=e202]
+                - generic: Observability
+            - listitem [ref=e95]:
+              - link "Logs" [ref=e210] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                - img [ref=e211]
+                - generic: Logs
+            - listitem [ref=e96]:
+              - link "API Docs" [ref=e212] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                - img [ref=e213]
+                - generic: API Docs
+            - listitem [ref=e97]:
+              - link "Integrations" [ref=e216] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                - img [ref=e217]
+                - generic: Integrations
+          - listitem [ref=e99]:
+            - link "Project Settings" [ref=e100] [cursor=pointer]:
+              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+              - img [ref=e101]
+              - generic: Project Settings
+        - button [ref=e106] [cursor=pointer]:
+          - img [ref=e108]
+      - generic [ref=e114]:
+        - generic [ref=e220]:
+          - heading "Table Editor" [level=4] [ref=e222]
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - button "schema public" [ref=e227] [cursor=pointer]:
+                - generic [ref=e229]:
+                  - paragraph [ref=e230]: schema
+                  - paragraph [ref=e231]: public
+                - img [ref=e233]
+              - button "New table" [ref=e237] [cursor=pointer]:
+                - img [ref=e239]
+                - generic [ref=e240]: New table
+            - generic [ref=e241]:
+              - generic [ref=e242]:
+                - generic [ref=e243]:
+                  - generic [ref=e244]: Search tables
+                  - textbox "Search tables..." [ref=e245]
+                  - button [ref=e246] [cursor=pointer]:
+                    - img [ref=e247]
+                  - img [ref=e250]
+                - button [ref=e253] [cursor=pointer]:
+                  - img [ref=e255]
+              - generic [ref=e259]:
+                - button "View ai_lesson_analyses" [ref=e260] [cursor=pointer]:
+                  - button [ref=e261]:
+                    - img [ref=e262]
+                  - generic [ref=e264]:
+                    - generic [ref=e265]: ai_lesson_analyses
+                    - button "Table exposed via Data API" [ref=e266]:
+                      - img [ref=e267]
+                - button "View attendance" [ref=e270] [cursor=pointer]:
+                  - button [ref=e271]:
+                    - img [ref=e272]
+                  - generic [ref=e274]:
+                    - generic [ref=e275]: attendance
+                    - button "Table exposed via Data API" [ref=e276]:
+                      - img [ref=e277]
+                - button "View class_enrollments" [ref=e280] [cursor=pointer]:
+                  - button [ref=e281]:
+                    - img [ref=e282]
+                  - generic [ref=e284]:
+                    - generic [ref=e285]: class_enrollments
+                    - button "Table exposed via Data API" [ref=e286]:
+                      - img [ref=e287]
+                - button "View classes" [ref=e290] [cursor=pointer]:
+                  - button [ref=e291]:
+                    - img [ref=e292]
+                  - generic [ref=e294]:
+                    - generic [ref=e295]: classes
+                    - button "Table exposed via Data API" [ref=e296]:
+                      - img [ref=e297]
+                - button "View conversations" [ref=e300] [cursor=pointer]:
+                  - button [ref=e301]:
+                    - img [ref=e302]
+                  - generic [ref=e304]:
+                    - generic [ref=e305]: conversations
+                    - button "Unrestricted" [ref=e306]:
+                      - generic [ref=e307]: Unrestricted
+                - button "View course_history" [ref=e308] [cursor=pointer]:
+                  - button [ref=e309]:
+                    - img [ref=e310]
+                  - generic [ref=e312]:
+                    - generic [ref=e313]: course_history
+                    - button "Unrestricted" [ref=e314]:
+                      - generic [ref=e315]: Unrestricted
+                - button "View course_recommendations" [ref=e316] [cursor=pointer]:
+                  - button [ref=e317]:
+                    - img [ref=e318]
+                  - generic [ref=e320]:
+                    - generic [ref=e321]: course_recommendations
+                    - button "Unrestricted" [ref=e322]:
+                      - generic [ref=e323]: Unrestricted
+                - button "View curricula" [ref=e324] [cursor=pointer]:
+                  - button [ref=e325]:
+                    - img [ref=e326]
+                  - generic [ref=e328]:
+                    - generic [ref=e329]: curricula
+                    - button "Table exposed via Data API" [ref=e330]:
+                      - img [ref=e331]
+                - button "View feedback" [ref=e334] [cursor=pointer]:
+                  - button [ref=e335]:
+                    - img [ref=e336]
+                  - generic [ref=e338]:
+                    - generic [ref=e339]: feedback
+                    - button "Table exposed via Data API" [ref=e340]:
+                      - img [ref=e341]
+                - button "View flexible_bookings" [ref=e344] [cursor=pointer]:
+                  - button [ref=e345]:
+                    - img [ref=e346]
+                  - generic [ref=e348]:
+                    - generic [ref=e349]: flexible_bookings
+                    - button "Table exposed via Data API" [ref=e350]:
+                      - img [ref=e351]
+                - button "View holidays" [ref=e354] [cursor=pointer]:
+                  - button [ref=e355]:
+                    - img [ref=e356]
+                  - generic [ref=e358]:
+                    - generic [ref=e359]: holidays
+                    - button "Table exposed via Data API" [ref=e360]:
+                      - img [ref=e361]
+                - button "View homework" [ref=e364] [cursor=pointer]:
+                  - button [ref=e365]:
+                    - img [ref=e366]
+                  - generic [ref=e368]:
+                    - generic [ref=e369]: homework
+                    - button "Table exposed via Data API" [ref=e370]:
+                      - img [ref=e371]
+                - button "View homework_assignments" [ref=e374] [cursor=pointer]:
+                  - button [ref=e375]:
+                    - img [ref=e376]
+                  - generic [ref=e378]:
+                    - generic [ref=e379]: homework_assignments
+                    - button "Table exposed via Data API" [ref=e380]:
+                      - img [ref=e381]
+                - button "View homework_submissions" [ref=e384] [cursor=pointer]:
+                  - button [ref=e385]:
+                    - img [ref=e386]
+                  - generic [ref=e388]:
+                    - generic [ref=e389]: homework_submissions
+                    - button "Table exposed via Data API" [ref=e390]:
+                      - img [ref=e391]
+                - button "View invite_codes" [ref=e394] [cursor=pointer]:
+                  - button [ref=e395]:
+                    - img [ref=e396]
+                  - generic [ref=e398]:
+                    - generic [ref=e399]: invite_codes
+                    - button "Table exposed via Data API" [ref=e400]:
+                      - img [ref=e401]
+                - button "View lesson_videos" [ref=e404] [cursor=pointer]:
+                  - button [ref=e405]:
+                    - img [ref=e406]
+                  - generic [ref=e408]:
+                    - generic [ref=e409]: lesson_videos
+                    - button "Table exposed via Data API" [ref=e410]:
+                      - img [ref=e411]
+                - button "View lessons" [ref=e414] [cursor=pointer]:
+                  - button [ref=e415]:
+                    - img [ref=e416]
+                  - generic [ref=e418]:
+                    - generic [ref=e419]: lessons
+                    - button "Table exposed via Data API" [ref=e420]:
+                      - img [ref=e421]
+                - button "View licenses" [ref=e424] [cursor=pointer]:
+                  - button [ref=e425]:
+                    - img [ref=e426]
+                  - generic [ref=e428]:
+                    - generic [ref=e429]: licenses
+                    - button "Table exposed via Data API" [ref=e430]:
+                      - img [ref=e431]
+                - button "View material_access" [ref=e434] [cursor=pointer]:
+                  - button [ref=e435]:
+                    - img [ref=e436]
+                  - generic [ref=e438]:
+                    - generic [ref=e439]: material_access
+                    - button "Table exposed via Data API" [ref=e440]:
+                      - img [ref=e441]
+                - button "View messages" [ref=e444] [cursor=pointer]:
+                  - button [ref=e445]:
+                    - img [ref=e446]
+                  - generic [ref=e448]:
+                    - generic [ref=e449]: messages
+                    - button "Table exposed via Data API" [ref=e450]:
+                      - img [ref=e451]
+                - button "View notifications" [ref=e454] [cursor=pointer]:
+                  - button [ref=e455]:
+                    - img [ref=e456]
+                  - generic [ref=e458]:
+                    - generic [ref=e459]: notifications
+                    - button "Table exposed via Data API" [ref=e460]:
+                      - img [ref=e461]
+                - button "View orders" [ref=e464] [cursor=pointer]:
+                  - button [ref=e465]:
+                    - img [ref=e466]
+                  - generic [ref=e468]:
+                    - generic [ref=e469]: orders
+                    - button "Table exposed via Data API" [ref=e470]:
+                      - img [ref=e471]
+                - button "View planner_api_keys" [ref=e474] [cursor=pointer]:
+                  - button [ref=e475]:
+                    - img [ref=e476]
+                  - generic [ref=e478]:
+                    - generic [ref=e479]: planner_api_keys
+                    - button "Table exposed via Data API" [ref=e480]:
+                      - img [ref=e481]
+                - button "View planner_pricing_settings" [ref=e484] [cursor=pointer]:
+                  - button [ref=e485]:
+                    - img [ref=e486]
+                  - generic [ref=e488]:
+                    - generic [ref=e489]: planner_pricing_settings
+                    - button "Table exposed via Data API" [ref=e490]:
+                      - img [ref=e491]
+        - separator [ref=e117]:
+          - img [ref=e119]
+        - main [ref=e127]:
+          - generic [ref=e494]:
+            - generic [ref=e495]:
+              - generic [ref=e496]:
+                - button [ref=e497] [cursor=pointer]:
+                  - img [ref=e498]
+                - tablist [ref=e501]:
+                  - button "public. student_profiles" [ref=e503] [cursor=pointer]:
+                    - tab "public. student_profiles" [selected] [ref=e504]:
+                      - img [ref=e505]
+                      - generic [ref=e507]:
+                        - generic [ref=e508]: public.
+                        - generic [ref=e509]: student_profiles
+                      - button [ref=e510]:
+                        - img [ref=e511]
+                    - separator [ref=e515]
+                  - button "public. messages" [ref=e517] [cursor=pointer]:
+                    - tab "public. messages" [ref=e518]:
+                      - img [ref=e519]
+                      - generic [ref=e521]:
+                        - generic [ref=e522]: public.
+                        - generic [ref=e523]: messages
+                      - button [ref=e524]:
+                        - img [ref=e525]
+                    - separator [ref=e529]
+                  - button "public. homework_assignments" [ref=e531] [cursor=pointer]:
+                    - tab "public. homework_assignments" [ref=e532]:
+                      - img [ref=e533]
+                      - generic [ref=e535]:
+                        - generic [ref=e536]: public.
+                        - generic [ref=e537]: homework_assignments
+                      - button [ref=e538]:
+                        - img [ref=e539]
+                    - separator [ref=e543]
+                  - button "public. students" [ref=e545] [cursor=pointer]:
+                    - tab "public. students" [ref=e546]:
+                      - img [ref=e547]
+                      - generic [ref=e549]:
+                        - generic [ref=e550]: public.
+                        - generic [ref=e551]: students
+                      - button [ref=e552]:
+                        - img [ref=e553]
+                    - separator [ref=e557]
+                  - button "public. homework" [ref=e559] [cursor=pointer]:
+                    - tab "public. homework" [ref=e560]:
+                      - img [ref=e561]
+                      - generic [ref=e563]:
+                        - generic [ref=e564]: public.
+                        - generic [ref=e565]: homework
+                      - button [ref=e566]:
+                        - img [ref=e567]
+                    - separator [ref=e571]
+                  - button "public. profiles" [ref=e573] [cursor=pointer]:
+                    - tab "public. profiles" [ref=e574]:
+                      - img [ref=e575]
+                      - generic [ref=e577]:
+                        - generic [ref=e578]: public.
+                        - generic [ref=e579]: profiles
+                      - button [ref=e580]:
+                        - img [ref=e581]
+                    - separator [ref=e585]
+                  - button "public. licenses" [ref=e587] [cursor=pointer]:
+                    - tab "public. licenses" [ref=e588]:
+                      - img [ref=e589]
+                      - generic [ref=e591]:
+                        - generic [ref=e592]: public.
+                        - generic [ref=e593]: licenses
+                      - button [ref=e594]:
+                        - img [ref=e595]
+                    - separator [ref=e599]
+                  - button "public. planner_api_keys" [ref=e601] [cursor=pointer]:
+                    - tab "public. planner_api_keys" [ref=e602]:
+                      - img [ref=e603]
+                      - generic [ref=e605]:
+                        - generic [ref=e606]: public.
+                        - generic [ref=e607]: planner_api_keys
+                      - button [ref=e608]:
+                        - img [ref=e609]
+                    - separator [ref=e613]
+                  - button "public. orders" [ref=e615] [cursor=pointer]:
+                    - tab "public. orders" [ref=e616]:
+                      - img [ref=e617]
+                      - generic [ref=e619]:
+                        - generic [ref=e620]: public.
+                        - generic [ref=e621]: orders
+                      - button [ref=e622]:
+                        - img [ref=e623]
+                    - separator [ref=e627]
+                  - button [ref=e628] [cursor=pointer]:
+                    - img [ref=e629]
+              - status [ref=e631]
+            - generic [ref=e634]:
+              - generic [ref=e636]:
+                - generic [ref=e1414]:
+                  - paragraph [ref=e1415]:
+                    - text: SQL Definition of
+                    - code [ref=e1416]: student_profiles
+                  - paragraph [ref=e1417]: (Read only)
+                - generic [ref=e656]:
+                  - link "6 RLS policies" [ref=e657] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/policies?search=student_profiles&schema=public
+                    - generic [ref=e660]: "6"
+                    - generic [ref=e661]: RLS policies
+                  - button "Index Advisor" [ref=e662] [cursor=pointer]:
+                    - img [ref=e664]
+                    - generic [ref=e666]: Index Advisor
+                  - button "Enable Realtime" [ref=e667] [cursor=pointer]:
+                    - img [ref=e669]
+                    - generic [ref=e671]: Enable Realtime
+                  - button "Role postgres" [ref=e672] [cursor=pointer]:
+                    - generic [ref=e674]:
+                      - generic [ref=e675]: Role
+                      - generic [ref=e676]: postgres
+                      - img [ref=e677]
+                  - button [ref=e679] [cursor=pointer]:
+                    - img [ref=e681]
+                  - button [ref=e684] [cursor=pointer]:
+                    - img [ref=e1407]
+              - generic [ref=e1418]:
+                - link "Open in SQL Editor" [ref=e1419] [cursor=pointer]:
+                  - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/new?content=create%20table%20public.student_profiles%20(%0A%20%20id%20uuid%20not%20null%2C%0A%20%20planner_id%20uuid%20null%2C%0A%20%20level%20text%20null%2C%0A%20%20learning_goals%20text%5B%5D%20null%2C%0A%20%20preferred_learning_style%20text%20null%2C%0A%20%20created_at%20timestamp%20with%20time%20zone%20null%20default%20now()%2C%0A%20%20updated_at%20timestamp%20with%20time%20zone%20null%20default%20now()%2C%0A%20%20email%20text%20null%2C%0A%20%20full_name%20text%20null%2C%0A%20%20phone%20text%20null%2C%0A%20%20birth_date%20date%20null%2C%0A%20%20parent_name%20text%20null%2C%0A%20%20parent_phone%20text%20null%2C%0A%20%20address%20text%20null%2C%0A%20%20notes%20text%20null%2C%0A%20%20avatar_url%20text%20null%2C%0A%20%20name%20character%20varying(100)%20null%2C%0A%20%20constraint%20student_profiles_pkey%20primary%20key%20(id)%2C%0A%20%20constraint%20student_profiles_id_fkey%20foreign%20KEY%20(id)%20references%20auth.users%20(id)%20on%20delete%20CASCADE%2C%0A%20%20constraint%20student_profiles_planner_id_fkey%20foreign%20KEY%20(planner_id)%20references%20auth.users%20(id)%20on%20delete%20set%20null%0A)%20TABLESPACE%20pg_default%3B%0A%0Acreate%20index%20IF%20not%20exists%20idx_student_profiles_planner%20on%20public.student_profiles%20using%20btree%20(planner_id)%20TABLESPACE%20pg_default%3B%0A%0Acreate%20index%20IF%20not%20exists%20idx_student_profiles_planner_id%20on%20public.student_profiles%20using%20btree%20(planner_id)%20TABLESPACE%20pg_default%3B%0A%0Acreate%20trigger%20update_student_profiles_updated_at%20BEFORE%0Aupdate%20on%20student_profiles%20for%20EACH%20row%0Aexecute%20FUNCTION%20update_updated_at_column%20()%3B
+                  - generic [ref=e1420]: Open in SQL Editor
+                - code [ref=e1423]:
+                  - generic [ref=e1424]:
+                    - generic [ref=e1426]:
+                      - generic [ref=e1427]:
+                        - generic [ref=e1429] [cursor=pointer]: 
+                        - generic [ref=e1430]: "1"
+                      - generic [ref=e1432]: "2"
+                      - generic [ref=e1434]: "3"
+                      - generic [ref=e1436]: "4"
+                      - generic [ref=e1438]: "5"
+                      - generic [ref=e1440]: "6"
+                      - generic [ref=e1442]: "7"
+                      - generic [ref=e1444]: "8"
+                      - generic [ref=e1446]: "9"
+                      - generic [ref=e1448]: "10"
+                      - generic [ref=e1450]: "11"
+                      - generic [ref=e1452]: "12"
+                      - generic [ref=e1454]: "13"
+                      - generic [ref=e1456]: "14"
+                      - generic [ref=e1458]: "15"
+                      - generic [ref=e1460]: "16"
+                      - generic [ref=e1462]: "17"
+                      - generic [ref=e1464]: "18"
+                      - generic [ref=e1466]: "19"
+                      - generic [ref=e1468]: "20"
+                      - generic [ref=e1471]: "21"
+                      - generic [ref=e1474]: "22"
+                      - generic [ref=e1476]: "23"
+                      - generic [ref=e1478]: "24"
+                      - generic [ref=e1481]: "25"
+                      - generic [ref=e1483]: "26"
+                      - generic [ref=e1486]: "27"
+                    - generic [ref=e1546]:
+                      - generic [ref=e1548]: create table public.student_profiles (
+                      - generic [ref=e1550]: id uuid not null,
+                      - generic [ref=e1552]: planner_id uuid null,
+                      - generic [ref=e1554]: level text null,
+                      - generic [ref=e1556]: learning_goals text[] null,
+                      - generic [ref=e1558]: preferred_learning_style text null,
+                      - generic [ref=e1560]: created_at timestamp with time zone null default now(),
+                      - generic [ref=e1562]: updated_at timestamp with time zone null default now(),
+                      - generic [ref=e1564]: email text null,
+                      - generic [ref=e1566]: full_name text null,
+                      - generic [ref=e1568]: phone text null,
+                      - generic [ref=e1570]: birth_date date null,
+                      - generic [ref=e1572]: parent_name text null,
+                      - generic [ref=e1574]: parent_phone text null,
+                      - generic [ref=e1576]: address text null,
+                      - generic [ref=e1578]: notes text null,
+                      - generic [ref=e1580]: avatar_url text null,
+                      - generic [ref=e1582]: name character varying(100) null,
+                      - generic [ref=e1584]: constraint student_profiles_pkey primary key (id),
+                      - generic [ref=e1586]: constraint student_profiles_id_fkey foreign KEY (id) references auth.users (id) on delete
+                      - generic [ref=e1588]: CASCADE,
+                      - generic [ref=e1590]: constraint student_profiles_planner_id_fkey foreign KEY (planner_id) references auth.users (id)
+                      - generic [ref=e1592]: on delete set null
+                      - generic [ref=e1594]: ) TABLESPACE pg_default;
+                      - generic [ref=e1597]: create index IF not exists idx_student_profiles_planner on public.student_profiles using btree
+                      - generic [ref=e1599]: (planner_id) TABLESPACE pg_default;
+                      - generic [ref=e1602]: create index IF not exists idx_student_profiles_planner_id on public.student_profiles using btree
+                      - generic [ref=e1604]: (planner_id) TABLESPACE pg_default;
+                    - textbox "Editor content" [active] [ref=e1608]: create table public.student_profiles ( id uuid not null, planner_id uuid null, level text null, learning_goals text[] null, preferred_learning_style text null, created_at timestamp with time zone null default now(), updated_at timestamp with time zone null default now(), email text null, full_name text null,
+              - generic "Table grid footer" [ref=e1609]:
+                - generic [ref=e1611]:
+                  - generic [ref=e1614] [cursor=pointer]: definition
+                  - generic [ref=e1616] [cursor=pointer]: data
+  - alert [ref=e132]: nvoim-planner-pro | twins1850's Org | Supabase
+  - generic [ref=e1617]:
+    - alert
+    - alert

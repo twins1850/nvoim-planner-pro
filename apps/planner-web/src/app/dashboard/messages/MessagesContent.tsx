@@ -123,15 +123,13 @@ export default function MessagesContent() {
 
       // 실제 연결된 학생들의 대화 목록을 가져오기
       const { data: students, error: studentsError } = await supabase
-        .from('students')
+        .from('student_profiles')
         .select(`
           id,
-          user_id,
-          name,
-          is_connected
+          full_name,
+          planner_id
         `)
-        .eq('teacher_id', user.id)
-        .eq('is_connected', true);
+        .eq('planner_id', user.id);
 
       if (studentsError) {
         console.error('Error fetching students:', studentsError);
@@ -145,7 +143,7 @@ export default function MessagesContent() {
           .from('conversations')
           .select('id, last_message_time')
           .eq('teacher_id', user.id)
-          .eq('student_id', student.user_id)
+          .eq('student_id', student.id)
           .single();
 
         if (conversationError && conversationError.code === 'PGRST116') {
@@ -154,7 +152,7 @@ export default function MessagesContent() {
             .from('conversations')
             .insert({
               teacher_id: user.id,
-              student_id: student.user_id
+              student_id: student.id
             })
             .select('id, last_message_time')
             .single();
@@ -187,8 +185,8 @@ export default function MessagesContent() {
 
         return {
           id: conversation.id,
-          participant_id: student.user_id,
-          participant_name: student.name,
+          participant_id: student.id,
+          participant_name: student.full_name,
           participant_avatar: undefined, // 기본값으로 undefined 설정
           last_message: lastMessageData?.content || '대화를 시작해보세요!',
           last_message_time: lastMessageData?.created_at || conversation.last_message_time,
@@ -557,6 +555,13 @@ export default function MessagesContent() {
         return;
       }
 
+      console.log('📨 Attempting to send message:', {
+        conversation_id: conversation.id,
+        sender_id: user.id,
+        participant_id: selectedConversation.participant_id,
+        content_length: messageContent.length
+      });
+
       // 데이터베이스에 메시지 저장
       const { data: newMessageData, error } = await supabase
         .from('messages')
@@ -571,6 +576,10 @@ export default function MessagesContent() {
 
       if (error) {
         console.error('Error sending message:', error);
+        console.error('Error details:', JSON.stringify(error, null, 2));
+        console.error('Conversation ID:', conversation.id);
+        console.error('Sender ID:', user.id);
+        console.error('Message content:', messageContent);
         return;
       }
 

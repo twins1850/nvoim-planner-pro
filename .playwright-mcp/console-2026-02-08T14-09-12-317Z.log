@@ -1,0 +1,178 @@
+[   33098ms] [ERROR] ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[   33625ms] [ERROR] ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[   33669ms] [ERROR] ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[   33793ms] [ERROR] ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[   33855ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/dashboard/students/ea03a8c4-1390-47df-83e2-79ac1712c6a3:0
+[   33950ms] Error: ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/PostponeModal.tsx:26:10)
+    at Object.getCompilationErrors (file:///Users/twins/Downloads/nvoim-planer-pro/apps/planner-web/node_modules/next/dist/server/dev/hot-reloader-turbopack.js:775:59)
+    at DevBundlerService.getCompilationError (file:///Users/twins/Downloads/nvoim-planer-pro/apps/planner-web/node_modules/next/dist/server/lib/dev-bundler-service.js:39:55)
+    at DevServer.getCompilationError (file:///Users/twins/Downloads/nvoim-planer-pro/apps/planner-web/node_modules/next/dist/server/dev/next-dev-server.js:720:42)
+    at DevServer.findPageComponents (file:///Users/twins/Downloads/nvoim-planer-pro/apps/planner-web/node_modules/next/dist/server/dev/next-dev-server.js:690:43)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/twins/Downloads/nvoim-planer-pro/apps/planner-web/node_modules/next/dist/server/base-server.js:1687:26)
+[   33951ms] [ERROR] ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_5b402162._.js:1747
+[   34096ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/favicon.ico:0
+[   34118ms] [ERROR] ./src/components/PostponeModal.tsx:26:10
+Ecmascript file had an error
+  24 |   const [reasonDetail, setReasonDetail] = useState('');
+  25 |   const [loading, setLoading] = useState(false);
+> 26 |   const [errorMessage, setError] = useState('');
+     |          ^^^^^^^^^^^^
+  27 |
+  28 |   useEffect(() => {
+  29 |     if (isOpen && lessonId) {
+
+the name `errorMessage` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./src/components/PostponeModal.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/PostponeModal.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_5b402162._.js:1747

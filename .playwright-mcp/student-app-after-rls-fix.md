@@ -1,0 +1,8 @@
+- generic [ref=e17]:
+  - generic [ref=e18]: 플래너와 연결하기
+  - generic [ref=e19]: 플래너에게 받은 초대 코드를 입력해주세요.
+  - generic [ref=e21]:
+    - generic [ref=e22]: 플래너 초대 코드
+    - textbox "AB12CD" [ref=e23]
+  - generic [ref=e25] [cursor=pointer]: 플래너와 연결하기
+  - generic [ref=e27] [cursor=pointer]: 나중에 연결하기

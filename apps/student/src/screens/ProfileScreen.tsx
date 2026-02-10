@@ -166,7 +166,23 @@ const ProfileScreen = () => {
           </View>
         </View>
       </View>
-      
+
+      {/* 플래너 정보 섹션 */}
+      {profile?.planner_name && (
+        <View style={styles.plannerSection}>
+          <View style={styles.plannerHeader}>
+            <Ionicons name="person-circle-outline" size={20} color="#4F6CFF" />
+            <Text style={styles.plannerHeaderText}>담당 선생님</Text>
+          </View>
+          <View style={styles.plannerInfo}>
+            <Text style={styles.plannerName}>{profile.planner_name}</Text>
+            {profile.planner_email && (
+              <Text style={styles.plannerEmail}>{profile.planner_email}</Text>
+            )}
+          </View>
+        </View>
+      )}
+
       <View style={styles.menuSection}>
         <TouchableOpacity
           style={styles.menuItem}
@@ -265,6 +281,39 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#4F6CFF',
     fontWeight: '500',
+  },
+  plannerSection: {
+    backgroundColor: '#F3F4FF',
+    borderRadius: 12,
+    marginHorizontal: 16,
+    marginTop: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#E0E5FF',
+  },
+  plannerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  plannerHeaderText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#4F6CFF',
+    marginLeft: 6,
+  },
+  plannerInfo: {
+    paddingLeft: 26,
+  },
+  plannerName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#212121',
+    marginBottom: 4,
+  },
+  plannerEmail: {
+    fontSize: 14,
+    color: '#757575',
   },
   menuSection: {
     backgroundColor: '#FFFFFF',

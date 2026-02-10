@@ -1,0 +1,2 @@
+[   16198ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[   16248ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0

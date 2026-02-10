@@ -1,0 +1,119 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "엔보임 플래너 프로" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: 엔보임 플래너 프로
+        - generic [ref=e8]:
+          - link "홈" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - link "가격 안내" [ref=e10] [cursor=pointer]:
+            - /url: /#pricing
+          - link "주문하기" [ref=e11] [cursor=pointer]:
+            - /url: /order
+          - link "라이선스 활성화" [ref=e12] [cursor=pointer]:
+            - /url: /license-activate
+          - generic [ref=e27]:
+            - link "대시보드" [ref=e28] [cursor=pointer]:
+              - /url: /dashboard
+            - button "로그아웃" [ref=e29]
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - button [ref=e30]:
+        - img [ref=e31]
+      - generic [ref=e33]:
+        - generic [ref=e34]: 관
+        - generic [ref=e35]:
+          - heading "관리자 테스트용 학생" [level=1] [ref=e36]
+          - generic [ref=e37]:
+            - generic [ref=e38]: 비활성
+            - generic [ref=e39]: "레벨: 1"
+    - generic [ref=e40]:
+      - button "기본 정보" [ref=e41]
+      - button "수강권 현황" [ref=e42]
+      - button "수업 일정" [ref=e43]
+      - button "수강 과정" [ref=e44]
+      - button "학습 기록" [ref=e45]
+    - generic [ref=e331]:
+      - heading "수업 일정" [level=2] [ref=e332]
+      - generic [ref=e333]:
+        - generic [ref=e335]:
+          - generic [ref=e336]:
+            - heading "주2회 50분 수강권" [level=4] [ref=e337]
+            - paragraph [ref=e338]: 2026.02.08 ~ 2026.03.08
+            - paragraph [ref=e339]: "상태: active"
+          - generic [ref=e340]:
+            - paragraph [ref=e341]:
+              - text: "남은 연기권:"
+              - generic [ref=e342]: 1회
+            - paragraph [ref=e343]:
+              - text: "남은 수업:"
+              - generic [ref=e344]: 8회
+            - paragraph [ref=e345]: 0/8 완료
+        - generic [ref=e346]:
+          - generic [ref=e347]:
+            - img [ref=e348]
+            - heading "2026년 02월" [level=3] [ref=e350]
+          - generic [ref=e351]:
+            - button [ref=e352]:
+              - img [ref=e353]
+            - button [ref=e355]:
+              - img [ref=e356]
+        - generic [ref=e358]:
+          - generic [ref=e359]: 일
+          - generic [ref=e360]: 월
+          - generic [ref=e361]: 화
+          - generic [ref=e362]: 수
+          - generic [ref=e363]: 목
+          - generic [ref=e364]: 금
+          - generic [ref=e365]: 토
+          - generic [ref=e367]: "1"
+          - generic [ref=e369]: "2"
+          - generic [ref=e371]: "3"
+          - generic [ref=e373]: "4"
+          - generic [ref=e375]: "5"
+          - generic [ref=e377]: "6"
+          - generic [ref=e379]: "7"
+          - generic [ref=e380]:
+            - generic [ref=e381]: "8"
+            - button "14:00" [ref=e383]:
+              - img [ref=e384]
+              - generic [ref=e386]: 14:00
+          - generic [ref=e387]:
+            - generic [ref=e388]: "9"
+            - button "14:00" [ref=e390]:
+              - img [ref=e391]
+              - generic [ref=e393]: 14:00
+          - generic [ref=e395]: "10"
+          - generic [ref=e396]:
+            - generic [ref=e397]: "11"
+            - button "14:00" [ref=e399]:
+              - img [ref=e400]
+              - generic [ref=e403]: 14:00
+          - generic [ref=e405]: "12"
+          - generic [ref=e407]: "13"
+          - generic [ref=e409]: "14"
+          - generic [ref=e411]: "15"
+          - generic [ref=e413]: "16"
+          - generic [ref=e415]: "17"
+          - generic [ref=e417]: "18"
+          - generic [ref=e419]: "19"
+          - generic [ref=e421]: "20"
+          - generic [ref=e423]: "21"
+          - generic [ref=e425]: "22"
+          - generic [ref=e427]: "23"
+          - generic [ref=e429]: "24"
+          - generic [ref=e431]: "25"
+          - generic [ref=e433]: "26"
+          - generic [ref=e435]: "27"
+          - generic [ref=e437]: "28"
+        - generic [ref=e438]:
+          - generic [ref=e441]: 예정
+          - generic [ref=e444]: 완료
+          - generic [ref=e447]: 연기
+          - generic [ref=e450]: 취소
+          - generic [ref=e453]: 노쇼
+  - button "Open Next.js Dev Tools" [ref=e22] [cursor=pointer]:
+    - img [ref=e23]
+  - alert [ref=e26]

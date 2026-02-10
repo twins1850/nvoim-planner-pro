@@ -19,7 +19,7 @@ export const authAPI = {
     }
   },
   
-  register: async (userData: { email: string; password: string; full_name: string }) => {
+  register: async (userData: { email: string; password: string; full_name: string; phone?: string }) => {
     try {
       const { data, error } = await supabase.auth.signUp({
         email: userData.email,
@@ -27,13 +27,14 @@ export const authAPI = {
         options: {
           data: {
             full_name: userData.full_name,
+            phone: userData.phone,
             role: 'student', // 학생 역할 명시
           },
           // 이메일 확인 없이 바로 로그인 가능하도록 설정
           emailRedirectTo: undefined,
         },
       })
-      
+
       if (error) {
         // 이미 등록된 사용자인 경우 로그인 시도
         if (error.message === 'User already registered') {
@@ -42,16 +43,33 @@ export const authAPI = {
             email: userData.email,
             password: userData.password,
           })
-          
+
           if (loginResult.error) {
             throw new Error('이미 등록된 이메일입니다. 비밀번호가 다를 수 있습니다. 로그인을 시도해주세요.')
           }
-          
+
           return { success: true, data: loginResult.data.user }
         }
         throw error
       }
-      
+
+      // Manually create student_profile entry (trigger workaround)
+      if (data.user) {
+        const { error: profileError } = await supabase
+          .from('student_profiles')
+          .insert({
+            id: data.user.id,
+            email: userData.email,
+            full_name: userData.full_name,
+            phone: userData.phone || null,
+          })
+
+        if (profileError) {
+          console.error('Student profile creation error:', profileError)
+          // Don't throw - user is created, profile can be created later
+        }
+      }
+
       return { success: true, data: data.user }
     } catch (error) {
       console.error('Register error:', error)
@@ -343,15 +361,44 @@ export const profileAPI = {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) throw new Error('User not authenticated')
 
-      // student_profiles 테이블에서 먼저 시도
+      // student_profiles 테이블에서 먼저 시도 (플래너 정보 포함)
       try {
         const { data: studentData, error: studentError } = await supabase
           .from('student_profiles')
           .select('planner_id')
           .eq('id', user.id)
+          .single()
 
-        if (!studentError && studentData && studentData.length > 0) {
-          return { success: true, data: studentData[0] }
+        if (!studentError && studentData) {
+          // 플래너 정보를 별도로 조회
+          let plannerData = null
+          if (studentData.planner_id) {
+            const { data } = await supabase
+              .from('profiles')
+              .select('email, full_name')
+              .eq('id', studentData.planner_id)
+              .single()
+            plannerData = data
+          }
+
+          // profiles 테이블에서 학생 본인의 정보도 가져오기
+          const { data: profileData } = await supabase
+            .from('profiles')
+            .select('email, full_name')
+            .eq('id', user.id)
+            .single()
+
+          return {
+            success: true,
+            data: {
+              id: user.id,
+              email: profileData?.email || user.email,
+              name: profileData?.full_name,
+              planner_id: studentData.planner_id,
+              planner_name: plannerData?.full_name,
+              planner_email: plannerData?.email
+            }
+          }
         }
       } catch (studentError) {
         console.log('student_profiles 쿼리 실패, profiles로 폴백:', studentError)

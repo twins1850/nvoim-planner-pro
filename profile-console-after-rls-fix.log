@@ -1,0 +1,6 @@
+Total messages: 5 (Errors: 3, Warnings: 1)
+Returning 3 messages for level "error"
+
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0

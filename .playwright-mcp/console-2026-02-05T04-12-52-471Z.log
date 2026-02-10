@@ -1,0 +1,2 @@
+[     577ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/dda0b526ac2a/_next/static/chunks/2f1398ead6ccf20d.js?dpl=dpl_GtmCwhk8vXT1Wyy2xKMq7912jjdt:9
+[   80995ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.supabase.com/platform/pg-meta/ybcjkdcdruquqrdahtga/query?key=:0

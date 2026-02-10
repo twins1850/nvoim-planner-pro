@@ -1,0 +1,1247 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - banner:
+            - generic:
+              - generic:
+                - link:
+                  - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                  - img
+                - generic:
+                  - generic:
+                    - img
+                  - link:
+                    - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                    - img
+                    - generic: twins1850's Org
+                    - generic: Free
+                  - button:
+                    - generic:
+                      - img
+                  - generic:
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - img
+                      - generic: nvoim-planner-pro
+                    - button:
+                      - generic:
+                        - img
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - generic: main
+                      - generic: Production
+                    - button:
+                      - generic:
+                        - img
+                - button [ref=e2072] [cursor=pointer]:
+                  - img [ref=e20]
+                  - generic [ref=e22]: Connect
+              - generic:
+                - generic:
+                  - generic: Feedback
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+                      - paragraph: Search...
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: K
+                  - button [ref=e38] [cursor=pointer]:
+                    - img [ref=e40]
+                  - button [ref=e44] [cursor=pointer]:
+                    - img [ref=e46]
+                  - button [ref=e48] [cursor=pointer]:
+                    - img [ref=e50]
+                  - button [ref=e52] [cursor=pointer]:
+                    - img [ref=e56]
+                - button:
+                  - generic:
+                    - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - list:
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                            - img
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                            - img
+                      - generic:
+                        - generic:
+                          - listitem:
+                            - link:
+                              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                              - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                            - img
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+                            - img
+                - generic:
+                  - generic:
+                    - button:
+                      - generic:
+                        - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading [level=4]: SQL Editor
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic: Search queries
+                                      - textbox:
+                                        - /placeholder: Search queries...
+                                      - button:
+                                        - img
+                                      - img
+                                  - button:
+                                    - generic:
+                                      - img
+                                - generic:
+                                  - button:
+                                    - img
+                                    - generic: Shared
+                                - generic:
+                                  - button:
+                                    - img
+                                    - generic: Favorites
+                                - generic:
+                                  - button [expanded]:
+                                    - img
+                                    - generic: PRIVATE (96)
+                                  - generic:
+                                    - tree:
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Dashboard calendar events fetch
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Dashboard Calendar Events
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Message notification trigger
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Conversation participants can update messages
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Connect Student to Planner with Profiles Upsert
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscriptions Missing Student Profiles
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Change subscriptions student_id foreign key to student_profiles
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Public schema table existence check
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Restore membership pricing templates
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Drop and recreate subscription price function
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscription Price Lookup
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscription Pricing Summary
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Untitled query
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add pricing and payment fields to subscriptions
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add SMS notification fields and profile phone numbers
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Trial 만료 알림 기록 테이블
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Clear Device Tokens for Trial Licenses
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: "Licenses: activation owner, device limit & purchaser email"
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add device_tokens to licenses
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Trial License Usage Tracking
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Enable row-level security on orders
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add License with Generated Key
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Insert Pending License with Randomized Key
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Untitled query
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Generate Pending License Entries
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Recent License Records
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Routine metadata lookup
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Student Connection with License-Based Capacity Check
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Homework Assignments Schema
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Homework assignments row-level security
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add encryption IV column to planner_api_keys
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Lesson Videos Bucket & Access Policies
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: AI Video Analysis Schema
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Access policies for student_profiles
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: student_profiles row-level access policies
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Reset user password
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Promote user to admin
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add 'admin' to user_role enum
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Add admin role and promote user
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: RLS Policies for licenses Table
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Planner Self-Activation License Policy
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Public Routines Lookup
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Indexes on licenses, usage_tracking, student_profiles, homework
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: RLS policies for licenses and usage_tracking
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Inspect usage_tracking schema
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Licenses Table Schema Overview
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: License & Usage Schema Audit
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscription License and Usage Management
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Homework Counts by Student
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Homework Assignments by Student
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Students' Assigned Homework View Policy
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Review RLS policies for homework_assignments
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Homework Assignments Access Policies
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Student Profiles Policy Check
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Student profiles row-level access policies
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Scheduled Homework
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: homework_assignments 외래 키 제약 확인
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: All Student Profiles
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: User and Profile Audit with Foreign-Key Check
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Drop recursive RLS policy on homework
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Messages table timestamps and auto-update trigger
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Messages table with timestamps and update trigger
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Messages table with RLS and indexing
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Messages Table Restructure
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Messages Schema Migration
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Conversations and Messages Schema with Row-Level Security
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Seed Student–Teacher Association
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Verify Test User Accounts
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Conversations Table for Teacher–Student Chats
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Messaging and Conversation Tables
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Enforce unique user_id on students
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Fix student_profiles foreign key constraints
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: 학생 연결 및 프로필 보장 함수
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Planner authentication and profile relationship check
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: List public tables
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Student Course Management Tables
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Allow authenticated role to execute create_subscription
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscription creation function
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Student Subscriptions
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscription and Lesson ENUM Types
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Subscription Frequency Type
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Connect Student via Invite Code
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Ensure Student Profile for Current User
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Connect Student via Invite Code
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Link Student to Planner
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Link Student to Planner Function
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Link Student to Planner Function
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Link student to planner function
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: All Invite Codes
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Invite code generation and planner linking
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Student & Teacher Profiles with RLS and Indexes
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Invite Codes and Student–Teacher Connections
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Remove Auth User Creation Trigger
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: User Registration Handler
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Function Source Code Lookup
+                                      - generic:
+                                        - generic:
+                                          - img
+                                          - generic: Educational Platform Database Schema
+                                - generic:
+                                  - button [expanded]:
+                                    - img
+                                    - generic: Community
+                                  - generic:
+                                    - link:
+                                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/templates
+                                      - img
+                                      - text: templates
+                                    - link:
+                                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql/quickstarts
+                                      - img
+                                      - text: quickstarts
+                              - generic:
+                                - button:
+                                  - generic: View running queries
+                    - separator:
+                      - generic:
+                        - img
+                    - generic:
+                      - main:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - button:
+                                - img
+                              - tablist:
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Invite Codes and Student–Teacher Connections
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Invite code generation and planner linking
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link student to planner function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner Function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner Function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Connect Student via Invite Code
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Ensure Student Profile for Current User
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Connect Student via Invite Code
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Planner authentication and profile relationship check
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: 학생 연결 및 프로필 보장 함수
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Fix student_profiles foreign key constraints
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Enforce unique user_id on students
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messaging and Conversation Tables
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Conversations Table for Teacher–Student Chats
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Seed Student–Teacher Association
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Conversations and Messages Schema with Row-Level Security
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messages Schema Migration
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messages table timestamps and auto-update trigger
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Drop recursive RLS policy on homework
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Restore membership pricing templates
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Public schema table existence check
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Change subscriptions student_id foreign key to student_profiles
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Promote user to admin
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Dashboard Calendar Events
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab [selected]:
+                                      - img
+                                      - generic:
+                                        - generic: Dashboard calendar events fetch
+                                      - button:
+                                        - img
+                                    - separator
+                                - button:
+                                  - img
+                            - status
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - code:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: "83"
+                                                  - generic:
+                                                    - generic: "84"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "85"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "86"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "87"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "88"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "89"
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: );
+                                                  - generic:
+                                                    - generic: END;
+                                                  - generic:
+                                                    - generic: $$ LANGUAGE plpgsql SECURITY DEFINER;
+                                                  - generic:
+                                                    - generic: ) RETURNS json AS $$
+                                                  - generic:
+                                                    - generic: DECLARE
+                                                  - generic:
+                                                    - generic: v_lesson public.lessons%ROWTYPE;
+                                                  - generic:
+                                                    - generic: v_subscription public.subscriptions%ROWTYPE;
+                                                  - generic:
+                                                    - generic: v_current_user_id UUID;
+                                              - textbox: END; $$ LANGUAGE plpgsql SECURITY DEFINER; ) RETURNS json AS $$ DECLARE v_lesson public.lessons%ROWTYPE;
+                                              - generic:
+                                                - generic:
+                                                  - generic: "1"
+                                                  - generic: 
+                                                - generic:
+                                                  - generic: "2"
+                                                  - generic: 
+                                                - generic:
+                                                  - generic: "3"
+                                                  - generic: 
+                                                - generic:
+                                                  - generic: "4"
+                                                  - generic: 
+                                                - generic:
+                                                  - listitem:
+                                                    - generic: CREATE OR REPLACE FUNCTION postpone_lesson(
+                                                  - listitem:
+                                                    - generic: p_lesson_id UUID,
+                                                  - listitem:
+                                                    - generic: p_reason postponement_reason,
+                                                  - listitem:
+                                                    - generic: p_reason_detail TEXT DEFAULT NULL,
+                                - separator:
+                                  - generic:
+                                    - img
+                                - generic:
+                                  - generic:
+                                    - tablist:
+                                      - generic:
+                                        - tab [selected]:
+                                          - generic: Results
+                                        - tab:
+                                          - generic: Explain
+                                        - tab:
+                                          - generic: Chart
+                                      - generic:
+                                        - button:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Source
+                                              - button:
+                                                - generic: Primary database
+                                                - generic:
+                                                  - img
+                                            - button:
+                                              - generic:
+                                                - generic:
+                                                  - generic: Role
+                                                  - generic: postgres
+                                                  - img
+                                            - button:
+                                              - generic: Run
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                                  - img
+                                    - generic:
+                                      - paragraph:
+                                        - text: Click
+                                        - code: Run
+                                        - text: to execute your query.
+  - generic:
+    - alert: nvoim-planner-pro | twins1850's Org | Supabase
+  - dialog "Running queries on primary database" [ref=e2074]:
+    - generic [ref=e2075]:
+      - heading "Running queries on primary database" [level=2] [ref=e2076]:
+        - text: Running queries on primary database
+        - button [active] [ref=e2077] [cursor=pointer]:
+          - img [ref=e2079]
+      - paragraph [ref=e2084]: There are 3 queries currently running
+    - generic [ref=e2085]:
+      - generic [ref=e2086]:
+        - generic [ref=e2087]:
+          - generic [ref=e2088]:
+            - code [ref=e2090]:
+              - generic [ref=e2091]:
+                - generic [ref=e2092]: SET
+                - generic [ref=e2093]: statement_timeout
+                - generic [ref=e2094]: =
+                - generic [ref=e2095]: "'58s'"
+                - generic [ref=e2096]: ;
+                - generic [ref=e2097]: SET
+                - generic [ref=e2098]: idle_session_timeout
+                - generic [ref=e2099]: =
+                - generic [ref=e2100]: "'58s'"
+                - generic [ref=e2101]: ;
+                - generic [ref=e2102]: set
+                - generic [ref=e2103]: pg_stat_statements.track
+                - generic [ref=e2104]: =
+                - generic [ref=e2106]: none
+                - generic [ref=e2107]: ;
+              - generic [ref=e2108]:
+                - generic [ref=e2109]: set
+                - generic [ref=e2111]: local
+                - generic [ref=e2112]: pgrst.db_schemas
+                - generic [ref=e2113]: =
+                - generic [ref=e2115]: "'public,graphql_public'"
+                - generic [ref=e2116]: ;
+              - generic [ref=e2117]:
+                - generic [ref=e2118]: set
+                - generic [ref=e2120]: local
+                - generic [ref=e2121]: search_path
+                - generic [ref=e2122]: =
+                - generic [ref=e2124]: "''"
+                - generic [ref=e2125]: ;
+              - generic [ref=e2126]: (
+              - generic [ref=e2127]:
+                - generic [ref=e2128]: with
+                - generic [ref=e2129]: foreign_keys
+                - generic [ref=e2130]: as
+                - generic [ref=e2131]: (
+              - generic [ref=e2134]: select
+              - generic [ref=e2135]:
+                - generic [ref=e2136]: cl.relnamespace::regnamespace::text
+                - generic [ref=e2137]: as
+                - generic [ref=e2138]: schema_name,
+              - generic [ref=e2139]:
+                - generic [ref=e2140]: cl.relname
+                - generic [ref=e2141]: as
+                - generic [ref=e2142]: table_name,
+              - generic [ref=e2143]:
+                - generic [ref=e2144]: cl.oid
+                - generic [ref=e2145]: as
+                - generic [ref=e2146]: table_oid,
+              - generic [ref=e2147]:
+                - generic [ref=e2148]: ct.conname
+                - generic [ref=e2149]: as
+                - generic [ref=e2150]: fkey_name,
+              - generic [ref=e2151]:
+                - generic [ref=e2152]: ct.conkey
+                - generic [ref=e2153]: as
+                - generic [ref=e2154]: col_attnums
+              - generic [ref=e2157]: from
+              - generic [ref=e2158]: pg_catalog.pg_constraint ct
+              - generic [ref=e2159]:
+                - generic [ref=e2161]: join
+                - generic [ref=e2162]: pg_catalog.pg_class cl
+                - generic [ref=e2163]: "-- fkey owning table"
+              - generic [ref=e2164]:
+                - generic [ref=e2166]: "on"
+                - generic [ref=e2167]: ct.conrelid
+                - generic [ref=e2168]: =
+                - generic [ref=e2169]: cl.oid
+              - generic [ref=e2170]:
+                - generic [ref=e2172]: left
+                - generic [ref=e2174]: join
+                - generic [ref=e2175]: pg_catalog.pg_depend d
+              - generic [ref=e2176]:
+                - generic [ref=e2178]: "on"
+                - generic [ref=e2179]: d.objid
+                - generic [ref=e2180]: =
+                - generic [ref=e2181]: cl.oid
+              - generic [ref=e2182]:
+                - generic [ref=e2184]: and
+                - generic [ref=e2185]: d.deptype
+                - generic [ref=e2186]: =
+                - generic [ref=e2188]: "'e'"
+              - generic [ref=e2191]: where
+              - generic [ref=e2192]:
+                - generic [ref=e2193]: ct.contype
+                - generic [ref=e2194]: =
+                - generic [ref=e2196]: "'f'"
+                - generic [ref=e2198]: "-- foreign key constraints"
+              - generic [ref=e2199]:
+                - generic [ref=e2201]: and
+                - generic [ref=e2202]: d.objid
+                - generic [ref=e2203]: is
+                - generic [ref=e2205]: "null"
+                - generic [ref=e2207]: "-- exclude tables that are dependencies of extensions"
+              - generic [ref=e2208]:
+                - generic [ref=e2210]: and
+                - generic [ref=e2211]: cl.relnamespace::regnamespace::text
+                - generic [ref=e2212]: not
+                - generic [ref=e2214]: in
+                - generic [ref=e2215]: (
+              - generic [ref=e2216]:
+                - generic [ref=e2218]: "'pg_catalog'"
+                - generic [ref=e2219]: ","
+                - generic [ref=e2220]: "'information_schema'"
+                - generic [ref=e2221]: ","
+                - generic [ref=e2222]: "'auth'"
+                - generic [ref=e2223]: ","
+                - generic [ref=e2224]: "'storage'"
+                - generic [ref=e2225]: ","
+                - generic [ref=e2226]: "'vault'"
+                - generic [ref=e2227]: ","
+                - generic [ref=e2228]: "'extensions'"
+              - generic [ref=e2229]: )
+              - generic [ref=e2230]: ),
+              - generic [ref=e2231]:
+                - generic [ref=e2232]: index_
+                - generic [ref=e2233]: as
+                - generic [ref=e2234]: (
+              - generic [ref=e2237]: select
+              - generic [ref=e2238]:
+                - generic [ref=e2239]: pi.indrelid
+                - generic [ref=e2240]: as
+                - generic [ref=e2241]: table_oid,
+              - generic [ref=e2242]: indexre
+            - button [ref=e2244] [cursor=pointer]:
+              - img [ref=e2246]
+          - generic [ref=e2249]:
+            - paragraph [ref=e2250]: "PID: 16405"
+            - paragraph [ref=e2251]: •
+            - paragraph [ref=e2252]: "Started since: 08 Feb 2026 18:48 (+0900)"
+        - button [ref=e2253] [cursor=pointer]:
+          - img [ref=e2255]
+      - generic [ref=e2258]:
+        - generic [ref=e2259]:
+          - generic [ref=e2260]:
+            - code [ref=e2262]:
+              - generic [ref=e2263]:
+                - generic [ref=e2264]: SET
+                - generic [ref=e2265]: statement_timeout
+                - generic [ref=e2266]: =
+                - generic [ref=e2267]: "'58s'"
+                - generic [ref=e2268]: ;
+                - generic [ref=e2269]: SET
+                - generic [ref=e2270]: idle_session_timeout
+                - generic [ref=e2271]: =
+                - generic [ref=e2272]: "'58s'"
+                - generic [ref=e2273]: ;
+              - generic [ref=e2274]:
+                - generic [ref=e2276]: with
+                - generic [ref=e2277]: f
+                - generic [ref=e2278]: as
+                - generic [ref=e2279]: (
+              - generic [ref=e2281]: "-- CTE with sane arg_modes, arg_names, and arg_types."
+              - generic [ref=e2283]: "-- All three are always of the same length."
+              - generic [ref=e2285]: "-- All three include all args, including OUT and TABLE args."
+              - generic [ref=e2286]:
+                - generic [ref=e2287]: with
+                - generic [ref=e2288]: functions
+                - generic [ref=e2289]: as
+                - generic [ref=e2290]: (
+              - generic [ref=e2293]: select
+              - generic [ref=e2294]:
+                - generic [ref=e2296]: "*"
+                - generic [ref=e2297]: ","
+              - generic [ref=e2300]: "-- proargmodes is null when all arg modes are IN"
+              - generic [ref=e2301]:
+                - generic [ref=e2303]: coalesce
+                - generic [ref=e2304]: (
+              - generic [ref=e2305]: p.proargmodes,
+              - generic [ref=e2306]:
+                - generic [ref=e2307]: array_fill(
+                - generic [ref=e2308]: "'i'"
+                - generic [ref=e2309]: ::text,
+                - generic [ref=e2310]: array
+                - generic [ref=e2311]: "["
+                - generic [ref=e2312]: cardinality
+                - generic [ref=e2313]: (
+                - generic [ref=e2314]: coalesce
+                - generic [ref=e2315]: (p.proallargtypes, p.proargtypes))])
+              - generic [ref=e2316]:
+                - generic [ref=e2317]: )
+                - generic [ref=e2318]: as
+                - generic [ref=e2319]: arg_modes,
+              - generic [ref=e2322]: "-- proargnames is null when all args are unnamed"
+              - generic [ref=e2323]:
+                - generic [ref=e2325]: coalesce
+                - generic [ref=e2326]: (
+              - generic [ref=e2327]: p.proargnames,
+              - generic [ref=e2328]:
+                - generic [ref=e2329]: array_fill(
+                - generic [ref=e2330]: "''"
+                - generic [ref=e2331]: ::text,
+                - generic [ref=e2332]: array
+                - generic [ref=e2333]: "["
+                - generic [ref=e2334]: cardinality
+                - generic [ref=e2335]: (
+                - generic [ref=e2336]: coalesce
+                - generic [ref=e2337]: (p.proallargtypes, p.proargtypes))])
+              - generic [ref=e2338]:
+                - generic [ref=e2339]: )
+                - generic [ref=e2340]: as
+                - generic [ref=e2341]: arg_names,
+              - generic [ref=e2344]: "-- proallargtypes is null when all arg modes are IN"
+              - generic [ref=e2345]:
+                - generic [ref=e2347]: coalesce
+                - generic [ref=e2348]: (p.proallargtypes, p.proargtypes)
+                - generic [ref=e2349]: as
+                - generic [ref=e2350]: arg_types,
+              - generic [ref=e2351]: array_cat(
+              - generic [ref=e2352]:
+                - generic [ref=e2353]: array_fill(
+                - generic [ref=e2354]: "false"
+                - generic [ref=e2355]: ","
+                - generic [ref=e2356]: array
+                - generic [ref=e2357]: "[pronargs"
+                - generic [ref=e2358]: "-"
+                - generic [ref=e2359]: pronargdefaults]),
+              - generic [ref=e2360]:
+                - generic [ref=e2361]: array_fill(
+                - generic [ref=e2362]: "true"
+                - generic [ref=e2363]: ","
+                - generic [ref=e2364]: array
+                - generic [ref=e2365]: "[pronargdefaults]))"
+                - generic [ref=e2366]: as
+                - generic [ref=e2367]: arg_has_defaults
+              - generic [ref=e2370]: from
+              - generic [ref=e2371]:
+                - generic [ref=e2372]: pg_proc
+                - generic [ref=e2373]: as
+                - generic [ref=e2374]: p
+              - generic [ref=e2377]: where
+              - generic [ref=e2378]:
+                - generic [ref=e2379]: p.prokind
+                - generic [ref=e2380]: =
+                - generic [ref=e2382]: "'f'"
+              - generic [ref=e2383]: )
+              - generic [ref=e2385]: select
+              - generic [ref=e2386]:
+                - generic [ref=e2387]: f.oid
+                - generic [ref=e2388]: as
+                - generic [ref=e2389]: id,
+              - generic [ref=e2390]: n.nspname
+            - button [ref=e2392] [cursor=pointer]:
+              - img [ref=e2394]
+          - generic [ref=e2397]:
+            - paragraph [ref=e2398]: "PID: 16410"
+            - paragraph [ref=e2399]: •
+            - paragraph [ref=e2400]: "Started since: 08 Feb 2026 18:48 (+0900)"
+        - button [ref=e2401] [cursor=pointer]:
+          - img [ref=e2403]
+      - generic [ref=e2406]:
+        - generic [ref=e2407]:
+          - generic [ref=e2408]:
+            - code [ref=e2410]:
+              - generic [ref=e2411]:
+                - generic [ref=e2412]: SET
+                - generic [ref=e2413]: statement_timeout
+                - generic [ref=e2414]: =
+                - generic [ref=e2415]: "'58s'"
+                - generic [ref=e2416]: ;
+                - generic [ref=e2417]: SET
+                - generic [ref=e2418]: idle_session_timeout
+                - generic [ref=e2419]: =
+                - generic [ref=e2420]: "'58s'"
+                - generic [ref=e2421]: ;
+                - generic [ref=e2422]: select
+                - generic [ref=e2423]: pid, query, query_start
+                - generic [ref=e2424]: from
+                - generic [ref=e2425]: pg_stat_activity
+                - generic [ref=e2426]: where
+                - generic [ref=e2427]: state
+                - generic [ref=e2428]: =
+                - generic [ref=e2430]: "'active'"
+                - generic [ref=e2432]: and
+                - generic [ref=e2433]: datname
+                - generic [ref=e2434]: =
+                - generic [ref=e2436]: "'postgres'"
+                - generic [ref=e2437]: ;
+              - generic [ref=e2439]: "-- source: dashboard"
+              - generic [ref=e2441]: "-- user: 8caedc6f-ece2-48c1-bee6-7ee7d153a0ab"
+              - generic [ref=e2443]: "-- date: 2026-02-08T09:48:12.989Z"
+            - button [ref=e2445] [cursor=pointer]:
+              - img [ref=e2447]
+          - generic [ref=e2450]:
+            - paragraph [ref=e2451]: "PID: 16411"
+            - paragraph [ref=e2452]: •
+            - paragraph [ref=e2453]: "Started since: 08 Feb 2026 18:48 (+0900)"
+        - button [ref=e2454] [cursor=pointer]:
+          - img [ref=e2456]
+    - button "Close" [ref=e2459] [cursor=pointer]:
+      - img [ref=e2460]
+      - generic [ref=e2463]: Close

@@ -78,6 +78,22 @@ export default async function AdminLicensesPage() {
   return (
     <DashboardLayout title="라이선스 관리 (관리자)">
       <div className="max-w-7xl mx-auto">
+        {/* 관리자 메뉴 */}
+        <div className="mb-6 flex gap-2">
+          <a
+            href="/admin/licenses"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium shadow-sm"
+          >
+            📋 라이선스 관리
+          </a>
+          <a
+            href="/admin/email-logs"
+            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+          >
+            📧 이메일 로그
+          </a>
+        </div>
+
         {/* 통계 카드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">

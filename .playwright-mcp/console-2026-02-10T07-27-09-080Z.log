@@ -1,0 +1,6 @@
+[  741686ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[  741746ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[ 1040916ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/0962bccdffcd/_next/static/chunks/16a124df42a32d54.js?dpl=dpl_FgAD5k3uk2VDtL8oPCyV47UoP4AL:9
+[ 1131906ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/0962bccdffcd/_next/static/chunks/16a124df42a32d54.js?dpl=dpl_FgAD5k3uk2VDtL8oPCyV47UoP4AL:9
+[ 1146613ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/0962bccdffcd/_next/static/chunks/16a124df42a32d54.js?dpl=dpl_FgAD5k3uk2VDtL8oPCyV47UoP4AL:9
+[ 1166259ms] [WARNING] [Warning] Please install/enable Redux devtools extension @ https://frontend-assets.supabase.com/studio/0962bccdffcd/_next/static/chunks/16a124df42a32d54.js?dpl=dpl_FgAD5k3uk2VDtL8oPCyV47UoP4AL:9

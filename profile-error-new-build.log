@@ -1,0 +1,11 @@
+Total messages: 145 (Errors: 8, Warnings: 3)
+Returning 8 messages for level "error"
+
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id%2Cplanner%3Aplanner_id%28email%2Cfull_name%29&id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id%2Cplanner%3Aplanner_id%28email%2Cfull_name%29&id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id%2Cplanner%3Aplanner_id%28email%2Cfull_name%29&id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id%2Cplanner%3Aplanner_id%28email%2Cfull_name%29&id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3:0
+[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:10000/:0
+[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:10000/:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id%2Cplanner%3Aprofiles%21planner_id%28email%2Cfull_name%29&id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3:0
+[ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=planner_id%2Cplanner%3Aprofiles%21planner_id%28email%2Cfull_name%29&id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3:0

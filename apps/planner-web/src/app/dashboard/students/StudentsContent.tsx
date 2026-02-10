@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { 
-  Search, 
-  UserPlus, 
-  MoreVertical, 
-  Mail, 
-  Phone, 
+import {
+  Search,
+  UserPlus,
+  MoreVertical,
+  Mail,
+  Phone,
   Calendar,
   BookOpen,
   Target,
@@ -17,7 +17,9 @@ import {
   Copy,
   CheckCircle,
   XCircle,
-  Clock
+  Clock,
+  AlertCircle,
+  Award
 } from "lucide-react";
 
 interface Student {
@@ -34,6 +36,12 @@ interface Student {
   completion_rate: number;
   invite_code?: string;
   is_connected: boolean;
+  // 연기권 정보
+  remaining_postponements?: number;
+  total_postponements?: number;
+  subscription_end_date?: string;
+  // 메시지 정보
+  unread_message_count?: number;
 }
 
 export default function StudentsContent() {
@@ -41,6 +49,7 @@ export default function StudentsContent() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState<string>("all");
+  const [sortBy, setSortBy] = useState<string>("recent"); // recent, postponements, name
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showInviteModal, setShowInviteModal] = useState(false);
@@ -49,6 +58,25 @@ export default function StudentsContent() {
 
   useEffect(() => {
     fetchStudents();
+
+    // 페이지가 다시 포커스될 때 학생 목록 새로고침
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        fetchStudents();
+      }
+    };
+
+    const handleFocus = () => {
+      fetchStudents();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+    };
   }, []);
 
   const fetchStudents = async () => {
@@ -58,21 +86,114 @@ export default function StudentsContent() {
 
       if (user) {
         try {
-          // 실제 데이터베이스에서 학생 데이터 가져오기
-          const { data, error } = await supabase
-            .from('students')
+          // Step 1: student_profiles에서 planner에 연결된 학생 ID 가져오기
+          const { data: studentProfiles, error: spError } = await supabase
+            .from('student_profiles')
             .select('*')
-            .eq('teacher_id', user.id)
+            .eq('planner_id', user.id)
             .order('created_at', { ascending: false });
 
-          if (error) {
-            console.error('Database query failed:', error.message);
+          if (spError) {
+            console.error('Student profiles query failed:', spError.message);
             setStudents([]);
             return;
           }
 
-          // 실제 DB 데이터만 사용
-          const enrichedData = data || [];
+          if (!studentProfiles || studentProfiles.length === 0) {
+            setStudents([]);
+            return;
+          }
+
+          // Step 2: 학생 ID들로 profiles 정보 가져오기
+          const studentIds = studentProfiles.map((sp: any) => sp.id);
+          const { data: profiles, error: profilesError } = await supabase
+            .from('profiles')
+            .select('*')
+            .in('id', studentIds);
+
+          if (profilesError) {
+            console.error('Profiles query failed:', profilesError.message);
+            setStudents([]);
+            return;
+          }
+
+          // Step 3: 활성 수강권 정보 가져오기
+          const { data: subscriptions, error: subsError } = await supabase
+            .from('subscriptions')
+            .select('student_id, postponements_used, max_postponements, end_date, status')
+            .in('student_id', studentIds)
+            .eq('status', 'active')
+            .order('created_at', { ascending: false });
+
+          if (subsError) {
+            console.error('Subscriptions query failed:', subsError.message);
+          }
+
+          // Step 4: 읽지 않은 메시지 카운트 가져오기
+          // conversations를 통해 학생들과의 대화에서 읽지 않은 메시지 찾기
+          const { data: unreadMessages, error: msgError } = await supabase
+            .from('messages')
+            .select(`
+              sender_id,
+              conversation_id,
+              conversations!inner (
+                teacher_id,
+                student_id
+              )
+            `)
+            .eq('conversations.teacher_id', user.id)
+            .in('conversations.student_id', studentIds)
+            .is('read_at', null);
+
+          if (msgError) {
+            console.error('Unread messages query failed:', msgError.message);
+          }
+
+          // 학생별 읽지 않은 메시지 카운트 계산
+          const unreadCountMap = new Map<string, number>();
+          unreadMessages?.forEach((msg: any) => {
+            // sender_id가 학생인 경우만 카운트
+            if (studentIds.includes(msg.sender_id)) {
+              const count = unreadCountMap.get(msg.sender_id) || 0;
+              unreadCountMap.set(msg.sender_id, count + 1);
+            }
+          });
+
+          // Step 5: student_profiles, profiles, subscriptions를 수동으로 조인
+          const profilesMap = new Map(profiles?.map(p => [p.id, p]) || []);
+          const subscriptionsMap = new Map(
+            subscriptions?.map(s => [s.student_id, s]) || []
+          );
+
+          const enrichedData = studentProfiles.map((sp: any) => {
+            const profile = profilesMap.get(sp.id);
+            const subscription = subscriptionsMap.get(sp.id);
+
+            // 연기권 계산
+            const remaining_postponements = subscription
+              ? subscription.max_postponements - subscription.postponements_used
+              : undefined;
+
+            return {
+              id: sp.id,
+              name: profile?.full_name || 'Unknown',
+              email: profile?.email || '',
+              phone: profile?.phone,
+              avatar_url: profile?.avatar_url,
+              level: sp.level || 'Beginner',
+              status: 'active' as const,
+              created_at: sp.created_at,
+              last_lesson_date: undefined,
+              total_lessons: 0,
+              completion_rate: 0,
+              invite_code: undefined,
+              is_connected: true,
+              remaining_postponements,
+              total_postponements: subscription?.max_postponements,
+              subscription_end_date: subscription?.end_date,
+              unread_message_count: unreadCountMap.get(sp.id) || 0
+            };
+          });
           setStudents(enrichedData);
         } catch (dbError) {
           console.error('Database connection failed:', dbError);
@@ -93,42 +214,26 @@ export default function StudentsContent() {
   const generateInviteCode = async () => {
     try {
       const supabase = createClient();
-      
+
       // Supabase 함수 호출로 초대 코드 생성
       const { data, error } = await supabase.rpc('create_invite_code');
-      
+
       if (error) {
         console.error('Error creating invite code:', error);
-        // 오류 시 로컬에서 코드 생성 (데모용)
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let code = '';
-        for (let i = 0; i < 6; i++) {
-          code += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        setInviteCode(code);
-      } else if (data && data.success) {
-        setInviteCode(data.code);
-      } else {
-        // 실패 시 로컬에서 코드 생성
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let code = '';
-        for (let i = 0; i < 6; i++) {
-          code += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        setInviteCode(code);
+        alert('초대 코드 생성에 실패했습니다. 다시 시도해주세요.');
+        return;
       }
-      
-      setShowInviteModal(true);
+
+      if (data && data.success) {
+        setInviteCode(data.code);
+        setShowInviteModal(true);
+      } else {
+        console.error('RPC call succeeded but returned failure:', data);
+        alert(data?.message || '초대 코드 생성에 실패했습니다. 다시 시도해주세요.');
+      }
     } catch (error) {
       console.error('Error in generateInviteCode:', error);
-      // 에러 발생 시에도 모달은 표시
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      let code = '';
-      for (let i = 0; i < 6; i++) {
-        code += characters.charAt(Math.floor(Math.random() * characters.length));
-      }
-      setInviteCode(code);
-      setShowInviteModal(true);
+      alert('초대 코드 생성 중 오류가 발생했습니다. 다시 시도해주세요.');
     }
   };
 
@@ -141,6 +246,11 @@ export default function StudentsContent() {
   const handleStudentDetail = (studentId: string) => {
     // 학생 상세보기 페이지로 이동
     window.location.href = `/dashboard/students/${studentId}`;
+  };
+
+  const handleMessageClick = (studentId: string) => {
+    // 메시지 페이지로 이동 (해당 학생과의 대화로)
+    window.location.href = `/dashboard/messages?student=${studentId}`;
   };
 
   const getStatusColor = (status: string) => {
@@ -161,15 +271,34 @@ export default function StudentsContent() {
     }
   };
 
-  const filteredStudents = students.filter(student => {
-    const matchesSearch = searchTerm === "" ||
-      student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      student.email.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesStatus = filterStatus === "all" || student.status === filterStatus;
-    
-    return matchesSearch && matchesStatus;
-  });
+  const filteredStudents = students
+    .filter(student => {
+      const matchesSearch = searchTerm === "" ||
+        student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        student.email.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesStatus = filterStatus === "all" || student.status === filterStatus;
+
+      return matchesSearch && matchesStatus;
+    })
+    .sort((a, b) => {
+      switch (sortBy) {
+        case 'postponements':
+          // 연기권 적은 순 (undefined는 마지막)
+          const aPostp = a.remaining_postponements ?? 999;
+          const bPostp = b.remaining_postponements ?? 999;
+          return aPostp - bPostp;
+
+        case 'name':
+          // 이름 가나다 순
+          return a.name.localeCompare(b.name, 'ko');
+
+        case 'recent':
+        default:
+          // 최근 등록 순
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      }
+    });
 
   if (loading) {
     return (
@@ -228,15 +357,16 @@ export default function StudentsContent() {
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">평균 완료율</p>
+              <p className="text-sm text-gray-600">연기권 부족</p>
               <p className="text-2xl font-bold text-gray-900">
-                {students.length > 0 
-                  ? Math.round(students.reduce((acc, s) => acc + s.completion_rate, 0) / students.length)
-                  : 0}%
+                {students.filter(s =>
+                  s.remaining_postponements !== undefined &&
+                  s.remaining_postponements <= 2
+                ).length}
               </p>
             </div>
-            <div className="p-3 bg-purple-50 rounded-lg">
-              <Target className="w-6 h-6 text-purple-600" />
+            <div className="p-3 bg-orange-50 rounded-lg">
+              <AlertCircle className="w-6 h-6 text-orange-600" />
             </div>
           </div>
         </div>
@@ -279,6 +409,15 @@ export default function StudentsContent() {
             <option value="active">활성</option>
             <option value="inactive">비활성</option>
             <option value="paused">일시정지</option>
+          </select>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="recent">최근 등록 순</option>
+            <option value="name">이름 순</option>
+            <option value="postponements">연기권 적은 순</option>
           </select>
         </div>
       </div>
@@ -323,6 +462,38 @@ export default function StudentsContent() {
                 <BookOpen className="w-4 h-4 mr-2" />
                 총 {student.total_lessons}회 수업
               </div>
+              {/* 연기권 정보 */}
+              {student.remaining_postponements !== undefined && (
+                <div className={`flex items-center gap-1 ${
+                  student.remaining_postponements === 0
+                    ? 'text-red-600 font-medium'
+                    : student.remaining_postponements <= 2
+                    ? 'text-yellow-600'
+                    : 'text-gray-600'
+                }`}>
+                  <Award className="w-4 h-4 mr-1" />
+                  남은 연기권: {student.remaining_postponements}회
+                  {student.remaining_postponements === 0 && (
+                    <AlertCircle className="w-4 h-4 text-red-500" />
+                  )}
+                </div>
+              )}
+              {/* 수강권 만료 경고 */}
+              {student.subscription_end_date && (() => {
+                const daysUntilExpiry = Math.ceil(
+                  (new Date(student.subscription_end_date).getTime() - new Date().getTime()) /
+                  (1000 * 60 * 60 * 24)
+                );
+                if (daysUntilExpiry <= 7 && daysUntilExpiry > 0) {
+                  return (
+                    <div className="flex items-center text-orange-600 font-medium">
+                      <AlertCircle className="w-4 h-4 mr-2" />
+                      수강권 {daysUntilExpiry}일 후 만료
+                    </div>
+                  );
+                }
+                return null;
+              })()}
             </div>
 
             <div className="mt-4 pt-4 border-t border-gray-100">
@@ -339,14 +510,22 @@ export default function StudentsContent() {
             </div>
 
             <div className="mt-4 flex gap-2">
-              <button 
+              <button
                 onClick={() => handleStudentDetail(student.id)}
                 className="flex-1 px-3 py-2 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
               >
                 상세보기
               </button>
-              <button className="flex-1 px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <button
+                onClick={() => handleMessageClick(student.id)}
+                className="flex-1 px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors relative"
+              >
                 메시지
+                {student.unread_message_count !== undefined && student.unread_message_count > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {student.unread_message_count > 9 ? '9+' : student.unread_message_count}
+                  </span>
+                )}
               </button>
             </div>
           </div>

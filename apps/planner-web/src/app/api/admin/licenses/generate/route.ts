@@ -146,10 +146,14 @@ export async function POST(request: Request) {
       )
     }
 
-    // 이메일 발송 (선택 사항)
+    // 이메일 발송 (선택 사항) - 10초 타임아웃
     let emailSent = false
     if (sendEmail && customerEmail) {
       try {
+        // 타임아웃 설정 (10초)
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 10000)
+
         const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/send-admin-license`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -160,8 +164,11 @@ export async function POST(request: Request) {
             durationDays: durationDays,
             maxStudents: maxStudents,
             notes: notes || ''
-          })
+          }),
+          signal: controller.signal
         })
+
+        clearTimeout(timeoutId)
 
         if (emailResponse.ok) {
           emailSent = true
@@ -169,8 +176,8 @@ export async function POST(request: Request) {
         } else {
           console.error('이메일 발송 실패:', await emailResponse.text())
         }
-      } catch (emailError) {
-        console.error('이메일 발송 오류:', emailError)
+      } catch (emailError: any) {
+        console.error('이메일 발송 오류:', emailError?.name === 'AbortError' ? '타임아웃 (10초 초과)' : emailError)
         // 이메일 실패해도 라이선스는 발급됨
       }
     }

@@ -9,27 +9,12 @@ interface ConnectPlannerScreenProps {
 }
 
 export default function ConnectPlannerScreen({ onConnected }: ConnectPlannerScreenProps) {
-  const [studentName, setStudentName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
   const [inviteCode, setInviteCode] = useState('');
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation<any>();
 
   const handleConnect = async () => {
-    // 입력 정보 유효성 검사
-    if (!studentName.trim()) {
-      console.error('이름을 입력해주세요.');
-      return;
-    }
-    if (!phone.trim()) {
-      console.error('전화번호를 입력해주세요.');
-      return;
-    }
-    if (!email.trim()) {
-      console.error('이메일을 입력해주세요.');
-      return;
-    }
+    // 초대 코드 유효성 검사
     if (!inviteCode.trim()) {
       console.error('초대 코드를 입력해주세요.');
       return;
@@ -37,18 +22,38 @@ export default function ConnectPlannerScreen({ onConnected }: ConnectPlannerScre
 
     setLoading(true);
     try {
+      // 현재 로그인한 사용자 정보 가져오기
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        console.error('로그인이 필요합니다.');
+        setLoading(false);
+        return;
+      }
+
       // 먼저 student_profile이 존재하는지 확인하고 없으면 생성
       const { error: profileError } = await supabase.rpc('ensure_student_profile');
       if (profileError) {
         console.error('프로필 생성 실패:', profileError);
       }
 
+      // student_profile에서 사용자 정보 가져오기 (maybeSingle로 변경)
+      const { data: profile } = await supabase
+        .from('student_profiles')
+        .select('full_name, phone, email')
+        .eq('id', user.id)
+        .maybeSingle();
+
+      // 프로필 정보 또는 auth 메타데이터에서 정보 가져오기
+      const studentName = profile?.full_name || user.user_metadata?.full_name || '';
+      const studentPhone = profile?.phone || user.user_metadata?.phone || '';
+      const studentEmail = profile?.email || user.email || '';
+
       // 학생 정보와 함께 플래너 연결
       const { data, error } = await supabase.rpc('connect_student_with_info', {
         invite_code_input: inviteCode.trim(),
-        student_name: studentName.trim(),
-        student_phone: phone.trim(),
-        student_email: email.trim()
+        student_name: studentName,
+        student_phone: studentPhone,
+        student_email: studentEmail
       });
 
       console.log('RPC 응답:', { data, error });
@@ -78,48 +83,12 @@ export default function ConnectPlannerScreen({ onConnected }: ConnectPlannerScre
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>학생 정보 등록</Text>
+        <Text style={styles.title}>플래너와 연결하기</Text>
         <Text style={styles.subtitle}>
-          기본 정보를 입력하고 플래너 초대 코드를 입력해주세요.
+          플래너에게 받은 초대 코드를 입력해주세요.
         </Text>
 
         <View style={styles.formContainer}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>이름</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="홍길동"
-              value={studentName}
-              onChangeText={setStudentName}
-              autoCorrect={false}
-            />
-          </View>
-
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>전화번호</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="010-1234-5678"
-              value={phone}
-              onChangeText={setPhone}
-              keyboardType="phone-pad"
-              autoCorrect={false}
-            />
-          </View>
-
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>이메일</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="student@example.com"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-
           <View style={styles.inputContainer}>
             <Text style={styles.label}>플래너 초대 코드</Text>
             <TextInput
@@ -130,6 +99,7 @@ export default function ConnectPlannerScreen({ onConnected }: ConnectPlannerScre
               autoCapitalize="characters"
               autoCorrect={false}
               maxLength={10}
+              testID="connect-invite-code-input"
             />
           </View>
         </View>

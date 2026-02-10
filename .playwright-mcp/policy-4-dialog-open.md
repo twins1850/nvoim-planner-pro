@@ -1,0 +1,628 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - banner:
+            - generic:
+              - generic:
+                - link:
+                  - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                  - img
+                - generic:
+                  - generic:
+                    - img
+                  - link:
+                    - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                    - img
+                    - generic: twins1850's Org
+                    - generic: Free
+                  - button:
+                    - generic:
+                      - img
+                  - generic:
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - img
+                      - generic: nvoim-planner-pro
+                    - button:
+                      - generic:
+                        - img
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - generic: main
+                      - generic: Production
+                    - button:
+                      - generic:
+                        - img
+                - button [ref=e1726] [cursor=pointer]:
+                  - img [ref=e20]
+                  - generic [ref=e22]: Connect
+              - generic:
+                - generic:
+                  - generic: Feedback
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+                      - paragraph: Search...
+                    - generic:
+                      - generic:
+                        - img
+                        - generic: K
+                  - button [ref=e38] [cursor=pointer]:
+                    - img [ref=e40]
+                  - button [ref=e44] [cursor=pointer]:
+                    - img [ref=e46]
+                  - button [ref=e48] [cursor=pointer]:
+                    - img [ref=e50]
+                  - button [ref=e52] [cursor=pointer]:
+                    - img [ref=e56]
+                - button:
+                  - generic:
+                    - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - list:
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                            - img
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                            - img
+                      - generic:
+                        - generic:
+                          - listitem:
+                            - link:
+                              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                              - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                            - img
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                            - img
+                      - generic:
+                        - listitem:
+                          - link:
+                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+                            - img
+                - generic:
+                  - generic:
+                    - button:
+                      - generic:
+                        - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading [level=4]: Authentication
+                          - generic:
+                            - generic:
+                              - menu:
+                                - list:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Manage
+                                        - generic:
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Users
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/oauth-apps
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: OAuth Apps
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Notifications
+                                        - generic:
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/templates
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Email
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Configuration
+                                        - generic:
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/policies
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Policies
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/providers
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Sign In / Providers
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/oauth-server
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: OAuth Server
+                                                    - generic: Beta
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/sessions
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Sessions
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/rate-limits
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Rate Limits
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/mfa
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Multi-Factor
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/url-configuration
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: URL Configuration
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/protection
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Attack Protection
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/hooks
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Auth Hooks
+                                                    - generic: Beta
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/audit-logs
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Audit Logs
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/performance
+                                            - menuitem:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: Performance
+                    - separator:
+                      - generic:
+                        - img
+                    - generic:
+                      - main:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=1]: Policies
+                                - generic: Manage Row Level Security policies for your tables
+                              - generic:
+                                - link:
+                                  - /url: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
+                                  - generic:
+                                    - img
+                                  - generic: Docs
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - button:
+                                    - generic:
+                                      - generic:
+                                        - paragraph: schema
+                                        - paragraph: public
+                                    - generic:
+                                      - img
+                                - generic:
+                                  - textbox:
+                                    - /placeholder: Filter tables and policies
+                                    - text: student_profiles
+                                  - generic:
+                                    - img
+                                  - generic:
+                                    - button:
+                                      - generic:
+                                        - img
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - link:
+                                            - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17395
+                                            - img
+                                            - heading [level=3]: student_profiles
+                                        - generic:
+                                          - generic:
+                                            - button [ref=e1727] [cursor=pointer]:
+                                              - generic [ref=e1548]: Disable RLS
+                                            - button [ref=e1728] [cursor=pointer]:
+                                              - generic [ref=e1550]: Create policy
+                                            - button [ref=e1551] [cursor=pointer]:
+                                              - img [ref=e1555]
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - table:
+                                            - rowgroup:
+                                              - row:
+                                                - columnheader: Name
+                                                - columnheader: Command
+                                                - columnheader: Applied to
+                                                - columnheader:
+                                                  - generic: Actions
+                                            - rowgroup:
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Planners can update their students profiles
+                                                - cell:
+                                                  - code: UPDATE
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: public
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Planners can view their students
+                                                - cell:
+                                                  - code: SELECT
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: public
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Students can update their own profile
+                                                - cell:
+                                                  - code: UPDATE
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: public
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Students can view own profile
+                                                - cell:
+                                                  - code: SELECT
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: authenticated
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Students can view their own profile
+                                                - cell:
+                                                  - code: SELECT
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: public
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Teachers can view student profiles
+                                                - cell:
+                                                  - code: SELECT
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: authenticated
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Users can insert own profile
+                                                - cell:
+                                                  - code: INSERT
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: public
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                                              - row:
+                                                - cell:
+                                                  - generic:
+                                                    - button:
+                                                      - generic: Users can update own profile
+                                                - cell:
+                                                  - code: UPDATE
+                                                - cell:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - code: public
+                                                - cell:
+                                                  - button:
+                                                    - generic:
+                                                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                        - generic:
+                          - generic:
+                            - button:
+                              - generic:
+                                - img
+                          - generic:
+                            - generic:
+                              - generic:
+                                - img
+                            - generic:
+                              - paragraph: Auto-enable RLS for new tables
+                              - paragraph: Create an event trigger that enables Row Level Security on all new tables
+                            - button [ref=e1729] [cursor=pointer]:
+                              - generic [ref=e1725]: Create ensure_rls trigger
+  - generic:
+    - alert: Authentication | Supabase
+  - 'dialog "Update policy: Students can view own profile" [ref=e1731]':
+    - generic [ref=e1732]:
+      - generic [ref=e1733]:
+        - generic [ref=e1734]:
+          - button "Close" [ref=e1735] [cursor=pointer]:
+            - img [ref=e1736]
+            - generic [ref=e1739]: Close
+          - generic [ref=e1740]:
+            - 'heading "Update policy: Students can view own profile" [level=2] [ref=e1741]'
+            - button "View policy details" [ref=e1743] [cursor=pointer]:
+              - generic [ref=e1744]:
+                - paragraph [ref=e1745]: View policy details
+                - img [ref=e1746]
+        - button [expanded] [ref=e1748] [cursor=pointer]:
+          - img [ref=e1749]
+      - generic [ref=e1752]:
+        - generic [ref=e1754]:
+          - generic [ref=e1755]:
+            - generic [ref=e1756]: Policy Name
+            - textbox "Policy Name" [ref=e1757]:
+              - /placeholder: Provide a name for your policy
+              - text: Students can view own profile
+          - generic [ref=e1758]:
+            - generic [ref=e1759]:
+              - text: Table
+              - code [ref=e1760]: "on"
+              - text: clause
+            - button "public.student_profiles" [ref=e1761] [cursor=pointer]:
+              - generic [ref=e1764]: public.student_profiles
+              - img [ref=e1766]
+          - generic [ref=e1769]:
+            - generic [ref=e1770]:
+              - text: Policy Behavior
+              - code [ref=e1771]: as
+              - text: clause
+            - combobox [disabled] [ref=e1772]:
+              - text: permissive
+              - img [ref=e1773]
+          - generic [ref=e1775]:
+            - generic [ref=e1776]:
+              - text: Policy Command
+              - code [ref=e1777]: for
+              - text: clause
+            - radiogroup [ref=e1778]:
+              - radio "SELECT" [checked] [disabled] [ref=e1779]:
+                - generic [ref=e1784]: SELECT
+              - radio "INSERT" [disabled] [ref=e1785]:
+                - generic [ref=e1789]: INSERT
+              - radio "UPDATE" [disabled] [ref=e1790]:
+                - generic [ref=e1794]: UPDATE
+              - radio "DELETE" [disabled] [ref=e1795]:
+                - generic [ref=e1799]: DELETE
+              - radio "ALL" [disabled] [ref=e1800]:
+                - generic [ref=e1804]: ALL
+          - generic [ref=e1805]:
+            - generic [ref=e1806]:
+              - text: Target Roles
+              - code [ref=e1807]: to
+              - text: clause
+            - generic [ref=e1809] [cursor=pointer]:
+              - generic [ref=e1810]:
+                - generic [ref=e1811]: authenticated
+                - img [ref=e1812]
+              - img [ref=e1816]
+        - generic [ref=e1818]:
+          - generic [ref=e1819]:
+            - generic [ref=e1821]:
+              - img [ref=e1823]
+              - paragraph [ref=e1826]: Use options above to edit
+            - generic [ref=e1827]:
+              - paragraph [ref=e1828]: "1"
+              - paragraph [ref=e1829]: alter policy "Students can view own profile"
+            - generic [ref=e1830]:
+              - paragraph [ref=e1831]: "2"
+              - paragraph [ref=e1832]: on "public"."student_profiles"
+            - generic [ref=e1833]:
+              - paragraph [ref=e1834]: "5"
+              - paragraph [ref=e1835]: to authenticated
+            - generic [ref=e1836]:
+              - paragraph [ref=e1837]: "6"
+              - paragraph [ref=e1838]: using (
+          - code [ref=e1842]:
+            - generic [ref=e1843]:
+              - generic [ref=e1848]: "7"
+              - generic [ref=e1857]: (auth.uid() = id)
+              - textbox "Editor content" [active] [ref=e1859]: (auth.uid() = id)
+          - generic [ref=e1861]:
+            - paragraph [ref=e1863]: "8"
+            - paragraph [ref=e1864]: );
+        - generic [ref=e1866]:
+          - button "Cancel" [ref=e1867] [cursor=pointer]:
+            - generic [ref=e1868]: Cancel
+          - button "Save policy" [ref=e1869] [cursor=pointer]:
+            - generic [ref=e1870]: Save policy
+    - generic [ref=e1872]:
+      - tablist [ref=e1873]:
+        - tab "Templates" [selected] [ref=e1874] [cursor=pointer]
+      - tabpanel "Templates" [ref=e1875]:
+        - generic [ref=e1879]:
+          - generic [ref=e1880]: Search templates
+          - generic [ref=e1884]:
+            - textbox "Search templates" [ref=e1885]
+            - generic:
+              - img
+          - generic [ref=e1886]:
+            - button "SELECT Enable read access for all users This policy gives read access to your table for all users via the SELECT operation." [ref=e1888] [cursor=pointer]:
+              - generic [ref=e1923]: SELECT
+              - generic [ref=e1892]:
+                - heading "Enable read access for all users" [level=5] [ref=e1893]
+                - generic [ref=e1894]:
+                  - paragraph
+                  - paragraph [ref=e1897]: This policy gives read access to your table for all users via the SELECT operation.
+            - button "SELECT Policy to implement Time To Live (TTL) Implement a TTL-like feature that you see in Instagram stories or Snapchat where messages expire after a day. Rows under the table are available only if they have been created within the last 24 hours." [ref=e1899] [cursor=pointer]:
+              - generic [ref=e1926]: SELECT
+              - generic [ref=e1903]:
+                - heading "Policy to implement Time To Live (TTL)" [level=5] [ref=e1904]
+                - generic [ref=e1905]:
+                  - paragraph
+                  - generic [ref=e1907]:
+                    - paragraph [ref=e1908]: Implement a TTL-like feature that you see in Instagram stories or Snapchat where messages expire after a day.
+                    - paragraph [ref=e1909]: Rows under the table are available only if they have been created within the last 24 hours.
+            - button "SELECT Enable users to view their own data only Restrict users to reading only their own data." [ref=e1911] [cursor=pointer]:
+              - generic [ref=e1929]: SELECT
+              - generic [ref=e1915]:
+                - heading "Enable users to view their own data only" [level=5] [ref=e1916]
+                - generic [ref=e1917]:
+                  - paragraph
+                  - paragraph [ref=e1920]: Restrict users to reading only their own data.
+  - generic:
+    - alert
+    - alert

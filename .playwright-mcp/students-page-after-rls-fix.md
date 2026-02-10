@@ -1,0 +1,70 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - heading "NVOIM Planner" [level=1] [ref=e5]
+      - generic [ref=e7]: students
+    - generic [ref=e9]:
+      - button "대시보드" [ref=e10]:
+        - img [ref=e11]
+        - generic [ref=e14]: 대시보드
+      - button "학생" [ref=e15]:
+        - img [ref=e16]
+        - generic [ref=e21]: 학생
+      - button "메시지" [ref=e22]:
+        - img [ref=e23]
+        - generic [ref=e25]: 메시지
+      - button "숙제" [ref=e26]:
+        - img [ref=e27]
+        - generic [ref=e29]: 숙제
+      - button "더보기" [ref=e30]:
+        - img [ref=e31]
+        - generic [ref=e32]: 더보기
+    - generic [ref=e35]:
+      - heading "학생 관리" [level=1] [ref=e38]
+      - main [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - heading "학생 관리" [level=1] [ref=e46]
+              - paragraph [ref=e47]: 전체 0명의 학생을 관리하고 있습니다
+            - button "초대 코드 생성" [ref=e48]:
+              - img [ref=e49]
+              - text: 초대 코드 생성
+          - generic [ref=e52]:
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - paragraph [ref=e56]: 전체 학생
+                - paragraph [ref=e57]: "0"
+              - img [ref=e59]
+            - generic [ref=e63]:
+              - generic [ref=e64]:
+                - paragraph [ref=e65]: 활성 학생
+                - paragraph [ref=e66]: "0"
+              - img [ref=e68]
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - paragraph [ref=e74]: 평균 완료율
+                - paragraph [ref=e75]: 0%
+              - img [ref=e77]
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - paragraph [ref=e84]: 연결된 학생
+                - paragraph [ref=e85]: "0"
+              - img [ref=e87]
+          - generic [ref=e90]:
+            - generic [ref=e92]:
+              - img [ref=e93]
+              - textbox "이름 또는 이메일로 검색..." [ref=e96]
+            - combobox [ref=e97]:
+              - option "모든 상태" [selected]
+              - option "활성"
+              - option "비활성"
+              - option "일시정지"
+          - generic [ref=e98]:
+            - img [ref=e99]
+            - heading "학생이 없습니다" [level=3] [ref=e102]
+            - paragraph [ref=e103]: 초대 코드를 생성하여 학생을 초대하세요.
+            - button "초대 코드 생성" [ref=e105]:
+              - img [ref=e106]
+              - text: 초대 코드 생성
+  - alert [ref=e45]

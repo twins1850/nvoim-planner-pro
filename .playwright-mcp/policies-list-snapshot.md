@@ -1,0 +1,351 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Supabase" [ref=e9] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e10]
+          - generic [ref=e11]:
+            - img [ref=e327]
+            - link "twins1850's Org Free" [ref=e329] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e330]
+              - generic [ref=e340]: twins1850's Org
+              - generic [ref=e341]: Free
+            - button [ref=e342] [cursor=pointer]:
+              - img [ref=e344]
+            - generic [ref=e12]:
+              - img [ref=e14]
+              - link "nvoim-planner-pro" [ref=e347] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e348]
+                - generic "nvoim-planner-pro" [ref=e351]
+              - button [ref=e352] [cursor=pointer]:
+                - img [ref=e354]
+              - img [ref=e358]
+              - link "main Production" [ref=e360] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - generic "main" [ref=e361]
+                - generic [ref=e362]: Production
+              - button [ref=e363] [cursor=pointer]:
+                - img [ref=e365]
+          - button "Connect" [ref=e18] [cursor=pointer]:
+            - img [ref=e20]
+            - generic [ref=e22]: Connect
+        - generic [ref=e23]:
+          - generic [ref=e25] [cursor=pointer]: Feedback
+          - generic [ref=e26]:
+            - button "Search..." [ref=e27] [cursor=pointer]:
+              - generic [ref=e28]:
+                - img [ref=e29]
+                - paragraph [ref=e32]: Search...
+              - generic [ref=e34]:
+                - img [ref=e35]
+                - generic [ref=e37]: K
+            - button [ref=e38] [cursor=pointer]:
+              - img [ref=e40]
+            - button [ref=e44] [cursor=pointer]:
+              - img [ref=e46]
+            - button [ref=e48] [cursor=pointer]:
+              - img [ref=e50]
+            - button [ref=e52] [cursor=pointer]:
+              - img [ref=e56]
+          - button "twins1850" [ref=e369] [cursor=pointer]:
+            - img "twins1850" [ref=e370]
+    - generic [ref=e64]:
+      - generic [ref=e68]:
+        - list [ref=e71]:
+          - generic [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Project Overview" [ref=e74] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e75]
+                - generic: Project Overview
+            - listitem [ref=e77]:
+              - link "Table Editor" [ref=e371] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                - img [ref=e372]
+                - generic: Table Editor
+            - listitem [ref=e78]:
+              - link "SQL Editor" [ref=e374] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                - img [ref=e375]
+                - generic: SQL Editor
+          - generic [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Database" [ref=e377] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                - img [ref=e378]
+                - generic: Database
+            - listitem [ref=e81]:
+              - link "Authentication" [ref=e382] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                - img [ref=e383]
+                - generic: Authentication
+            - listitem [ref=e82]:
+              - link "Storage" [ref=e385] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                - img [ref=e386]
+                - generic: Storage
+            - listitem [ref=e83]:
+              - link "Edge Functions" [ref=e84] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                - img [ref=e85]
+                - generic: Edge Functions
+            - listitem [ref=e90]:
+              - link "Realtime" [ref=e388] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                - img [ref=e389]
+                - generic: Realtime
+          - generic [ref=e91]:
+            - listitem [ref=e93]:
+              - link "Advisors" [ref=e391] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                - img [ref=e392]
+                - generic: Advisors
+            - listitem [ref=e94]:
+              - link "Observability" [ref=e394] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                - img [ref=e395]
+                - generic: Observability
+            - listitem [ref=e95]:
+              - link "Logs" [ref=e403] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                - img [ref=e404]
+                - generic: Logs
+            - listitem [ref=e96]:
+              - link "API Docs" [ref=e405] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                - img [ref=e406]
+                - generic: API Docs
+            - listitem [ref=e97]:
+              - link "Integrations" [ref=e409] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                - img [ref=e410]
+                - generic: Integrations
+          - listitem [ref=e99]:
+            - link "Project Settings" [ref=e100] [cursor=pointer]:
+              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+              - img [ref=e101]
+              - generic: Project Settings
+        - button [ref=e106] [cursor=pointer]:
+          - img [ref=e108]
+      - generic [ref=e112]:
+        - generic [ref=e414]:
+          - generic [ref=e417]:
+            - heading "Authentication" [level=4] [ref=e419]
+            - menu "Sidebar" [ref=e422]:
+              - list [ref=e423]:
+                - generic [ref=e426]:
+                  - generic [ref=e430]: Manage
+                  - generic [ref=e431]:
+                    - link "Users" [ref=e432] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                      - menuitem "Users" [ref=e433]:
+                        - generic "Users" [ref=e436]:
+                          - generic [ref=e437]: Users
+                    - link "OAuth Apps" [ref=e438] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/oauth-apps
+                      - menuitem "OAuth Apps" [ref=e439]:
+                        - generic "OAuth Apps" [ref=e442]:
+                          - generic [ref=e443]: OAuth Apps
+                - generic [ref=e447]:
+                  - generic [ref=e451]: Notifications
+                  - link "Email" [ref=e453] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/templates
+                    - menuitem "Email" [ref=e454]:
+                      - generic "Email" [ref=e457]:
+                        - generic [ref=e458]: Email
+                - generic [ref=e462]:
+                  - generic [ref=e466]: Configuration
+                  - generic [ref=e467]:
+                    - link "Policies" [ref=e468] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/policies
+                      - menuitem "Policies" [ref=e469]:
+                        - generic "Policies" [ref=e472]:
+                          - generic [ref=e473]: Policies
+                    - link "Sign In / Providers" [ref=e474] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/providers
+                      - menuitem "Sign In / Providers" [ref=e475]:
+                        - generic "Sign In / Providers" [ref=e478]:
+                          - generic [ref=e479]: Sign In / Providers
+                    - link "OAuth Server Beta" [ref=e480] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/oauth-server
+                      - menuitem "OAuth Server Beta" [ref=e481]:
+                        - generic "OAuth Server" [ref=e484]:
+                          - generic [ref=e485]: OAuth Server
+                          - generic [ref=e486]: Beta
+                    - link "Sessions" [ref=e487] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/sessions
+                      - menuitem "Sessions" [ref=e488]:
+                        - generic "Sessions" [ref=e491]:
+                          - generic [ref=e492]: Sessions
+                    - link "Rate Limits" [ref=e493] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/rate-limits
+                      - menuitem "Rate Limits" [ref=e494]:
+                        - generic "Rate Limits" [ref=e497]:
+                          - generic [ref=e498]: Rate Limits
+                    - link "Multi-Factor" [ref=e499] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/mfa
+                      - menuitem "Multi-Factor" [ref=e500]:
+                        - generic "Multi-Factor" [ref=e503]:
+                          - generic [ref=e504]: Multi-Factor
+                    - link "URL Configuration" [ref=e505] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/url-configuration
+                      - menuitem "URL Configuration" [ref=e506]:
+                        - generic "URL Configuration" [ref=e509]:
+                          - generic [ref=e510]: URL Configuration
+                    - link "Attack Protection" [ref=e511] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/protection
+                      - menuitem "Attack Protection" [ref=e512]:
+                        - generic "Attack Protection" [ref=e515]:
+                          - generic [ref=e516]: Attack Protection
+                    - link "Auth Hooks Beta" [ref=e517] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/hooks
+                      - menuitem "Auth Hooks Beta" [ref=e518]:
+                        - generic "Auth Hooks" [ref=e521]:
+                          - generic [ref=e522]: Auth Hooks
+                          - generic [ref=e523]: Beta
+                    - link "Audit Logs" [ref=e524] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/audit-logs
+                      - menuitem "Audit Logs" [ref=e525]:
+                        - generic "Audit Logs" [ref=e528]:
+                          - generic [ref=e529]: Audit Logs
+                    - link "Performance" [ref=e530] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/performance
+                      - menuitem "Performance" [ref=e531]:
+                        - generic "Performance" [ref=e534]:
+                          - generic [ref=e535]: Performance
+          - separator [ref=e536]:
+            - img [ref=e538]
+          - main [ref=e546]:
+            - generic [ref=e549]:
+              - generic [ref=e550]:
+                - heading "Policies" [level=1] [ref=e551]
+                - generic [ref=e552]: Manage Row Level Security policies for your tables
+              - link "Docs" [ref=e554] [cursor=pointer]:
+                - /url: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
+                - img [ref=e556]
+                - generic [ref=e559]: Docs
+            - generic [ref=e562]:
+              - generic [ref=e563]:
+                - button "schema public" [ref=e565] [cursor=pointer]:
+                  - generic [ref=e567]:
+                    - paragraph [ref=e568]: schema
+                    - paragraph [ref=e569]: public
+                  - img [ref=e571]
+                - generic [ref=e574]:
+                  - textbox "Filter tables and policies" [active] [ref=e575]: student_profiles
+                  - generic:
+                    - img
+                  - button [ref=e3438] [cursor=pointer]:
+                    - img [ref=e3440]
+              - generic [ref=e2644]:
+                - generic [ref=e2646]:
+                  - link "student_profiles" [ref=e2648] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor/17395
+                    - img [ref=e2649]
+                    - heading "student_profiles" [level=3] [ref=e2651]
+                  - generic [ref=e2653]:
+                    - button "Disable RLS" [ref=e2654] [cursor=pointer]:
+                      - generic [ref=e2655]: Disable RLS
+                    - button "Create policy" [ref=e2656] [cursor=pointer]:
+                      - generic [ref=e2657]: Create policy
+                    - button [ref=e2658] [cursor=pointer]:
+                      - img [ref=e2662]
+                - table [ref=e2668]:
+                  - rowgroup [ref=e2669]:
+                    - row "Name Command Applied to Actions" [ref=e2670]:
+                      - columnheader "Name" [ref=e2671]
+                      - columnheader "Command" [ref=e2672]
+                      - columnheader "Applied to" [ref=e2673]
+                      - columnheader "Actions" [ref=e2674]:
+                        - generic [ref=e2675]: Actions
+                  - rowgroup [ref=e2676]:
+                    - row "planner_can_view_student_profiles SELECT authenticated" [ref=e2677]:
+                      - cell "planner_can_view_student_profiles" [ref=e2678]:
+                        - button "planner_can_view_student_profiles" [ref=e2680] [cursor=pointer]:
+                          - generic [ref=e2681]: planner_can_view_student_profiles
+                      - cell "SELECT" [ref=e2682]:
+                        - code [ref=e2683]: SELECT
+                      - cell "authenticated" [ref=e2684]:
+                        - code [ref=e2688]: authenticated
+                      - cell [ref=e2689]:
+                        - button [ref=e2690] [cursor=pointer]:
+                          - img [ref=e2692]
+                    - row "Planners can update their students profiles UPDATE public" [ref=e2696]:
+                      - cell "Planners can update their students profiles" [ref=e2697]:
+                        - button "Planners can update their students profiles" [ref=e2699] [cursor=pointer]:
+                          - generic [ref=e2700]: Planners can update their students profiles
+                      - cell "UPDATE" [ref=e2701]:
+                        - code [ref=e2702]: UPDATE
+                      - cell "public" [ref=e2703]:
+                        - code [ref=e2707]: public
+                      - cell [ref=e2708]:
+                        - button [ref=e2709] [cursor=pointer]:
+                          - img [ref=e2711]
+                    - row "student_can_view_own_profile SELECT authenticated" [ref=e2715]:
+                      - cell "student_can_view_own_profile" [ref=e2716]:
+                        - button "student_can_view_own_profile" [ref=e2718] [cursor=pointer]:
+                          - generic [ref=e2719]: student_can_view_own_profile
+                      - cell "SELECT" [ref=e2720]:
+                        - code [ref=e2721]: SELECT
+                      - cell "authenticated" [ref=e2722]:
+                        - code [ref=e2726]: authenticated
+                      - cell [ref=e2727]:
+                        - button [ref=e2728] [cursor=pointer]:
+                          - img [ref=e2730]
+                    - row "Students can update their own profile UPDATE public" [ref=e2734]:
+                      - cell "Students can update their own profile" [ref=e2735]:
+                        - button "Students can update their own profile" [ref=e2737] [cursor=pointer]:
+                          - generic [ref=e2738]: Students can update their own profile
+                      - cell "UPDATE" [ref=e2739]:
+                        - code [ref=e2740]: UPDATE
+                      - cell "public" [ref=e2741]:
+                        - code [ref=e2745]: public
+                      - cell [ref=e2746]:
+                        - button [ref=e2747] [cursor=pointer]:
+                          - img [ref=e2749]
+                    - row "Users can insert own profile INSERT public" [ref=e2753]:
+                      - cell "Users can insert own profile" [ref=e2754]:
+                        - button "Users can insert own profile" [ref=e2756] [cursor=pointer]:
+                          - generic [ref=e2757]: Users can insert own profile
+                      - cell "INSERT" [ref=e2758]:
+                        - code [ref=e2759]: INSERT
+                      - cell "public" [ref=e2760]:
+                        - code [ref=e2764]: public
+                      - cell [ref=e2765]:
+                        - button [ref=e2766] [cursor=pointer]:
+                          - img [ref=e2768]
+                    - row "Users can update own profile UPDATE public" [ref=e2772]:
+                      - cell "Users can update own profile" [ref=e2773]:
+                        - button "Users can update own profile" [ref=e2775] [cursor=pointer]:
+                          - generic [ref=e2776]: Users can update own profile
+                      - cell "UPDATE" [ref=e2777]:
+                        - code [ref=e2778]: UPDATE
+                      - cell "public" [ref=e2779]:
+                        - code [ref=e2783]: public
+                      - cell [ref=e2784]:
+                        - button [ref=e2785] [cursor=pointer]:
+                          - img [ref=e2787]
+        - generic [ref=e3434]:
+          - generic:
+            - generic:
+              - generic:
+                - img "Background pattern"
+              - generic:
+                - generic:
+                  - button "Close banner":
+                    - generic:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                  - generic:
+                    - paragraph: Auto-enable RLS for new tables
+                    - paragraph: Create an event trigger that enables Row Level Security on all new tables
+                  - button "Create ensure_rls trigger" [ref=e3435] [cursor=pointer]:
+                    - generic [ref=e3436]: Create ensure_rls trigger
+  - alert [ref=e325]: Authentication | Supabase

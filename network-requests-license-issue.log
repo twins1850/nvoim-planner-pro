@@ -1,0 +1,53 @@
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&order=created_at.desc => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/profiles?select=*&id=in.%283418a06e-7485-40bf-9126-c0ca06da31db%2C92190d3d-d46f-4c2d-8c07-456010971e85%29 => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=student_id%2Cpostponements_used%2Cmax_postponements%2Cend_date%2Cstatus&student_id=in.%283418a06e-7485-40bf-9126-c0ca06da31db%2C92190d3d-d46f-4c2d-8c07-456010971e85%29&status=eq.active&order=created_at.desc => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=*&id=eq.3418a06e-7485-40bf-9126-c0ca06da31db&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&student_id=eq.3418a06e-7485-40bf-9126-c0ca06da31db&order=created_at.desc => [200] 
+[GET] http://localhost:3002/dashboard/students?_rsc=2ty1i => [200] OK
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&order=created_at.desc => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_profiles?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&order=created_at.desc => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/profiles?select=*&id=in.%283418a06e-7485-40bf-9126-c0ca06da31db%2C92190d3d-d46f-4c2d-8c07-456010971e85%29 => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/profiles?select=*&id=in.%283418a06e-7485-40bf-9126-c0ca06da31db%2C92190d3d-d46f-4c2d-8c07-456010971e85%29 => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=student_id%2Cpostponements_used%2Cmax_postponements%2Cend_date%2Cstatus&student_id=in.%283418a06e-7485-40bf-9126-c0ca06da31db%2C92190d3d-d46f-4c2d-8c07-456010971e85%29&status=eq.active&order=created_at.desc => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=student_id%2Cpostponements_used%2Cmax_postponements%2Cend_date%2Cstatus&student_id=in.%283418a06e-7485-40bf-9126-c0ca06da31db%2C92190d3d-d46f-4c2d-8c07-456010971e85%29&status=eq.active&order=created_at.desc => [200] 
+[GET] http://localhost:3002/dashboard?_rsc=1p5au => [200] OK
+[GET] http://localhost:3002/dashboard?_rsc=1p5au => [200] OK
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&status=eq.trial&is_trial=eq.true => [406] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&status=eq.trial&is_trial=eq.true => [406] 
+[GET] http://localhost:3002/dashboard?_rsc=1h1b5 => [200] OK
+[GET] http://localhost:3002/dashboard?_rsc=1h1b5 => [200] OK
+[GET] http://localhost:3002/dashboard/settings?_rsc=1h1b5 => [200] OK
+[GET] http://localhost:3002/license-activate?_rsc=1wj7u => [307] Temporary Redirect
+[GET] http://localhost:3002/dashboard => [200] OK
+[GET] http://localhost:3002/dashboard => [200] OK
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] http://localhost:3002/license-activate?_rsc=1h1b5 => [307] Temporary Redirect
+[GET] http://localhost:3002/dashboard => [200] OK
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&status=eq.trial&is_trial=eq.true => [406] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&status=eq.trial&is_trial=eq.true => [406] 
+[GET] http://localhost:3002/dashboard => [200] OK
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.a3480c6a-4a29-4109-9f1b-dbcaddd56baa&status=eq.trial&is_trial=eq.true => [406] 
+[GET] http://localhost:3002/license?_rsc=1h1b5 => [200] OK
+[GET] http://localhost:3002/license?_rsc=1h1b5 => [200] OK
+[GET] http://localhost:3002/license?_rsc=3uhft => [200] OK
+[GET] http://localhost:3002/license?_rsc=3uhft => [200] OK
+[POST] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/token?grant_type=refresh_token => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/user => [200] 
+[POST] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/token?grant_type=password => [400] 
+[POST] https://ybcjkdcdruquqrdahtga.supabase.co/auth/v1/token?grant_type=password => [200] 
+[GET] https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/profiles?select=role&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18 => [200] 
+[GET] http://localhost:3002/admin/licenses?_rsc=1vuvx => [200] OK
+[GET] http://localhost:3002/admin/licenses?_rsc=1vuvx => [200] OK
+[POST] http://localhost:3002/api/admin/licenses/generate

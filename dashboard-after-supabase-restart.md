@@ -1,0 +1,149 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "엔보임 플래너 프로" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: 엔보임 플래너 프로
+        - generic [ref=e8]:
+          - link "홈" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - link "가격 안내" [ref=e10] [cursor=pointer]:
+            - /url: /#pricing
+          - link "주문하기" [ref=e11] [cursor=pointer]:
+            - /url: /order
+          - link "라이선스 활성화" [ref=e12] [cursor=pointer]:
+            - /url: /license-activate
+          - generic [ref=e211]:
+            - link "로그인" [ref=e212] [cursor=pointer]:
+              - /url: /auth/login
+            - link "체험 시작" [ref=e213] [cursor=pointer]:
+              - /url: /auth/signup
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - heading "NVOIM Planner" [level=1] [ref=e16]
+      - generic [ref=e18]: dashboard
+    - generic [ref=e20]:
+      - button "대시보드" [ref=e21]:
+        - img [ref=e22]
+        - generic [ref=e25]: 대시보드
+      - button "학생" [ref=e26]:
+        - img [ref=e27]
+        - generic [ref=e32]: 학생
+      - button "메시지" [ref=e33]:
+        - img [ref=e34]
+        - generic [ref=e36]: 메시지
+      - button "숙제" [ref=e37]:
+        - img [ref=e38]
+        - generic [ref=e40]: 숙제
+      - button "더보기" [ref=e41]:
+        - img [ref=e42]
+        - generic [ref=e43]: 더보기
+    - generic [ref=e46]:
+      - heading "대시보드" [level=1] [ref=e49]
+      - main [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - heading "안녕하세요, Admin님!" [level=2] [ref=e53]
+            - paragraph [ref=e54]: 오늘도 열심히 학생들과 함께 성장하세요.
+          - generic [ref=e55]:
+            - generic [ref=e57]:
+              - img [ref=e59]
+              - generic [ref=e64]:
+                - paragraph [ref=e65]: 전체 학생
+                - paragraph [ref=e66]: "1"
+            - generic [ref=e68]:
+              - img [ref=e70]
+              - generic [ref=e72]:
+                - paragraph [ref=e73]: 오늘의 수업
+                - paragraph [ref=e74]: "0"
+            - generic [ref=e76]:
+              - img [ref=e78]
+              - generic [ref=e81]:
+                - paragraph [ref=e82]: 미완료 숙제
+                - paragraph [ref=e83]: "0"
+            - generic [ref=e85]:
+              - img [ref=e87]
+              - generic [ref=e90]:
+                - paragraph [ref=e91]: 새 알림
+                - paragraph [ref=e92]: "0"
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - heading "오늘의 수업" [level=3] [ref=e96]
+              - paragraph [ref=e98]: 오늘 예정된 수업이 없습니다.
+            - generic [ref=e99]:
+              - heading "빠른 메뉴" [level=3] [ref=e101]
+              - generic [ref=e103]:
+                - button "학생 관리" [ref=e104]:
+                  - img [ref=e105]
+                  - generic [ref=e110]: 학생 관리
+                - button "숙제 관리" [ref=e111]:
+                  - img [ref=e112]
+                  - generic [ref=e115]: 숙제 관리
+                - button "수업 관리" [ref=e116]:
+                  - img [ref=e117]
+                  - generic [ref=e119]: 수업 관리
+                - button "메시지" [ref=e120]:
+                  - img [ref=e121]
+                  - generic [ref=e124]: 메시지
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - generic [ref=e128]:
+                - img [ref=e129]
+                - heading "2026년 02월" [level=3] [ref=e131]
+              - generic [ref=e132]:
+                - button "이전 달" [ref=e133]:
+                  - img [ref=e134]
+                - button "다음 달" [ref=e136]:
+                  - img [ref=e137]
+            - generic [ref=e139]:
+              - generic [ref=e140]: 일
+              - generic [ref=e141]: 월
+              - generic [ref=e142]: 화
+              - generic [ref=e143]: 수
+              - generic [ref=e144]: 목
+              - generic [ref=e145]: 금
+              - generic [ref=e146]: 토
+              - generic [ref=e148]: "1"
+              - generic [ref=e150]: "2"
+              - generic [ref=e152]: "3"
+              - generic [ref=e154]: "4"
+              - generic [ref=e156]: "5"
+              - generic [ref=e158]: "6"
+              - generic [ref=e160]: "7"
+              - generic [ref=e162]: "8"
+              - generic [ref=e164]: "9"
+              - generic [ref=e166]: "10"
+              - generic [ref=e168]: "11"
+              - generic [ref=e170]: "12"
+              - generic [ref=e172]: "13"
+              - generic [ref=e174]: "14"
+              - generic [ref=e176]: "15"
+              - generic [ref=e178]: "16"
+              - generic [ref=e180]: "17"
+              - generic [ref=e182]: "18"
+              - generic [ref=e184]: "19"
+              - generic [ref=e186]: "20"
+              - generic [ref=e188]: "21"
+              - generic [ref=e190]: "22"
+              - generic [ref=e192]: "23"
+              - generic [ref=e194]: "24"
+              - generic [ref=e196]: "25"
+              - generic [ref=e198]: "26"
+              - generic [ref=e200]: "27"
+              - generic [ref=e202]: "28"
+            - generic [ref=e203]:
+              - generic [ref=e206]: 수업 일정
+              - generic [ref=e209]: 수강권 종료 예정
+  - generic [ref=e218] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e219]:
+      - img [ref=e220]
+    - generic [ref=e223]:
+      - button "Open issues overlay" [ref=e224]:
+        - generic [ref=e225]:
+          - generic [ref=e226]: "0"
+          - generic [ref=e227]: "1"
+        - generic [ref=e228]: Issue
+      - button "Collapse issues badge" [ref=e229]:
+        - img [ref=e230]
+  - alert [ref=e232]

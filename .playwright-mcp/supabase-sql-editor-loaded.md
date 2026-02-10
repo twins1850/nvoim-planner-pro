@@ -1,0 +1,137 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e133]:
+    - banner [ref=e135]:
+      - generic [ref=e136]:
+        - generic [ref=e137]:
+          - link "Supabase" [ref=e138] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e139]
+          - generic [ref=e140]:
+            - img [ref=e142]
+            - link "twins1850's Org Free" [ref=e144] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e145]
+              - generic [ref=e155]: twins1850's Org
+              - generic [ref=e156]: Free
+            - button [ref=e157] [cursor=pointer]:
+              - img [ref=e159]
+        - generic [ref=e162]:
+          - generic [ref=e164] [cursor=pointer]: Feedback
+          - generic [ref=e165]:
+            - button "Search..." [ref=e166] [cursor=pointer]:
+              - generic [ref=e167]:
+                - img [ref=e168]
+                - paragraph [ref=e171]: Search...
+              - generic [ref=e173]:
+                - img [ref=e174]
+                - generic [ref=e176]: K
+            - button [ref=e177] [cursor=pointer]:
+              - img [ref=e179]
+            - button [ref=e183] [cursor=pointer]:
+              - img [ref=e185]
+          - button "twins1850" [ref=e187] [cursor=pointer]:
+            - img "twins1850" [ref=e189]
+    - generic [ref=e190]:
+      - generic [ref=e194]:
+        - list [ref=e197]:
+          - generic [ref=e198]:
+            - listitem [ref=e199]:
+              - link "Projects" [ref=e200] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                - img [ref=e201]
+                - generic: Projects
+            - listitem [ref=e211]:
+              - link "Team" [ref=e212] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz/team
+                - img [ref=e213]
+                - generic: Team
+            - listitem [ref=e218]:
+              - link "Integrations" [ref=e219] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz/integrations
+                - img [ref=e220]
+                - generic: Integrations
+            - listitem [ref=e223]:
+              - link "Usage" [ref=e224] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz/usage
+                - img [ref=e225]
+                - generic: Usage
+            - listitem [ref=e228]:
+              - link "Billing" [ref=e229] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz/billing
+                - img [ref=e230]
+                - generic: Billing
+            - listitem [ref=e233]:
+              - link "Organization settings" [ref=e234] [cursor=pointer]:
+                - /url: /dashboard/org/eblxntwozdgjftvyxtlz/general
+                - img [ref=e235]
+                - generic: Organization settings
+        - button [ref=e240] [cursor=pointer]:
+          - img [ref=e242]
+      - main [ref=e248]:
+        - generic [ref=e249]:
+          - heading "Projects" [level=1] [ref=e256]
+          - generic [ref=e259]:
+            - generic [ref=e260]:
+              - generic [ref=e261]:
+                - generic [ref=e262]:
+                  - textbox "Search for a project" [ref=e263]
+                  - generic:
+                    - img
+                - button [ref=e265] [cursor=pointer]:
+                  - img [ref=e267]
+              - generic [ref=e269]:
+                - group [ref=e270]:
+                  - radio [checked] [ref=e271] [cursor=pointer]:
+                    - img [ref=e272]
+                  - radio [ref=e274] [cursor=pointer]:
+                    - img [ref=e275]
+                - link "New project" [ref=e276] [cursor=pointer]:
+                  - /url: /dashboard/new/eblxntwozdgjftvyxtlz
+                  - img [ref=e278]
+                  - generic [ref=e279]: New project
+            - list [ref=e281]:
+              - listitem [ref=e282]:
+                - link "new1english-production AWS | ap-northeast-2 Paused" [ref=e283] [cursor=pointer]:
+                  - /url: /dashboard/project/ohrlytvxxgbolhjlrres
+                  - generic [ref=e284]:
+                    - generic [ref=e285]:
+                      - generic [ref=e286]:
+                        - generic [ref=e287]:
+                          - heading "new1english-production" [level=5] [ref=e288]
+                          - button [ref=e290]:
+                            - img [ref=e292]
+                        - paragraph [ref=e296]: AWS | ap-northeast-2
+                      - generic [ref=e299]: Paused
+                    - alert [ref=e301]:
+                      - img [ref=e303]
+                      - generic [ref=e305]:
+                        - paragraph [ref=e306]: Project is paused
+                        - button [ref=e307]:
+                          - img [ref=e308]
+              - listitem [ref=e310]:
+                - link "nvoim-planner-pro AWS | ap-northeast-2 Active nano" [ref=e311] [cursor=pointer]:
+                  - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                  - generic [ref=e313]:
+                    - generic [ref=e314]:
+                      - generic [ref=e315]:
+                        - heading "nvoim-planner-pro" [level=5] [ref=e316]
+                        - button [ref=e318]:
+                          - img [ref=e320]
+                      - paragraph [ref=e324]: AWS | ap-northeast-2
+                    - generic [ref=e325]:
+                      - generic [ref=e327]: Active
+                      - generic [ref=e329]: nano
+              - listitem [ref=e330]:
+                - link "twins1850 Project AWS | ap-northeast-2 Active nano" [ref=e331] [cursor=pointer]:
+                  - /url: /dashboard/project/fksgvvktgmdcezxnykui
+                  - generic [ref=e333]:
+                    - generic [ref=e334]:
+                      - generic [ref=e335]:
+                        - heading "twins1850 Project" [level=5] [ref=e336]
+                        - button [ref=e338]:
+                          - img [ref=e340]
+                      - paragraph [ref=e344]: AWS | ap-northeast-2
+                    - generic [ref=e345]:
+                      - generic [ref=e347]: Active
+                      - generic [ref=e349]: nano
+  - alert [ref=e132]: Supabase

@@ -58,3 +58,4 @@ web-build/
 *.temp
 tmp/
 temp/
+.vercel

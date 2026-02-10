@@ -1,0 +1,486 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - paragraph: We are investigating a technical issue
+                    - generic:
+                      - generic:
+                        - text: Follow the
+                        - link:
+                          - /url: https://status.supabase.com
+                          - text: status page
+                        - text: for updates
+        - generic:
+          - generic:
+            - navigation:
+              - link:
+                - /url: /dashboard/organizations
+                - img
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                - button:
+                  - generic:
+                    - img
+          - banner:
+            - generic:
+              - button
+            - generic:
+              - generic:
+                - generic:
+                  - link:
+                    - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+                    - img
+                    - generic: Free
+                  - button:
+                    - generic:
+                      - img
+                  - generic:
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - img
+                      - generic: nvoim-planner-pro
+                    - button:
+                      - generic:
+                        - img
+                    - generic:
+                      - img
+                    - link:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                      - generic: main
+                      - generic: Production
+                    - button:
+                      - generic:
+                        - img
+                - button [ref=e3634] [cursor=pointer]:
+                  - img [ref=e133]
+                  - generic [ref=e135]: Connect
+              - generic:
+                - generic:
+                  - generic: Feedback
+                - generic:
+                  - button [ref=e140] [cursor=pointer]:
+                    - img [ref=e142]
+                  - button [ref=e146] [cursor=pointer]:
+                    - img [ref=e148]
+                  - button [ref=e151] [cursor=pointer]:
+                    - img [ref=e153]
+                  - button [ref=e155] [cursor=pointer]:
+                    - img [ref=e159]
+                - button:
+                  - generic:
+                    - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - main:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - tablist:
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Invite Codes and Student–Teacher Connections
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Invite code generation and planner linking
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link student to planner function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner Function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner Function
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Link Student to Planner
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Connect Student via Invite Code
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Ensure Student Profile for Current User
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Connect Student via Invite Code
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Planner authentication and profile relationship check
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: 학생 연결 및 프로필 보장 함수
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Fix student_profiles foreign key constraints
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Enforce unique user_id on students
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messaging and Conversation Tables
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Conversations Table for Teacher–Student Chats
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Seed Student–Teacher Association
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Conversations and Messages Schema with Row-Level Security
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messages Schema Migration
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Messages table timestamps and auto-update trigger
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab:
+                                      - img
+                                      - generic:
+                                        - generic: Drop recursive RLS policy on homework
+                                      - button:
+                                        - img
+                                    - separator
+                                - generic:
+                                  - button:
+                                    - tab [selected]:
+                                      - img
+                                      - generic:
+                                        - generic: Restore membership pricing templates
+                                      - button:
+                                        - img
+                                    - separator
+                                - button:
+                                  - img
+                            - status
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - code:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: "158"
+                                                  - generic:
+                                                    - generic: "159"
+                                                  - generic:
+                                                    - generic: "160"
+                                                  - generic:
+                                                    - generic: "161"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "162"
+                                                  - generic:
+                                                    - generic: "163"
+                                                  - generic:
+                                                    - generic: "164"
+                                                  - generic:
+                                                    - generic: "165"
+                                                  - generic:
+                                                    - generic: "166"
+                                                  - generic:
+                                                    - generic: "167"
+                                                  - generic:
+                                                    - generic: "168"
+                                                  - generic:
+                                                    - generic: "169"
+                                                  - generic:
+                                                    - generic: "170"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "171"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "172"
+                                                  - generic:
+                                                    - generic: 
+                                                    - generic: "173"
+                                                  - generic:
+                                                    - generic: "174"
+                                                  - generic:
+                                                    - generic: "175"
+                                                  - generic:
+                                                    - generic: "176"
+                                                  - generic:
+                                                    - generic: "177"
+                                                  - generic:
+                                                    - generic: "178"
+                                                  - generic:
+                                                    - generic: "179"
+                                                  - generic:
+                                                    - generic: "180"
+                                                  - generic:
+                                                    - generic: "181"
+                                                  - generic:
+                                                    - generic: "182"
+                                                  - generic:
+                                                    - generic: "183"
+                                                  - generic:
+                                                    - generic: "184"
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: END LOOP;
+                                                  - generic:
+                                                    - generic: END IF;
+                                                  - generic:
+                                                    - generic: "-- 성공 응답"
+                                                  - generic:
+                                                    - generic: RETURN json_build_object(
+                                                  - generic:
+                                                    - generic: "'success', true,"
+                                                  - generic:
+                                                    - generic: "'subscription_id', v_subscription_id,"
+                                                  - generic:
+                                                    - generic: "'subscription_name', v_subscription_name,"
+                                                  - generic:
+                                                    - generic: "'total_lessons', v_total_lessons,"
+                                                  - generic:
+                                                    - generic: "'max_postponements', v_max_postponements,"
+                                                  - generic:
+                                                    - generic: "'end_date', v_end_date"
+                                                  - generic:
+                                                    - generic: );
+                                                  - generic:
+                                                    - generic: EXCEPTION
+                                                  - generic:
+                                                    - generic: WHEN others THEN
+                                                  - generic:
+                                                    - generic: RETURN json_build_object(
+                                                  - generic:
+                                                    - generic: "'success', false,"
+                                                  - generic:
+                                                    - generic: "'message', 'Failed to create subscription: ' || SQLERRM"
+                                                  - generic:
+                                                    - generic: );
+                                                  - generic:
+                                                    - generic: END;
+                                                  - generic:
+                                                    - generic: $$ LANGUAGE plpgsql SECURITY DEFINER;
+                                                  - generic:
+                                                    - generic: "-- 함수 실행 권한 부여"
+                                                  - generic:
+                                                    - generic: GRANT EXECUTE ON FUNCTION create_subscription(UUID, subscription_frequency,
+                                                  - generic:
+                                                    - generic: lesson_duration, payment_period, DATE, INT, JSONB, DECIMAL, DECIMAL, TEXT,
+                                                  - generic:
+                                                    - generic: TEXT, TEXT) TO authenticated;
+                                                  - generic:
+                                                    - generic: COMMENT ON FUNCTION create_subscription IS '수강권 생성 함수 - pricing_type,
+                                                  - generic:
+                                                    - generic: payment_method, per_lesson_price, per_month_price, max_postponements 지원';
+                                              - textbox: COMMENT ON FUNCTION create_subscription IS '수강권 생성 함수 - pricing_type, payment_method, per_lesson_price, per_month_price, max_postponements 지원';
+                                              - generic:
+                                                - generic:
+                                                  - generic: "34"
+                                                  - generic: 
+                                                - generic:
+                                                  - generic: "144"
+                                                  - generic: 
+                                                - generic:
+                                                  - listitem:
+                                                    - generic: BEGIN
+                                                  - listitem:
+                                                    - generic: IF p_weekly_schedule IS NOT NULL AND p_frequency != '자율수강' THEN
+                                - separator:
+                                  - generic:
+                                    - img
+                                - generic:
+                                  - generic:
+                                    - tablist:
+                                      - generic:
+                                        - tab [selected]:
+                                          - generic: Results
+                                        - tab:
+                                          - generic: Explain
+                                        - tab:
+                                          - generic: Chart
+                                      - generic:
+                                        - button:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic: Source
+                                              - button:
+                                                - generic: Primary database
+                                                - generic:
+                                                  - img
+                                            - button:
+                                              - generic:
+                                                - generic:
+                                                  - generic: Role
+                                                  - generic: postgres
+                                                  - img
+                                            - button:
+                                              - generic: Run
+                                              - generic:
+                                                - generic:
+                                                  - img
+                                                  - img
+                                    - generic:
+                                      - paragraph:
+                                        - text: Click
+                                        - code: Run
+                                        - text: to execute your query.
+  - generic:
+    - alert: Supabase
+  - dialog "Potential issue detected with your query" [ref=e3636]:
+    - heading "Potential issue detected with your query" [level=2] [ref=e3638]
+    - alert [ref=e3639]:
+      - img [ref=e3640]
+      - generic [ref=e3643]:
+        - heading "The following potential issue has been detected:" [level=5] [ref=e3644]
+        - paragraph [ref=e3646]: Ensure that these are intentional before executing this query
+    - generic [ref=e3647]:
+      - list [ref=e3649]:
+        - listitem [ref=e3650]:
+          - generic [ref=e3651]: Query has destructive operation
+          - generic [ref=e3652]: Make sure you are not accidentally removing something important.
+      - paragraph [ref=e3653]: Please confirm that you would like to execute this query.
+    - generic [ref=e3655]:
+      - button "Cancel" [active] [ref=e3656] [cursor=pointer]:
+        - generic [ref=e3657]: Cancel
+      - button "Run this query" [ref=e3658] [cursor=pointer]:
+        - generic [ref=e3659]: Run this query
+    - button "Close" [ref=e3660] [cursor=pointer]:
+      - img [ref=e3661]
+      - generic [ref=e3664]: Close

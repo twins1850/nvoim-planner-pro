@@ -307,15 +307,15 @@ function OrderPendingPageContent() {
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-gray-600">은행</span>
-                <span className="font-bold">우리은행</span>
+                <span className="font-bold">하나은행</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">계좌번호</span>
-                <span className="font-bold">1002-123-456789</span>
+                <span className="font-bold">535-810053-96905</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">예금주</span>
-                <span className="font-bold">엔보임플래너프로</span>
+                <span className="font-bold">김형원</span>
               </div>
               <div className="flex justify-between pt-2 border-t">
                 <span className="text-gray-600">입금액</span>
@@ -328,14 +328,14 @@ function OrderPendingPageContent() {
           <div className="bg-red-50 border-2 border-red-400 rounded-lg p-6">
             <h3 className="font-bold text-red-900 mb-4">⚠️ 중요 안내</h3>
             <p className="text-red-800 font-bold mb-2">
-              입금 시 입금자명에 주문번호를 반드시 포함해주세요!
+              입금 시 입금자명을 정확히 기재해주세요!
             </p>
             <div className="bg-white rounded-lg p-4 my-3">
-              <p className="text-sm text-gray-600 mb-2">주문번호:</p>
-              <p className="text-xl font-mono font-bold text-purple-600">{order.order_id}</p>
+              <p className="text-sm text-gray-600 mb-2">입금자명:</p>
+              <p className="text-xl font-bold text-purple-600">{order.customer_name}</p>
             </div>
             <p className="text-sm text-red-700">
-              예시: <strong>{order.order_id}</strong> 또는 <strong>{order.customer_name}{order.order_id.slice(-4)}</strong>
+              주문하실 때 입력한 <strong>이름({order.customer_name})</strong>으로 정확히 입금해주세요.
             </p>
           </div>
         </div>

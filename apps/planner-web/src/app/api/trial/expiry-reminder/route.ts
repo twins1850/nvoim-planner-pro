@@ -1,6 +1,13 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  sendSMS,
+  getSMSTemplate,
+  sendKakaoAlimtalk,
+  getKakaoAlimtalkVariables,
+  getKakaoTemplateId,
+} from '@/lib/send-sms';
 
 /**
  * 체험 만료 알림 이메일 발송 API
@@ -63,7 +70,8 @@ async function handleTrialExpiryReminder(req: NextRequest) {
         planner_id,
         profiles:planner_id (
           full_name,
-          email
+          email,
+          phone_number
         )
       `
       )
@@ -206,12 +214,128 @@ async function handleTrialExpiryReminder(req: NextRequest) {
 </body>
 </html>`;
 
+        // 알림 타입 결정 (daysLeft 기준)
+        let notificationType: '7days' | '3days' | '1day' | 'expired';
+        if (daysLeft >= 7) {
+          notificationType = '7days';
+        } else if (daysLeft >= 3) {
+          notificationType = '3days';
+        } else if (daysLeft >= 1) {
+          notificationType = '1day';
+        } else {
+          notificationType = 'expired';
+        }
+
         // 이메일 발송
-        await transporter.sendMail({
-          from: `엔보임 플래너 프로 <${process.env.GMAIL_USER}>`,
-          to: profile.email,
-          subject: `⏰ [엔보임 플래너 프로] 체험 기간 만료 ${daysLeft}일 전 안내`,
-          html: emailHTML,
+        let emailSent = false;
+        let emailError: string | null = null;
+        try {
+          await transporter.sendMail({
+            from: `엔보임 플래너 프로 <${process.env.GMAIL_USER}>`,
+            to: profile.email,
+            subject: `⏰ [엔보임 플래너 프로] 체험 기간 만료 ${daysLeft}일 전 안내`,
+            html: emailHTML,
+          });
+          emailSent = true;
+          console.log(`[Trial Expiry Reminder] Email sent to ${profile.email}`);
+        } catch (err: any) {
+          emailError = err.message;
+          console.error(`[Trial Expiry Reminder] Email failed:`, err);
+        }
+
+        // SMS 발송
+        let smsSent = false;
+        let smsError: string | null = null;
+        if (profile.phone_number) {
+          try {
+            const smsMessage = getSMSTemplate(notificationType, {
+              userName: profile.full_name || '선생님',
+              daysRemaining: daysLeft,
+              expiresAt: expiresAt.toISOString(),
+            });
+
+            const smsResult = await sendSMS({
+              to: profile.phone_number,
+              message: smsMessage,
+            });
+
+            smsSent = smsResult.success;
+            smsError = smsResult.error || null;
+
+            if (smsResult.success) {
+              console.log(`[Trial Expiry Reminder] SMS sent to ${profile.phone_number}`);
+            } else {
+              console.error(`[Trial Expiry Reminder] SMS failed:`, smsResult.error);
+            }
+          } catch (err: any) {
+            smsError = err.message;
+            console.error(`[Trial Expiry Reminder] SMS error:`, err);
+          }
+        } else {
+          console.log(`[Trial Expiry Reminder] No phone number for ${profile.email}`);
+        }
+
+        // 카카오톡 알림톡 발송 (SMS보다 우선 순위 높음, 비용 절감)
+        let kakaoSent = false;
+        let kakaoError: string | null = null;
+        if (profile.phone_number) {
+          try {
+            const templateId = getKakaoTemplateId(notificationType);
+
+            if (templateId) {
+              const variables = getKakaoAlimtalkVariables(notificationType, {
+                userName: profile.full_name || '선생님',
+                daysRemaining: daysLeft,
+                expiresAt: expiresAt.toLocaleDateString('ko-KR'),
+              });
+
+              const kakaoResult = await sendKakaoAlimtalk({
+                to: profile.phone_number,
+                templateId,
+                variables,
+              });
+
+              kakaoSent = kakaoResult.success;
+              kakaoError = kakaoResult.error || null;
+
+              if (kakaoResult.success) {
+                console.log(
+                  `[Trial Expiry Reminder] KakaoTalk sent to ${profile.phone_number}`
+                );
+                // 카카오톡 발송 성공 시 SMS 발송 스킵 (비용 절감)
+                // smsSent = false;
+              } else {
+                console.error(
+                  `[Trial Expiry Reminder] KakaoTalk failed:`,
+                  kakaoResult.error
+                );
+              }
+            } else {
+              console.log(
+                `[Trial Expiry Reminder] No KakaoTalk template ID configured for ${notificationType}`
+              );
+              // 템플릿 ID가 없으면 SMS 발송으로 대체 (위에서 이미 발송됨)
+            }
+          } catch (err: any) {
+            kakaoError = err.message;
+            console.error(`[Trial Expiry Reminder] KakaoTalk error:`, err);
+          }
+        }
+
+        // trial_notifications 테이블에 로그 저장
+        await supabaseAdmin.from('trial_notifications').insert({
+          license_id: license.id,
+          planner_id: license.planner_id,
+          notification_type: notificationType,
+          email: profile.email,
+          phone_number: profile.phone_number || null,
+          email_sent: emailSent,
+          sms_sent: smsSent,
+          kakao_sent: kakaoSent,
+          sent_at: new Date().toISOString(),
+          error_message: emailError,
+          sms_error_message: smsError,
+          kakao_error_message: kakaoError,
         });
 
         // 알림 발송 플래그 업데이트
@@ -224,7 +348,7 @@ async function handleTrialExpiryReminder(req: NextRequest) {
           .eq('id', license.id);
 
         notifiedCount++;
-        console.log(`[Trial Expiry Reminder] Sent to ${profile.email} (${daysLeft} days left)`);
+        console.log(`[Trial Expiry Reminder] Notification sent (${daysLeft} days left)`);
       } catch (emailError: any) {
         console.error(`[Trial Expiry Reminder] Failed to send email for license ${license.id}:`, emailError);
         errors.push(`License ${license.id}: ${emailError.message}`);

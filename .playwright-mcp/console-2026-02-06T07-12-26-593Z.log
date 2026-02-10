@@ -1,0 +1,2 @@
+[  589800ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/messages?select=sender_id&receiver_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&sender_id=in.%28ea03a8c4-1390-47df-83e2-79ac1712c6a3%29&read_at=is.null:0
+[  589803ms] [ERROR] Unread messages query failed: column messages.receiver_id does not exist @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359

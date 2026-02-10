@@ -132,11 +132,14 @@ const HomeScreen = () => {
     // 알림 읽음 처리
     notificationAPI.markAsRead(notificationId)
       .catch(error => console.error('Failed to mark notification as read', error));
-    
+
     // 알림 타입에 따라 다른 화면으로 이동
     const notification = notifications.find(n => n.id === notificationId);
     if (notification) {
-      if (notification.type === 'homework') {
+      if (notification.type === 'message') {
+        // 메시지 알림 클릭 시 Messages 탭으로 이동
+        navigation.navigate('Main', { screen: 'Messages' });
+      } else if (notification.type === 'homework') {
         navigation.navigate('HomeworkDetail', { homeworkId: notification.referenceId });
       } else if (notification.type === 'feedback') {
         navigation.navigate('FeedbackDetail', { feedbackId: notification.referenceId });
@@ -235,19 +238,21 @@ const HomeScreen = () => {
               onPress={() => handleNotificationPress(notification.id)}
             >
               <View style={styles.notificationIcon}>
-                <Ionicons 
+                <Ionicons
                   name={
+                    notification.type === 'message' ? 'mail-outline' :
                     notification.type === 'homework' ? 'book-outline' :
-                    notification.type === 'feedback' ? 'chatbubble-outline' : 'notifications-outline'
-                  } 
-                  size={24} 
-                  color="#4F6CFF" 
+                    notification.type === 'feedback' ? 'chatbubble-outline' :
+                    'notifications-outline'
+                  }
+                  size={24}
+                  color="#4F6CFF"
                 />
               </View>
               <View style={styles.notificationContent}>
                 <Text style={styles.notificationTitle}>{notification.title}</Text>
                 <Text style={styles.notificationBody} numberOfLines={2}>
-                  {notification.body}
+                  {notification.message}
                 </Text>
                 <Text style={styles.notificationDate}>
                   {formatDate(notification.createdAt)}

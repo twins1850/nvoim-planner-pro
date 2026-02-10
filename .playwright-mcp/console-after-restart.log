@@ -1,0 +1,32 @@
+Total messages: 30 (Errors: 0, Warnings: 1)
+
+[WARNING] [expo-av]: Expo AV has been deprecated and will be removed in SDK 54. Use the `expo-audio` and `expo-video` packages to replace the required functionality. @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:726
+[LOG] 인증 상태 변경: SIGNED_IN twins1850@gmial.com @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:213
+[LOG] 현재 Supabase 사용자: {id: ea03a8c4-1390-47df-83e2-79ac1712c6a3, aud: authenticated, role: authenticated, email: twins1850@gmial.com, email_confirmed_at: 2026-02-05T08:46:52.302625Z} @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:213
+[LOG] 인증 상태 변경: INITIAL_SESSION twins1850@gmial.com @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:213
+[LOG] 실시간 알림 구독 시작: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:539
+[LOG] 실시간 알림 구독 시작: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:539
+[LOG] 🔍 학생 숙제 가져오기 시작... @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 🔍 학생 숙제 가져오기 시작... @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 👤 현재 학생 사용자: ea03a8c4-1390-47df-83e2-79ac1712c6a3 twins1850@gmial.com @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 📚 homework_assignments 조회 중... student_id: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 실시간 알림 구독 시작: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:539
+[LOG] 👤 현재 학생 사용자: ea03a8c4-1390-47df-83e2-79ac1712c6a3 twins1850@gmial.com @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 📚 homework_assignments 조회 중... student_id: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 📊 숙제 조회 결과: {data: Array(0), error: null, count: 0} @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 📊 첫 번째 assignment 전체: undefined @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] ✅ 최종 숙제 목록: [] @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] ✅ 첫 번째 숙제: undefined @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 🏠 HomeScreen homework response: {success: true, data: Object} @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:693
+[LOG] 🏠 HomeScreen homeworks data: [] @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:693
+[LOG] 🏠 첫 번째 숙제 상세: undefined @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:693
+[LOG] 📊 숙제 조회 결과: {data: Array(0), error: null, count: 0} @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 📊 첫 번째 assignment 전체: undefined @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] ✅ 최종 숙제 목록: [] @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] ✅ 첫 번째 숙제: undefined @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:696
+[LOG] 🏠 HomeScreen homework response: {success: true, data: Object} @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:693
+[LOG] 🏠 HomeScreen homeworks data: [] @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:693
+[LOG] 🏠 첫 번째 숙제 상세: undefined @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:693
+[LOG] Fetching student data for user: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:716
+[LOG] Student data query result: {studentData: Array(0), studentError: null} @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:716
+[LOG] No connected student found for user: ea03a8c4-1390-47df-83e2-79ac1712c6a3 @ http://localhost:10000/_expo/static/js/web/index-8e3e6ba79abac474917fa75d659b9b00.js:716

@@ -1,0 +1,209 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "엔보임 플래너 프로" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: 엔보임 플래너 프로
+        - button "메뉴 열기" [ref=e9]:
+          - generic [ref=e10]: 메뉴 열기
+          - img [ref=e11]
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - button [ref=e18]:
+        - img [ref=e19]
+      - generic [ref=e21]:
+        - generic [ref=e22]: 신
+        - generic [ref=e23]:
+          - heading "신규학생" [level=1] [ref=e24]
+          - generic [ref=e25]:
+            - generic [ref=e26]: 비활성
+            - generic [ref=e27]: "레벨:"
+    - generic [ref=e28]:
+      - button "기본 정보" [ref=e29]
+      - button "수강권 현황" [ref=e30]
+      - button "수강 과정" [ref=e31]
+      - button "학습 기록" [ref=e32]
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - heading "수강권 현황" [level=2] [ref=e89]
+        - button "수강권 추가" [ref=e90]:
+          - img [ref=e91]
+          - text: 수강권 추가
+      - generic [ref=e93]:
+        - img [ref=e94]
+        - paragraph [ref=e96]: 등록된 수강권이 없습니다
+        - button "수강권 추가" [ref=e97]
+    - generic [ref=e99]:
+      - heading "수강권 추가" [level=3] [ref=e100]
+      - generic [ref=e101]:
+        - generic [ref=e254]:
+          - img [ref=e255]
+          - paragraph [ref=e257]: Could not find the function public.create_subscription(p_duration, p_flexible_lessons_per_month, p_frequency, p_notes, p_payment_amount, p_payment_method, p_payment_period, p_pricing_type, p_start_date, p_student_id, p_total_amount, p_weekly_schedule) in the schema cache
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - img [ref=e104]
+            - text: 수강 빈도
+          - generic [ref=e109]:
+            - button "주2회" [ref=e110]
+            - button "주3회" [ref=e111]
+            - button "주5회" [ref=e112]
+            - button "주6회" [ref=e113]
+            - button "자율수강" [ref=e114]
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - img [ref=e117]
+            - text: 수업 시간
+          - generic [ref=e120]:
+            - button "25분" [ref=e121]
+            - button "50분" [ref=e122]
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - img [ref=e125]
+            - text: 결제 기간
+          - generic [ref=e127]:
+            - button "1개월" [ref=e128]
+            - button "3개월" [ref=e129]
+            - button "6개월" [ref=e130]
+            - button "12개월" [ref=e131]
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - img [ref=e134]
+            - text: 가격 타입
+          - generic [ref=e136]:
+            - button "관리수강" [ref=e137]
+            - button "일반수강" [ref=e138]
+            - button "원단가" [ref=e139]
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - img [ref=e142]
+            - text: 결제 수단
+          - generic [ref=e144]:
+            - button "현금" [ref=e145]
+            - button "카드 (+10%)" [ref=e146]
+        - generic [ref=e147]:
+          - generic [ref=e148]:
+            - img [ref=e149]
+            - text: 수강 시작일
+          - textbox [ref=e151]: 2026-02-10
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]:
+              - img [ref=e155]
+              - text: 주별 스케줄
+            - button "추가" [ref=e158]:
+              - img [ref=e159]
+              - text: 추가
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - combobox [ref=e162]:
+                - option "월요일" [selected]
+                - option "화요일"
+                - option "수요일"
+                - option "목요일"
+                - option "금요일"
+                - option "토요일"
+                - option "일요일"
+              - textbox [ref=e163]: 09:00
+              - generic [ref=e164]: ~
+              - textbox [disabled] [ref=e165]: 09:25
+              - button [ref=e166]:
+                - img [ref=e167]
+            - generic [ref=e170]:
+              - combobox [ref=e171]:
+                - option "월요일"
+                - option "화요일"
+                - option "수요일" [selected]
+                - option "목요일"
+                - option "금요일"
+                - option "토요일"
+                - option "일요일"
+              - textbox [ref=e172]: 09:00
+              - generic [ref=e173]: ~
+              - textbox [disabled] [ref=e174]: 09:25
+              - button [ref=e175]:
+                - img [ref=e176]
+            - generic [ref=e198]:
+              - combobox [ref=e199]:
+                - option "월요일"
+                - option "화요일"
+                - option "수요일"
+                - option "목요일"
+                - option "금요일" [selected]
+                - option "토요일"
+                - option "일요일"
+              - textbox [ref=e200]: 09:00
+              - generic [ref=e201]: ~
+              - textbox [disabled] [ref=e202]: 09:25
+              - button [ref=e203]:
+                - img [ref=e204]
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - img [ref=e182]
+              - text: 정가 (원)
+              - generic [ref=e207]: (자동 계산 - 수정불가)
+            - spinbutton [disabled] [ref=e184]: "609000"
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - img [ref=e187]
+              - text: 결제 금액 (원)
+              - generic [ref=e208]: (자동 계산)
+            - spinbutton [ref=e189]: "900000"
+        - generic [ref=e190]:
+          - generic [ref=e191]:
+            - img [ref=e192]
+            - text: 메모
+          - textbox "특이사항이나 참고사항을 입력해주세요." [ref=e194]
+        - generic [ref=e209]:
+          - heading "수강권 미리보기" [level=4] [ref=e210]
+          - generic [ref=e211]:
+            - paragraph [ref=e212]:
+              - strong [ref=e213]: "수강권명:"
+              - text: 주3회 25분 3개월권
+            - paragraph [ref=e214]:
+              - strong [ref=e215]: "수강 기간:"
+              - text: 2026. 2. 10. ~ 2026. 5. 9.
+            - paragraph [ref=e216]:
+              - strong [ref=e217]: "총 수업 횟수:"
+              - text: 36회
+            - paragraph [ref=e218]:
+              - strong [ref=e219]: "최대 연기 횟수:"
+              - text: 6회
+            - paragraph [ref=e221]: 💰 가격표
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - generic [ref=e224]: 원단가 (회원가)
+                - generic [ref=e225]: 609,000원
+              - paragraph [ref=e226]: 회당 16,917원 / 월 203,000원
+            - generic [ref=e227]:
+              - generic [ref=e228]: 일반수강
+              - generic [ref=e229]:
+                - generic [ref=e230]:
+                  - generic [ref=e231]: 현금
+                  - generic [ref=e232]: 684,000원
+                - generic [ref=e233]:
+                  - generic [ref=e234]: 카드
+                  - generic [ref=e235]: 752,400원
+                - paragraph [ref=e236]: 회당 19,000원 / 월 228,000원
+                - paragraph [ref=e237]: "마진: 75,000원"
+            - generic [ref=e238]:
+              - generic [ref=e239]: 관리수강 ✓
+              - generic [ref=e240]:
+                - generic [ref=e241]:
+                  - generic [ref=e242]: 현금
+                  - generic [ref=e243]: 900,000원
+                - generic [ref=e244]:
+                  - generic [ref=e245]: 카드
+                  - generic [ref=e246]: 929,000원
+                - paragraph [ref=e247]: 회당 25,000원 / 월 300,000원
+                - paragraph [ref=e248]: "마진: 291,000원"
+            - generic [ref=e250]:
+              - generic [ref=e251]: 선택된 금액 (관리수강 - 현금)
+              - generic [ref=e252]: 900,000원
+        - generic [ref=e195]:
+          - button "취소" [ref=e196]
+          - button "수강권 추가" [ref=e197]
+  - button "Open Next.js Dev Tools" [ref=e83] [cursor=pointer]:
+    - img [ref=e84]
+  - alert [ref=e17]

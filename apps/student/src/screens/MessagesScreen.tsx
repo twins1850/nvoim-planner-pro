@@ -110,12 +110,13 @@ const MessagesScreen = () => {
       // 학생 정보 가져오기
       console.log('Fetching student data for user:', user.id);
       const { data: studentData, error: studentError } = await supabase
-        .from('students')
+        .from('student_profiles')
         .select(`
           id,
-          teacher_id
+          planner_id
         `)
-        .eq('user_id', user.id);
+        .eq('id', user.id)
+        .maybeSingle();
 
       console.log('Student data query result:', { studentData, studentError });
 
@@ -125,55 +126,66 @@ const MessagesScreen = () => {
         return;
       }
 
-      if (!studentData || studentData.length === 0) {
-        console.log('No connected student found for user:', user.id);
+      if (!studentData || !studentData.planner_id) {
+        console.log('No connected planner found for user:', user.id);
         Alert.alert('알림', '선생님과 연결이 필요합니다. 프로필에서 초대 코드를 입력해주세요.');
         return;
       }
 
-      const student = studentData[0]; // 첫 번째 결과 사용
+      const student = studentData;
 
-      // 선생님 정보 가져오기
+      // 플래너 정보 가져오기
       const { data: teacherData, error: teacherError } = await supabase
-        .from('teacher_profiles')
-        .select('id, full_name, avatar_url')
-        .eq('id', student.teacher_id);
+        .from('planner_profiles')
+        .select('id')
+        .eq('id', student.planner_id)
+        .maybeSingle();
+
+      // profiles 테이블에서 플래너 이름 가져오기
+      const { data: plannerProfileData } = await supabase
+        .from('profiles')
+        .select('id, full_name')
+        .eq('id', student.planner_id)
+        .maybeSingle();
 
       if (teacherError) {
-        console.error('Error fetching teacher data:', teacherError);
-        Alert.alert('오류', '선생님 정보를 가져오는 중 오류가 발생했습니다.');
-        return;
+        console.error('Error fetching planner data:', teacherError);
       }
 
       let teacher;
-      if (!teacherData || teacherData.length === 0) {
-        console.log('No teacher profile found for teacher_id:', student.teacher_id);
-        // 교사 프로필이 없는 경우 기본값 사용
+      if (!plannerProfileData) {
+        console.log('No planner profile found for planner_id:', student.planner_id);
+        // 플래너 프로필이 없는 경우 기본값 사용
         teacher = {
-          id: student.teacher_id,
-          full_name: '김선생님',
+          id: student.planner_id,
+          full_name: '플래너',
           avatar_url: null
         };
       } else {
-        teacher = teacherData[0]; // 첫 번째 결과 사용
+        teacher = {
+          id: plannerProfileData.id,
+          full_name: plannerProfileData.full_name || '플래너',
+          avatar_url: null
+        };
       }
 
-      // 선생님 정보 설정
+      // 플래너 정보 설정
       const teacherInfo: Teacher = {
-        id: student.teacher_id,
-        full_name: teacher.full_name || '선생님',
+        id: student.planner_id,
+        full_name: teacher.full_name || '플래너',
         avatar_url: teacher.avatar_url,
         is_online: false // 실시간 상태는 추후 구현
       };
-      
+
       setTeacher(teacherInfo);
 
       // 대화방 찾기 또는 생성
       let { data: conversationData, error: conversationError } = await supabase
         .from('conversations')
         .select('id')
-        .eq('teacher_id', student.teacher_id)
-        .eq('student_id', user.id);
+        .eq('teacher_id', student.planner_id)
+        .eq('student_id', user.id)
+        .maybeSingle();
 
       let conversation = null;
 
@@ -183,15 +195,16 @@ const MessagesScreen = () => {
         return;
       }
 
-      if (!conversationData || conversationData.length === 0) {
+      if (!conversationData) {
         // 대화방이 없으면 생성
         const { data: newConversation, error: createError } = await supabase
           .from('conversations')
           .insert({
-            teacher_id: student.teacher_id,
+            teacher_id: student.planner_id,
             student_id: user.id
           })
-          .select('id');
+          .select('id')
+          .maybeSingle();
 
         if (createError) {
           console.error('Error creating conversation:', createError);
@@ -199,14 +212,14 @@ const MessagesScreen = () => {
           return;
         }
 
-        if (newConversation && newConversation.length > 0) {
-          conversation = newConversation[0];
+        if (newConversation) {
+          conversation = newConversation;
         } else {
           Alert.alert('오류', '대화방을 생성할 수 없습니다.');
           return;
         }
       } else {
-        conversation = conversationData[0];
+        conversation = conversationData;
       }
 
       setConversationId(conversation.id);

@@ -720,11 +720,19 @@ async function connectStudent(
     await page.click('text=중복확인');
     await page.waitForTimeout(3000); // Wait for API check to complete
 
+    // Fill phone number
+    await page.locator('[data-testid="register-phone-input"]').fill('010-1234-5678');
+    await page.waitForTimeout(500);
+
     // Fill passwords
     await page.locator('[data-testid="register-password-input"]').fill(password);
     await page.waitForTimeout(500);
 
     await page.locator('[data-testid="register-confirm-password-input"]').fill(password);
+    await page.waitForTimeout(500);
+
+    // Agree to privacy policy
+    await page.locator('[data-testid="privacy-agreement-checkbox"]').click();
     await page.waitForTimeout(500);
 
     // Click signup button - use the last one
@@ -733,21 +741,12 @@ async function connectStudent(
 
     // Step 3: Wait for ConnectPlannerScreen to appear
     await page.waitForTimeout(3000);
-    const connectScreenTitle = page.locator('text=학생 정보 등록');
+    const connectScreenTitle = page.locator('text=플래너와 연결하기');
     await connectScreenTitle.waitFor({ state: 'visible', timeout: 15000 });
 
     console.log(`✅ Signup completed for ${email}, filling ConnectPlannerScreen`);
 
-    // Step 4: Fill ConnectPlannerScreen - use data-testid for reliability
-    await page.locator('[data-testid="connect-student-name-input"]').fill(name);
-    await page.waitForTimeout(500);
-
-    await page.locator('[data-testid="connect-phone-input"]').fill('010-1234-5678');
-    await page.waitForTimeout(500);
-
-    await page.locator('[data-testid="connect-email-input"]').fill(email);
-    await page.waitForTimeout(500);
-
+    // Step 4: Fill ConnectPlannerScreen - only invite code now (no duplicate info!)
     await page.locator('[data-testid="connect-invite-code-input"]').fill(inviteCode);
     await page.waitForTimeout(1000);
 

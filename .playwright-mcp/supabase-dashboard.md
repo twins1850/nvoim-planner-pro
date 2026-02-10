@@ -1,0 +1,648 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e77]:
+    - banner [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - link "Supabase" [ref=e82] [cursor=pointer]:
+            - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+            - img "Supabase" [ref=e83]
+          - generic [ref=e84]:
+            - img [ref=e86]
+            - link "twins1850's Org Free" [ref=e88] [cursor=pointer]:
+              - /url: /dashboard/org/eblxntwozdgjftvyxtlz
+              - img [ref=e89]
+              - generic [ref=e99]: twins1850's Org
+              - generic [ref=e100]: Free
+            - button [ref=e101] [cursor=pointer]:
+              - img [ref=e103]
+            - generic [ref=e106]:
+              - img [ref=e108]
+              - link "nvoim-planner-pro" [ref=e110] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e111]
+                - generic "nvoim-planner-pro" [ref=e114]
+              - button [ref=e115] [cursor=pointer]:
+                - img [ref=e117]
+              - img [ref=e121]
+              - link "main Production" [ref=e123] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - generic "main" [ref=e124]
+                - generic [ref=e125]: Production
+              - button [ref=e126] [cursor=pointer]:
+                - img [ref=e128]
+          - button "Connect" [ref=e132] [cursor=pointer]:
+            - img [ref=e134]
+            - generic [ref=e136]: Connect
+        - generic [ref=e137]:
+          - generic [ref=e139] [cursor=pointer]: Feedback
+          - generic [ref=e140]:
+            - button "Search..." [ref=e141] [cursor=pointer]:
+              - generic [ref=e142]:
+                - img [ref=e143]
+                - paragraph [ref=e146]: Search...
+              - generic [ref=e148]:
+                - img [ref=e149]
+                - generic [ref=e151]: K
+            - button [ref=e152] [cursor=pointer]:
+              - img [ref=e154]
+            - button [ref=e158] [cursor=pointer]:
+              - img [ref=e160]
+            - button [ref=e163] [cursor=pointer]:
+              - img [ref=e165]
+            - button [ref=e167] [cursor=pointer]:
+              - img [ref=e171]
+          - button "twins1850" [ref=e174] [cursor=pointer]:
+            - img "twins1850" [ref=e176]
+    - generic [ref=e177]:
+      - generic [ref=e181]:
+        - list [ref=e184]:
+          - generic [ref=e185]:
+            - listitem [ref=e186]:
+              - link "Project Overview" [ref=e187] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga
+                - img [ref=e188]
+                - generic: Project Overview
+            - listitem [ref=e190]:
+              - link "Table Editor" [ref=e191] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                - img [ref=e192]
+                - generic: Table Editor
+            - listitem [ref=e194]:
+              - link "SQL Editor" [ref=e195] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/sql
+                - img [ref=e196]
+                - generic: SQL Editor
+          - generic [ref=e198]:
+            - listitem [ref=e199]:
+              - link "Database" [ref=e200] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/database/schemas
+                - img [ref=e201]
+                - generic: Database
+            - listitem [ref=e205]:
+              - link "Authentication" [ref=e206] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                - img [ref=e207]
+                - generic: Authentication
+            - listitem [ref=e209]:
+              - link "Storage" [ref=e210] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/files
+                - img [ref=e211]
+                - generic: Storage
+            - listitem [ref=e213]:
+              - link "Edge Functions" [ref=e214] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                - img [ref=e215]
+                - generic: Edge Functions
+            - listitem [ref=e220]:
+              - link "Realtime" [ref=e221] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/realtime/inspector
+                - img [ref=e222]
+                - generic: Realtime
+          - generic [ref=e224]:
+            - listitem [ref=e226]:
+              - link "Advisors" [ref=e227] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                - img [ref=e228]
+                - generic: Advisors
+            - listitem [ref=e230]:
+              - link "Observability" [ref=e231] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/observability
+                - img [ref=e232]
+                - generic: Observability
+            - listitem [ref=e240]:
+              - link "Logs" [ref=e241] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/logs/explorer
+                - img [ref=e242]
+                - generic: Logs
+            - listitem [ref=e243]:
+              - link "API Docs" [ref=e244] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/api
+                - img [ref=e245]
+                - generic: API Docs
+            - listitem [ref=e248]:
+              - link "Integrations" [ref=e249] [cursor=pointer]:
+                - /url: /dashboard/project/ybcjkdcdruquqrdahtga/integrations
+                - img [ref=e250]
+                - generic: Integrations
+          - listitem [ref=e254]:
+            - link "Project Settings" [ref=e255] [cursor=pointer]:
+              - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/general
+              - img [ref=e256]
+              - generic: Project Settings
+        - button [ref=e261] [cursor=pointer]:
+          - img [ref=e263]
+      - main [ref=e271]:
+        - generic [ref=e272]:
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - heading "nvoim-planner-pro" [level=1] [ref=e278]
+              - generic [ref=e281]: nano
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - generic [ref=e284]:
+                  - link "Tables" [ref=e285] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                  - paragraph [ref=e286]: "42"
+                - generic [ref=e287]:
+                  - link "Functions" [ref=e288] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/functions
+                  - paragraph [ref=e289]: "4"
+                - generic [ref=e290]:
+                  - link "Replicas" [ref=e291] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/settings/infrastructure
+                  - paragraph [ref=e292]: "0"
+              - button "Project Status" [ref=e294] [cursor=pointer]:
+                - generic [ref=e297]: Project Status
+          - generic [ref=e299]:
+            - generic [ref=e300]:
+              - generic [ref=e301]:
+                - button "Last 60 minutes" [ref=e302] [cursor=pointer]:
+                  - generic [ref=e303]: Last 60 minutes
+                  - img [ref=e305]
+                - generic [ref=e307]: Statistics for last 60 minutes
+              - generic [ref=e308]:
+                - generic [ref=e312]:
+                  - link "Database" [ref=e313] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/editor
+                    - generic [ref=e314]:
+                      - img [ref=e317]
+                      - heading "Database" [level=4] [ref=e322]
+                  - generic [ref=e325]:
+                    - generic [ref=e327]:
+                      - heading "REST Requests" [level=3] [ref=e331]
+                      - generic [ref=e332]:
+                        - heading "23" [level=4] [ref=e333]
+                        - heading [level=4]
+                    - img [ref=e336]
+                    - generic [ref=e350]:
+                      - generic [ref=e351]: Feb 9, 1:22pm
+                      - generic [ref=e352]: Feb 9, 2:22pm
+                - generic [ref=e356]:
+                  - link "Auth" [ref=e357] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/auth/users
+                    - generic [ref=e358]:
+                      - img [ref=e361]
+                      - heading "Auth" [level=4] [ref=e364]
+                  - generic [ref=e367]:
+                    - generic [ref=e369]:
+                      - heading "Auth Requests" [level=3] [ref=e373]
+                      - generic [ref=e374]:
+                        - heading "16" [level=4] [ref=e375]
+                        - heading [level=4]
+                    - img [ref=e378]
+                    - generic [ref=e392]:
+                      - generic [ref=e393]: Feb 9, 1:22pm
+                      - generic [ref=e394]: Feb 9, 2:22pm
+                - generic [ref=e398]:
+                  - link "Storage" [ref=e399] [cursor=pointer]:
+                    - /url: /dashboard/project/ybcjkdcdruquqrdahtga/storage/buckets
+                    - generic [ref=e400]:
+                      - img [ref=e403]
+                      - heading "Storage" [level=4] [ref=e406]
+                  - generic [ref=e409]:
+                    - generic [ref=e411]:
+                      - heading "Storage Requests" [level=3] [ref=e415]
+                      - generic [ref=e416]:
+                        - heading "0" [level=4] [ref=e417]
+                        - heading [level=4]
+                    - img [ref=e420]
+                    - generic [ref=e421]:
+                      - generic [ref=e422]: Feb 9, 1:22pm
+                      - generic [ref=e423]: Feb 9, 2:22pm
+                - generic [ref=e427]:
+                  - generic [ref=e429]:
+                    - img [ref=e432]
+                    - heading "Realtime" [level=4] [ref=e435]
+                  - generic [ref=e438]:
+                    - generic [ref=e440]:
+                      - heading "Realtime Requests" [level=3] [ref=e444]
+                      - generic [ref=e445]:
+                        - heading "0" [level=4] [ref=e446]
+                        - heading [level=4]
+                    - img [ref=e449]
+                    - generic [ref=e450]:
+                      - generic [ref=e451]: Feb 9, 1:22pm
+                      - generic [ref=e452]: Feb 9, 2:22pm
+            - generic [ref=e453]:
+              - heading "209 issues need attention" [level=2] [ref=e455]
+              - generic [ref=e456]:
+                - generic [ref=e458]:
+                  - generic [ref=e459]:
+                    - tablist [ref=e460]:
+                      - tab "Security 30" [selected] [ref=e461] [cursor=pointer]:
+                        - text: Security
+                        - generic [ref=e462]: "30"
+                      - tab "Performance 179" [ref=e463] [cursor=pointer]:
+                        - text: Performance
+                        - generic [ref=e464]: "179"
+                    - link [ref=e465] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/advisors/security
+                      - img [ref=e467]
+                  - tabpanel "Security 30" [ref=e472]:
+                    - list [ref=e474]:
+                      - listitem [ref=e475]:
+                        - generic [ref=e476]:
+                          - 'button "Table `public.course_recommendations` is public, but RLS has not been enabled." [ref=e477] [cursor=pointer]':
+                            - img [ref=e478]
+                            - paragraph [ref=e480]: "Table `public.course_recommendations` is public, but RLS has not been enabled."
+                          - button [ref=e481] [cursor=pointer]:
+                            - img [ref=e485]
+                      - listitem [ref=e488]:
+                        - generic [ref=e489]:
+                          - 'button "Table `public.course_history` is public, but RLS has not been enabled." [ref=e490] [cursor=pointer]':
+                            - img [ref=e491]
+                            - paragraph [ref=e493]: "Table `public.course_history` is public, but RLS has not been enabled."
+                          - button [ref=e494] [cursor=pointer]:
+                            - img [ref=e498]
+                      - listitem [ref=e501]:
+                        - generic [ref=e502]:
+                          - 'button "Table `public.conversations` is public, but RLS has not been enabled." [ref=e503] [cursor=pointer]':
+                            - img [ref=e504]
+                            - paragraph [ref=e506]: "Table `public.conversations` is public, but RLS has not been enabled."
+                          - button [ref=e507] [cursor=pointer]:
+                            - img [ref=e511]
+                      - listitem [ref=e514]:
+                        - generic [ref=e515]:
+                          - 'button "View `public.trial_usage_stats` is defined with the SECURITY DEFINER property" [ref=e516] [cursor=pointer]':
+                            - img [ref=e517]
+                            - paragraph [ref=e520]: "View `public.trial_usage_stats` is defined with the SECURITY DEFINER property"
+                          - button [ref=e521] [cursor=pointer]:
+                            - img [ref=e525]
+                      - listitem [ref=e528]:
+                        - generic [ref=e529]:
+                          - 'button "Function `public.update_orders_updated_at` has a role mutable search_path" [ref=e530] [cursor=pointer]':
+                            - img [ref=e531]
+                            - paragraph [ref=e534]: "Function `public.update_orders_updated_at` has a role mutable search_path"
+                          - button [ref=e535] [cursor=pointer]:
+                            - img [ref=e539]
+                      - listitem [ref=e542]:
+                        - generic [ref=e543]:
+                          - 'button "Function `public.aggregate_daily_usage` has a role mutable search_path" [ref=e544] [cursor=pointer]':
+                            - img [ref=e545]
+                            - paragraph [ref=e548]: "Function `public.aggregate_daily_usage` has a role mutable search_path"
+                          - button [ref=e549] [cursor=pointer]:
+                            - img [ref=e553]
+                      - listitem [ref=e556]:
+                        - generic [ref=e557]:
+                          - 'button "Function `public.check_license_expiration` has a role mutable search_path" [ref=e558] [cursor=pointer]':
+                            - img [ref=e559]
+                            - paragraph [ref=e562]: "Function `public.check_license_expiration` has a role mutable search_path"
+                          - button [ref=e563] [cursor=pointer]:
+                            - img [ref=e567]
+                      - listitem [ref=e570]:
+                        - generic [ref=e571]:
+                          - 'button "Function `public.ensure_student_profile` has a role mutable search_path" [ref=e572] [cursor=pointer]':
+                            - img [ref=e573]
+                            - paragraph [ref=e576]: "Function `public.ensure_student_profile` has a role mutable search_path"
+                          - button [ref=e577] [cursor=pointer]:
+                            - img [ref=e581]
+                      - listitem [ref=e584]:
+                        - generic [ref=e585]:
+                          - 'button "Function `public.set_license_expiration` has a role mutable search_path" [ref=e586] [cursor=pointer]':
+                            - img [ref=e587]
+                            - paragraph [ref=e590]: "Function `public.set_license_expiration` has a role mutable search_path"
+                          - button [ref=e591] [cursor=pointer]:
+                            - img [ref=e595]
+                      - listitem [ref=e598]:
+                        - generic [ref=e599]:
+                          - 'button "Function `public.expire_trial_licenses` has a role mutable search_path" [ref=e600] [cursor=pointer]':
+                            - img [ref=e601]
+                            - paragraph [ref=e604]: "Function `public.expire_trial_licenses` has a role mutable search_path"
+                          - button [ref=e605] [cursor=pointer]:
+                            - img [ref=e609]
+                      - listitem [ref=e612]:
+                        - generic [ref=e613]:
+                          - 'button "Function `public.create_invite_code` has a role mutable search_path" [ref=e614] [cursor=pointer]':
+                            - img [ref=e615]
+                            - paragraph [ref=e618]: "Function `public.create_invite_code` has a role mutable search_path"
+                          - button [ref=e619] [cursor=pointer]:
+                            - img [ref=e623]
+                      - listitem [ref=e626]:
+                        - generic [ref=e627]:
+                          - 'button "Function `public.calculate_max_postponements` has a role mutable search_path" [ref=e628] [cursor=pointer]':
+                            - img [ref=e629]
+                            - paragraph [ref=e632]: "Function `public.calculate_max_postponements` has a role mutable search_path"
+                          - button [ref=e633] [cursor=pointer]:
+                            - img [ref=e637]
+                      - listitem [ref=e640]:
+                        - generic [ref=e641]:
+                          - 'button "Function `public.handle_new_user` has a role mutable search_path" [ref=e642] [cursor=pointer]':
+                            - img [ref=e643]
+                            - paragraph [ref=e646]: "Function `public.handle_new_user` has a role mutable search_path"
+                          - button [ref=e647] [cursor=pointer]:
+                            - img [ref=e651]
+                      - listitem [ref=e654]:
+                        - generic [ref=e655]:
+                          - 'button "Function `public.connect_student_with_info` has a role mutable search_path" [ref=e656] [cursor=pointer]':
+                            - img [ref=e657]
+                            - paragraph [ref=e660]: "Function `public.connect_student_with_info` has a role mutable search_path"
+                          - button [ref=e661] [cursor=pointer]:
+                            - img [ref=e665]
+                      - listitem [ref=e668]:
+                        - generic [ref=e669]:
+                          - 'button "Function `public.get_student_lesson_calendar` has a role mutable search_path" [ref=e670] [cursor=pointer]':
+                            - img [ref=e671]
+                            - paragraph [ref=e674]: "Function `public.get_student_lesson_calendar` has a role mutable search_path"
+                          - button [ref=e675] [cursor=pointer]:
+                            - img [ref=e679]
+                      - listitem [ref=e682]:
+                        - generic [ref=e683]:
+                          - 'button "Function `public.postpone_lesson` has a role mutable search_path" [ref=e684] [cursor=pointer]':
+                            - img [ref=e685]
+                            - paragraph [ref=e688]: "Function `public.postpone_lesson` has a role mutable search_path"
+                          - button [ref=e689] [cursor=pointer]:
+                            - img [ref=e693]
+                      - listitem [ref=e696]:
+                        - generic [ref=e697]:
+                          - 'button "Function `public.link_student_to_planner` has a role mutable search_path" [ref=e698] [cursor=pointer]':
+                            - img [ref=e699]
+                            - paragraph [ref=e702]: "Function `public.link_student_to_planner` has a role mutable search_path"
+                          - button [ref=e703] [cursor=pointer]:
+                            - img [ref=e707]
+                      - listitem [ref=e710]:
+                        - generic [ref=e711]:
+                          - 'button "Function `public.create_message_notification` has a role mutable search_path" [ref=e712] [cursor=pointer]':
+                            - img [ref=e713]
+                            - paragraph [ref=e716]: "Function `public.create_message_notification` has a role mutable search_path"
+                          - button [ref=e717] [cursor=pointer]:
+                            - img [ref=e721]
+                      - listitem [ref=e724]:
+                        - generic [ref=e725]:
+                          - 'button "Function `public.connect_student_with_invite` has a role mutable search_path" [ref=e726] [cursor=pointer]':
+                            - img [ref=e727]
+                            - paragraph [ref=e730]: "Function `public.connect_student_with_invite` has a role mutable search_path"
+                          - button [ref=e731] [cursor=pointer]:
+                            - img [ref=e735]
+                      - listitem [ref=e738]:
+                        - generic [ref=e739]:
+                          - 'button "Function `public.get_dashboard_calendar_events` has a role mutable search_path" [ref=e740] [cursor=pointer]':
+                            - img [ref=e741]
+                            - paragraph [ref=e744]: "Function `public.get_dashboard_calendar_events` has a role mutable search_path"
+                          - button [ref=e745] [cursor=pointer]:
+                            - img [ref=e749]
+                      - listitem [ref=e752]:
+                        - generic [ref=e753]:
+                          - 'button "Function `public.generate_lesson_schedule` has a role mutable search_path" [ref=e754] [cursor=pointer]':
+                            - img [ref=e755]
+                            - paragraph [ref=e758]: "Function `public.generate_lesson_schedule` has a role mutable search_path"
+                          - button [ref=e759] [cursor=pointer]:
+                            - img [ref=e763]
+                      - listitem [ref=e766]:
+                        - generic [ref=e767]:
+                          - 'button "Function `public.is_admin` has a role mutable search_path" [ref=e768] [cursor=pointer]':
+                            - img [ref=e769]
+                            - paragraph [ref=e772]: "Function `public.is_admin` has a role mutable search_path"
+                          - button [ref=e773] [cursor=pointer]:
+                            - img [ref=e777]
+                      - listitem [ref=e780]:
+                        - generic [ref=e781]:
+                          - 'button "Function `public.update_updated_at_column` has a role mutable search_path" [ref=e782] [cursor=pointer]':
+                            - img [ref=e783]
+                            - paragraph [ref=e786]: "Function `public.update_updated_at_column` has a role mutable search_path"
+                          - button [ref=e787] [cursor=pointer]:
+                            - img [ref=e791]
+                      - listitem [ref=e794]:
+                        - generic [ref=e795]:
+                          - 'button "Table `public.notifications` has an RLS policy `System can insert notifications` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for -." [ref=e796] [cursor=pointer]':
+                            - img [ref=e797]
+                            - paragraph [ref=e799]: "Table `public.notifications` has an RLS policy `System can insert notifications` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for -."
+                          - button [ref=e800] [cursor=pointer]:
+                            - img [ref=e804]
+                      - listitem [ref=e807]:
+                        - generic [ref=e808]:
+                          - 'button "Table `public.orders` has an RLS policy `Allow order creation` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for anon, authenticated." [ref=e809] [cursor=pointer]':
+                            - img [ref=e810]
+                            - paragraph [ref=e812]: "Table `public.orders` has an RLS policy `Allow order creation` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for anon, authenticated."
+                          - button [ref=e813] [cursor=pointer]:
+                            - img [ref=e817]
+                      - listitem [ref=e820]:
+                        - generic [ref=e821]:
+                          - 'button "Table `public.profiles` has an RLS policy `Allow insert during signup` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for -." [ref=e822] [cursor=pointer]':
+                            - img [ref=e823]
+                            - paragraph [ref=e825]: "Table `public.profiles` has an RLS policy `Allow insert during signup` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for -."
+                          - button [ref=e826] [cursor=pointer]:
+                            - img [ref=e830]
+                      - listitem [ref=e833]:
+                        - generic [ref=e834]:
+                          - 'button "Table `public.profiles` has an RLS policy `Enable insert for authenticated users only` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for authenticated." [ref=e835] [cursor=pointer]':
+                            - img [ref=e836]
+                            - paragraph [ref=e838]: "Table `public.profiles` has an RLS policy `Enable insert for authenticated users only` for `INSERT` that allows unrestricted access (WITH CHECK clause is always true). This effectively bypasses row-level security for authenticated."
+                          - button [ref=e839] [cursor=pointer]:
+                            - img [ref=e843]
+                      - listitem [ref=e846]:
+                        - generic [ref=e847]:
+                          - 'button "Table `public.trial_notifications` has an RLS policy `Service role can manage all notifications` for `ALL` that allows unrestricted access (both USING and WITH CHECK are always true). This effectively bypasses row-level security for -." [ref=e848] [cursor=pointer]':
+                            - img [ref=e849]
+                            - paragraph [ref=e851]: "Table `public.trial_notifications` has an RLS policy `Service role can manage all notifications` for `ALL` that allows unrestricted access (both USING and WITH CHECK are always true). This effectively bypasses row-level security for -."
+                          - button [ref=e852] [cursor=pointer]:
+                            - img [ref=e856]
+                      - listitem [ref=e859]:
+                        - generic [ref=e860]:
+                          - button "Supabase Auth prevents the use of compromised passwords by checking against HaveIBeenPwned.org. Enable this feature to enhance security." [ref=e861] [cursor=pointer]:
+                            - img [ref=e862]
+                            - paragraph [ref=e865]: Supabase Auth prevents the use of compromised passwords by checking against HaveIBeenPwned.org. Enable this feature to enhance security.
+                          - button [ref=e866] [cursor=pointer]:
+                            - img [ref=e870]
+                      - listitem [ref=e873]:
+                        - generic [ref=e874]:
+                          - button "We have detected that the current version of postgres, supabase-postgres-17.4.1.075, has outstanding security patches available. Upgrade your database to receive the latest security patches." [ref=e875] [cursor=pointer]:
+                            - img [ref=e876]
+                            - paragraph [ref=e879]: We have detected that the current version of postgres, supabase-postgres-17.4.1.075, has outstanding security patches available. Upgrade your database to receive the latest security patches.
+                          - button [ref=e880] [cursor=pointer]:
+                            - img [ref=e884]
+                - generic [ref=e887]:
+                  - generic [ref=e888]:
+                    - heading "Slow Queries" [level=3] [ref=e889]
+                    - link [ref=e890] [cursor=pointer]:
+                      - /url: /dashboard/project/ybcjkdcdruquqrdahtga/reports/query-performance
+                      - img [ref=e892]
+                  - table [ref=e899]:
+                    - rowgroup [ref=e900]:
+                      - row "Query Avg time Calls" [ref=e901]:
+                        - columnheader "Query" [ref=e902]
+                        - columnheader "Avg time" [ref=e903]
+                        - columnheader "Calls" [ref=e904]
+                    - rowgroup [ref=e905]:
+                      - row "SELECT name FROM pg_timezone_names 0.46s 201" [ref=e906]:
+                        - cell "SELECT name FROM pg_timezone_names" [ref=e907]
+                        - cell "0.46s" [ref=e908]
+                        - cell "201" [ref=e909]
+                      - row "SELECT e.name, n.nspname AS schema, e.default_version, x.extversion AS installed_version, e.comment FROM pg_available_extensions() e(name, default_version, comment) LEFT JOIN pg_extension x ON e.name = x.extname LEFT JOIN pg_namespace n ON x.extnamespace = n.oid WHERE $1 0.07s 640" [ref=e910]:
+                        - cell "SELECT e.name, n.nspname AS schema, e.default_version, x.extversion AS installed_version, e.comment FROM pg_available_extensions() e(name, default_version, comment) LEFT JOIN pg_extension x ON e.name = x.extname LEFT JOIN pg_namespace n ON x.extnamespace = n.oid WHERE $1" [ref=e911]
+                        - cell "0.07s" [ref=e912]
+                        - cell "640" [ref=e913]
+                      - row "SELECT wal->>$5 as type, wal->>$6 as schema, wal->>$7 as table, COALESCE(wal->>$8, $9) as columns, COALESCE(wal->>$10, $11) as record, COALESCE(wal->>$12, $13) as old_record, wal->>$14 as commit_timestamp, subscription_ids, errors FROM realtime.list_changes($1, $2, $3, $4) 0.01s 1509644" [ref=e914]:
+                        - cell "SELECT wal->>$5 as type, wal->>$6 as schema, wal->>$7 as table, COALESCE(wal->>$8, $9) as columns, COALESCE(wal->>$10, $11) as record, COALESCE(wal->>$12, $13) as old_record, wal->>$14 as commit_timestamp, subscription_ids, errors FROM realtime.list_changes($1, $2, $3, $4)" [ref=e915]
+                        - cell "0.01s" [ref=e916]
+                        - cell "1509644" [ref=e917]
+                      - row [ref=e918]:
+                        - cell [ref=e919]
+                        - cell "0.07s" [ref=e920]
+                        - cell "201" [ref=e921]
+                      - row [ref=e922]:
+                        - cell [ref=e923]
+                        - cell "0.32s" [ref=e924]
+                        - cell "532" [ref=e925]
+          - generic [ref=e927]:
+            - generic [ref=e928]:
+              - heading "Client libraries" [level=2] [ref=e929]
+              - generic [ref=e930]:
+                - generic [ref=e931]:
+                  - img "JavaScript logo" [ref=e932]
+                  - generic [ref=e933]:
+                    - heading "JavaScript" [level=5] [ref=e935]
+                    - generic [ref=e936]:
+                      - link "Docs" [ref=e937] [cursor=pointer]:
+                        - /url: https://supabase.com/docs/reference/javascript/installing
+                        - button "Docs" [ref=e938]:
+                          - img [ref=e940]
+                          - generic [ref=e943]: Docs
+                      - link "See GitHub" [ref=e944] [cursor=pointer]:
+                        - /url: https://github.com/supabase/supabase-js
+                        - button "See GitHub" [ref=e945]:
+                          - img [ref=e947]
+                          - generic [ref=e950]: See GitHub
+                - generic [ref=e951]:
+                  - img "Flutter logo" [ref=e952]
+                  - generic [ref=e953]:
+                    - heading "Flutter" [level=5] [ref=e955]
+                    - generic [ref=e956]:
+                      - link "Docs" [ref=e957] [cursor=pointer]:
+                        - /url: https://supabase.com/docs/reference/dart/installing
+                        - button "Docs" [ref=e958]:
+                          - img [ref=e960]
+                          - generic [ref=e963]: Docs
+                      - link "See GitHub" [ref=e964] [cursor=pointer]:
+                        - /url: https://github.com/supabase/supabase-flutter
+                        - button "See GitHub" [ref=e965]:
+                          - img [ref=e967]
+                          - generic [ref=e970]: See GitHub
+                - generic [ref=e971]:
+                  - img "Python logo" [ref=e972]
+                  - generic [ref=e973]:
+                    - heading "Python" [level=5] [ref=e975]
+                    - generic [ref=e976]:
+                      - link "Docs" [ref=e977] [cursor=pointer]:
+                        - /url: https://supabase.com/docs/reference/python/initializing
+                        - button "Docs" [ref=e978]:
+                          - img [ref=e980]
+                          - generic [ref=e983]: Docs
+                      - link "See GitHub" [ref=e984] [cursor=pointer]:
+                        - /url: https://github.com/supabase/supabase-py
+                        - button "See GitHub" [ref=e985]:
+                          - img [ref=e987]
+                          - generic [ref=e990]: See GitHub
+                - generic [ref=e991]:
+                  - img "C# logo" [ref=e992]
+                  - generic [ref=e993]:
+                    - heading "C# Community" [level=5] [ref=e995]:
+                      - text: C#
+                      - generic [ref=e996]: Community
+                    - generic [ref=e997]:
+                      - link "Docs" [ref=e998] [cursor=pointer]:
+                        - /url: https://supabase.com/docs/reference/csharp/installing
+                        - button "Docs" [ref=e999]:
+                          - img [ref=e1001]
+                          - generic [ref=e1004]: Docs
+                      - link "See GitHub" [ref=e1005] [cursor=pointer]:
+                        - /url: https://github.com/supabase-community/supabase-csharp
+                        - button "See GitHub" [ref=e1006]:
+                          - img [ref=e1008]
+                          - generic [ref=e1011]: See GitHub
+                - generic [ref=e1012]:
+                  - img "Swift logo" [ref=e1013]
+                  - generic [ref=e1014]:
+                    - heading "Swift" [level=5] [ref=e1016]
+                    - generic [ref=e1017]:
+                      - link "Docs" [ref=e1018] [cursor=pointer]:
+                        - /url: https://supabase.com/docs/reference/swift/initializing
+                        - button "Docs" [ref=e1019]:
+                          - img [ref=e1021]
+                          - generic [ref=e1024]: Docs
+                      - link "See GitHub" [ref=e1025] [cursor=pointer]:
+                        - /url: https://github.com/supabase/supabase-swift
+                        - button "See GitHub" [ref=e1026]:
+                          - img [ref=e1028]
+                          - generic [ref=e1031]: See GitHub
+                - generic [ref=e1032]:
+                  - img "Kotlin logo" [ref=e1033]
+                  - generic [ref=e1034]:
+                    - heading "Kotlin Community" [level=5] [ref=e1036]:
+                      - text: Kotlin
+                      - generic [ref=e1037]: Community
+                    - generic [ref=e1038]:
+                      - link "Docs" [ref=e1039] [cursor=pointer]:
+                        - /url: https://supabase.com/docs/reference/kotlin/installing
+                        - button "Docs" [ref=e1040]:
+                          - img [ref=e1042]
+                          - generic [ref=e1045]: Docs
+                      - link "See GitHub" [ref=e1046] [cursor=pointer]:
+                        - /url: https://github.com/supabase-community/supabase-kt
+                        - button "See GitHub" [ref=e1047]:
+                          - img [ref=e1049]
+                          - generic [ref=e1052]: See GitHub
+            - generic [ref=e1053]:
+              - heading "Example projects" [level=4] [ref=e1054]
+              - generic [ref=e1056]:
+                - tablist [ref=e1057]:
+                  - tab "App Frameworks" [selected] [ref=e1058] [cursor=pointer]
+                  - tab "Mobile Frameworks" [ref=e1059] [cursor=pointer]
+                - tabpanel "App Frameworks" [ref=e1060]:
+                  - generic [ref=e1061]:
+                    - link "NestJS logo NestJS example NestJS example using Supabase Auth" [ref=e1062] [cursor=pointer]:
+                      - /url: https://github.com/hiro1107/nestjs-supabase-auth
+                      - generic [ref=e1063]:
+                        - img "NestJS logo" [ref=e1065]
+                        - generic [ref=e1066]:
+                          - heading "NestJS example" [level=5] [ref=e1067]
+                          - paragraph [ref=e1068]: NestJS example using Supabase Auth
+                        - img [ref=e1070]
+                    - link "nextjs logo Next.js Realtime chat app Next.js Slack clone app using Supabase realtime subscriptions" [ref=e1072] [cursor=pointer]:
+                      - /url: https://github.com/supabase/supabase/tree/master/examples/slack-clone/nextjs-slack-clone
+                      - generic [ref=e1073]:
+                        - img "nextjs logo" [ref=e1075]
+                        - generic [ref=e1076]:
+                          - heading "Next.js Realtime chat app" [level=5] [ref=e1077]
+                          - paragraph [ref=e1078]: Next.js Slack clone app using Supabase realtime subscriptions
+                        - img [ref=e1080]
+                    - link "nextjs logo Next.js Subscription and Auth The all-in-one starter kit for high-performance SaaS applications." [ref=e1082] [cursor=pointer]:
+                      - /url: https://github.com/nextjs/saas-starter
+                      - generic [ref=e1083]:
+                        - img "nextjs logo" [ref=e1085]
+                        - generic [ref=e1086]:
+                          - heading "Next.js Subscription and Auth" [level=5] [ref=e1087]
+                          - paragraph [ref=e1088]: The all-in-one starter kit for high-performance SaaS applications.
+                        - img [ref=e1090]
+                    - link "nextjs logo Next.js todo list app Next.js todo list example" [ref=e1092] [cursor=pointer]:
+                      - /url: https://github.com/supabase/supabase/tree/master/examples/todo-list/nextjs-todo-list
+                      - generic [ref=e1093]:
+                        - img "nextjs logo" [ref=e1095]
+                        - generic [ref=e1096]:
+                          - heading "Next.js todo list app" [level=5] [ref=e1097]
+                          - paragraph [ref=e1098]: Next.js todo list example
+                        - img [ref=e1100]
+                    - link "React logo React realtime chat app Example app of real-time chat using supabase realtime api" [ref=e1102] [cursor=pointer]:
+                      - /url: https://github.com/shwosner/realtime-chat-supabase-react
+                      - generic [ref=e1103]:
+                        - img "React logo" [ref=e1105]
+                        - generic [ref=e1106]:
+                          - heading "React realtime chat app" [level=5] [ref=e1107]
+                          - paragraph [ref=e1108]: Example app of real-time chat using supabase realtime api
+                        - img [ref=e1110]
+                    - link "Svelte logo Svelte kanban board A Trello clone using Supabase as the storage system." [ref=e1112] [cursor=pointer]:
+                      - /url: https://github.com/joshnuss/supabase-kanban
+                      - generic [ref=e1113]:
+                        - img "Svelte logo" [ref=e1115]
+                        - generic [ref=e1116]:
+                          - heading "Svelte kanban board" [level=5] [ref=e1117]
+                          - paragraph [ref=e1118]: A Trello clone using Supabase as the storage system.
+                        - img [ref=e1120]
+                    - link "Svelte logo Svelte todo list app Sveltejs todo with TailwindCSS and Snowpack" [ref=e1122] [cursor=pointer]:
+                      - /url: https://github.com/supabase/supabase/tree/master/examples/todo-list/sveltejs-todo-list
+                      - generic [ref=e1123]:
+                        - img "Svelte logo" [ref=e1125]
+                        - generic [ref=e1126]:
+                          - heading "Svelte todo list app" [level=5] [ref=e1127]
+                          - paragraph [ref=e1128]: Sveltejs todo with TailwindCSS and Snowpack
+                        - img [ref=e1130]
+  - alert [ref=e1132]: Supabase
