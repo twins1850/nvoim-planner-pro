@@ -76,34 +76,34 @@ export default function SubscriptionPage() {
   const copyToClipboard = () => {
     if (inviteCode) {
       navigator.clipboard.writeText(inviteCode);
-      alert('Invite code copied to clipboard!');
+      alert('초대 코드가 클립보드에 복사되었습니다!');
     }
   };
 
-  if (loading) return <div>Loading subscription details...</div>;
+  if (loading) return <div>구독 정보를 불러오는 중...</div>;
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Subscription & Plan</h1>
-      
+      <h1 className="text-3xl font-bold">구독 및 플랜</h1>
+
       <div className="grid gap-6 md:grid-cols-2">
         {/* Student Connection Card */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Users className="h-5 w-5" />
-              Student Connection
+              학생 연결
             </CardTitle>
             <CardDescription>
-              Share this code with your students to connect them to your account.
+              학생들과 이 코드를 공유하여 계정에 연결하세요.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center gap-4 p-4 border rounded-lg bg-gray-50">
               <div className="flex-1">
-                <p className="text-sm font-medium text-gray-500">Your Invite Code</p>
+                <p className="text-sm font-medium text-gray-500">초대 코드</p>
                 <p className="text-2xl font-mono font-bold tracking-wider">
-                  {inviteCode || 'NOT GENERATED'}
+                  {inviteCode || '생성되지 않음'}
                 </p>
               </div>
               {inviteCode ? (
@@ -111,11 +111,11 @@ export default function SubscriptionPage() {
                    <Copy className="h-4 w-4" />
                  </Button>
               ) : (
-                <Button onClick={generateInviteCode}>Generate Code</Button>
+                <Button onClick={generateInviteCode}>코드 생성</Button>
               )}
             </div>
             <div className="text-sm text-gray-500">
-              Current Students: <span className="font-bold text-black">{studentCount}</span> / {subscription?.max_students || 10}
+              현재 학생: <span className="font-bold text-black">{studentCount}</span> / {subscription?.max_students || 10}
             </div>
           </CardContent>
         </Card>
@@ -125,35 +125,35 @@ export default function SubscriptionPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <CreditCard className="h-5 w-5" />
-              Current Plan: {subscription?.plan_type?.toUpperCase() || 'FREE'}
+              현재 플랜: {subscription?.plan_type?.toUpperCase() || 'FREE'}
             </CardTitle>
             <CardDescription>
-              Manage your billing and capacity.
+              요금제 및 학생 수를 관리하세요.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="flex items-center justify-between">
-              <span>Monthly Fee</span>
-              <span className="font-bold">₩30,000 / mo</span>
+              <span>월 요금</span>
+              <span className="font-bold">₩30,000 / 월</span>
             </div>
             <div className="flex items-center justify-between text-sm text-gray-500">
-              <span>Includes 10 students</span>
-              <span>(₩4,000 per extra student)</span>
+              <span>학생 10명 포함</span>
+              <span>(추가 학생당 ₩4,000)</span>
             </div>
             <hr className="my-2"/>
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-green-500" />
-                <span className="text-sm">Unlimited Homework Assignments</span>
+                <span className="text-sm">무제한 숙제 제출</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-green-500" />
-                <span className="text-sm">AI-Powered Analysis (Upcoming)</span>
+                <span className="text-sm">AI 기반 분석 (출시 예정)</span>
               </div>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full">Manage Subscription</Button>
+            <Button className="w-full">구독 관리</Button>
           </CardFooter>
         </Card>
       </div>

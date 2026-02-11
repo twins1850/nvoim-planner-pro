@@ -31,7 +31,6 @@ const baseNavigation = [
   { name: '학습 자료', href: '/dashboard/materials', icon: FileText },
   { name: '진도 분석', href: '/dashboard/analytics', icon: BarChart },
   { name: '내 라이선스', href: '/license', icon: Shield },
-  { name: '구독 설정', href: '/dashboard/settings/subscription', icon: Settings },
 ]
 
 const adminNavigation = [

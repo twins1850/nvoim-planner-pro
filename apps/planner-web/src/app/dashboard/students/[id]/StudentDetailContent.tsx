@@ -50,8 +50,17 @@ interface Student {
   address?: string;
   parent_name?: string;
   parent_phone?: string;
+  native_teacher_name?: string;
+  teacher_contact?: string;
+  teacher_notes?: string;
   notes?: string;
   planner_id?: string;
+  // 레벨테스트 & 학습 목표 필드
+  level_test_image_url?: string | null;
+  level_test_date?: string | null;
+  goal_description?: string | null;
+  goal_target_date?: string | null;
+  goal_category?: string | null;
 }
 
 interface Subscription {
@@ -104,6 +113,21 @@ interface CourseHistory {
   duration_weeks?: number;
 }
 
+interface CourseRecommendation {
+  id: string;
+  recommended_course_name: string;
+  course_category: string;
+  course_level: string;
+  course_duration: string;
+  match_percentage: number;
+  recommendation_reason: string;
+  priority_rank: number;
+  strength_analysis: string;
+  improvement_areas: string;
+  learning_direction: string;
+  is_active: boolean;
+}
+
 interface StudentDetailContentProps {
   studentId: string;
 }
@@ -114,6 +138,8 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
   const [courseHistory, setCourseHistory] = useState<CourseHistory[]>([]);
+  const [recommendations, setRecommendations] = useState<CourseRecommendation[]>([]);
+  const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'info' | 'subscription' | 'schedule' | 'course' | 'history'>('info');
   const [editMode, setEditMode] = useState(false);
@@ -169,8 +195,61 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
         setSubscriptions(subscriptionsData || []);
       }
 
-      // TODO: 실제 과정 데이터 가져오기 (현재는 빈 배열)  
-      setCourses([]);
+      // 현재 수강 중인 과정 가져오기
+      const { data: coursesData, error: coursesError } = await supabase
+        .from('student_courses')
+        .select('*')
+        .eq('student_id', studentId)
+        .eq('status', 'in_progress')
+        .order('start_date', { ascending: false });
+
+      if (coursesError) {
+        console.error('Error fetching courses:', coursesError);
+        setCourses([]);
+      } else if (coursesData) {
+        setCourses(coursesData.map(c => ({
+          id: c.id,
+          name: c.course_name,
+          description: c.course_description || '',
+          level: c.course_level,
+          duration: c.course_duration || '',
+          start_date: c.start_date,
+          end_date: c.end_date,
+          progress: c.progress_percentage || 0,
+          status: c.status === 'in_progress' ? 'in_progress' : 'not_started',
+          topics: [],
+          notes: c.planner_notes
+        })));
+      }
+
+      // 과거 수강 이력 가져오기
+      const { data: historyData, error: historyError } = await supabase
+        .from('course_history')
+        .select('*')
+        .eq('student_id', studentId)
+        .order('end_date', { ascending: false });
+
+      if (historyError) {
+        console.error('Error fetching course history:', historyError);
+        setCourseHistory([]);
+      } else {
+        setCourseHistory(historyData || []);
+      }
+
+      // AI 추천 과정 가져오기
+      const { data: recommendationsData, error: recommendationsError } = await supabase
+        .from('course_recommendations')
+        .select('*')
+        .eq('student_id', studentId)
+        .eq('is_active', true)
+        .order('priority_rank', { ascending: true });
+
+      if (recommendationsError) {
+        console.error('Error fetching recommendations:', recommendationsError);
+        setRecommendations([]);
+      } else {
+        setRecommendations(recommendationsData || []);
+      }
 
     } catch (error) {
       console.error('Error fetching student data:', error);
@@ -179,14 +258,73 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
     }
   };
 
-  const handleSaveStudent = () => {
+  const handleSaveStudent = async () => {
     if (editedStudent) {
-      setStudent(editedStudent);
-      setEditMode(false);
-      // TODO: Save to database
+      try {
+        const supabase = createClient();
+
+        const { error } = await supabase
+          .from('student_profiles')
+          .update({
+            email: editedStudent.email,
+            phone: editedStudent.phone,
+            birth_date: editedStudent.birth_date,
+            address: editedStudent.address,
+            parent_name: editedStudent.parent_name,
+            parent_phone: editedStudent.parent_phone,
+            level: editedStudent.level,
+            notes: editedStudent.notes,
+            level_test_image_url: editedStudent.level_test_image_url,
+            level_test_date: editedStudent.level_test_date,
+            goal_description: editedStudent.goal_description,
+            goal_target_date: editedStudent.goal_target_date,
+            goal_category: editedStudent.goal_category
+          })
+          .eq('id', studentId);
+
+        if (error) {
+          console.error('Error saving student:', error);
+          alert('학생 정보 저장 중 오류가 발생했습니다.');
+          return;
+        }
+
+        setStudent(editedStudent);
+        setEditMode(false);
+        alert('학생 정보가 성공적으로 저장되었습니다.');
+      } catch (error) {
+        console.error('Error saving student:', error);
+        alert('학생 정보 저장 중 오류가 발생했습니다.');
+      }
     }
   };
 
+  const handleGenerateAIRecommendations = async () => {
+    setLoadingRecommendations(true);
+    try {
+      const response = await fetch('/api/courses/analyze-and-recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentId: student?.id })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error);
+      }
+
+      const result = await response.json();
+
+      // 추천 갱신
+      await fetchStudentData();
+
+      // 성공 메시지
+      alert('AI 추천이 성공적으로 생성되었습니다!');
+    } catch (error: any) {
+      alert('AI 추천 생성 실패: ' + error.message);
+    } finally {
+      setLoadingRecommendations(false);
+    }
+  };
 
   const handleAddCourse = (newCourse: Partial<Course>) => {
     const course: Course = {
@@ -473,6 +611,21 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
                 </div>
 
                 <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">원어민 담임선생님</label>
+                  {editMode ? (
+                    <input
+                      type="text"
+                      value={editedStudent?.native_teacher_name || ''}
+                      onChange={(e) => setEditedStudent(prev => prev ? {...prev, native_teacher_name: e.target.value} : null)}
+                      placeholder="예: John Smith"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  ) : (
+                    <p className="text-gray-900">{student.native_teacher_name || '-'}</p>
+                  )}
+                </div>
+
+                <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">메모</label>
                   {editMode ? (
                     <textarea
@@ -483,6 +636,203 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
                     />
                   ) : (
                     <p className="text-gray-900">{student.notes || '-'}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* 레벨테스트 정보 섹션 */}
+            <div className="border-t border-gray-200 pt-6 mt-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">레벨테스트 정보</h3>
+
+              <div className="grid grid-cols-1 gap-4">
+                {/* 레벨테스트 이미지 업로드 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    레벨테스트 결과표 이미지
+                  </label>
+                  {editedStudent?.level_test_image_url ? (
+                    <div className="relative inline-block">
+                      <img
+                        src={editedStudent.level_test_image_url}
+                        alt="레벨테스트 결과표"
+                        className="max-w-md border border-gray-300 rounded-lg"
+                      />
+                      {editMode && (
+                        <button
+                          onClick={() => {
+                            if (editedStudent) {
+                              setEditedStudent({
+                                ...editedStudent,
+                                level_test_image_url: null,
+                                level_test_date: null
+                              });
+                            }
+                          }}
+                          className="absolute top-2 right-2 p-2 bg-red-600 text-white rounded-full hover:bg-red-700"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  ) : editMode ? (
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          try {
+                            const supabase = createClient();
+                            const { data: { user } } = await supabase.auth.getUser();
+                            if (!user) throw new Error('User not authenticated');
+
+                            const fileName = `${studentId}_level_test_${Date.now()}`;
+                            const { data, error } = await supabase.storage
+                              .from('level-test-images')
+                              .upload(`${user.id}/${fileName}`, file);
+
+                            if (error) throw error;
+
+                            const { data: { publicUrl } } = supabase.storage
+                              .from('level-test-images')
+                              .getPublicUrl(data.path);
+
+                            if (editedStudent) {
+                              setEditedStudent({
+                                ...editedStudent,
+                                level_test_image_url: publicUrl,
+                                level_test_date: new Date().toISOString().split('T')[0]
+                              });
+                            }
+                          } catch (error) {
+                            console.error('Error uploading image:', error);
+                            alert('이미지 업로드 중 오류가 발생했습니다.');
+                          }
+                        }
+                      }}
+                      className="block w-full text-sm text-gray-500
+                        file:mr-4 file:py-2 file:px-4
+                        file:rounded-lg file:border-0
+                        file:text-sm file:font-semibold
+                        file:bg-blue-50 file:text-blue-700
+                        hover:file:bg-blue-100"
+                    />
+                  ) : (
+                    <p className="text-sm text-gray-500">레벨테스트 결과표가 업로드되지 않았습니다.</p>
+                  )}
+                </div>
+
+                {/* 테스트 날짜 */}
+                {editedStudent?.level_test_date && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      테스트 날짜
+                    </label>
+                    <input
+                      type="date"
+                      value={editedStudent?.level_test_date || ''}
+                      onChange={(e) => {
+                        if (editedStudent) {
+                          setEditedStudent({
+                            ...editedStudent,
+                            level_test_date: e.target.value
+                          });
+                        }
+                      }}
+                      disabled={!editMode}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg disabled:bg-gray-100"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* 학습 목표 섹션 */}
+            <div className="border-t border-gray-200 pt-6 mt-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">학습 목표</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* 목표 카테고리 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    목표 카테고리
+                  </label>
+                  {editMode ? (
+                    <select
+                      value={editedStudent?.goal_category || ''}
+                      onChange={(e) => {
+                        if (editedStudent) {
+                          setEditedStudent({
+                            ...editedStudent,
+                            goal_category: e.target.value
+                          });
+                        }
+                      }}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    >
+                      <option value="">선택하세요</option>
+                      <option value="토익스피킹">토익스피킹</option>
+                      <option value="해외여행">해외여행</option>
+                      <option value="일상영어">일상영어</option>
+                      <option value="워킹홀리데이">워킹홀리데이</option>
+                      <option value="비즈니스영어">비즈니스영어</option>
+                      <option value="유학준비">유학준비</option>
+                      <option value="기타">기타</option>
+                    </select>
+                  ) : (
+                    <p className="text-gray-900">{editedStudent?.goal_category || '-'}</p>
+                  )}
+                </div>
+
+                {/* 목표 달성 희망 날짜 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    목표 달성 희망 날짜
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="date"
+                      value={editedStudent?.goal_target_date || ''}
+                      onChange={(e) => {
+                        if (editedStudent) {
+                          setEditedStudent({
+                            ...editedStudent,
+                            goal_target_date: e.target.value
+                          });
+                        }
+                      }}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    />
+                  ) : (
+                    <p className="text-gray-900">
+                      {editedStudent?.goal_target_date ? new Date(editedStudent.goal_target_date).toLocaleDateString('ko-KR') : '-'}
+                    </p>
+                  )}
+                </div>
+
+                {/* 목표 상세 설명 */}
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    목표 상세 설명
+                  </label>
+                  {editMode ? (
+                    <textarea
+                      value={editedStudent?.goal_description || ''}
+                      onChange={(e) => {
+                        if (editedStudent) {
+                          setEditedStudent({
+                            ...editedStudent,
+                            goal_description: e.target.value
+                          });
+                        }
+                      }}
+                      rows={4}
+                      placeholder="예: 6개월 후 토익스피킹 Level 6 달성, 해외 비즈니스 미팅 대응 능력 향상"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  ) : (
+                    <p className="text-gray-900 whitespace-pre-wrap">{editedStudent?.goal_description || '-'}</p>
                   )}
                 </div>
               </div>
@@ -872,80 +1222,54 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
                   <div className="relative">
                     {/* 타임라인 라인 */}
                     <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300"></div>
-                    
-                    {/* 샘플 이력 데이터 - 실제로는 데이터베이스에서 가져옴 */}
+
+                    {/* 실제 이력 데이터 렌더링 */}
                     <div className="space-y-6">
-                      <div className="relative pl-12">
-                        <div className="absolute left-4 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow"></div>
-                        <div className="bg-white border border-gray-200 rounded-lg p-4">
-                          <div className="flex justify-between items-start mb-2">
-                            <div>
-                              <h5 className="font-semibold text-gray-900">Momentum C</h5>
-                              <p className="text-sm text-gray-600">중급 회화 과정</p>
+                      {courseHistory.length > 0 ? (
+                        courseHistory.map((history) => (
+                          <div key={history.id} className="relative pl-12">
+                            <div className={`absolute left-4 w-4 h-4 rounded-full border-2 border-white shadow ${
+                              history.completion_status === 'completed' ? 'bg-green-500' :
+                              history.completion_status === 'switched' ? 'bg-blue-500' :
+                              'bg-orange-500'
+                            }`}></div>
+                            <div className="bg-white border border-gray-200 rounded-lg p-4">
+                              <div className="flex justify-between items-start mb-2">
+                                <div>
+                                  <h5 className="font-semibold text-gray-900">{history.course_name}</h5>
+                                  <p className="text-sm text-gray-600">{history.category}</p>
+                                </div>
+                                <div className="text-right">
+                                  <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                                    history.completion_status === 'completed' ? 'bg-green-100 text-green-800' :
+                                    history.completion_status === 'switched' ? 'bg-blue-100 text-blue-800' :
+                                    'bg-orange-100 text-orange-800'
+                                  }`}>
+                                    {history.completion_status === 'completed' ? '완료' :
+                                     history.completion_status === 'switched' ? '전환' : '중단'}
+                                  </span>
+                                  {history.duration_weeks && (
+                                    <p className="text-xs text-gray-500 mt-1">{history.duration_weeks}주 과정</p>
+                                  )}
+                                </div>
+                              </div>
+                              <div className="text-sm text-gray-600">
+                                {new Date(history.start_date).toLocaleDateString('ko-KR')} - {history.end_date ? new Date(history.end_date).toLocaleDateString('ko-KR') : '진행 중'}
+                              </div>
+                              {history.notes && (
+                                <div className="mt-2 p-2 bg-amber-50 border border-amber-200 rounded text-sm">
+                                  <span className="font-medium text-amber-800">플래너 메모: </span>
+                                  <span className="text-amber-700">{history.notes}</span>
+                                </div>
+                              )}
                             </div>
-                            <div className="text-right">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                완료
-                              </span>
-                              <p className="text-xs text-gray-500 mt-1">8주 과정</p>
-                            </div>
                           </div>
-                          <div className="text-sm text-gray-600">
-                            2025.09.01 - 2025.10.26 (8주)
-                          </div>
-                          <div className="mt-2 text-sm text-gray-700">
-                            성취: 회화 실력 향상, 자신감 증가 → Regular Level 3으로 진급
-                          </div>
+                        ))
+                      ) : (
+                        <div className="text-center py-8 text-gray-500">
+                          과거 수강 이력이 없습니다.
                         </div>
-                      </div>
-
-                      <div className="relative pl-12">
-                        <div className="absolute left-4 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow"></div>
-                        <div className="bg-white border border-gray-200 rounded-lg p-4">
-                          <div className="flex justify-between items-start mb-2">
-                            <div>
-                              <h5 className="font-semibold text-gray-900">Regular Level 3</h5>
-                              <p className="text-sm text-gray-600">정규 중급 과정</p>
-                            </div>
-                            <div className="text-right">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                완료
-                              </span>
-                              <p className="text-xs text-gray-500 mt-1">12주 과정</p>
-                            </div>
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            2025.05.01 - 2025.08.30 (12주)
-                          </div>
-                          <div className="mt-2 text-sm text-gray-700">
-                            성취: 문법 실력 향상, 독해 능력 증진 → Momentum C로 진급
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="relative pl-12">
-                        <div className="absolute left-4 w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow"></div>
-                        <div className="bg-white border border-gray-200 rounded-lg p-4">
-                          <div className="flex justify-between items-start mb-2">
-                            <div>
-                              <h5 className="font-semibold text-gray-900">Hangout Level 3</h5>
-                              <p className="text-sm text-gray-600">기초 회화 과정</p>
-                            </div>
-                            <div className="text-right">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                                완료
-                              </span>
-                              <p className="text-xs text-gray-500 mt-1">8주 과정</p>
-                            </div>
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            2025.03.01 - 2025.04.26 (8주)
-                          </div>
-                          <div className="mt-2 text-sm text-gray-700">
-                            성취: 기초 회화 완성, 발음 교정 → Regular Level 3으로 진급
-                          </div>
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -953,148 +1277,122 @@ export default function StudentDetailContent({ studentId }: StudentDetailContent
             </div>
 
             {/* AI 추천 과정 섹션 */}
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-purple-600" />
-                AI 추천 과정
-              </h3>
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="bg-purple-100 rounded-full p-2">
-                    <Target className="w-5 h-5 text-purple-600" />
+            <div className="mb-8 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 border border-purple-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-purple-600 rounded-lg">
+                    <GraduationCap className="w-5 h-5 text-white" />
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-md font-medium text-gray-900 mb-2">학습 이력 기반 추천</h4>
-                    <p className="text-sm text-gray-600 mb-4">
-                      과거 학습 패턴과 진도를 분석하여 최적의 다음 과정을 추천합니다.
+                  <h3 className="text-lg font-semibold text-gray-900">AI 추천 과정</h3>
+                </div>
+                <button
+                  onClick={handleGenerateAIRecommendations}
+                  disabled={loadingRecommendations || !student?.level_test_image_url}
+                  className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                  {loadingRecommendations ? (
+                    <>
+                      <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
+                      분석 중...
+                    </>
+                  ) : (
+                    <>
+                      <BarChart3 className="w-4 h-4" />
+                      AI 추천 생성
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {!student?.level_test_image_url && (
+                <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-sm text-yellow-800">
+                    ⚠️ AI 추천을 생성하려면 먼저 '기본 정보' 탭에서 레벨테스트 결과표를 업로드해주세요.
+                  </p>
+                </div>
+              )}
+
+              {/* 추천 카드 */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {recommendations.length > 0 ? (
+                  recommendations.map((rec, index) => (
+                    <div key={rec.id} className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-md transition-shadow">
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                            index === 0 ? 'bg-yellow-100 text-yellow-700' :
+                            index === 1 ? 'bg-gray-100 text-gray-700' :
+                            'bg-orange-100 text-orange-700'
+                          }`}>
+                            {rec.priority_rank}
+                          </div>
+                          <span className="text-xs text-gray-500">추천</span>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-lg font-bold text-purple-600">{rec.match_percentage}%</div>
+                          <div className="text-xs text-gray-500">매칭</div>
+                        </div>
+                      </div>
+
+                      <h4 className="font-semibold text-gray-900 mb-1">{rec.recommended_course_name}</h4>
+                      <p className="text-sm text-gray-600 mb-2">{rec.course_category} · {rec.course_level}</p>
+                      <p className="text-xs text-gray-500 mb-3">{rec.course_duration}</p>
+
+                      <div className="mb-3 p-2 bg-purple-50 rounded">
+                        <p className="text-xs text-gray-700">{rec.recommendation_reason}</p>
+                      </div>
+
+                      <button className="w-full px-3 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors">
+                        과정 추가
+                      </button>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-3 text-center py-8 text-gray-500">
+                    <p className="mb-2">아직 AI 추천이 생성되지 않았습니다.</p>
+                    <p className="text-sm">레벨테스트 결과표를 업로드하고 'AI 추천 생성' 버튼을 클릭하세요.</p>
+                  </div>
+                )}
+              </div>
+
+              {/* AI 분석 인사이트 */}
+              {recommendations.length > 0 && recommendations[0].strength_analysis && (
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white rounded-lg p-4 border border-green-200">
+                    <h5 className="font-semibold text-green-700 mb-2 flex items-center gap-2">
+                      <Award className="w-4 h-4" />
+                      강점
+                    </h5>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      {recommendations[0].strength_analysis.split(', ').map((s, i) => (
+                        <li key={i}>• {s}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
+                    <h5 className="font-semibold text-yellow-700 mb-2 flex items-center gap-2">
+                      <Target className="w-4 h-4" />
+                      개선 영역
+                    </h5>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      {recommendations[0].improvement_areas.split(', ').map((a, i) => (
+                        <li key={i}>• {a}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-4 border border-blue-200">
+                    <h5 className="font-semibold text-blue-700 mb-2 flex items-center gap-2">
+                      <TrendingUp className="w-4 h-4" />
+                      학습 방향
+                    </h5>
+                    <p className="text-sm text-gray-700">
+                      {recommendations[0].learning_direction}
                     </p>
-                    
-                    {/* 추천 과정 카드들 */}
-                    <div className="space-y-3">
-                      {/* 1순위 추천 */}
-                      <div className="bg-white rounded-lg border border-purple-200 p-4 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 text-xs font-medium">
-                          1순위 추천
-                        </div>
-                        <div className="pt-6">
-                          <div className="flex justify-between items-start mb-3">
-                            <div>
-                              <h5 className="font-semibold text-gray-900">Business English Conversation</h5>
-                              <p className="text-sm text-gray-600">비즈니스 실무 회화 과정</p>
-                            </div>
-                            <div className="text-right">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
-                                매치율 95%
-                              </span>
-                            </div>
-                          </div>
-                          <div className="text-sm text-gray-600 mb-3">
-                            추천 이유: 회화 기초 과정을 완료하여 비즈니스 회화로 진급 가능
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-4 text-xs text-gray-500">
-                              <span>• 기간: 12주</span>
-                              <span>• 레벨: 중급</span>
-                              <span>• 카테고리: 비즈니스</span>
-                            </div>
-                            <button className="px-3 py-1 bg-purple-600 text-white text-xs rounded-lg hover:bg-purple-700">
-                              과정 추가
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* 2순위 추천 */}
-                      <div className="bg-white rounded-lg border border-blue-200 p-4 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 text-xs font-medium">
-                          2순위 추천
-                        </div>
-                        <div className="pt-6">
-                          <div className="flex justify-between items-start mb-3">
-                            <div>
-                              <h5 className="font-semibold text-gray-900">TOEIC Speaking Advanced</h5>
-                              <p className="text-sm text-gray-600">토익 스피킹 고급 과정</p>
-                            </div>
-                            <div className="text-right">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                매치율 87%
-                              </span>
-                            </div>
-                          </div>
-                          <div className="text-sm text-gray-600 mb-3">
-                            추천 이유: 회화 실력 향상으로 토익 스피킹 고득점 도전 가능
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-4 text-xs text-gray-500">
-                              <span>• 기간: 8주</span>
-                              <span>• 레벨: 고급</span>
-                              <span>• 카테고리: 시험준비</span>
-                            </div>
-                            <button className="px-3 py-1 bg-blue-600 text-white text-xs rounded-lg hover:bg-blue-700">
-                              과정 추가
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* 3순위 추천 */}
-                      <div className="bg-white rounded-lg border border-green-200 p-4 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 text-xs font-medium">
-                          3순위 추천
-                        </div>
-                        <div className="pt-6">
-                          <div className="flex justify-between items-start mb-3">
-                            <div>
-                              <h5 className="font-semibold text-gray-900">Travel English Intensive</h5>
-                              <p className="text-sm text-gray-600">여행 영어 집중 과정</p>
-                            </div>
-                            <div className="text-right">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                매치율 78%
-                              </span>
-                            </div>
-                          </div>
-                          <div className="text-sm text-gray-600 mb-3">
-                            추천 이유: 실전 회화 실력으로 다양한 상황별 영어 학습 가능
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-4 text-xs text-gray-500">
-                              <span>• 기간: 6주</span>
-                              <span>• 레벨: 중급</span>
-                              <span>• 카테고리: 여행영어</span>
-                            </div>
-                            <button className="px-3 py-1 bg-green-600 text-white text-xs rounded-lg hover:bg-green-700">
-                              과정 추가
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* AI 분석 인사이트 */}
-                    <div className="mt-4 p-4 bg-white/50 rounded-lg border border-purple-100">
-                      <h5 className="text-sm font-medium text-gray-900 mb-2 flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-purple-600" />
-                        학습 패턴 분석
-                      </h5>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                        <div>
-                          <span className="font-medium text-gray-700">강점:</span>
-                          <span className="text-gray-600 ml-1">회화, 발음, 실전 응용</span>
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">개선점:</span>
-                          <span className="text-gray-600 ml-1">비즈니스 용어, 고급 문법</span>
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">추천 방향:</span>
-                          <span className="text-gray-600 ml-1">실무 중심 학습</span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">

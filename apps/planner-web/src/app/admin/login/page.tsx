@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { DevTool } from '@hookform/devtools'
 import * as z from 'zod'
 
 // Force dynamic rendering (no static generation)
@@ -26,6 +27,7 @@ export default function AdminLoginPage() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -211,6 +213,9 @@ export default function AdminLoginPage() {
             </p>
           </div>
         </form>
+
+        {/* React Hook Form DevTools - Development only */}
+        {process.env.NODE_ENV === 'development' && <DevTool control={control} />}
       </div>
     </div>
   )

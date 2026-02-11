@@ -1,6 +1,86 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 
+/**
+ * @swagger
+ * /api/scheduled-homework:
+ *   post:
+ *     summary: 예약 숙제 생성
+ *     description: 특정 시간에 학생들에게 자동으로 할당될 숙제를 예약합니다.
+ *     tags:
+ *       - Homework
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - scheduled_for
+ *               - target_students
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: 숙제 제목
+ *                 example: "수학 과제 3단원"
+ *               description:
+ *                 type: string
+ *                 description: 숙제 설명
+ *                 example: "방정식 풀이 연습 문제"
+ *               instructions:
+ *                 type: string
+ *                 description: 숙제 수행 지침
+ *               estimated_time_minutes:
+ *                 type: integer
+ *                 description: 예상 소요 시간 (분)
+ *                 example: 30
+ *               due_date:
+ *                 type: string
+ *                 format: date-time
+ *                 description: 제출 기한
+ *               scheduled_for:
+ *                 type: string
+ *                 format: date-time
+ *                 description: 숙제 할당 예약 시간 (미래 시간이어야 함)
+ *               target_students:
+ *                 type: array
+ *                 description: 대상 학생 ID 목록
+ *                 items:
+ *                   type: string
+ *                   format: uuid
+ *               lesson_id:
+ *                 type: string
+ *                 format: uuid
+ *                 description: 연결된 수업 ID (선택)
+ *     responses:
+ *       200:
+ *         description: 예약 숙제 생성 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ScheduledHomework'
+ *       400:
+ *         description: 잘못된 요청 (필수 필드 누락 또는 과거 시간 지정)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       401:
+ *         description: 인증 실패
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: 서버 오류
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient()
@@ -82,6 +162,46 @@ export async function POST(request: NextRequest) {
   }
 }
 
+/**
+ * @swagger
+ * /api/scheduled-homework:
+ *   get:
+ *     summary: 예약 숙제 목록 조회
+ *     description: 현재 플래너가 예약한 숙제 목록을 조회합니다. 상태별 필터링 가능합니다.
+ *     tags:
+ *       - Homework
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: status
+ *         schema:
+ *           type: string
+ *           enum: [all, scheduled, sent, cancelled]
+ *         description: 숙제 상태 필터 (미지정 시 전체 조회)
+ *         example: scheduled
+ *     responses:
+ *       200:
+ *         description: 예약 숙제 목록 조회 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/ScheduledHomework'
+ *       401:
+ *         description: 인증 실패
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: 서버 오류
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient()

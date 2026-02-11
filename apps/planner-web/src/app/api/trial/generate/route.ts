@@ -9,6 +9,99 @@ const TRIAL_DURATION_DAYS = 7
 const TRIAL_MAX_STUDENTS = 5
 
 /**
+ * @swagger
+ * /api/trial/generate:
+ *   post:
+ *     summary: 무료 체험 라이선스 생성
+ *     description: |
+ *       7일 무료 체험 라이선스를 생성합니다.
+ *       디바이스 핑거프린트로 중복 사용을 방지합니다.
+ *       체험 기간: 7일, 최대 학생 수: 5명
+ *     tags:
+ *       - Trial
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - device_fingerprint
+ *             properties:
+ *               device_fingerprint:
+ *                 type: string
+ *                 description: 디바이스 고유 식별자 (중복 방지용)
+ *                 example: "fp_1234567890abcdef"
+ *               user_email:
+ *                 type: string
+ *                 format: email
+ *                 description: 사용자 이메일 (선택)
+ *               ip_address:
+ *                 type: string
+ *                 description: 사용자 IP 주소 (선택)
+ *               user_agent:
+ *                 type: string
+ *                 description: 브라우저 User-Agent (선택)
+ *     responses:
+ *       200:
+ *         description: 체험 라이선스 생성 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 license:
+ *                   type: object
+ *                   properties:
+ *                     license_key:
+ *                       type: string
+ *                       example: "7D-5P-ABC123"
+ *                     max_students:
+ *                       type: integer
+ *                       example: 5
+ *                     duration_days:
+ *                       type: integer
+ *                       example: 7
+ *                     status:
+ *                       type: string
+ *                       example: "trial"
+ *                     trial_expires_at:
+ *                       type: string
+ *                       format: date-time
+ *       400:
+ *         description: 잘못된 요청 (device_fingerprint 누락)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       403:
+ *         description: 이미 체험 사용됨
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Trial already used"
+ *                 reason:
+ *                   type: string
+ *                   example: "already_used"
+ *                 first_trial_at:
+ *                   type: string
+ *                   format: date-time
+ *       500:
+ *         description: 서버 오류
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+
+/**
  * 체험 라이선스 키 생성 (7D-5P-XXXXXX)
  */
 function generateTrialLicenseKey(): string {

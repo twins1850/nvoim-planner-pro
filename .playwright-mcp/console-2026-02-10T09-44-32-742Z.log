@@ -1,2 +1,72 @@
 [   16198ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
 [   16248ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[ 3180501ms] [ERROR] ./src/app/dashboard/students/[id]/StudentDetailContent.tsx:1398:14
+Parsing ecmascript source code failed
+  1396 |                 </div>
+  1397 |               </div>
+> 1398 |             </div>
+       |              ^^^^^
+  1399 |             
+  1400 |             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+  1401 |               <div className="bg-gray-50 rounded-lg p-4">
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component Browser]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/dashboard/students/[id]/StudentDetailContent.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Client Component SSR]
+    ./src/app/dashboard/students/[id]/page.tsx [Server Component] @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[53436031ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework?_rsc=1p5au:0
+[53436491ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework:0
+[53443053ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[53448273ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&user_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53448322ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&user_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53448352ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/planner_profiles?select=invite_code&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53448424ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/planner_profiles?select=invite_code&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53461245ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[53461304ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[53468621ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&user_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53468672ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&user_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53468672ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/planner_profiles?select=invite_code&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53468732ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/planner_profiles?select=invite_code&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53669882ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&user_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53669922ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/planner_profiles?select=invite_code&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53669922ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/subscriptions?select=*&user_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[53669972ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/planner_profiles?select=invite_code&id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18:0
+[54326454ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54326510ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54333478ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54333534ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54347356ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54347392ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54469511ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_courses?select=*&student_id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3&status=eq.in_progress&order=start_date.desc:0
+[54469513ms] [ERROR] Error fetching courses: {code: 42703, details: null, hint: Perhaps you meant to reference the column "student_courses.started_at"., message: column student_courses.start_date does not exist} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[54483185ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54682563ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_courses?select=*&student_id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3&status=eq.in_progress&order=start_date.desc:0
+[54682564ms] [ERROR] Error fetching courses: {code: 42703, details: null, hint: Perhaps you meant to reference the column "student_courses.started_at"., message: column student_courses.start_date does not exist} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[54711674ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[54736510ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_courses?select=*&student_id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3&status=eq.in_progress&order=start_date.desc:0
+[54736511ms] [ERROR] Error fetching courses: {code: 42703, details: null, hint: Perhaps you meant to reference the column "student_courses.started_at"., message: column student_courses.start_date does not exist} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[55471616ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/lessons?select=*%2Cstudent%3Astudent_profiles%21lessons_student_id_fkey%28id%2Cfull_name%2Cnative_teacher_name%2Clevel%29&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&lesson_date=eq.2026-02-11&order=start_time.asc:0
+[55471617ms] [ERROR] Error fetching lessons: {code: 42703, details: null, hint: null, message: column student_profiles_1.native_teacher_name does not exist} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[56714788ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework?_rsc=1g1py:0
+[56715124ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework:0
+[56721233ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[56721279ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[56738847ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/student_courses?select=*&student_id=eq.ea03a8c4-1390-47df-83e2-79ac1712c6a3&status=eq.in_progress&order=start_date.desc:0
+[56738848ms] [ERROR] Error fetching courses: {code: 42703, details: null, hint: Perhaps you meant to reference the column "student_courses.started_at"., message: column student_courses.start_date does not exist} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[56782526ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework?_rsc=1g1py:0
+[56782885ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework:0
+[56845433ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework?_rsc=1p5au:0
+[56845747ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/dashboard/homework:0
+[56849173ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/licenses?select=*&planner_id=eq.bd8a51c1-20aa-45fb-bee0-7f5453ea1b18&status=eq.trial&is_trial=eq.true:0
+[64419696ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/rpc/get_today_lessons:0
+[64419696ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://ybcjkdcdruquqrdahtga.supabase.co/rest/v1/rpc/get_today_lessons:0
+[64419698ms] [ERROR] Error fetching lessons: {code: PGRST202, details: Searched for the function public.get_today_lessons…r, but no matches were found in the schema cache., hint: Perhaps you meant to call the function public.get_student_lesson_calendar, message: Could not find the function public.get_today_lessons(lesson_date, planner_uuid) in the schema cache} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[64419700ms] [ERROR] Error fetching lessons: {code: PGRST202, details: Searched for the function public.get_today_lessons…r, but no matches were found in the schema cache., hint: Perhaps you meant to call the function public.get_student_lesson_calendar, message: Could not find the function public.get_today_lessons(lesson_date, planner_uuid) in the schema cache} @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359

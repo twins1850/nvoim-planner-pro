@@ -2,6 +2,83 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 
+/**
+ * @swagger
+ * /api/auth/activate-license:
+ *   post:
+ *     summary: 라이선스 활성화 및 디바이스 등록
+ *     description: |
+ *       라이선스 키를 검증하고 디바이스를 등록합니다.
+ *       임시 활성화 토큰을 발급하여 5분 내에 사용자가 회원가입/로그인할 수 있습니다.
+ *     tags:
+ *       - Auth
+ *     parameters:
+ *       - in: header
+ *         name: x-device-fingerprint
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 디바이스 고유 식별자
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - licenseKey
+ *             properties:
+ *               licenseKey:
+ *                 type: string
+ *                 description: 활성화할 라이선스 키
+ *                 example: "7D-5P-ABC123"
+ *     responses:
+ *       200:
+ *         description: 라이선스 활성화 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 activationToken:
+ *                   type: string
+ *                   description: 5분 유효한 임시 활성화 토큰
+ *                 license:
+ *                   $ref: '#/components/schemas/License'
+ *       400:
+ *         description: 디바이스 정보 누락
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       403:
+ *         description: 만료되었거나 사용 중인 라이선스, 또는 디바이스 수 초과
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 devices:
+ *                   type: array
+ *                   description: 현재 등록된 디바이스 목록 (디바이스 수 초과 시)
+ *       404:
+ *         description: 유효하지 않은 라이선스 키
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: 서버 오류
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 export async function POST(request: Request) {
   try {
     const { licenseKey } = await request.json();

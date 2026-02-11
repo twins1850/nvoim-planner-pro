@@ -1,6 +1,11 @@
 'use client';
 
-import Navigation from './Navigation';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
+import Sidebar from './layout/Sidebar';
+import NotificationSystem from './notifications/NotificationSystem';
+import { Menu, X, LogOut } from 'lucide-react';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -8,29 +13,104 @@ interface DashboardLayoutProps {
 }
 
 export default function DashboardLayout({ children, title }: DashboardLayoutProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const [profile, setProfile] = useState<any>(null);
+  const router = useRouter();
+  const supabase = createClient();
+
+  useEffect(() => {
+    async function loadUserData() {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+
+      if (user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+        setProfile(profile);
+      }
+    }
+
+    loadUserData();
+  }, []);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    router.push('/auth/login');
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navigation />
-      
-      {/* 메인 컨텐츠 영역 */}
-      <div className="flex flex-col min-h-screen">
-        {/* 상단 여백 */}
-        <div className="h-16" />
-        
-        {/* 페이지 제목 (선택적) */}
-        {title && (
-          <div className="bg-white border-b border-gray-200 px-4 py-3">
-            <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+    <div className="flex h-screen bg-gray-100">
+      {/* Mobile sidebar */}
+      <div className={`fixed inset-0 z-40 md:hidden ${sidebarOpen ? '' : 'hidden'}`}>
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+        <div className="relative flex w-full max-w-xs flex-1 flex-col bg-gray-900">
+          <div className="absolute top-0 right-0 -mr-12 pt-2">
+            <button
+              type="button"
+              className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <X className="h-6 w-6 text-white" />
+            </button>
           </div>
-        )}
-        
-        {/* 메인 컨텐츠 */}
-        <main className="flex-1 pb-20">
+          <Sidebar />
+        </div>
+      </div>
+
+      {/* Desktop sidebar */}
+      <div className="hidden md:flex md:w-64 md:flex-col">
+        <Sidebar />
+      </div>
+
+      {/* Main content */}
+      <div className="flex flex-1 flex-col overflow-hidden">
+        {/* Top header */}
+        <header className="bg-white shadow">
+          <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center">
+              <button
+                type="button"
+                className="md:hidden text-gray-500 hover:text-gray-700 mr-4"
+                onClick={() => setSidebarOpen(true)}
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+              {title && (
+                <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+              )}
+            </div>
+
+            <div className="flex items-center space-x-4">
+              {/* Notifications */}
+              {user && <NotificationSystem userId={user.id} />}
+
+              {/* User profile */}
+              <div className="flex items-center space-x-3">
+                <div className="text-right hidden sm:block">
+                  <p className="text-sm font-medium text-gray-900">
+                    {profile?.full_name || user?.email}
+                  </p>
+                  <p className="text-xs text-gray-500">플래너</p>
+                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="flex items-center text-sm text-gray-500 hover:text-gray-700"
+                >
+                  <LogOut className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        {/* Page content */}
+        <main className="flex-1 overflow-y-auto bg-gray-50">
           {children}
         </main>
-        
-        {/* 하단 여백 */}
-        <div className="h-20" />
       </div>
     </div>
   );

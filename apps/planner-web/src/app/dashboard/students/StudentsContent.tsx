@@ -42,6 +42,12 @@ interface Student {
   subscription_end_date?: string;
   // 메시지 정보
   unread_message_count?: number;
+  // 레벨테스트 및 학습 목표
+  level_test_image_url?: string | null;
+  level_test_date?: string | null;
+  goal_description?: string | null;
+  goal_target_date?: string | null;
+  goal_category?: string | null;
 }
 
 export default function StudentsContent() {

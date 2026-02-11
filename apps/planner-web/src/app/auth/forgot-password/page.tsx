@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { DevTool } from '@hookform/devtools'
 import * as z from 'zod'
 
 const forgotPasswordSchema = z.object({
@@ -22,6 +23,7 @@ export default function ForgotPasswordPage() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<ForgotPasswordFormData>({
     resolver: zodResolver(forgotPasswordSchema),
@@ -110,6 +112,9 @@ export default function ForgotPasswordPage() {
             </Link>
           </div>
         </form>
+
+        {/* React Hook Form DevTools - Development only */}
+        {process.env.NODE_ENV === 'development' && <DevTool control={control} />}
       </div>
     </div>
   )
