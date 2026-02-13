@@ -313,12 +313,22 @@ CREATE POLICY "Teachers can manage flexible bookings"
   ON public.flexible_bookings FOR ALL
   USING (teacher_id = auth.uid());
 
-CREATE POLICY "Students can view and create their flexible bookings"
-  ON public.flexible_bookings FOR SELECT, INSERT
+CREATE POLICY "Students can view their flexible bookings"
+  ON public.flexible_bookings FOR SELECT
   USING (
     EXISTS (
-      SELECT 1 FROM public.students s 
-      WHERE s.id = flexible_bookings.student_id 
+      SELECT 1 FROM public.students s
+      WHERE s.id = flexible_bookings.student_id
+      AND s.user_id = auth.uid()
+    )
+  );
+
+CREATE POLICY "Students can create their flexible bookings"
+  ON public.flexible_bookings FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.students s
+      WHERE s.id = flexible_bookings.student_id
       AND s.user_id = auth.uid()
     )
   );

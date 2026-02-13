@@ -12,7 +12,13 @@
 CREATE POLICY "Students can view their homework assignments"
   ON public.homework_assignments
   FOR SELECT
-  USING (student_id = auth.uid());
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.students s
+      WHERE s.id = homework_assignments.student_id
+      AND s.user_id = auth.uid()
+    )
+  );
 
 -- 정책 2: 플래너가 자신이 만든 과제 조회
 CREATE POLICY "Planners can view homework assignments they created"
@@ -22,7 +28,7 @@ CREATE POLICY "Planners can view homework assignments they created"
     EXISTS (
       SELECT 1 FROM public.homework h
       WHERE h.id = homework_assignments.homework_id
-      AND h.planner_id = auth.uid()
+      AND h.teacher_id = auth.uid()
     )
   );
 
@@ -34,7 +40,7 @@ CREATE POLICY "Planners can create homework assignments"
     EXISTS (
       SELECT 1 FROM public.homework h
       WHERE h.id = homework_id
-      AND h.planner_id = auth.uid()
+      AND h.teacher_id = auth.uid()
     )
   );
 
@@ -46,7 +52,7 @@ CREATE POLICY "Planners can update homework assignments"
     EXISTS (
       SELECT 1 FROM public.homework h
       WHERE h.id = homework_assignments.homework_id
-      AND h.planner_id = auth.uid()
+      AND h.teacher_id = auth.uid()
     )
   );
 
@@ -58,7 +64,7 @@ CREATE POLICY "Planners can delete homework assignments"
     EXISTS (
       SELECT 1 FROM public.homework h
       WHERE h.id = homework_assignments.homework_id
-      AND h.planner_id = auth.uid()
+      AND h.teacher_id = auth.uid()
     )
   );
 

@@ -52,8 +52,7 @@ COMMENT ON COLUMN public.lessons.homework_assigned IS '숙제 배정 여부';
 CREATE INDEX IF NOT EXISTS idx_lessons_student_date
 ON public.lessons(student_id, lesson_date);
 
-CREATE INDEX IF NOT EXISTS idx_lessons_planner_date
-ON public.lessons(planner_id, lesson_date);
+-- Note: idx_lessons_planner_date will be created after planner_id column is added in a later migration
 
 CREATE INDEX IF NOT EXISTS idx_lessons_status
 ON public.lessons(lesson_status);
