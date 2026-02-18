@@ -1,5 +1,228 @@
 # NVOIM Planner Pro - 개발 현황 보고서
 
+## 📅 최종 업데이트: 2026년 2월 19일 - 라이선스 기반 학생 관리 고도화 v3.0 완료 ✅
+
+---
+
+## 2026-02-19 (2차) - 라이선스 기반 학생 관리 고도화 v3.0
+
+### 📌 배경 및 문제
+
+| 문제 | 내용 |
+|------|------|
+| **슬롯 카운팅 버그** | `nvoimp_student_id IS NOT NULL` 조건으로 학생 불러오기만 해도 슬롯 소비 + `LIMIT 1`로 추가 라이선스 합산 안됨 |
+| **동적 슬롯 반환 미지원** | 수강 종료 학생 슬롯 반환 불가, 신규 학생 재활용 불가 |
+| **Add-on 만료일 정렬 미지원** | 추가 라이선스 활성화 시 기존 라이선스와 만료일이 달라 관리 복잡 |
+
+### ✅ 완료된 작업
+
+#### Wave 1: DB 마이그레이션 (Migration 047) — 적용 완료
+
+- ✅ **`get_license_student_status` RPC v2**
+  - `LIMIT 1` → `SUM(max_students)` : 복수 활성 라이선스 합산
+  - `nvoimp_student_id IS NOT NULL` → `+ AND s.status = 'active'` : 활성 관리 학생만 카운팅
+  - 반환값에 `active_license_expires_at` 추가 (Add-on API 활용)
+- ✅ **`set_license_expiration` 트리거 v2**
+  - 명시적 `expires_at` 설정 시 트리거 오버라이드 방지 → Add-on 만료일 정렬 지원
+
+#### Wave 2: API 수정/신규 (4개 파일)
+
+- ✅ **`POST /api/nvoimp/import-students`** 로직 완전 재설계
+  - 4단계 분기 처리:
+    1. `is_connected = true` → `already_connected` (skip)
+    2. `status = 'active'` + 유효 초대코드 → `already_managed` (skip, 슬롯 소비 없음)
+    3. `status = 'active'` + 만료 코드 → `invite_refreshed` (재발급, 슬롯 소비 없음)
+    4. `status != 'active'` → `new` (슬롯 소비, upsert + status='active')
+  - 신규 학생 수만 슬롯 사전 계산 후 체크
+- ✅ **`PATCH /api/nvoimp/unmanage-student`** 신규 생성
+  - `students.status = 'inactive'` → 슬롯 즉시 반환
+  - 미사용 초대 코드 즉시 만료 처리
+- ✅ **`POST /api/licenses/activate`** Add-on 정렬 추가
+  - 기존 활성 라이선스 만료일 조회 → `expires_at` 명시 설정 (트리거 스킵)
+  - 응답에 `is_addon`, `aligned_to` 추가
+- ✅ **`GET /api/nvoimp/sync-students`** 응답 확장
+  - `status` 컬럼 추가 조회
+  - 학생별 `is_managed`, `invite_expired` 필드 반환
+
+#### Wave 3: UI 수정 (3개 파일)
+
+- ✅ **`NvoimSettings.tsx`** 대폭 개선
+  - `NvoimStudent` 인터페이스 확장: `nvoimp_status`, `is_managed`, `invite_expired`
+  - 학생 행: `[수강/중지]` 배지 + 앱 상태 배지 (🔴 초대 만료 추가) 분리 표시
+  - 관리 중 학생: 체크박스 없음, `[복사📋]` / `[재발급]` / `[관리 해제]` 버튼 표시
+  - 미관리 학생만 선택 가능 ("미관리 전체 선택")
+  - `handleUnmanage()`, `handleRefreshInvite()` 핸들러 추가
+- ✅ **`license/page.tsx`** 활성 라이선스 전체 조회
+  - `LIMIT 1` 제거 → 모든 활성 라이선스 조회
+  - `totalMaxStudents` (SUM), `activeLicenseCount`, `primaryLicense` 계산 후 전달
+- ✅ **`LicenseContent.tsx`** 복수 라이선스 표시
+  - 합산 최대 학생 수 표시 ("라이선스 N개 합산")
+  - Add-on 성공 메시지: "기존 라이선스(~날짜)에 맞춰 설정 (+N명)"
+  - Add-on 활성화 후 `router.refresh()` (onboarding 리다이렉트 방지)
+
+### 🔧 수정/생성된 파일
+
+| 파일 | 작업 | 내용 |
+|------|------|------|
+| `supabase/migrations/047_license_managed_students.sql` | 신규 | RPC SUM 수정, 트리거 Add-on 지원 |
+| `apps/planner-web/src/app/api/nvoimp/import-students/route.ts` | 수정 | 4단계 분기, 신규 학생만 슬롯 체크 |
+| `apps/planner-web/src/app/api/nvoimp/unmanage-student/route.ts` | 신규 | 관리 해제 + 슬롯 반환 API |
+| `apps/planner-web/src/app/api/licenses/activate/route.ts` | 수정 | Add-on 만료일 정렬 |
+| `apps/planner-web/src/app/api/nvoimp/sync-students/route.ts` | 수정 | is_managed, invite_expired 반환 |
+| `apps/planner-web/src/components/nvoimp/NvoimSettings.tsx` | 수정 | 관리 해제/재발급 버튼, 배지 개선 |
+| `apps/planner-web/src/app/license/page.tsx` | 수정 | 전체 활성 라이선스 합산 |
+| `apps/planner-web/src/app/license/LicenseContent.tsx` | 수정 | 복수 라이선스 표시, Add-on 메시지 |
+
+### 📐 핵심 비즈니스 규칙 (확정)
+
+| 규칙 | 내용 |
+|------|------|
+| 슬롯 소비 기준 | `nvoimp_student_id IS NOT NULL AND status = 'active'` |
+| 슬롯 반환 | 관리 해제(`status = 'inactive'`) 즉시 반환 |
+| 슬롯 환불 | 없음 — 기간 내 신규 학생에 재활용 |
+| 초대 코드 재발급 | 언제든 자유롭게 (슬롯 소비 없음) |
+| Add-on 만료일 | 기존 활성 라이선스 만료일에 자동 맞춤 |
+| 라이선스 합산 | 복수 활성 라이선스 `max_students` SUM |
+
+---
+
+## 2026-02-19 (1차) - nvoimp 학생 연동 고도화 (학생 임포트 + 라이선스 제한)
+
+### 📌 완료된 작업
+
+#### Wave 1: DB 마이그레이션
+
+- ✅ **`get_license_student_status` RPC 함수** (`students` 테이블 기반, `has_license`, `max_students`, `remaining_slots` 반환)
+- ✅ **초대 코드 7일 유효기간** (기존 24시간 → 7일로 변경)
+- ✅ **`students` 테이블 `status` 컬럼** 추가 (active/inactive 구분)
+
+#### Wave 2: API 구축 및 개선
+
+- ✅ **`GET /api/nvoimp/sync-students`** 고도화
+  - nvoimp.com 수강생관리 페이지 크롤링 (SelectID select 파싱)
+  - 학생별 앱 연결 상태 (`app_connected`, `invite_pending`, `invite_days_left`) 반환
+  - 라이선스 슬롯 현황 (`license_status`) 포함
+  - **버그 수정 #1**: `F_STDT_ID` 숫자 기반 파싱 → `<select id="SearchID">` 로그인 ID 파싱으로 전환 (0명 → 정상 작동)
+  - **버그 수정 #2**: HTML `<option value="id" >` 공백 처리 (`[^>]*>` 패턴으로 수정)
+  - **버그 수정 #3**: 수강회원 필터 (`status !== '수강회원'` 강화, 265명 → 31명 정확 필터링)
+
+- ✅ **`POST /api/nvoimp/import-students`** 신규 생성
+  - 선택된 학생 초대 코드 일괄 생성 (7일 유효)
+  - 라이선스 슬롯 초과 시 차단
+  - 중복 초대 코드 감지 및 기존 코드 재사용
+  - `students` 테이블 upsert (`teacher_id, nvoimp_student_id` 유니크 키 기반)
+
+#### Wave 3: 플래너 UI 고도화
+
+- ✅ **`NvoimSettings.tsx` 학생 임포트 섹션**
+  - 라이선스 현황 배지 (`N/M명 사용 중, X슬롯 남음`)
+  - 체크박스 학생 선택 + 전체 선택
+  - 앱 연결 상태 배지 (`✅ 연결됨 / 🟡 초대 중 D-N일 / ⬜ 미등록`)
+  - 초대 코드 생성 후 복사 버튼
+
+- ✅ **`StudentsContent.tsx` 버그 수정**
+  - `profile?.full_name` (profiles 테이블) 우선순위 버그 → `sp.full_name || profile?.full_name` 수정
+  - nvoimp에서 임포트된 신규 학생이 "Unknown"으로 표시되던 문제 해결
+
+#### Wave 4: 검증 및 테스트
+
+- ✅ nvoimp.com 로그인 → 학생 목록 파싱 정상 확인 (수강회원 31명 정확 반환)
+- ✅ 플래너 앱 UI 학생 목록 표시 정상 확인
+- ✅ 초대 코드 생성 → 학생 앱 연결 → `is_connected: true` E2E 흐름 확인
+- ✅ `nvoimp테스트학생` 앱 연결 상태 (`✅ 앱 연결됨`) 표시 정상 확인
+
+### 🔧 수정/생성된 파일
+
+| 파일 | 작업 | 내용 |
+|------|------|------|
+| `apps/planner-web/src/app/api/nvoimp/sync-students/route.ts` | 대폭 수정 | 파싱 전면 개선, 수강회원 필터, 연결상태 반환 |
+| `apps/planner-web/src/app/api/nvoimp/import-students/route.ts` | 신규 생성 | 초대 코드 일괄 생성 API (7일 유효) |
+| `apps/planner-web/src/components/nvoimp/NvoimSettings.tsx` | 대폭 수정 | 학생 임포트 UI, 라이선스 배지, 연결 상태 표시 |
+| `apps/planner-web/src/app/dashboard/students/StudentsContent.tsx` | 버그 수정 | full_name 우선순위 수정 |
+
+### 🐛 수정된 버그 상세
+
+| 버그 | 증상 | 원인 | 수정 |
+|------|------|------|------|
+| 파싱 실패 | `nvoimp_students: []` 0명 반환 | `F_STDT_ID=(\d+)` 패턴 — 실제는 문자열 로그인ID | `<select id="SearchID">` option 파싱으로 전환 |
+| 공백 처리 | 15명만 반환 (fallback 동작) | `<option value="id" >` 공백 앞 `>` 매칭 실패 | `[^>]*>` 패턴으로 수정 |
+| 종료회원 포함 | 265명 반환 (종료회원 혼재) | `status && status !== '수강회원'` — status=undefined 시 포함 | `status !== '수강회원'` 강화 (31명 정확 반환) |
+| Unknown 표시 | 신규 학생 "Unknown"으로 표시 | `profile?.full_name` 우선 — profiles 테이블에 없는 학생 | `sp.full_name \|\| profile?.full_name` 순서 변경 |
+
+---
+
+## 2026-02-18 - 앤보임(nvoimp.com) 자동 연동 시스템 구축
+
+### 📌 완료된 작업
+
+#### Phase Wave2: DB 마이그레이션 (039~043)
+- ✅ **Migration 039**: `nvoimp_credentials` 테이블 (플래너 앤보임 자격증명 저장, RLS, updated_at 트리거)
+- ✅ **Migration 040**: `lesson_feedback` 테이블 (원어민 강사 피드백 + 한글 번역, 이중 RLS: planner/student)
+- ✅ **Migration 041**: `nvoimp_sync_log` 테이블 (동기화 이력, sync_type CHECK 제약)
+- ✅ **Migration 042**: `student_profiles.nvoimp_student_id` 컬럼 추가 + 인덱스
+- ✅ **Migration 043**: `student_courses` / `course_history` RLS 정책 추가 (누락 보완)
+
+#### Phase Wave2: Edge Functions
+- ✅ **nvoimp-sync-onestop**: 원스톱 관리 페이지 크롤링 → 출결/잔여수강권 자동 동기화
+- ✅ **nvoimp-sync-feedback**: 원어민 피드백 수집 → Claude Haiku 한글 번역 → 학생 알림
+
+#### Phase Wave3: 플래너 웹 UI
+- ✅ **NvoimSettings.tsx**: 앤보임 연동 설정 컴포넌트 (자격증명 저장, 연결 테스트, 동기화 로그)
+- ✅ **TodayLessons.tsx**: 대시보드 수업 피드백 위젯 (출석 상태, AI 요약, 펼치기/접기)
+- ✅ **settings/page.tsx**: 4탭 레이아웃 (계정/앤보임연동NEW/알림/보안)
+
+#### Phase Wave3: 학생 앱
+- ✅ **LessonFeedbackScreen.tsx**: 수업 피드백 상세 화면 (출결, 진도, 한글 번역, 영어 원문 토글)
+- ✅ **HomeScreen.tsx**: 피드백 날짜 표시 + 피드백 버튼 추가
+- ✅ **RootNavigator.tsx**: LessonFeedback 라우트 등록
+
+#### Phase Wave4: 버그 수정
+- ✅ `Module not found: '@/lib/supabase'` → `@/lib/supabase/client` createClient() 패턴으로 수정
+- ✅ Next.js 15 `searchParams: Promise<{}>` 타입 오류 (settings page) 수정
+- ✅ Next.js 15 `params: Promise<{}>` 타입 오류 (homework/[id] page) 수정
+- ✅ `Error fetching courses: {}` → student_courses RLS 정책 누락 → 정책 추가
+
+#### Phase Wave4: Edge Function 배포 & Cron
+- ✅ **nvoimp-sync-onestop** Supabase 배포 완료
+- ✅ **nvoimp-sync-feedback** Supabase 배포 완료
+- ✅ **pg_cron** 스케줄 설정: 출결 30분/피드백 1시간 주기
+
+### 🔧 수정/생성된 파일
+
+**DB 마이그레이션:**
+- `supabase/migrations/039_nvoimp_credentials.sql`
+- `supabase/migrations/040_lesson_feedback.sql`
+- `supabase/migrations/041_nvoimp_sync_log.sql`
+- `supabase/migrations/042_student_profiles_nvoimp_id.sql`
+- `supabase/migrations/043_student_courses_course_history_rls.sql` (bug fix)
+
+**Edge Functions:**
+- `supabase/functions/nvoimp-sync-onestop/index.ts` (274줄)
+- `supabase/functions/nvoimp-sync-feedback/index.ts` (389줄)
+
+**플래너 웹 (apps/planner-web):**
+- `src/components/nvoimp/NvoimSettings.tsx` (신규)
+- `src/components/dashboard/TodayLessons.tsx` (신규)
+- `src/app/dashboard/settings/page.tsx` (수정 - 4탭 + Next.js 15 타입)
+- `src/app/homework/[id]/page.tsx` (수정 - Next.js 15 타입)
+- `src/app/dashboard/DashboardContent.tsx` (수정 - TodayLessons 위젯)
+
+**학생 앱 (apps/student):**
+- `src/screens/LessonFeedbackScreen.tsx` (신규)
+- `src/navigation/types.ts` (수정 - LessonFeedback 라우트)
+- `src/navigation/RootNavigator.tsx` (수정 - LessonFeedbackScreen 등록)
+- `src/screens/HomeScreen.tsx` (수정 - 피드백 버튼)
+
+### 💰 추가 비용 분석
+```
+Claude Haiku 번역: 50명 × 주 3회 × 600 토큰 = 월 360,000 토큰
+비용: 월 $0.09 ≈ 약 130원
+Supabase Edge Function: 무료 티어 충분
+총 추가 월 비용: 약 200원
+```
+
+---
+
 ## 📅 최종 업데이트: 2026년 2월 11일 19:00 KST - 기술 스택 최적화 완료 ✅
 
 ---

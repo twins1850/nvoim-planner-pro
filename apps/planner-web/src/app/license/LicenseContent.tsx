@@ -1,7 +1,6 @@
 'use client'
 
 import { Suspense, useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase/client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { parseLicenseKey } from '@/lib/licenseUtils'
 
@@ -21,6 +20,8 @@ interface License {
 
 interface LicenseContentProps {
   activeLicense: License | null
+  activeLicenseCount: number
+  totalMaxStudents: number
   allLicenses: License[]
   currentStudentCount: number
   userId: string
@@ -29,9 +30,10 @@ interface LicenseContentProps {
 
 function LicenseContentInner({
   activeLicense,
+  activeLicenseCount,
+  totalMaxStudents,
   allLicenses,
   currentStudentCount,
-  userId,
   hasPlannerProfile
 }: LicenseContentProps) {
   const [licenseKey, setLicenseKey] = useState('')
@@ -39,7 +41,6 @@ function LicenseContentInner({
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const router = useRouter()
-  const supabase = createClient()
   const searchParams = useSearchParams()
 
   // Set page title
@@ -112,16 +113,33 @@ function LicenseContentInner({
         return
       }
 
-      setSuccess(`라이선스가 성공적으로 활성화되었습니다! (기간: ${result.license.duration_days}일, 최대 학생 수: ${result.license.max_students}명)`)
-      setLicenseKey('')
+      if (result.is_addon && result.aligned_to) {
+        // 추가 라이선스(Add-on): 기존 만료일에 맞춤
+        const alignedDate = new Date(result.aligned_to).toLocaleDateString('ko-KR')
+        setSuccess(
+          `추가 라이선스가 기존 라이선스 만료일(~${alignedDate})에 맞춰 설정되었습니다! (+${result.license.max_students}명)`
+        )
+        setLicenseKey('')
+        // Add-on은 이미 활성 라이선스가 있으므로 라이선스 페이지 새로고침
+        setTimeout(() => {
+          router.refresh()
+        }, 1500)
+      } else {
+        // 신규 라이선스
+        setSuccess(`라이선스가 성공적으로 활성화되었습니다! (기간: ${result.license.duration_days}일, 최대 학생 수: ${result.license.max_students}명)`)
+        setLicenseKey('')
+        // 플래너 프로필 생성 페이지로 리다이렉트
+        setTimeout(() => {
+          if (hasPlannerProfile) {
+            router.refresh()
+          } else {
+            router.push('/onboarding/planner')
+          }
+        }, 1500)
+      }
 
-      // 플래너 프로필 생성 페이지로 리다이렉트
-      setTimeout(() => {
-        router.push('/onboarding/planner')
-      }, 1500)
-
-    } catch (err: any) {
-      setError('라이선스 처리 중 오류가 발생했습니다: ' + err.message)
+    } catch (err: unknown) {
+      setError('라이선스 처리 중 오류가 발생했습니다: ' + (err instanceof Error ? err.message : String(err)))
     } finally {
       setIsSubmitting(false)
     }
@@ -168,6 +186,9 @@ function LicenseContentInner({
     }
   }
 
+  // 합산 최대 학생 수 (복수 라이선스 지원)
+  const effectiveMaxStudents = totalMaxStudents > 0 ? totalMaxStudents : (activeLicense?.max_students || 0)
+
   return (
     <div className="p-4 max-w-4xl mx-auto">
       {/* 현재 활성 라이선스 */}
@@ -200,21 +221,39 @@ function LicenseContentInner({
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">최대 학생 수</span>
               <span className="text-sm font-medium text-gray-900">
-                {activeLicense.max_students}명
+                {activeLicenseCount > 1 ? (
+                  <span>
+                    {effectiveMaxStudents}명
+                    <span className="ml-2 text-xs text-blue-600 font-normal">
+                      (라이선스 {activeLicenseCount}개 합산)
+                    </span>
+                  </span>
+                ) : (
+                  `${effectiveMaxStudents}명`
+                )}
               </span>
             </div>
 
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">현재 학생 수</span>
-              <span className={`text-sm font-medium ${currentStudentCount > activeLicense.max_students ? 'text-red-600' : 'text-gray-900'}`}>
+              <span className={`text-sm font-medium ${currentStudentCount > effectiveMaxStudents ? 'text-red-600' : 'text-gray-900'}`}>
                 {currentStudentCount}명
-                {currentStudentCount > activeLicense.max_students && (
+                {currentStudentCount > effectiveMaxStudents && (
                   <span className="ml-2 text-xs text-red-600">(제한 초과)</span>
                 )}
               </span>
             </div>
 
-            {currentStudentCount > activeLicense.max_students && (
+            {activeLicenseCount > 1 && (
+              <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  ℹ️ 활성 라이선스 {activeLicenseCount}개의 학생 수를 합산합니다.
+                  모든 라이선스는 {activeLicense.expires_at ? new Date(activeLicense.expires_at).toLocaleDateString('ko-KR') : '-'}까지 유효합니다.
+                </p>
+              </div>
+            )}
+
+            {currentStudentCount > effectiveMaxStudents && (
               <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
                 <p className="text-sm text-red-800">
                   ⚠️ 현재 학생 수가 라이선스 제한을 초과했습니다. 라이선스를 업그레이드해주세요.
@@ -232,7 +271,17 @@ function LicenseContentInner({
 
       {/* 라이선스 키 입력 */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">새 라이선스 활성화</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          {activeLicense ? '추가 라이선스 활성화' : '새 라이선스 활성화'}
+        </h2>
+
+        {activeLicense && (
+          <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-sm text-blue-800">
+              💡 추가 라이선스 활성화 시 만료일이 기존 라이선스(~{activeLicense.expires_at ? new Date(activeLicense.expires_at).toLocaleDateString('ko-KR') : '-'})에 자동으로 맞춰집니다.
+            </p>
+          </div>
+        )}
 
         <div className="space-y-4">
           <div>

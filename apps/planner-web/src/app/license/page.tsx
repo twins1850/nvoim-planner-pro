@@ -12,16 +12,21 @@ export default async function LicensePage() {
     redirect('/auth/login')
   }
 
-  // 현재 활성화된 라이선스 정보 가져오기 (가장 최근 생성된 활성 라이선스)
-  const { data: licenses } = await supabase
+  // 모든 활성 라이선스 조회 (만료되지 않은 것만) → max_students 합산
+  const { data: activeLicenses } = await supabase
     .from('licenses')
     .select('*')
     .eq('planner_id', user.id)
     .eq('status', 'active')
+    .gt('expires_at', new Date().toISOString())
     .order('created_at', { ascending: false })
-    .limit(1)
 
-  const activeLicense = licenses && licenses.length > 0 ? licenses[0] : null
+  const totalMaxStudents = (activeLicenses || []).reduce(
+    (sum, l) => sum + (l.max_students || 0),
+    0
+  )
+  // 가장 최근 활성 라이선스 (만료일 표시용 대표 라이선스)
+  const primaryLicense = activeLicenses && activeLicenses.length > 0 ? activeLicenses[0] : null
 
   // 모든 라이선스 이력 가져오기
   const { data: allLicenses } = await supabase
@@ -46,7 +51,9 @@ export default async function LicensePage() {
   return (
     <DashboardLayout title="라이선스 관리">
       <LicenseContent
-        activeLicense={activeLicense}
+        activeLicense={primaryLicense}
+        activeLicenseCount={(activeLicenses || []).length}
+        totalMaxStudents={totalMaxStudents}
         allLicenses={allLicenses || []}
         currentStudentCount={studentCount || 0}
         userId={user.id}

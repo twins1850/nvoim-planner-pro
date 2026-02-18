@@ -64,14 +64,37 @@ export async function POST(req: NextRequest) {
     // 6. 라이선스 상태 검증
     // 관리자가 발급한 pending 라이선스 (planner_id = NULL)
     if (existingLicense.status === 'pending' && !existingLicense.planner_id) {
-      // 사용자에게 라이선스 할당 및 활성화
+      // 6a. 기존 활성 라이선스 만료일 조회 (Add-on 정렬 판단)
+      const { data: currentActive } = await supabaseAdmin
+        .from('licenses')
+        .select('expires_at')
+        .eq('planner_id', user.id)
+        .eq('status', 'active')
+        .gt('expires_at', new Date().toISOString())
+        .order('expires_at', { ascending: false })
+        .limit(1)
+        .maybeSingle()
+
+      // Add-on 정렬: 기존 활성 라이선스가 있으면 만료일 맞춤
+      const isAddon = !!currentActive?.expires_at
+      const alignedExpiresAt = currentActive?.expires_at || null
+
+      // 6b. 사용자에게 라이선스 할당 및 활성화
+      const updatePayload: Record<string, string> = {
+        planner_id: user.id,
+        status: 'active',
+        activated_at: new Date().toISOString(),
+      }
+
+      // Add-on 만료일 정렬: 기존 라이선스가 있으면 expires_at 명시적 설정
+      // (DB 트리거는 expires_at이 NULL인 경우만 duration_days 기반 계산)
+      if (alignedExpiresAt) {
+        updatePayload.expires_at = alignedExpiresAt
+      }
+
       const { error: activateError } = await supabaseAdmin
         .from('licenses')
-        .update({
-          planner_id: user.id,
-          status: 'active',
-          activated_at: new Date().toISOString()
-        })
+        .update(updatePayload)
         .eq('license_key', licenseKey.trim().toUpperCase())
 
       if (activateError) {
@@ -84,7 +107,11 @@ export async function POST(req: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        message: `라이선스가 성공적으로 활성화되었습니다!`,
+        is_addon: isAddon,
+        aligned_to: alignedExpiresAt,
+        message: isAddon
+          ? `추가 라이선스가 기존 라이선스 만료일에 맞춰 활성화되었습니다.`
+          : `라이선스가 성공적으로 활성화되었습니다!`,
         license: {
           duration_days: existingLicense.duration_days,
           max_students: existingLicense.max_students
@@ -122,10 +149,10 @@ export async function POST(req: NextRequest) {
       { status: 409 }
     )
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('License activation API error:', error)
     return NextResponse.json(
-      { error: '서버 오류가 발생했습니다: ' + error.message },
+      { error: '서버 오류가 발생했습니다: ' + (error instanceof Error ? error.message : String(error)) },
       { status: 500 }
     )
   }
