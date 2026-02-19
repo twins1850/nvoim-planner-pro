@@ -9,10 +9,17 @@ export const authAPI = {
         email,
         password,
       })
-      
+
       if (error) throw error
-      
-      return { success: true, data: data.user }
+
+      return {
+        success: true,
+        data: {
+          user: data.user,
+          token: data.session?.access_token,
+          refreshToken: data.session?.refresh_token
+        }
+      }
     } catch (error) {
       console.error('Login error:', error)
       throw error
@@ -191,8 +198,7 @@ export const homeworkAPI = {
             instructions,
             due_date,
             created_at,
-            resources,
-            content
+            resources
           )
         `)
         .eq('student_id', user.id)
@@ -208,7 +214,39 @@ export const homeworkAPI = {
         throw new Error('숙제를 찾을 수 없습니다.')
       }
 
-      // 3. 데이터 변환 (snake_case → camelCase)
+      // 3. resources.attachments가 있으면 signed URL로 변환
+      if (assignment.homework.resources?.attachments) {
+        const attachmentsWithSignedUrls = await Promise.all(
+          assignment.homework.resources.attachments.map(async (attachment: any) => {
+            // Extract storage path from full URL
+            // URL format: https://.../storage/v1/object/public/homework-files/{path}
+            const storagePath = attachment.url.split('/homework-files/')[1]
+            
+            if (!storagePath) {
+              console.warn('Could not extract storage path from:', attachment.url)
+              return attachment
+            }
+            
+            const { data, error } = await supabase.storage
+              .from('homework-files')
+              .createSignedUrl(storagePath, 3600)
+            
+            if (error) {
+              console.error('Failed to create signed URL:', error)
+              return attachment
+            }
+            
+            return {
+              ...attachment,
+              url: data?.signedUrl || attachment.url
+            }
+          })
+        )
+        
+        assignment.homework.resources.attachments = attachmentsWithSignedUrls
+      }
+
+      // 4. 데이터 변환 (snake_case → camelCase)
       const homework = {
         id: assignment.homework.id,
         title: assignment.homework.title,
@@ -220,6 +258,8 @@ export const homeworkAPI = {
         content: assignment.homework.content,
         status: assignment.status,
         assignedAt: assignment.assigned_at,
+        teacher_feedback: assignment.teacher_feedback,  // 선생님 피드백 추가
+        reviewed_at: assignment.reviewed_at,  // 피드백 작성일 추가
         type: 'mixed' // 기본 타입
       }
 
@@ -230,7 +270,7 @@ export const homeworkAPI = {
       // 오프라인 모드로 폴백
       try {
         const { sampleHomeworkData } = require('../utils/sampleHomeworkData')
-        const sampleHomework = sampleHomeworkData.find(hw => hw.id === homeworkId)
+        const sampleHomework = sampleHomeworkData.find((hw: any) => hw.id === homeworkId)
 
         if (sampleHomework) {
           return { success: true, data: { homework: sampleHomework } }
@@ -249,22 +289,72 @@ export const homeworkAPI = {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) throw new Error('User not authenticated')
 
-      // 일단 간단하게 homework 테이블 업데이트로 처리
-      const { data, error } = await supabase
-        .from('homework')
-        .update({
-          status: 'submitted',
-          submission_content: submissionData.content
-        })
-        .eq('id', homeworkId)
-        .select()
+      console.log('📤 제출 시작:', { homeworkId, userId: user.id })
 
-      if (error) throw error
+      // homework_assignments 테이블에서 학생의 과제 찾기
+      const { data: assignment, error: findError } = await supabase
+        .from('homework_assignments')
+        .select('*')
+        .eq('homework_id', homeworkId)
+        .eq('student_id', user.id)
+        .single()
+
+      if (findError) {
+        console.error('과제 찾기 실패:', findError)
+        throw new Error('과제를 찾을 수 없습니다.')
+      }
+
+      if (!assignment) {
+        throw new Error('배정된 과제가 없습니다.')
+      }
+
+      // homework_assignments 테이블 업데이트 (알림 트리거 발생)
+      const updateData: any = {
+        status: 'submitted',
+        submitted_at: new Date().toISOString()
+      }
+
+      // 제출 데이터 타입에 따라 적절한 컬럼에 저장
+      if (submissionData.type === 'text' && submissionData.text) {
+        updateData.submission_text = submissionData.text
+      }
+      if (submissionData.type === 'audio' && submissionData.audioUrl) {
+        updateData.submission_audio_url = submissionData.audioUrl
+      }
+      if (submissionData.type === 'video' && submissionData.videoUrl) {
+        updateData.submission_video_url = submissionData.videoUrl
+      }
+      if (submissionData.type === 'file' && submissionData.fileUrl) {
+        updateData.submission_file_url = submissionData.fileUrl
+      }
+      // 혼합 타입의 경우 여러 필드 설정 가능
+      if (submissionData.content) {
+        // 기존 content 필드 지원 (하위 호환성)
+        if (typeof submissionData.content === 'string') {
+          updateData.submission_text = submissionData.content
+        }
+      }
+
+      console.log('📝 업데이트 데이터:', updateData)
+
+      const { data: updatedAssignment, error: updateError } = await supabase
+        .from('homework_assignments')
+        .update(updateData)
+        .eq('id', assignment.id)
+        .select()
+        .single()
+
+      if (updateError) {
+        console.error('제출 업데이트 실패:', updateError)
+        throw updateError
+      }
+
+      console.log('✅ 제출 완료:', updatedAssignment)
 
       return {
         success: true,
         message: '숙제가 성공적으로 제출되었습니다.',
-        data: data[0]
+        data: updatedAssignment
       }
     } catch (error) {
       console.error('Submit homework error:', error)
@@ -340,7 +430,7 @@ export const feedbackAPI = {
       // 샘플 데이터로 폴백
       try {
         const { sampleFeedbacks } = require('../utils/sampleData')
-        const feedback = sampleFeedbacks.find(fb => fb.id === feedbackId)
+        const feedback = sampleFeedbacks.find((fb: any) => fb.id === feedbackId)
         
         if (feedback) {
           return { success: true, data: feedback }
