@@ -49,6 +49,7 @@ export type RootStackParamList = {
   HomeworkSubmission: { homeworkId: string };
   AudioRecording: { homeworkId: string };
   FeedbackDetail: { feedbackId: string };
+  LessonFeedback: { feedbackDate: string };
   Settings: undefined;
   Notifications: undefined;
   OfflineQueue: undefined;

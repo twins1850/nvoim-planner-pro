@@ -62,14 +62,14 @@ export const useAudioRecorder = () => {
       const hasPermission = await requestPermissions();
       if (!hasPermission) return;
 
-      // 오디오 세션 설정
-      await Audio.setAudioModeAsync({
-        allowsRecordingIOS: true,
-        playsInSilentModeIOS: true,
-        staysActiveInBackground: true,
-        interruptionModeIOS: Audio.InterruptionModeIOS.DoNotMix,
-        interruptionModeAndroid: Audio.InterruptionModeAndroid.DoNotMix,
-      });
+      // 오디오 세션 설정 (웹 환경 고려)
+      if (Platform.OS !== 'web') {
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: true,
+          playsInSilentModeIOS: true,
+          staysActiveInBackground: true,
+        });
+      }
 
       // 녹음 시작
       const { recording } = await Audio.Recording.createAsync(
@@ -111,15 +111,15 @@ export const useAudioRecorder = () => {
 
       // 녹음 파일 URI 가져오기
       const uri = state.recording.getURI();
-      
-      // 오디오 세션 재설정
-      await Audio.setAudioModeAsync({
-        allowsRecordingIOS: false,
-        playsInSilentModeIOS: true,
-        staysActiveInBackground: true,
-        interruptionModeIOS: Audio.InterruptionModeIOS.DoNotMix,
-        interruptionModeAndroid: Audio.InterruptionModeAndroid.DoNotMix,
-      });
+
+      // 오디오 세션 재설정 (웹 환경 고려)
+      if (Platform.OS !== 'web') {
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: false,
+          playsInSilentModeIOS: true,
+          staysActiveInBackground: true,
+        });
+      }
 
       setState(prev => ({ 
         ...prev, 
@@ -185,8 +185,20 @@ export const useAudioRecorder = () => {
 
   const getAudioFileInfo = async () => {
     if (!state.audioUri) return null;
-    
+
     try {
+      // 웹 환경에서는 Blob API 사용
+      if (Platform.OS === 'web') {
+        const response = await fetch(state.audioUri);
+        const blob = await response.blob();
+        return {
+          exists: true,
+          size: blob.size,
+          uri: state.audioUri
+        };
+      }
+
+      // 네이티브 환경에서는 FileSystem 사용
       const fileInfo = await FileSystem.getInfoAsync(state.audioUri);
       return fileInfo;
     } catch (error) {
@@ -209,7 +221,7 @@ export const useAudioRecorder = () => {
       const fileId = await saveOfflineAudioFile(state.audioUri, {
         name: fileName,
         type: Platform.OS === 'ios' ? 'audio/m4a' : 'audio/mp4',
-        size: fileInfo.size || 0,
+        size: fileInfo.exists ? fileInfo.size : 0,
         duration: state.recordingDuration,
         createdAt: new Date().toISOString()
       });
@@ -218,7 +230,7 @@ export const useAudioRecorder = () => {
         uri: state.audioUri,
         name: fileName,
         type: Platform.OS === 'ios' ? 'audio/m4a' : 'audio/mp4',
-        size: fileInfo.size || 0,
+        size: fileInfo.exists ? fileInfo.size : 0,
         offlineFileId: fileId
       };
     } catch (error) {

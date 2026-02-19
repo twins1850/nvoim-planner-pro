@@ -6,17 +6,22 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
-  Alert
+  Alert,
+  Linking,
+  Platform
 } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 
 // 타입
 import { RootStackParamList } from '../navigation/types';
 
 // API
 import { homeworkAPI } from '../services/supabaseApi';
+import { supabase } from '../lib/supabase';
 import { isConnected, getOfflineData, getOfflineHomework } from '../utils/offlineStorage';
 
 type HomeworkDetailScreenRouteProp = RouteProp<RootStackParamList, 'HomeworkDetail'>;
@@ -127,18 +132,18 @@ const HomeworkDetailScreen = () => {
   // 남은 시간 계산
   const getRemainingTime = () => {
     if (!homework?.dueDate) return null;
-    
+
     try {
       const now = new Date();
       const due = new Date(homework.dueDate);
-      
+
       if (isNaN(due.getTime())) {
         return null;
       }
-      
+
       const diffTime = due.getTime() - now.getTime();
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      
+
       if (diffDays < 0) {
         return '기한 만료';
       } else if (diffDays === 0) {
@@ -154,12 +159,92 @@ const HomeworkDetailScreen = () => {
       } else {
         return `${diffDays}일 남음`;
       }
-      
+
       return null;
     } catch (error) {
       console.error('Error calculating remaining time:', error);
       return null;
     }
+  };
+
+  // 첨부파일 다운로드 핸들러
+  const handleDownloadAttachment = async (url: string, filename: string) => {
+    try {
+      if (Platform.OS === 'web') {
+        // 웹 환경: fetch로 blob 가져온 후 다운로드
+        const response = await fetch(url);
+        const blob = await response.blob();
+
+        // MIME 타입을 유지하면서 새 blob 생성
+        const contentType = response.headers.get('content-type') || 'application/octet-stream';
+        const typedBlob = new Blob([blob], { type: contentType });
+        const blobUrl = window.URL.createObjectURL(typedBlob);
+
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+
+        // 정리 (약간의 지연 후)
+        setTimeout(() => {
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+
+        Alert.alert('성공', '파일이 다운로드되었습니다.');
+      } else {
+        // 네이티브 환경: expo-file-system으로 파일 다운로드
+        const fileUri = FileSystem.documentDirectory + filename;
+
+        // 다운로드 시작 알림
+        Alert.alert('다운로드', '파일을 다운로드하는 중입니다...');
+
+        const downloadResumable = FileSystem.createDownloadResumable(
+          url,
+          fileUri
+        );
+
+        const result = await downloadResumable.downloadAsync();
+
+        if (!result) {
+          Alert.alert('오류', '파일 다운로드에 실패했습니다.');
+          return;
+        }
+
+        const { uri } = result;
+
+        // 다운로드 완료 후 공유 옵션 제공
+        if (await Sharing.isAvailableAsync()) {
+          await Sharing.shareAsync(uri, {
+            mimeType: 'application/octet-stream',
+            dialogTitle: '파일 저장 또는 공유'
+          });
+        } else {
+          Alert.alert('성공', '파일이 다운로드되었습니다.\n위치: ' + uri);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to download attachment:', error);
+      Alert.alert('오류', '파일 다운로드에 실패했습니다.');
+    }
+  };
+
+  // 파일 크기 포맷팅
+  const formatFileSize = (bytes: number): string => {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  };
+
+  // 파일 아이콘 선택
+  const getFileIcon = (fileType: string) => {
+    if (fileType.startsWith('audio/')) return 'musical-notes-outline';
+    if (fileType.startsWith('video/')) return 'videocam-outline';
+    if (fileType.startsWith('image/')) return 'image-outline';
+    if (fileType.includes('pdf')) return 'document-text-outline';
+    return 'document-outline';
   };
 
   if (loading) {
@@ -268,7 +353,40 @@ const HomeworkDetailScreen = () => {
           <Text style={styles.sectionTitle}>설명</Text>
           <Text style={styles.description}>{homework.description || '설명이 없습니다.'}</Text>
         </View>
-        
+
+        {/* 첨부파일 섹션 */}
+        {homework.resources?.attachments && homework.resources.attachments.length > 0 && (
+          <View style={styles.attachmentsContainer}>
+            <Text style={styles.sectionTitle}>
+              첨부파일 ({homework.resources.attachments.length}개)
+            </Text>
+            {homework.resources.attachments.map((attachment: any, index: number) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.attachmentItem}
+                onPress={() => handleDownloadAttachment(attachment.url, attachment.name)}
+              >
+                <View style={styles.attachmentIconContainer}>
+                  <Ionicons
+                    name={getFileIcon(attachment.type)}
+                    size={24}
+                    color="#4F6CFF"
+                  />
+                </View>
+                <View style={styles.attachmentInfo}>
+                  <Text style={styles.attachmentName} numberOfLines={1}>
+                    {attachment.name}
+                  </Text>
+                  <Text style={styles.attachmentSize}>
+                    {formatFileSize(attachment.size)}
+                  </Text>
+                </View>
+                <Ionicons name="download-outline" size={20} color="#4F6CFF" />
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+
         <View style={styles.contentContainer}>
           <Text style={styles.sectionTitle}>과제 내용</Text>
           
@@ -322,6 +440,22 @@ const HomeworkDetailScreen = () => {
             <Text style={styles.completedMessageText}>
               이미 완료된 과제입니다.
             </Text>
+          </View>
+        )}
+
+        {/* 선생님 피드백 섹션 */}
+        {(homework.status === 'submitted' || homework.status === 'completed') && homework.teacher_feedback && (
+          <View style={styles.feedbackContainer}>
+            <View style={styles.feedbackHeader}>
+              <Ionicons name="chatbubble-ellipses" size={20} color="#4F6CFF" />
+              <Text style={styles.feedbackTitle}>선생님 피드백</Text>
+            </View>
+            <Text style={styles.feedbackText}>{homework.teacher_feedback}</Text>
+            {homework.reviewed_at && (
+              <Text style={styles.feedbackDate}>
+                작성일: {formatDate(homework.reviewed_at)}
+              </Text>
+            )}
           </View>
         )}
       </View>
@@ -451,6 +585,47 @@ const styles = StyleSheet.create({
     color: '#424242',
     lineHeight: 20,
   },
+  attachmentsContainer: {
+    backgroundColor: '#E3F2FD',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: '#90CAF9',
+  },
+  attachmentItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: '#BBDEFB',
+  },
+  attachmentIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    backgroundColor: '#EEF2FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  attachmentInfo: {
+    flex: 1,
+    marginRight: 8,
+  },
+  attachmentName: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#212121',
+    marginBottom: 4,
+  },
+  attachmentSize: {
+    fontSize: 12,
+    color: '#757575',
+  },
   contentContainer: {
     backgroundColor: '#FFFFFF',
     borderRadius: 12,
@@ -548,6 +723,41 @@ const styles = StyleSheet.create({
     color: '#2E7D32',
     fontSize: 14,
     marginLeft: 8,
+  },
+  feedbackContainer: {
+    backgroundColor: '#EEF2FF',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    borderLeftWidth: 4,
+    borderLeftColor: '#4F6CFF',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  feedbackHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  feedbackTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#4F6CFF',
+    marginLeft: 8,
+  },
+  feedbackText: {
+    fontSize: 14,
+    color: '#212121',
+    lineHeight: 20,
+    marginBottom: 8,
+  },
+  feedbackDate: {
+    fontSize: 12,
+    color: '#757575',
+    fontStyle: 'italic',
   },
 });
 

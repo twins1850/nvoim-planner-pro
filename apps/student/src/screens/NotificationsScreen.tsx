@@ -53,7 +53,7 @@ const NotificationsScreen = () => {
         try {
           const response = await notificationAPI.getNotifications();
           if (response.success) {
-            const notificationData = response.data.notifications || [];
+            const notificationData = (response.data as any).notifications || response.data || [];
             setNotifications(notificationData);
             
             // 오프라인 사용을 위해 캐시
@@ -187,7 +187,7 @@ const NotificationsScreen = () => {
         // 온라인 모드
         try {
           // API 호출 (실제 구현 시 적절한 엔드포인트로 변경)
-          await notificationAPI.markAllAsRead();
+          await (notificationAPI as any).markAllAsRead?.();
           
           // 로컬 상태 업데이트
           const updatedNotifications = notifications.map(notification => ({

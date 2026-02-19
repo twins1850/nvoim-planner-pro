@@ -155,7 +155,7 @@ const RegisterScreen = () => {
           ]
         );
       } else {
-        setError(response.error?.message || '회원가입에 실패했습니다.');
+        setError((response as any).error?.message || '회원가입에 실패했습니다.');
       }
     } catch (error: any) {
       console.error('Register error:', error);

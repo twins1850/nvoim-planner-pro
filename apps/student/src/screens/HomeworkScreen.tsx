@@ -84,7 +84,7 @@ const HomeworkScreen = () => {
             // 오프라인 사용을 위해 캐시
             await saveOfflineData('homeworks', response.data.homeworks || []);
           } else {
-            console.log('❌ API 실패:', response.error);
+            console.log('❌ API 실패:', (response as any).error);
           }
         } catch (apiError) {
           console.error('API error:', apiError);

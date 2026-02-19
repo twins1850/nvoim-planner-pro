@@ -39,7 +39,7 @@ const MessagesScreen = () => {
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [conversationId, setConversationId] = useState<string | null>(null);
-  const [realtimeSubscription, setRealtimeSubscription] = useState<any>(null);
+  const realtimeSubscription = useRef<any>(null);
   
   // 네트워크 연결 상태 관리
   const [isConnected, setIsConnected] = useState(true);
@@ -52,41 +52,23 @@ const MessagesScreen = () => {
 
   useEffect(() => {
     initializeMessages();
-    
+
     // 네트워크 연결 상태 모니터링 시작
     const connectionMonitorInterval = setInterval(checkConnection, 30000); // 30초마다 연결 체크
-    
-    // 온라인/오프라인 상태 감지
-    const handleOnline = () => {
-      console.log('네트워크 연결됨');
-      setIsConnected(true);
-      setConnectionError(null);
-      setRetryCount(0);
-      if (!realtimeSubscription && conversationId) {
-        handleReconnect();
-      }
-    };
 
-    const handleOffline = () => {
-      console.log('네트워크 연결 끊김');
-      setIsConnected(false);
-      setConnectionError('네트워크 연결이 끊어졌습니다.');
-    };
-
-    // React Native에서는 NetInfo를 사용해야 하지만, 여기서는 기본적인 처리만
-    
     // Cleanup function
     return () => {
-      if (realtimeSubscription) {
+      if (realtimeSubscription.current) {
         console.log('실시간 구독 정리');
-        realtimeSubscription.unsubscribe();
+        realtimeSubscription.current.unsubscribe();
+        realtimeSubscription.current = null;
       }
       if (retryTimeoutRef.current) {
         clearTimeout(retryTimeoutRef.current);
       }
       clearInterval(connectionMonitorInterval);
     };
-  }, [realtimeSubscription, conversationId]);
+  }, []);
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -173,7 +155,7 @@ const MessagesScreen = () => {
       const teacherInfo: Teacher = {
         id: student.planner_id,
         full_name: teacher.full_name || '플래너',
-        avatar_url: teacher.avatar_url,
+        avatar_url: teacher.avatar_url ?? undefined,
         is_online: false // 실시간 상태는 추후 구현
       };
 
@@ -231,8 +213,7 @@ const MessagesScreen = () => {
       await markMessagesAsRead(conversation.id, user.id);
 
       // 실시간 메시지 구독 시작
-      const subscription = setupRealtimeSubscription(conversation.id, user.id);
-      setRealtimeSubscription(subscription);
+      realtimeSubscription.current = setupRealtimeSubscription(conversation.id, user.id);
 
     } catch (error) {
       console.error('Error initializing messages:', error);
@@ -313,7 +294,7 @@ const MessagesScreen = () => {
         content: messageContent,
         message_type: 'text',
         created_at: new Date().toISOString(),
-        read_at: null,
+        read_at: undefined,
         is_sender: true
       };
 
@@ -427,12 +408,11 @@ const MessagesScreen = () => {
         if (conversationId) {
           const { data: { user } } = await supabase.auth.getUser();
           if (user) {
-            if (realtimeSubscription) {
-              realtimeSubscription.unsubscribe();
+            if (realtimeSubscription.current) {
+              realtimeSubscription.current.unsubscribe();
             }
-            
-            const newSubscription = setupRealtimeSubscription(conversationId, user.id);
-            setRealtimeSubscription(newSubscription);
+
+            realtimeSubscription.current = setupRealtimeSubscription(conversationId, user.id);
             
             setIsConnected(true);
             setConnectionError(null);

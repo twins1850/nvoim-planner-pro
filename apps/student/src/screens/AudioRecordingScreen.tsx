@@ -26,7 +26,7 @@ type AudioRecordingScreenNavigationProp = NativeStackNavigationProp<RootStackPar
 const AudioRecordingScreen = () => {
   const navigation = useNavigation<AudioRecordingScreenNavigationProp>();
   const route = useRoute<AudioRecordingScreenRouteProp>();
-  const { homeworkId, questionId } = route.params;
+  const { homeworkId, questionId } = route.params as { homeworkId: string; questionId?: string };
   
   const [audioFile, setAudioFile] = useState<any>(null);
 

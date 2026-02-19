@@ -154,7 +154,7 @@ const ServerTestScreen = () => {
         <View style={styles.statusItem}>
           <Text style={styles.statusLabel}>서버 상태:</Text>
           <View style={styles.statusValue}>
-            <Ionicons name={serverInfo.icon} size={24} color={serverInfo.color} />
+            <Ionicons name={serverInfo.icon as any} size={24} color={serverInfo.color} />
             <Text style={styles.statusText}>{serverInfo.text}</Text>
           </View>
         </View>

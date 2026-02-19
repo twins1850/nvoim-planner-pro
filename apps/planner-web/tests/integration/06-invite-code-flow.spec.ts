@@ -314,7 +314,7 @@ test.describe('Invite Code Integration', () => {
     await supabaseAdmin
       .from('profiles')
       .insert({
-        id: authData!.user.id,
+        id: authData!.user!.id,
         full_name: 'Limit Test Planner',
         role: 'planner',
         email: limitTestPlannerEmail
@@ -324,7 +324,7 @@ test.describe('Invite Code Integration', () => {
     await supabaseAdmin
       .from('planner_profiles')
       .insert({
-        id: authData!.user.id,
+        id: authData!.user!.id,
         invite_code: null,
         total_students: 0,
         created_at: new Date().toISOString(),
@@ -336,7 +336,7 @@ test.describe('Invite Code Integration', () => {
       licenseKey: `30D-5P-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
       durationDays: 30,
       maxStudents: 5, // ← Limit to 5 students for this test
-      plannerId: authData!.user.id,
+      plannerId: authData!.user!.id,
       status: 'active',
       isTrial: false,
       deviceTokens: []

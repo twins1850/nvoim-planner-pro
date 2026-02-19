@@ -20,6 +20,7 @@ import HomeworkDetailScreen from '../screens/HomeworkDetailScreen';
 import HomeworkSubmissionScreen from '../screens/HomeworkSubmissionScreen';
 import AudioRecordingScreen from '../screens/AudioRecordingScreen';
 import FeedbackDetailScreen from '../screens/FeedbackDetailScreen';
+import LessonFeedbackScreen from '../screens/LessonFeedbackScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import OfflineQueueScreen from '../screens/OfflineQueueScreen';
@@ -55,7 +56,18 @@ const RootNavigator = () => {
     // 인증 상태 및 플래너 연결 상태 확인
     const checkStatus = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
+        // Android에서 getUser()가 네트워크를 기다리며 멈추는 문제 방지:
+        // getSession()으로 로컬 캐시 세션 먼저 확인, 5초 타임아웃 적용
+        const sessionResult = await Promise.race([
+          supabase.auth.getSession(),
+          new Promise<{ data: { session: null } }>((resolve) =>
+            setTimeout(() => {
+              console.warn('인증 확인 타임아웃 (5s) - 비로그인 처리');
+              resolve({ data: { session: null } });
+            }, 5000)
+          ),
+        ]);
+        const user = sessionResult.data.session?.user ?? null;
         console.log('현재 Supabase 사용자:', user);
         
         if (user) {
@@ -117,12 +129,13 @@ const RootNavigator = () => {
         setIsAuthenticated(true);
         setCurrentUserId(session.user.id);
         // 로그인 시 플래너 체크 다시 수행 (폴백 로직 포함)
-        supabase
-          .from('student_profiles')
-          .select('id, planner_id')
-          .eq('id', session.user.id)
-          .single()
-          .then(({ data, error }) => {
+        Promise.resolve(
+          supabase
+            .from('student_profiles')
+            .select('id, planner_id')
+            .eq('id', session.user.id)
+            .single()
+        ).then(({ data, error }) => {
             const hasPlanner = !error && !!data?.planner_id;
             setHasPlanner(hasPlanner);
             
@@ -144,7 +157,7 @@ const RootNavigator = () => {
               });
             }
           })
-          .catch((err) => {
+          .catch((err: unknown) => {
             console.error('student_profiles 접근 실패 (인증 변경 시):', err);
             setHasPlanner(false); // 에러 발생 시 플래너 없음으로 처리
           });
@@ -196,10 +209,15 @@ const RootNavigator = () => {
                 component={AudioRecordingScreen}
                 options={{ headerShown: true, title: '오디오 녹음' }}
               />
-              <Stack.Screen 
-                name="FeedbackDetail" 
+              <Stack.Screen
+                name="FeedbackDetail"
                 component={FeedbackDetailScreen}
                 options={{ headerShown: true, title: '피드백 상세' }}
+              />
+              <Stack.Screen
+                name="LessonFeedback"
+                component={LessonFeedbackScreen}
+                options={{ headerShown: false }}
               />
               <Stack.Screen 
                 name="Settings" 

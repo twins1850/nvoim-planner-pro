@@ -92,7 +92,7 @@ const FeedbackScreen = () => {
           
           // 네트워크 오류 시 자동으로 오프라인 모드로 전환
           await setOfflineMode(true);
-          setIsOfflineMode(true);
+          setIsOffline(true);
         }
       } else {
         // 오프라인 모드이거나 네트워크 연결이 없는 경우

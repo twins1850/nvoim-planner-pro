@@ -23,8 +23,6 @@ import {
   isOfflineMode
 } from '../utils/offlineStorage';
 
-// API URL 가져오기
-import api, { API_URL } from '../services/supabaseApi';
 
 const OfflineQueueScreen = () => {
   const [loading, setLoading] = useState(true);

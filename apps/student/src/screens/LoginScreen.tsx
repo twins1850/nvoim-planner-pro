@@ -91,7 +91,7 @@ const LoginScreen = () => {
             }}
           ]);
         } else {
-          setError(response.error?.message || '로그인에 실패했습니다.');
+          setError((response as any).error?.message || '로그인에 실패했습니다.');
         }
       } catch (apiError: any) {
         console.error('API Login error:', apiError);

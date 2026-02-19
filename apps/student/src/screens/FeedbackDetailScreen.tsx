@@ -17,7 +17,7 @@ import { RootStackParamList } from '../navigation/types';
 
 // API
 import { feedbackAPI } from '../services/supabaseApi';
-import { isConnected, getOfflineData, isOfflineMode, setOfflineMode } from '../utils/offlineStorage';
+import { isConnected, getOfflineData, isOfflineMode as checkIsOfflineMode, setOfflineMode } from '../utils/offlineStorage';
 
 type FeedbackDetailScreenRouteProp = RouteProp<RootStackParamList, 'FeedbackDetail'>;
 type FeedbackDetailScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -42,7 +42,7 @@ const FeedbackDetailScreen = () => {
     
     try {
       // 오프라인 모드 상태 확인
-      const offlineModeEnabled = await isOfflineMode();
+      const offlineModeEnabled = await checkIsOfflineMode();
       setIsOfflineMode(offlineModeEnabled);
       
       // 먼저 캐시된 데이터 확인 (빠른 화면 표시를 위해)

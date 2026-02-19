@@ -114,7 +114,7 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({
       if (audioFile) {
         // 오프라인 모드 표시
         if (offlineModeEnabled) {
-          audioFile.isOffline = true;
+          (audioFile as any).isOffline = true;
         }
         
         // 콜백 함수 호출
